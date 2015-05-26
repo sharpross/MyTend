@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-
-namespace MyTend.Controllers
+﻿namespace MyTend.Controllers
 {
-    public class AdminController : Controller
+    using MyTender.Core;
+    using System.Web.Mvc;
+
+    public class AdminController : BaseController
     {
         // GET: Admin
         public ActionResult Index()

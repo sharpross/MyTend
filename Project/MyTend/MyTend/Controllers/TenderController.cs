@@ -1,15 +1,61 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-
-namespace MyTend.Controllers
+﻿namespace MyTend.Controllers
 {
-    public class TenderController : Controller
+    using MyTender.Core;
+    using System.Web.Mvc;
+
+    public class TenderController : BaseController
     {
-        // GET: Tender
+        /// <summary>
+        /// Выбор создания тендера
+        /// </summary>
+        /// <returns></returns>
         public ActionResult Index()
+        {
+            return View();
+        }
+
+        /// <summary>
+        /// Список тендеров
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult List()
+        {
+            return View();
+        }
+
+        /// <summary>
+        /// Создать тенедер
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        /// <summary>
+        /// Активные тендеры
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult Active()
+        {
+            return View();
+        }
+
+        /// <summary>
+        /// Мои тендеры
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult My()
+        {
+            return View();
+        }
+
+        /// <summary>
+        /// Подробно
+        /// </summary>
+        /// <param name="id">Id тендера</param>
+        /// <returns></returns>
+        public ActionResult Details(int id)
         {
             return View();
         }

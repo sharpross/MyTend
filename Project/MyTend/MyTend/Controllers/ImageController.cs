@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-
-namespace MyTend.Controllers
+﻿namespace MyTend.Controllers
 {
-    public class ImageController : Controller
+    using MyTender.Core;
+    using System.Web.Mvc;
+
+    public class ImageController : BaseController
     {
         // GET: Image
         public ActionResult Index()

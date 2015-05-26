@@ -39,7 +39,37 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Castle.ActiveRecord">
+      <HintPath>..\packages\Castle.Activerecord.3.0.0.1\lib\Net40\Castle.ActiveRecord.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.ActiveRecord.Web">
+      <HintPath>..\packages\Castle.Activerecord.3.0.0.1\lib\Net40\Castle.ActiveRecord.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Components.Validator">
+      <HintPath>..\packages\Castle.Components.Validator.2.5.0\lib\NET40\Castle.Components.Validator.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Core">
+      <HintPath>..\packages\Castle.Core.2.5.1\lib\NET35\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="FluentSecurity">
+      <HintPath>..\packages\FluentSecurity.2.1.0\lib\net40\FluentSecurity.dll</HintPath>
+    </Reference>
+    <Reference Include="Iesi.Collections">
+      <HintPath>..\packages\Iesi.Collections.1.0.1\lib\Iesi.Collections.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="NHibernate">
+      <HintPath>..\packages\NHibernate.3.0.0.4000\lib\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate.ByteCode.Castle">
+      <HintPath>..\packages\NHibernate.3.0.0.4000\lib\NHibernate.ByteCode.Castle.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate.Search">
+      <HintPath>..\packages\Castle.Activerecord.3.0.0.1\lib\Net40\NHibernate.Search.dll</HintPath>
+    </Reference>
+    <Reference Include="Remotion.Data.Linq">
+      <HintPath>..\packages\NHibernate.3.0.0.4000\lib\Remotion.Data.Linq.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -111,10 +141,12 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\DocsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ImageController.cs" />
+    <Compile Include="Controllers\MessageController.cs" />
     <Compile Include="Controllers\TenderController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -128,6 +160,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Scripts\app\tender.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
@@ -160,10 +193,14 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\images\" />
+    <Folder Include="Content\theme\" />
     <Folder Include="Models\" />
+    <Folder Include="Views\Account\" />
     <Folder Include="Views\Admin\" />
     <Folder Include="Views\Docs\" />
     <Folder Include="Views\Image\" />
+    <Folder Include="Views\Message\" />
     <Folder Include="Views\Tender\" />
   </ItemGroup>
   <ItemGroup>
@@ -172,6 +209,32 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MyTend.Data\MyTend.Data.csproj">
+      <Project>{dfe574fd-1293-47d0-87a8-dad8ebb4ff4c}</Project>
+      <Name>MyTend.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MyTend.Entites\MyTend.Entites.csproj">
+      <Project>{25b60dea-95e0-4a29-b163-09c01d076e40}</Project>
+      <Name>MyTend.Entites</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MyTend.Scheduler\MyTend.Scheduler.csproj">
+      <Project>{7ae81a86-dc61-4140-8ef1-926bfb31e89d}</Project>
+      <Name>MyTend.Scheduler</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MyTend.Services\MyTend.Services.csproj">
+      <Project>{d323833e-2511-45fd-b4c4-51502484ae8f}</Project>
+      <Name>MyTend.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MyTender.Core\MyTender.Core.csproj">
+      <Project>{ff896143-d318-48a1-a889-7d9d68fb6d29}</Project>
+      <Name>MyTender.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MyTender.Security\MyTender.Security.csproj">
+      <Project>{debbd8b9-34e7-401c-aa0b-d735ade12bce}</Project>
+      <Name>MyTender.Security</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
