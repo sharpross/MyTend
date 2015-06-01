@@ -1,13 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace MyTend.Entites
+﻿namespace MyTend.Entites
 {
-    public class Country : BaseEntity
+    using Castle.ActiveRecord;
+    using Castle.Components.Validator;
+
+    [ActiveRecord("Countrys")]
+    public class Country : BaseEntity<Country>
     {
+        [Property]
+        [ValidateNonEmpty]
         public string Name { get; set; }
     }
 }

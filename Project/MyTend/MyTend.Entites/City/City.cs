@@ -1,15 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace MyTend.Entites
+﻿namespace MyTend.Entites
 {
-    public class City : BaseEntity
+    using Castle.ActiveRecord;
+    using Castle.Components.Validator;
+
+    [ActiveRecord("Citys")]
+    public class City : BaseEntity<City>
     {
+        [Property]
+        [ValidateNonEmpty]
         public string Name { get; set; }
 
+        [BelongsTo("regionid")]
+        [ValidateNonEmpty]
         public Region Region { get; set; }
     }
 }

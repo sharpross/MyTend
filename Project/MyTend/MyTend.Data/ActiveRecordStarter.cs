@@ -1,45 +1,39 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Castle.ActiveRecord;
-using Castle.ActiveRecord.Framework;
-using Castle.ActiveRecord.Framework.Config;
-
-namespace MyTend.Data
+﻿namespace MyTend.Data
 {
-    public class ActiveRecordStarter
+    using Castle.ActiveRecord;
+    using Castle.ActiveRecord.Framework.Config;
+    using System;
+    using System.Collections.Generic;
+    using System.Web.Hosting;
+
+    public class DataBaseStarter
     {
+        public DataBaseStarter()
+        {
+            this.entities = new List<Type>();
+        }
+
         private List<Type> entities { get; set; }
 
         public void Add(Type type)
         {
-            if (!this.entities.Contains(type))
-            {
-                this.entities.Add(type);
-            }
+            this.entities.Add(type);
+        }
+
+        public void Add(Type[] types)
+        {
+            this.entities.AddRange(types);
         }
 
         public void Initialize()
         {
-            IConfigurationSource config = null;
+            var cfgPath = string.Format(
+                "{0}{1}",
+                HostingEnvironment.ApplicationPhysicalPath,
+                "dbconfig.config");
 
-            IDictionary<string, string> properties = new Dictionary<string, string>();
-
-            properties.Add("connection.driver_class", "NHibernate.Driver.SqlClientDriver");
-            properties.Add("dialect", "NHibernate.Dialect.MsSql2000Dialect");
-            properties.Add("connection.provider", "NHibernate.Connection.DriverConnectionProvider");
-            properties.Add("connection.connection_string", "Data Source=.;Initial Catalog=test;Integrated Security=SSPI");
-
-            InPlaceConfigurationSource source = new InPlaceConfigurationSource();
-
-            source.Add(typeof(ActiveRecordBase), properties);
-
-            foreach (var t in this.entities)
-            {
-                
-            }
+            ActiveRecordStarter.Initialize(new XmlConfigurationSource(cfgPath), this.entities.ToArray());
+            ActiveRecordStarter.CreateSchema();
         }
     }
 }

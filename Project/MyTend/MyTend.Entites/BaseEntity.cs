@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace MyTend.Entites
 {
-    public class BaseEntity
+    public class BaseEntity<T> : ActiveRecordBase<T> where  T : class 
     {
-        [PrimaryKey]
+        [PrimaryKey(PrimaryKeyType.Native)]
         public int Id { get; set; }
     }
 }

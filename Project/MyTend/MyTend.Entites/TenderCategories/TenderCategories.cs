@@ -1,15 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace MyTend.Entites
+﻿namespace MyTend.Entites
 {
-    public class TenderCategories : BaseEntity
+    using Castle.ActiveRecord;
+    using Castle.Components.Validator;
+
+    [ActiveRecord("UserMessages")]
+    public class TenderCategories : BaseEntity<TenderCategories>
     {
+        [Property]
+        [ValidateNonEmpty]
         public string Name { get; set; }
 
+        [Property]
+        [ValidateNonEmpty]
         public string Category { get; set; }
     }
 }
