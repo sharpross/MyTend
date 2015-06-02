@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace MyTend.Data
 {
-    class DataService
+    public class DataService
     {
+
     }
 }

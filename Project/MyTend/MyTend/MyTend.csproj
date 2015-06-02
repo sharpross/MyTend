@@ -153,6 +153,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Account\RegistrationModel.cs" />
+    <Compile Include="Models\CloseTenderTime.cs" />
     <Compile Include="Models\Home\TenderThemeModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -569,10 +570,10 @@
     <Content Include="Views\Shared\_LeftSide.cshtml" />
     <Content Include="Views\Shared\_RigthSide.cshtml" />
     <Content Include="Views\Shared\_LoginForm.cshtml" />
+    <Content Include="Views\Account\Registration.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Account\" />
     <Folder Include="Views\Admin\" />
     <Folder Include="Views\Docs\" />
     <Folder Include="Views\Image\" />

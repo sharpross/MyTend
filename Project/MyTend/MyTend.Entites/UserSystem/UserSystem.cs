@@ -61,7 +61,10 @@ namespace MyTend.Entites
         public City City { get; set; }
 
         [Property]
-        public string About { get; set; }
+        public string AboutFull { get; set; }
+
+        [Property]
+        public string AboutShort { get; set; }
 
         [Property]
         public string Portfolio { get; set; }

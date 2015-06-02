@@ -33,7 +33,6 @@
                 "dbconfig.config");
 
             ActiveRecordStarter.Initialize(new XmlConfigurationSource(cfgPath), this.entities.ToArray());
-            ActiveRecordStarter.CreateSchema();
         }
     }
 }

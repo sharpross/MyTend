@@ -47,6 +47,7 @@ namespace MyTend
             list.Add(typeof(TenderTheme));
             list.Add(typeof(UserMessage));
             list.Add(typeof(UserSystem));
+            list.Add(typeof(PayInfo));
 
             return list.ToArray();
         }

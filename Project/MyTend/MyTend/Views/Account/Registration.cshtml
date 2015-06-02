@@ -1,0 +1,96 @@
+﻿@model MyTend.Models.RegistrationModel
+
+@{
+    ViewBag.Title = "Регистрация";
+}
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="tabs">
+        <ul class="nav nav-tabs nav-justified">
+            <li class="active"><a href="#tab5-1" data-toggle="tab"><i class="icon-star"></i>Регистрация</a></li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane active" id="tab5-1">
+                <div class="row">
+                    <div class="col-md-4" style="text-align: center;">
+                        <form id="avatar">
+                            <img src="/Image/Get?id=0" width="300" height="300" class="img-thumbnail" id="avatar">
+                            <input type="file" accept="image/*" name="avatar" style="padding-top: 10px; padding-bottom: 10px;" />
+                        </form>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label for="Name">Логин</label>
+                                    <input type="text" class="form-control" name="Login" placeholder="Логин" value="@Model.Login" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label for="Name">Пароль</label>
+                                    <input type="text" class="form-control" name="Password" placeholder="Пароль" value="@Model.Password" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="form-group">
+                                    <label for="Name">Полное имя</label>
+                                    <input type="text" class="form-control" name="Name" placeholder="Иванов Иван Иванович" value="@Model.Name" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="form-group">
+                                    <label for="Name">Чем занимаюсь</label>
+                                    <input type="text" class="form-control" name="AboutShort" placeholder="Чем занимаюсь (кратко)" value="@Model.AboutShort">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="form-group">
+                                    <label for="Name">Страна</label>
+                                    <select class="form-control" name="Country" id="CountrysSelect" required>
+                                        <option disabled selected>Выберите страну</option>
+                                        @foreach (var item in Model.ListCountrys)
+                                        {
+                                            <option>@item.Name</option>
+                                        }
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="form-group">
+                                    <label for="Name">Регион</label>
+                                    <input type="text" class="form-control" name="AboutShort" placeholder="Чем занимаюсь (кратко)" value="@Model.AboutShort">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="form-group">
+                                    <label for="Name">Город</label>
+                                    <input type="text" class="form-control" name="AboutShort" placeholder="Чем занимаюсь (кратко)" value="@Model.AboutShort">
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}

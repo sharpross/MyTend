@@ -13,5 +13,9 @@
         [BelongsTo("CountryId")]
         [ValidateNonEmpty]
         public Country Country { get; set; }
+
+        [BelongsTo("CountryId")]
+        [ValidateNonEmpty]
+        public int NomberSort { get; set; }
     }
 }
