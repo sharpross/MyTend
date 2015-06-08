@@ -1,69 +1,33 @@
-﻿using Castle.ActiveRecord;
-using Castle.Components.Validator;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace MyTend.Entites
+﻿namespace MyTend.Entites
 {
+    using Castle.ActiveRecord;
+    using Castle.Components.Validator;
+    using System;
+    using System.Collections.Generic;
+
     public class BaseEntity<T> : ActiveRecordBase<T> where  T : class 
     {
         public List<string> ListErrors { get; set; }
 
-        [PrimaryKey(PrimaryKeyType.Native)]
+        [PrimaryKey(ColumnType="int")]
         public int Id { get; set; }
 
-        public static T Get(int id)
+        public BaseEntity()
         {
-            try
-            {
-                return Find(id);
-            }
-            catch (Exception ex)
-            {
-                return null;
-            }
+            this.ListErrors = new List<string>();
+            this.Id = 0;
         }
 
-        public static T[] GetAll()
-        {
-            return FindAll();
-        }
-
-        public static void Delete(int id)
-        {
-            var obj = Find(id);
-
-            if(obj != null)
-            {
-                Delete(id);
-            }
-        }
-
-        public bool IsValid()
+        public static bool IsValid(object obj)
         {
             IValidatorRunner runner = new ValidatorRunner(new CachedValidationRegistry());
 
-            if (runner.IsValid(this))
+            if (runner.IsValid(obj))
             {
                 return true;
             }
 
             return false;
-        }
-
-        public override void Save()
-        {
-            if (this.IsValid())
-            {
-                base.Save();
-            }
-            else 
-            {
-                throw new Exception("Error");
-            }
         }
     }
 }

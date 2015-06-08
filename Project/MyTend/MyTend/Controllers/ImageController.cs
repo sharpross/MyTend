@@ -12,7 +12,7 @@
         {
             if (id.HasValue)
             {
-                var obj = Image.Get(id.Value);
+                var obj = Image.Find(id.Value);
 
                 if (obj != null)
                 {

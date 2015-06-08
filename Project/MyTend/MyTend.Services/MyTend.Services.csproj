@@ -70,16 +70,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IMigration.cs" />
+    <Compile Include="Migrations\Regions\RegionMigration.cs" />
     <Compile Include="Migrations\Tender\TenderThemesMigration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Common\CountryService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="EmailService\" />
-    <Folder Include="Migrations\Regions\" />
     <Folder Include="Migrations\User\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\MyTend.Data\MyTend.Data.csproj">
+      <Project>{dfe574fd-1293-47d0-87a8-dad8ebb4ff4c}</Project>
+      <Name>MyTend.Data</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MyTend.Entites\MyTend.Entites.csproj">
       <Project>{25b60dea-95e0-4a29-b163-09c01d076e40}</Project>
       <Name>MyTend.Entites</Name>

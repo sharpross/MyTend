@@ -37,7 +37,7 @@ namespace MyTend
         {
             var list = new List<Type>();
 
-            list.Add(typeof(City));
+            /*list.Add(typeof(City));
             list.Add(typeof(Country));
             list.Add(typeof(Image));
             list.Add(typeof(Region));
@@ -47,7 +47,7 @@ namespace MyTend
             list.Add(typeof(TenderTheme));
             list.Add(typeof(UserMessage));
             list.Add(typeof(UserSystem));
-            list.Add(typeof(PayInfo));
+            list.Add(typeof(PayInfo));*/
 
             return list.ToArray();
         }

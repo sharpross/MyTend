@@ -13,7 +13,7 @@ namespace MyTend.Services
         {
             var result = new List<Country>();
 
-            var all = Country.GetAll();
+            var all = Country.FindAll();
             var rus = all.Where(x => x.Name == "Россия");
             var any = all.Where(x => x != rus);
 

@@ -9,6 +9,8 @@ namespace MyTender.Core
 {
     public class BaseController : Controller
     {
+
+
         public JsonResult JsonSuccess()
         {
             var result = new

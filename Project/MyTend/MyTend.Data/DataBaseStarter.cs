@@ -4,6 +4,7 @@
     using Castle.ActiveRecord.Framework.Config;
     using System;
     using System.Collections.Generic;
+    using System.Reflection;
     using System.Web.Hosting;
 
     public class DataBaseStarter
@@ -32,7 +33,11 @@
                 HostingEnvironment.ApplicationPhysicalPath,
                 "dbconfig.config");
 
-            ActiveRecordStarter.Initialize(new XmlConfigurationSource(cfgPath), this.entities.ToArray());
+            Assembly asm = Assembly.Load("MyTend.Entites");
+
+            ActiveRecordStarter.Initialize(asm, new XmlConfigurationSource(cfgPath));//(new XmlConfigurationSource(cfgPath), this.entities.ToArray());
+
+            ActiveRecordStarter.CreateSchema();
         }
     }
 }

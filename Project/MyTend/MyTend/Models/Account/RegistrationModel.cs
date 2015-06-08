@@ -16,7 +16,7 @@
 
         public RegistrationModel() : base()
         {
-            this.ListCountrys = CountryService.GetAll();
+            //this.ListCountrys = CountryService.GetAll();
         }
 
         public override void Save()

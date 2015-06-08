@@ -1,5 +1,7 @@
 ﻿namespace MyTend.Services.Migrations
 {
+    using Castle.ActiveRecord;
+    using MyTend.Data;
     using MyTend.Entites;
     using System.Collections.Generic;
 
@@ -27,9 +29,14 @@
             list.Add(new TenderTheme() { ImageName = "2.png", IsTitle = false, NomberInList = 7, Theme = t2, Title = "Снять квартиру на несколько месяцев" });
             list.Add(new TenderTheme() { ImageName = "2.png", IsTitle = false, NomberInList = 8, Theme = t2, Title = "Снять квартиру на несколько часов/суток" });
 
+            new TenderTheme().Create();
+
             foreach (var rec in list)
             {
-                rec.Save();
+                if (TenderTheme.IsValid(rec))
+                {
+                    rec.Create();
+                }
             }
         }
 
