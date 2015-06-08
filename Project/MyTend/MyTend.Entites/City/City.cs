@@ -4,14 +4,21 @@
     using Castle.Components.Validator;
 
     [ActiveRecord("Citys")]
-    public class City : BaseEntity<City>
+    public class City : ActiveRecordBase<City>
     {
+        [PrimaryKey]
+        public int Id { get; set; }
+
         [Property]
-        [ValidateNonEmpty]
         public string Name { get; set; }
 
-        [BelongsTo("regionid")]
-        [ValidateNonEmpty]
+        [BelongsTo("RegionId")]
         public Region Region { get; set; }
+
+        public City()
+        {
+            this.Name = string.Empty;
+            this.Region = null;
+        }
     }
 }

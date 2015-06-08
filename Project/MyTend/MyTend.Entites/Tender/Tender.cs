@@ -5,8 +5,11 @@
     using System;
 
     [ActiveRecord("Tenders")]
-    public class Tender : BaseEntity<Tender>
+    public class Tender : ActiveRecordBase<Tender>
     {
+        [PrimaryKey(PrimaryKeyType.Native)]
+        public int Id { get; set; }
+
         [BelongsTo("UserId")]
         [ValidateNonEmpty]
         public UserSystem User { get; set; }
@@ -24,15 +27,12 @@
         public City City { get; set; }
 
         [Property]
-        [ValidateNonEmpty]
         public bool IsOpen { get; set; }
 
         [Property]
-        [ValidateNonEmpty]
         public bool AllowWriteMe { get; set; }
 
         [Property]
-        [ValidateNonEmpty]
         public decimal Cost { get; set; }
 
         [Property]

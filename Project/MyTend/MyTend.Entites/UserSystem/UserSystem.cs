@@ -9,8 +9,11 @@ using System.Threading.Tasks;
 namespace MyTend.Entites
 {
     [ActiveRecord("users")]
-    public class UserSystem : BaseEntity<UserSystem>
+    public class UserSystem : ActiveRecordBase<UserSystem>
     {
+        [PrimaryKey(PrimaryKeyType.Native)]
+        public int Id { get; set; }
+
         [Property]
         [ValidateNonEmpty("Укажите своё имя")]
         public string Name { get; set; }

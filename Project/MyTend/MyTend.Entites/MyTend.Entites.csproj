@@ -69,20 +69,34 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BaseEntity.cs" />
-    <Compile Include="BaseModel.cs" />
     <Compile Include="City\City.cs" />
     <Compile Include="Country\Country.cs" />
-    <Compile Include="Image\Image.cs" />
-    <Compile Include="PayInfo\PayInfo.cs" />
+    <Compile Include="Image\Image.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="PayInfo\PayInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Region\Region.cs" />
-    <Compile Include="TenderCategories\TenderCategories.cs" />
-    <Compile Include="TenderMessage\TenderMessage.cs" />
-    <Compile Include="TenderTheme\TenderTheme.cs" />
-    <Compile Include="Tender\Tender.cs" />
-    <Compile Include="UserMessage\UserMessage.cs" />
-    <Compile Include="UserSystem\UserSystem.cs" />
+    <Compile Include="TenderCategories\TenderCategories.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="TenderMessage\TenderMessage.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="TenderTheme\TenderTheme.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Tender\Tender.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UserMessage\UserMessage.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UserSystem\UserSystem.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

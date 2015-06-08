@@ -5,22 +5,21 @@
     using System;
 
     [ActiveRecord("PayInfos")]
-    public class PayInfo : BaseEntity<PayInfo>
+    public class PayInfo : ActiveRecordBase<PayInfo>
     {
+        [PrimaryKey(PrimaryKeyType.Native)]
+        public int Id { get; set; }
+
         [BelongsTo("UserId")]
-        [ValidateNonEmpty]
         public UserSystem User { get; set; }
 
         [Property]
-        [ValidateNonEmpty]
         public decimal Sum { get; set; }
 
         [Property]
-        [ValidateNonEmpty]
         public DateTime PayDay { get; set; }
 
         [Property]
-        [ValidateNonEmpty]
         public DateTime PayEnd { get; set; }
     }
 }

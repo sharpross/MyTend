@@ -14,7 +14,7 @@
 
         public void Migrate()
         {
-            var list = new List<TenderTheme>();
+            /*var list = new List<TenderTheme>();
 
             var t1 = "Авто, Автоперевозки";
             var t2 = "Недвижимость-сделки, Аренда";
@@ -37,7 +37,7 @@
                 {
                     rec.Create();
                 }
-            }
+            }*/
         }
 
         public bool NeedMigrate()

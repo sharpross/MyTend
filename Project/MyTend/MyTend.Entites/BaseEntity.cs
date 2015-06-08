@@ -9,7 +9,7 @@
     {
         public List<string> ListErrors { get; set; }
 
-        [PrimaryKey(ColumnType="int")]
+        [PrimaryKey(PrimaryKeyType.Native)]
         public int Id { get; set; }
 
         public BaseEntity()

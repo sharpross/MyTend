@@ -4,17 +4,25 @@
     using Castle.Components.Validator;
 
     [ActiveRecord("Regions")]
-    public class Region : BaseEntity<Region>
+    public class Region : ActiveRecordBase<Region>
     {
+        [PrimaryKey]
+        public int Id { get; set; }
+
         [Property]
-        [ValidateNonEmpty]
         public string Name { get; set; }
 
         [BelongsTo("CountryId")]
         public Country Country { get; set; }
 
-        [BelongsTo("CountryId")]
-        [ValidateNonEmpty]
+        [Property]
         public int NomberSort { get; set; }
+
+        public Region()
+        {
+            this.Name = string.Empty;
+            this.Country = null;
+            this.NomberSort = 0;
+        }
     }
 }

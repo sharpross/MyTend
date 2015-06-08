@@ -4,10 +4,17 @@
     using Castle.Components.Validator;
 
     [ActiveRecord("Countrys")]
-    public class Country : BaseEntity<Country>
+    public class Country : ActiveRecordBase<Country>
     {
+        [PrimaryKey]
+        public int Id { get; set; }
+
         [Property]
-        [ValidateNonEmpty]
         public string Name { get; set; }
+
+        public Country()
+        {
+            this.Name = string.Empty;
+        }
     }
 }

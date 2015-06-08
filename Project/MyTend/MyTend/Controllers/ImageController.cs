@@ -7,7 +7,7 @@
 
     public class ImageController : BaseController
     {
-        [OutputCache(Duration = 10)]
+        /*[OutputCache(Duration = 10)]
         public ActionResult Get(int? id)
         {
             if (id.HasValue)
@@ -32,6 +32,6 @@
             
 
             return Json(new { Success = false });
-        }
+        }*/
     }
 }
