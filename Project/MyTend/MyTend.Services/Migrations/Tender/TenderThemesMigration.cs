@@ -14,7 +14,7 @@
 
         public void Migrate()
         {
-            /*var list = new List<TenderTheme>();
+            var list = new List<TenderTheme>();
 
             var t1 = "Авто, Автоперевозки";
             var t2 = "Недвижимость-сделки, Аренда";
@@ -29,15 +29,13 @@
             list.Add(new TenderTheme() { ImageName = "2.png", IsTitle = false, NomberInList = 7, Theme = t2, Title = "Снять квартиру на несколько месяцев" });
             list.Add(new TenderTheme() { ImageName = "2.png", IsTitle = false, NomberInList = 8, Theme = t2, Title = "Снять квартиру на несколько часов/суток" });
 
-            new TenderTheme().Create();
-
             foreach (var rec in list)
             {
                 if (TenderTheme.IsValid(rec))
                 {
                     rec.Create();
                 }
-            }*/
+            }
         }
 
         public bool NeedMigrate()

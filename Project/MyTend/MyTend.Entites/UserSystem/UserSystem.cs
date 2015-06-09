@@ -1,13 +1,8 @@
-﻿using Castle.ActiveRecord;
-using Castle.Components.Validator;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace MyTend.Entites
+﻿namespace MyTend.Entites
 {
+    using Castle.ActiveRecord;
+    using Castle.Components.Validator;
+
     [ActiveRecord("users")]
     public class UserSystem : ActiveRecordBase<UserSystem>
     {
@@ -71,5 +66,17 @@ namespace MyTend.Entites
 
         [Property]
         public string Portfolio { get; set; }
+
+        public static bool IsValid(object obj)
+        {
+            IValidatorRunner runner = new ValidatorRunner(new CachedValidationRegistry());
+
+            if (runner.IsValid(obj))
+            {
+                return true;
+            }
+
+            return false;
+        }
     }
 }

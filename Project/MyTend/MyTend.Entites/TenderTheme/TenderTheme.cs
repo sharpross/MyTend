@@ -2,7 +2,6 @@
 {
     using Castle.ActiveRecord;
     using Castle.Components.Validator;
-    using System;
 
     [ActiveRecord("TenderTheme")]
     public class TenderTheme : ActiveRecordBase<TenderTheme>
@@ -36,6 +35,18 @@
             this.IsTitle = false;
             this.ImageName = string.Empty;
             this.NomberInList = 0;
+        }
+
+        public static bool IsValid(object obj)
+        {
+            IValidatorRunner runner = new ValidatorRunner(new CachedValidationRegistry());
+
+            if (runner.IsValid(obj))
+            {
+                return true;
+            }
+
+            return false;
         }
     }
 }

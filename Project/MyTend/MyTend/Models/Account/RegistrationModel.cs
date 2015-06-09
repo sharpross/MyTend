@@ -8,7 +8,7 @@
     using System.Text;
     using System.Threading.Tasks;
 
-    /*public class RegistrationModel : UserSystem
+    public class RegistrationModel : UserSystem
     {
         public CloseTenderTimeEnum ClosePeriod { get; set; }
 
@@ -16,12 +16,12 @@
 
         public RegistrationModel() : base()
         {
-            //this.ListCountrys = CountryService.GetAll();
+            this.ListCountrys = RegionService.CountryAll();
         }
 
         public override void Save()
         {
             base.Save();
         }
-    }*/
+    }
 }

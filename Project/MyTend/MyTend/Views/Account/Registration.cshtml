@@ -58,32 +58,36 @@
                         </div>
 
                         <div class="row">
-                            <div class="col-lg-12">
+                            <div class="col-lg-7">
                                 <div class="form-group">
                                     <label for="Name">Страна</label>
                                     <select class="form-control" name="Country" id="CountrysSelect" required>
                                         <option disabled selected>Выберите страну</option>
                                         @foreach (var item in Model.ListCountrys)
                                         {
-                                            <option>@item.Name</option>
+                                            <option id="@item.Id">@item.Name</option>
                                         }
                                     </select>
                                 </div>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-lg-12">
+                            <div class="col-lg-7">
                                 <div class="form-group">
                                     <label for="Name">Регион</label>
-                                    <input type="text" class="form-control" name="AboutShort" placeholder="Чем занимаюсь (кратко)" value="@Model.AboutShort">
+                                    <select class="form-control" name="Region" id="CountrysSelect" required>
+                                        <option disabled selected>Выберите регион</option>
+                                    </select>
                                 </div>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-lg-12">
+                            <div class="col-lg-7">
                                 <div class="form-group">
                                     <label for="Name">Город</label>
-                                    <input type="text" class="form-control" name="AboutShort" placeholder="Чем занимаюсь (кратко)" value="@Model.AboutShort">
+                                    <select class="form-control" name="City" id="CountrysSelect" required>
+                                        <option disabled selected>Выберите город</option>
+                                    </select>
                                 </div>
                             </div>
                         </div>
@@ -94,3 +98,4 @@
         </div>
     </div>
 }
+<script src="~/Scripts/app/selectRegions.js"></script>

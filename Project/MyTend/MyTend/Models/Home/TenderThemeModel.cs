@@ -9,11 +9,11 @@ namespace MyTend.Models
 {
     public class TenderThemeModel
     {
-        /*public List<TenderTheme> Themes { get; set; }
+        public List<TenderTheme> Themes { get; set; }
 
         public TenderThemeModel()
         {
             this.Themes = new List<TenderTheme>();
-        }*/
+        }
     }
 }

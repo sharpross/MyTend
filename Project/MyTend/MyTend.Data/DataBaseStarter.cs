@@ -37,7 +37,7 @@
 
             ActiveRecordStarter.Initialize(asm, new XmlConfigurationSource(cfgPath));//(new XmlConfigurationSource(cfgPath), this.entities.ToArray());
 
-            ActiveRecordStarter.CreateSchema();
+            //ActiveRecordStarter.CreateSchema();
         }
     }
 }

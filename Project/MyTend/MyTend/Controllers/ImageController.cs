@@ -7,17 +7,23 @@
 
     public class ImageController : BaseController
     {
-        /*[OutputCache(Duration = 10)]
+        [OutputCache(Duration = 10)]
         public ActionResult Get(int? id)
         {
-            if (id.HasValue)
+            try
             {
-                var obj = Image.Find(id.Value);
-
-                if (obj != null)
+                if (id.HasValue)
                 {
-                    return File(obj.Data, obj.MimeType);
+                    var obj = Image.Find(id.Value);
+
+                    if (obj != null)
+                    {
+                        return File(obj.Data, obj.MimeType);
+                    }
                 }
+            }
+            catch
+            {
             }
 
             var dir = Server.MapPath("/Content/images/image_not_found.png");
@@ -32,6 +38,6 @@
             
 
             return Json(new { Success = false });
-        }*/
+        }
     }
 }

@@ -148,6 +148,7 @@
     <Compile Include="Controllers\ImageController.cs" />
     <Compile Include="Controllers\MessageController.cs" />
     <Compile Include="Controllers\MigrationsController.cs" />
+    <Compile Include="Controllers\RegionController.cs" />
     <Compile Include="Controllers\TenderController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -496,7 +497,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Scripts\app\tender.js" />
+    <Content Include="Scripts\app\selectRegions.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Content\theme\assets\bootstrap\css\bootstrap-theme.css.map" />
@@ -579,6 +580,7 @@
     <Folder Include="Views\Image\" />
     <Folder Include="Views\Message\" />
     <Folder Include="Views\Migrations\" />
+    <Folder Include="Views\Region\" />
     <Folder Include="Views\Tender\" />
   </ItemGroup>
   <ItemGroup>
