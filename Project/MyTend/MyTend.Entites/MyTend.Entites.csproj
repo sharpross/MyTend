@@ -69,6 +69,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseEntity.cs" />
     <Compile Include="City\City.cs" />
     <Compile Include="Country\Country.cs" />
     <Compile Include="Image\Image.cs">

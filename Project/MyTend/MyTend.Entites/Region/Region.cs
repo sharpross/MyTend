@@ -4,10 +4,10 @@
     using Castle.Components.Validator;
 
     [ActiveRecord("Regions")]
-    public class Region : ActiveRecordBase<Region>
+    public class Region : BaseEntity<Region>
     {
-        [PrimaryKey]
-        public int Id { get; set; }
+        //[PrimaryKey]
+        //public int Id { get; set; }
 
         [Property]
         public string Name { get; set; }

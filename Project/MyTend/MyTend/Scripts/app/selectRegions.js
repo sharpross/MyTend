@@ -41,11 +41,13 @@
 
     function closeCity() {
         var sel = $('select[name=City]');
+        sel.append('<option disabled selected>Выберите горород</option>');
         sel.empty();
     }
 
     function closeRegions() {
         var sel = $('select[name=Regions]');
+        sel.append('<option disabled selected>Выберите регион</option>');
         sel.empty();
     }
 });

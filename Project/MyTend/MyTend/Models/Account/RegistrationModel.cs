@@ -19,9 +19,28 @@
             this.ListCountrys = RegionService.CountryAll();
         }
 
-        public override void Save()
+        public bool TryRegistry()
         {
-            base.Save();
+            var obj = new UserSystem() 
+            {
+                AboutShort = this.AboutShort,
+                City = this.City,
+                Email = this.Login,
+                Login = this.Login,
+                Name = this.Name,
+                Password = this.Password,
+                Region = this.Region
+            };
+
+            obj = this as UserSystem;
+
+            if (UserSystem.IsValid(obj))
+            {
+                base.Create();
+                return true;
+            }
+
+            return false;
         }
     }
 }

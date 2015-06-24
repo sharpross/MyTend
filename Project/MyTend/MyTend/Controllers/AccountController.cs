@@ -27,9 +27,9 @@
         [HttpPost]
         public ActionResult Registration(RegistrationModel model)
         {
-            if (UserSystem.IsValid(model))
+            if (model.TryRegistry())
             {
-                model.Save();
+                RedirectToAction("Index", "Home");
             }
 
             return View(model);
