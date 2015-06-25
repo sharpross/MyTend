@@ -10,6 +10,10 @@
 
     public class RegistrationModel : UserSystem
     {
+        public string RegionId { get; set; }
+
+        public string CityId { get; set; }
+
         public CloseTenderTimeEnum ClosePeriod { get; set; }
 
         public List<Country> ListCountrys { get; set; }
@@ -24,21 +28,22 @@
             var obj = new UserSystem() 
             {
                 AboutShort = this.AboutShort,
-                City = this.City,
                 Email = this.Login,
                 Login = this.Login,
                 Name = this.Name,
                 Password = this.Password,
-                Region = this.Region
+                City = City.FindAllByProperty("Name", this.CityId).FirstOrDefault(),// GetById(),
+                Region = Region.FindAllByProperty("Name", this.RegionId).FirstOrDefault()
             };
 
-            obj = this as UserSystem;
-
-            if (UserSystem.IsValid(obj))
+            if (obj.IsValid())
             {
-                base.Create();
+                obj.Create();
+
                 return true;
             }
+
+            this.Errors = obj.Errors;
 
             return false;
         }

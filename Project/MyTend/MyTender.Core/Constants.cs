@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace MyTender.Core
+﻿namespace MyTender.Core
 {
-    class Constants
+    public static class Constants
     {
+        public const bool _CREATE_SCHEME = false;
     }
 }

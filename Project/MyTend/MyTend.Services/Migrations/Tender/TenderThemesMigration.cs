@@ -31,7 +31,7 @@
 
             foreach (var rec in list)
             {
-                if (TenderTheme.IsValid(rec))
+                if (rec.IsValid())
                 {
                     rec.Create();
                 }

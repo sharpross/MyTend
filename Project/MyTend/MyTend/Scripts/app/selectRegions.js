@@ -8,7 +8,7 @@
             },
             method: 'GET',
             success: function (resp) {
-                var sel = $('select[name=Region]');
+                var sel = $('select[name=RegionId]');
                 sel.empty();
                 sel.append('<option disabled selected>Выберите регион</option>');
                 closeCity();
@@ -19,7 +19,7 @@
             }
         });
     });
-    $('select[name=Region]').change(function (e) {
+    $('select[name=RegionId]').change(function (e) {
         var id = e.target.selectedOptions[0].id;
         $.ajax({
             url: '/Region/CityById',
@@ -28,9 +28,9 @@
             },
             method: 'GET',
             success: function (resp) {
-                var sel = $('select[name=City]');
+                var sel = $('select[name=CityId]');
                 sel.empty();
-                sel.append('<option disabled selected>Выберите горород</option>');
+                sel.append('<option disabled selected>Выберите город</option>');
                 for (var i = 0; i < resp.Data.length; i++) {
                     var value = '<option id="' + resp.Data[i].Id + '">' + resp.Data[i].Name + '</option>';
                     sel.append(value);
@@ -40,14 +40,14 @@
     });
 
     function closeCity() {
-        var sel = $('select[name=City]');
-        sel.append('<option disabled selected>Выберите горород</option>');
+        var sel = $('select[name=CityId]');
         sel.empty();
+        sel.append('<option disabled selected>Выберите город</option>');
     }
 
     function closeRegions() {
-        var sel = $('select[name=Regions]');
-        sel.append('<option disabled selected>Выберите регион</option>');
+        var sel = $('select[name=RegionId]');
         sel.empty();
+        sel.append('<option disabled selected>Выберите регион</option>');
     }
 });

@@ -74,7 +74,12 @@
     <Compile Include="DataService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\MyTender.Core\MyTender.Core.csproj">
+      <Project>{ff896143-d318-48a1-a889-7d9d68fb6d29}</Project>
+      <Name>MyTender.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>

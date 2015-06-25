@@ -15,6 +15,18 @@
         </ul>
         <div class="tab-content">
             <div class="tab-pane active" id="tab5-1">
+                @if (Model.Errors.Count > 0)
+                {
+                    <div class="row">
+                        <div class="col-md-12 text-center alert alert-danger" role="alert">
+                            @foreach (var e in Model.Errors)
+                            {
+                                <div>- @e</div>
+                            }
+                        </div>
+                    </div>
+                }
+                
                 <div class="row">
                     <div class="col-md-4" style="text-align: center;">
                         <form id="avatar">
@@ -61,7 +73,7 @@
                             <div class="col-lg-7">
                                 <div class="form-group">
                                     <label for="Name">Страна</label>
-                                    <select class="form-control" name="Country" id="CountrysSelect" required>
+                                    <select class="form-control" name="Country" required>
                                         <option disabled selected>Выберите страну</option>
                                         @foreach (var item in Model.ListCountrys)
                                         {
@@ -75,7 +87,7 @@
                             <div class="col-lg-7">
                                 <div class="form-group">
                                     <label for="Name">Регион</label>
-                                    <select class="form-control" name="Region" id="CountrysSelect" required>
+                                    <select class="form-control" name="RegionId" required>
                                         <option disabled selected>Выберите регион</option>
                                     </select>
                                 </div>
@@ -85,7 +97,7 @@
                             <div class="col-lg-7">
                                 <div class="form-group">
                                     <label for="Name">Город</label>
-                                    <select class="form-control" name="City" id="CountrysSelect" required>
+                                    <select class="form-control" name="CityId" required>
                                         <option disabled selected>Выберите город</option>
                                     </select>
                                 </div>

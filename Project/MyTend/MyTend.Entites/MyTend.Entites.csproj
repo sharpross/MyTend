@@ -71,6 +71,7 @@
   <ItemGroup>
     <Compile Include="BaseEntity.cs" />
     <Compile Include="City\City.cs" />
+    <Compile Include="Contacts\Contacts.cs" />
     <Compile Include="Country\Country.cs" />
     <Compile Include="Image\Image.cs">
       <SubType>Code</SubType>
@@ -99,7 +100,10 @@
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="RegionFilter\" />
+    <Folder Include="TenderFilter\" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>

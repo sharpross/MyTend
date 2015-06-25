@@ -4,11 +4,8 @@
     using Castle.Components.Validator;
 
     [ActiveRecord("users")]
-    public class UserSystem : ActiveRecordBase<UserSystem>
+    public class UserSystem : BaseEntity<UserSystem>
     {
-        [PrimaryKey(PrimaryKeyType.Native)]
-        public int Id { get; set; }
-
         [Property]
         [ValidateNonEmpty("Укажите своё имя")]
         public string Name { get; set; }
@@ -66,17 +63,5 @@
 
         [Property]
         public string Portfolio { get; set; }
-
-        public static bool IsValid(object obj)
-        {
-            IValidatorRunner runner = new ValidatorRunner(new CachedValidationRegistry());
-
-            if (runner.IsValid(obj))
-            {
-                return true;
-            }
-
-            return false;
-        }
     }
 }

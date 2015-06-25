@@ -2,6 +2,7 @@
 {
     using Castle.ActiveRecord;
     using Castle.ActiveRecord.Framework.Config;
+    using MyTender.Core;
     using System;
     using System.Collections.Generic;
     using System.Reflection;
@@ -37,7 +38,10 @@
 
             ActiveRecordStarter.Initialize(asm, new XmlConfigurationSource(cfgPath));//(new XmlConfigurationSource(cfgPath), this.entities.ToArray());
 
-            //ActiveRecordStarter.CreateSchema();
+            if (Constants._CREATE_SCHEME)
+            {
+                ActiveRecordStarter.CreateSchema();
+            }
         }
     }
 }

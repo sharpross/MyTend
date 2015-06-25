@@ -4,10 +4,10 @@
     using Castle.Components.Validator;
 
     [ActiveRecord("TenderTheme")]
-    public class TenderTheme : ActiveRecordBase<TenderTheme>
+    public class TenderTheme : BaseEntity<TenderTheme>
     {
-        [PrimaryKey(PrimaryKeyType.Native)]
-        public int Id { get; set; }
+        //[PrimaryKey(PrimaryKeyType.Native)]
+        //public int Id { get; set; }
 
         [Property]
         [ValidateNonEmpty]
@@ -37,7 +37,7 @@
             this.NomberInList = 0;
         }
 
-        public static bool IsValid(object obj)
+        /*public static bool IsValid(object obj)
         {
             IValidatorRunner runner = new ValidatorRunner(new CachedValidationRegistry());
 
@@ -47,6 +47,6 @@
             }
 
             return false;
-        }
+        }*/
     }
 }
