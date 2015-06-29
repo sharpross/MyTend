@@ -36,7 +36,7 @@
 
             Assembly asm = Assembly.Load("MyTend.Entites");
 
-            ActiveRecordStarter.Initialize(asm, new XmlConfigurationSource(cfgPath));//(new XmlConfigurationSource(cfgPath), this.entities.ToArray());
+            ActiveRecordStarter.Initialize(asm, new XmlConfigurationSource(cfgPath));
 
             if (Constants._CREATE_SCHEME)
             {

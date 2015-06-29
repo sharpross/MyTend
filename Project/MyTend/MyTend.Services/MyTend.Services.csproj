@@ -70,6 +70,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Common\RegionFilter.cs" />
+    <Compile Include="Common\SubmiteService.cs" />
     <Compile Include="IMigration.cs" />
     <Compile Include="Migrations\Regions\RegionMigration.cs" />
     <Compile Include="Migrations\Tender\TenderThemesMigration.cs" />

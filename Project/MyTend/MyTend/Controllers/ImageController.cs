@@ -2,6 +2,7 @@
 {
     using MyTend.Entites;
     using MyTender.Core;
+    using MyTender.Security;
     using System.IO;
     using System.Web.Mvc;
 

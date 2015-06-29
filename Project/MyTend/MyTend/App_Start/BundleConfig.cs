@@ -20,7 +20,7 @@ namespace MyTend
                         "~/Scripts/modernizr-*"));
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-                "~/Scripts/bootstrap.js",
+                //"~/Scripts/bootstrap.js",
                 "~/Scripts/respond.js",
 
                 "~/Content/theme/assets/bootstrap/js/bootstrap.min.js",
@@ -52,7 +52,7 @@ namespace MyTend
                 ));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
+                      "~/Content/theme/assets/bootstrap/css/bootstrap.min.css",
                       "~/Content/site.css",
                       
                       "~/Content/theme/css/global-style.css",

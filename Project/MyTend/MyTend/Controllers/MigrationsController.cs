@@ -4,6 +4,7 @@
     using MyTend.Services.Migrations;
     using MyTend.Services.Migrations.Regions;
     using MyTender.Core;
+    using MyTender.Security;
     using System.Web.Mvc;
 
     public class MigrationsController : BaseController

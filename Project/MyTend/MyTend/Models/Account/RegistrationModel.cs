@@ -28,11 +28,11 @@
             var obj = new UserSystem() 
             {
                 AboutShort = this.AboutShort,
-                Email = this.Login,
+                Email = this.Login.ToLower(),
                 Login = this.Login,
                 Name = this.Name,
                 Password = this.Password,
-                City = City.FindAllByProperty("Name", this.CityId).FirstOrDefault(),// GetById(),
+                City = City.FindAllByProperty("Name", this.CityId).FirstOrDefault(),
                 Region = Region.FindAllByProperty("Name", this.RegionId).FirstOrDefault()
             };
 

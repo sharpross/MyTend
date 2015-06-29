@@ -1,12 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace MyTender.Security.Utils
+﻿namespace MyTender.Security.Utils
 {
-    class MD5Helper
+    using System.Web.Security;
+
+    public static class MD5Helper
     {
+        public static string GetMD5String(string password)
+        {
+            var md5string = string.Empty;
+
+            md5string = FormsAuthentication.HashPasswordForStoringInConfigFile(password, "MD5");
+
+            return md5string;
+        }
+
     }
 }

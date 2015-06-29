@@ -46,5 +46,19 @@
                 return null;
             }
         }
+
+        public static T[] GetByProp(string proppertyName, object value)
+        {
+            try
+            {
+                var obj = FindAllByProperty(proppertyName, value);
+
+                return (T[])obj;
+            }
+            catch
+            {
+                return null;
+            }
+        }
     }
 }
