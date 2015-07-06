@@ -13,7 +13,7 @@
                 data: $('form[name=LoginForm]').serialize(),
                 success: function (data) {
                     if (data.Success) {
-                        window.location.reload();
+                        RedirectHelper.redirectTo();
                     } else {
                         $('.LoginError').text(data.Data)
                     }
@@ -29,7 +29,7 @@
                 url: '/Account/Logout',
                 success: function (data) {
                     if (data.Success) {
-                        window.location.reload();
+                        RedirectHelper.redirectTo();
                     }
                 }
             });

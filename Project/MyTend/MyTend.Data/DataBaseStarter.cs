@@ -32,7 +32,7 @@
             var cfgPath = string.Format(
                 "{0}{1}",
                 HostingEnvironment.ApplicationPhysicalPath,
-                "dbconfig.config");
+                "app.config");
 
             Assembly asm = Assembly.Load("MyTend.Entites");
 

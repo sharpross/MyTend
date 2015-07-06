@@ -18,11 +18,15 @@
         [Property]
         public int NomberSort { get; set; }
 
+        [Property]
+        public bool IsMillion { get; set; }
+
         public Region()
         {
             this.Name = string.Empty;
             this.Country = null;
             this.NomberSort = 0;
+            this.IsMillion = false;
         }
     }
 }

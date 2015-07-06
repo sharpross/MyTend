@@ -36,7 +36,7 @@
                 this.ViewBag.IsAuth = true;
                 this.ViewBag.UserLogin = this.Auth.User.Login;
                 this.ViewBag.UserEmail = this.Auth.User.Email;
-                this.ViewBag.UserName = this.Auth.User.Name;
+                this.ViewBag.UserName = this.Auth.User.FullName;
                 this.ViewBag.IsSubRegions = false;
                 this.ViewBag.IsSubTenders = false;
             }

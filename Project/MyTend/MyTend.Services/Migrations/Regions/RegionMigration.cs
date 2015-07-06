@@ -19,7 +19,7 @@ namespace MyTend.Services.Migrations.Regions
             var rus = new Country() { Name = "Россия" };
             rus.Create();
 
-            var mosckow = new Region() { Country = rus, Name = "Москва", NomberSort = 0 };
+            var mosckow = new Region() { Country = rus, Name = "Москва", NomberSort = 0, IsMillion = true };
             mosckow.Create();
             var listRu = new List<City>();
             listRu.Add(new City() { Name = "Пекин", Region = mosckow });

@@ -30,7 +30,7 @@
                 AboutShort = this.AboutShort,
                 Email = this.Login.ToLower(),
                 Login = this.Login,
-                Name = this.Name,
+                FullName = this.FullName,
                 Password = this.Password,
                 City = City.FindAllByProperty("Name", this.CityId).FirstOrDefault(),
                 Region = Region.FindAllByProperty("Name", this.RegionId).FirstOrDefault()

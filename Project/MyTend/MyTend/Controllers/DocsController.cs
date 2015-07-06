@@ -6,7 +6,6 @@
 
     public class DocsController : BaseController
     {
-        // GET: Docs
         public ActionResult Index()
         {
             return View();

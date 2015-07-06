@@ -8,7 +8,7 @@
     {
         [Property]
         [ValidateNonEmpty("Укажите своё имя")]
-        public string Name { get; set; }
+        public string FullName { get; set; }
 
         [Property]
         [ValidateIsUnique("Такой логин уже существует")]

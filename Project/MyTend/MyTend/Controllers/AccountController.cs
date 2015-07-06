@@ -15,10 +15,22 @@
         /// <returns></returns>
         public ActionResult Index()
         {
+            return RedirectToAction("Profile");
+        }
+
+        public ActionResult About()
+        {
             return View();
         }
 
         public ActionResult Profile()
+        {
+            var model = new ProfileModel(this.Auth.User);
+
+            return View(model);
+        }
+
+        public ActionResult Card()
         {
             var model = new ProfileModel(this.Auth.User);
 
@@ -52,12 +64,12 @@
                 RedirectToAction("Index", "Home");
             }
 
-            return View(model);
+            return RedirectToAction("Profile");
         }
 
         [AllowAnonymous]
         [HttpPost]
-        public ActionResult Login(string login, string password, bool? remembeMe)
+        public ActionResult Login(string login, string password)
         {
             if (!string.IsNullOrEmpty(login) &&
                 !string.IsNullOrEmpty(password))

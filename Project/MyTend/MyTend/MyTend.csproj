@@ -148,6 +148,7 @@
     <Compile Include="Controllers\ImageController.cs" />
     <Compile Include="Controllers\MessageController.cs" />
     <Compile Include="Controllers\MigrationsController.cs" />
+    <Compile Include="Controllers\PayController.cs" />
     <Compile Include="Controllers\RegionController.cs" />
     <Compile Include="Controllers\TenderController.cs" />
     <Compile Include="Global.asax.cs">
@@ -156,6 +157,7 @@
     <Compile Include="Models\Account\ProfileModel.cs" />
     <Compile Include="Models\Account\RegistrationModel.cs" />
     <Compile Include="Models\CloseTenderTime.cs" />
+    <Compile Include="Models\Home\SupportMessageModel.cs" />
     <Compile Include="Models\Home\TenderThemeModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -491,7 +493,7 @@
     <Content Include="Content\theme\js\modernizr.custom.js" />
     <Content Include="Content\theme\js\respond.min.js" />
     <Content Include="Content\theme\js\_notes\dwsync.xml" />
-    <None Include="dbconfig.config">
+    <None Include="app.config">
       <SubType>Designer</SubType>
     </None>
     <Content Include="favicon.ico" />
@@ -500,6 +502,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\app\common.js" />
     <Content Include="Scripts\app\login.js" />
+    <Content Include="Scripts\app\redirect.js" />
     <Content Include="Scripts\app\selectRegions.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -542,6 +545,7 @@
     <Content Include="Content\theme\font-awesome\scss\_spinning.scss" />
     <Content Include="Content\theme\font-awesome\scss\_stacked.scss" />
     <Content Include="Content\theme\font-awesome\scss\_variables.scss" />
+    <None Include="Properties\PublishProfiles\1.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -556,7 +560,9 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -578,11 +584,16 @@
     <Content Include="Views\Shared\_LoginForm.cshtml" />
     <Content Include="Views\Account\Registration.cshtml" />
     <Content Include="Views\Account\Profile.cshtml" />
+    <Content Include="Views\Account\Card.cshtml" />
+    <Content Include="Views\Pay\Index.cshtml" />
+    <Content Include="Views\Account\About.cshtml" />
+    <Content Include="Views\Docs\Index.cshtml" />
+    <Content Include="Views\Home\Thanks.cshtml" />
+    <Content Include="Views\Home\Support.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\Admin\" />
-    <Folder Include="Views\Docs\" />
     <Folder Include="Views\Image\" />
     <Folder Include="Views\Message\" />
     <Folder Include="Views\Migrations\" />
