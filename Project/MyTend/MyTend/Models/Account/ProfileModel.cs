@@ -1,12 +1,11 @@
-﻿using MyTend.Entites;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace MyTend.Models
+﻿namespace MyTend.Models
 {
+    using MyTend.Entites;
+    using MyTend.Services;
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+
     public class ProfileModel : UserSystem
     {
         public string PasswordRetry { get; set; }
@@ -15,9 +14,11 @@ namespace MyTend.Models
 
         public List<SubRegions> SubRegions { get; set; }
 
+        public List<Country> ListCountrys { get; set; }
+
         public ProfileModel()
         {
-            
+            this.ListCountrys = RegionService.CountryAll();
         }
 
         public ProfileModel(UserSystem user)
@@ -36,6 +37,8 @@ namespace MyTend.Models
             this.Region = user.Region;
             this.Site = user.Site;
             this.Skype = user.Skype;
+            this.FullName = user.FullName;
+            this.ListCountrys = RegionService.CountryAll();
         }
 
         public bool UpdateProfile()
