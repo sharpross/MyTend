@@ -6,9 +6,6 @@
     [ActiveRecord("Countrys")]
     public class Country : BaseEntity<Country>
     {
-        //[PrimaryKey]
-        //public int Id { get; set; }
-
         [Property]
         public string Name { get; set; }
 

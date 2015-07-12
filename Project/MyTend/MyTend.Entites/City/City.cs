@@ -6,9 +6,6 @@
     [ActiveRecord("Citys")]
     public class City : BaseEntity<City>
     {
-        //[PrimaryKey]
-        //public int Id { get; set; }
-
         [Property]
         public string Name { get; set; }
 

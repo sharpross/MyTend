@@ -69,7 +69,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Common\RegionFilter.cs" />
+    <Compile Include="Common\RegionFilterService.cs" />
     <Compile Include="Common\SubmiteService.cs" />
     <Compile Include="IMigration.cs" />
     <Compile Include="Migrations\Regions\RegionMigration.cs" />

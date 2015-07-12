@@ -73,6 +73,7 @@
     <Compile Include="City\City.cs" />
     <Compile Include="Contacts\Contacts.cs" />
     <Compile Include="Country\Country.cs" />
+    <Compile Include="Enums\SubRegionType.cs" />
     <Compile Include="Image\Image.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -80,6 +81,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RegionFilter\RegionFilter.cs" />
     <Compile Include="Region\Region.cs" />
     <Compile Include="TenderCategories\TenderCategories.cs">
       <SubType>Code</SubType>
@@ -101,7 +103,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="RegionFilter\" />
     <Folder Include="TenderFilter\" />
   </ItemGroup>
   <ItemGroup>

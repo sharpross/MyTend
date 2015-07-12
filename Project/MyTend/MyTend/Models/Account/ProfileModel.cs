@@ -60,10 +60,10 @@
                 user.Password = this.Password;
             }
 
-            return this.Save(user);
+            return this.SaveProfile(user);
         }
 
-        private bool Save(UserSystem user)
+        private bool SaveProfile(UserSystem user)
         {
             try
             {

@@ -504,6 +504,7 @@
     <Content Include="Scripts\app\login.js" />
     <Content Include="Scripts\app\redirect.js" />
     <Content Include="Scripts\app\selectRegions.js" />
+    <Content Include="Scripts\app\subRegions.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Content\theme\assets\bootstrap\css\bootstrap-theme.css.map" />

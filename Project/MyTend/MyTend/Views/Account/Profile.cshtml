@@ -93,7 +93,7 @@
                         <div class="col-lg-6">
                             <div class="form-group">
                                 <label for="Name">Ваш телефон</label>
-                                <input type="text" class="form-control" name="Phone" placeholder="Ч" value="@Model.Phone">
+                                <input type="text" class="form-control" name="Phone" placeholder="+79991112233" value="@Model.Phone">
                             </div>
                         </div>
                     </div>
@@ -101,7 +101,7 @@
                         <div class="col-lg-6">
                             <div class="form-group">
                                 <label for="Name">Ваш телефон (доп)</label>
-                                <input type="text" class="form-control" name="Phone2" placeholder="" value="@Model.Phone2">
+                                <input type="text" class="form-control" name="Phone2" placeholder="+79991112233" value="@Model.Phone2">
                             </div>
                         </div>
                     </div>
@@ -158,7 +158,13 @@
                         Password: $('[name=Password]').val(),
                         PasswordRetry: $('[name=PasswordRetry]').val(),
                         Name: $('[name=FullName]').val(),
-                        AboutShort: $('[name=AboutShort]').val()
+                        AboutShort: $('[name=AboutShort]').val(),
+                        Phone: $('[name=Phone]').val(),
+                        Phone2: $('[name=Phone2]').val(),
+                        Site: $('[name=Site]').val(),
+                        Skype: $('[name=Skype]').val(),
+                        VKontakte: $('[name=VKontakte]').val(),
+                        Instagram: $('[name=Instagram]').val()
                     }
 
                     $.ajax({
@@ -189,148 +195,67 @@
         </div>
 
         <!-- Тендеры -->
-        <div class="tab-pane" id="tab5-3">
+        <div class="tab-pane" id="tab5-4">
 
         </div>
 
         <!-- Города -->
-        <div class="tab-pane" id="tab5-3">
-            <form method="post" action="UpdateProfile">
-                <div class="form-group">
-                    <label for="SubTheme2" class="control-label col-md-12">Страна</label>
-                    <div class="col-md-4">
-                        <select class="form-control" name="Country" id="CountrysSelect" required>
-                            <option disabled selected>Выберите страну</option>
-                            @foreach (var item in Model.ListCountrys)
-                            {
-                                <option>@item</option>
-                            }
-                        </select>
+        <div class="tab-pane" id="tab5-5">
+            <div class="row">
+                <form method="post" action="UpdateProfile">
+                    <div class="form-group">
+                        <label for="SubTheme2" class="control-label col-md-12">Страна</label>
+                        <div class="col-md-4">
+                            <select class="form-control" name="Country" id="CountrysSelect" required>
+                                <option disabled selected>Выберите страну</option>
+                                @foreach (var item in Model.ListCountrys)
+                                {
+                                    <option>@item</option>
+                                }
+                            </select>
+                        </div>
                     </div>
-                </div>
 
-                <div class="form-group">
-                    <label for="SubTheme2" class="control-label col-md-12">Регион</label>
-                    <div class="col-md-4">
-                        <select class="form-control" name="Region" id="RegionSelect" required>
-                            <option disabled selected>Выберите регион</option>
-                            @foreach (var item in Model.ListCountrys)
-                            {
+                    <div class="form-group">
+                        <label for="SubTheme2" class="control-label col-md-12">Регион</label>
+                        <div class="col-md-4">
+                            <select class="form-control" name="Region" id="RegionSelect" required>
                                 <option disabled selected>Выберите регион</option>
-                            }
-                        </select>
+                                @foreach (var item in Model.ListCountrys)
+                                {
+                                    <option disabled selected>Выберите регион</option>
+                                }
+                            </select>
+                        </div>
                     </div>
-                </div>
 
-                <div class="form-group">
-                    <label for="SubTheme2" class="control-label col-md-12">Город</label>
-                    <div class="col-md-4">
-                        <select class="form-control" name="City" id="CitySelect" required>
-                            <option disabled selected>Выберите город</option>
-                        </select>
+                    <div class="form-group">
+                        <label for="SubTheme2" class="control-label col-md-12">Город</label>
+                        <div class="col-md-4">
+                            <select class="form-control" name="City" id="CitySelect" required>
+                                <option disabled selected>Выберите город</option>
+                            </select>
+                        </div>
                     </div>
-                </div>
-                <div class="form-group col-md-12" style=" padding-top: 10px;">
-                    <button type="button" class="button" onclick="addCityToList()">Добавить город</button>
-                    <button type="button" class="button" onclick="addRegionsToList()">Добавить регион</button>
-                </div>
-                <div class="col-lg-6" id="listCity">
-
-                </div>
-                <div class="col-lg-6" id="listRegions">
-
-                </div>
-                <div class="form-group">
-                    <div class="col-md-12" style=" padding-top: 10px;">
-                        <a href="#" class="btn btn-two" onclick="SaveCitys()">Сохранить</a>
+                    <div class="form-group col-md-12" style=" padding-top: 10px;">
+                        <button type="button" class="button" onclick="addCityToList()">Добавить город</button>
+                        <button type="button" class="button" onclick="addRegionsToList()">Добавить регион</button>
                     </div>
-                </div>
-            </form>
+                    <div class="col-lg-6" id="listCity">
 
-            <script>
-                function addCityToList() {
-                    var e = $('select#CitySelect')
+                    </div>
+                    <div class="col-lg-6" id="listRegions">
 
-                    if (e.val() == 'Выберите регион' || e.val() == null) {
-                        return;
-                    }
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-12" style=" padding-top: 10px;">
+                            <a href="#" class="btn btn-two" onclick="SaveCitys()">Сохранить</a>
+                        </div>
+                    </div>
+                </form>
+                <script src="~/Scripts/app/subRegions.js"></script>
+            </div>
 
-                    if (canAdd('city', e.val())) {
-                        var id = e.val().toString().replace(/\s/g, '_');
-                        var newVal = '<div class="city-block" id="' + id + '"><div class="city-title">'
-                            + e.val()
-                            + ' <span class="fa fa-trash-o like-link" onclick="removeFromList('
-                            + id + ')"></span></div></div>';
-
-                        $('div#listCity').append(newVal);
-                    }
-                }
-
-                function addRegionsToList() {
-                    var e = $('select#RegionSelect')
-
-                    if (e.val() == 'Выберите регион' || e.val() == null) {
-                        return;
-                    }
-
-                    if (canAdd('region', e.val())) {
-                        var id = e.val().toString().replace(/\s/g, '_');
-                        var newVal = '<div class="city-block" id="' + id + '"><div class="city-title">'
-                            + e.val()
-                            + ' <span class="fa fa-trash-o like-link" onclick="removeFromList('
-                            + id + ')"></span></div></div>';
-
-                        $('div#listRegions').append(newVal);
-                    }
-                }
-
-                function removeFromList(id) {
-                    if (id) {
-                        id.remove()
-                    }
-                }
-
-                function canAdd(type, name) {
-                    var list = null;
-
-                    if (type == 'city') {
-                        list = 'listCity';
-                    }
-                    if (type == 'region') {
-                        list = 'listRegions';
-                    }
-
-                    var items = $('[id=' + list + '] > div');
-
-                    if (items.length >= 10) {
-                        return false;
-                    }
-
-                    for (var i = 0; i < items.length; i++) {
-                        if (name == items[i].id.toString().replace(/_/g, ' ')) {
-                            return false;
-                        }
-                    }
-
-                    return true;
-                }
-
-            </script>
-
-            <style>
-                .city-block {
-                    max-width: 300px;
-                    text-align: center;
-                }
-
-                .like-link {
-                    cursor: pointer;
-                }
-
-                .city-title {
-                    margin-top: 5px;
-                }
-            </style>
         </div>
     </div>
 </div>

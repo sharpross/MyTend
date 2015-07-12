@@ -23,7 +23,9 @@ namespace MyTend
                 configuration.For<RegionController>().AllowAny();
                 configuration.For<MigrationsController>().AllowAny();
 
-                configuration.For<AccountController>(ac => ac.Registration()).DenyAuthenticatedAccess();
+                //TODO: подправить под DenyAuthenticatedAccess
+                configuration.For<AccountController>(ac => ac.Registration()).Ignore();
+                //configuration.For<AccountController>(ac => ac.Registration()).DenyAuthenticatedAccess();
 
                 configuration.For<AccountController>(ac => ac.About()).Ignore();
                 configuration.For<AccountController>(ac => ac.Login(string.Empty, string.Empty)).Ignore();

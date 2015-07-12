@@ -152,3 +152,16 @@ h1, h2, h3 {
 .jqte_tool.jqte_tool_1 .jqte_tool_label {
     height: 23px;
 }
+
+.city-block {
+                    max-width: 300px;
+                    text-align: center;
+                }
+
+                .like-link {
+                    cursor: pointer;
+                }
+
+                .city-title {
+                    margin-top: 5px;
+                }
