@@ -90,6 +90,10 @@
       <Project>{25b60dea-95e0-4a29-b163-09c01d076e40}</Project>
       <Name>MyTend.Entites</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MyTender.Core\MyTender.Core.csproj">
+      <Project>{ff896143-d318-48a1-a889-7d9d68fb6d29}</Project>
+      <Name>MyTender.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

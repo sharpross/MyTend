@@ -1,5 +1,61 @@
-﻿function addCityToList() {
-    var e = $('select#CitySelect')
+﻿$(document).ready(function () {
+
+    $('select[id=subCountrysSelect]').change(function (e) {
+        var id = e.target.selectedOptions[0].id;
+        $.ajax({
+            url: '/Region/RegionById',
+            data: {
+                id: id
+            },
+            method: 'GET',
+            success: function (resp) {
+                var sel = $('select[id=subRegionSelect]');
+                sel.empty();
+                sel.append('<option disabled selected>Выберите регион</option>');
+                closeCity();
+                for (var i = 0; i < resp.Data.length; i++) {
+                    var value = '<option id="' + resp.Data[i].Id + '">' + resp.Data[i].Name + '</option>';
+                    sel.append(value);
+                }
+            }
+        });
+    });
+    $('select[id=subRegionSelect]').change(function (e) {
+        var id = e.target.selectedOptions[0].id;
+        $.ajax({
+            url: '/Region/CityById',
+            data: {
+                id: id
+            },
+            method: 'GET',
+            success: function (resp) {
+                var sel = $('select[id=subCitySelect]');
+                sel.empty();
+                sel.append('<option disabled selected>Выберите город</option>');
+                for (var i = 0; i < resp.Data.length; i++) {
+                    var value = '<option id="' + resp.Data[i].Id + '">' + resp.Data[i].Name + '</option>';
+                    sel.append(value);
+                }
+            }
+        });
+    });
+
+    function closeCity() {
+        var sel = $('select[id=CityId]');
+        sel.empty();
+        sel.append('<option disabled selected>Выберите город</option>');
+    }
+
+    function closeRegions() {
+        var sel = $('select[id=RegionId]');
+        sel.empty();
+        sel.append('<option disabled selected>Выберите регион</option>');
+    }
+
+});
+
+function addCityToList() {
+    var e = $('select#subCitySelect')
 
     if (e.val() == 'Выберите регион' || e.val() == null) {
         return;
@@ -17,7 +73,7 @@
 }
 
 function addRegionsToList() {
-    var e = $('select#RegionSelect')
+    var e = $('select#subRegionSelect')
 
     if (e.val() == 'Выберите регион' || e.val() == null) {
         return;
@@ -63,4 +119,35 @@ function canAdd(type, name) {
     }
 
     return true;
+}
+
+function SaveSubCitys()
+{
+    var citys = [],
+        regions = [],
+        listCitys = $('div[id=listCity]').children(),
+        listRegions = $('div[id=listRegions]').children();
+
+
+    for (var i = 0; i < listCitys.length; i++) {
+        citys.push(listCitys[i].id);
+    }
+
+    for (var i = 0; i < listRegions.length; i++) {
+        regions.push(listRegions[i].id);
+    }
+
+    $.ajax({
+        url: '/Account/UpdateSubRegions',
+        data: {
+            model: {
+                Citys: citys,
+                Regions: regions
+            }
+        },
+        method: 'POST',
+        success: function (resp) {
+            
+        }
+    });
 }

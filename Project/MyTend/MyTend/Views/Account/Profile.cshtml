@@ -9,11 +9,11 @@
     <div class="alert alert-danger" role="alert">
         @if(ViewBag.IsSubRegions == false)
         {
-            @:- Подпишитесь на категории тендеров <br/>
+            @:- Подпишитесь на регионы и города
         }
         @if (ViewBag.IsSubTenders == false)
         {
-            @:- Подпишитесь на регионы и города
+            @:- Подпишитесь на категории тендеров <br />
         }
     </div>
 }
@@ -141,7 +141,7 @@
                     </div>
 
                     <div class="row">
-                        <button type="button" id="updateProfile">Сохранить</button>
+                        <button type="button" class="btn btn-two" id="updateProfile">Сохранить</button>
                     </div>
                 </div>
             </div>
@@ -155,9 +155,10 @@
                     
                     var profileInfo = {
                         Login: $('[name=Login]').val(),
+                        Email: $('[name=Email]').val(),
                         Password: $('[name=Password]').val(),
                         PasswordRetry: $('[name=PasswordRetry]').val(),
-                        Name: $('[name=FullName]').val(),
+                        FullName: $('[name=FullName]').val(),
                         AboutShort: $('[name=AboutShort]').val(),
                         Phone: $('[name=Phone]').val(),
                         Phone2: $('[name=Phone2]').val(),
@@ -186,12 +187,42 @@
 
         <!-- Портфолио -->
         <div class="tab-pane" id="tab5-2">
-
+           
         </div>
 
         <!-- О нас -->
         <div class="tab-pane" id="tab5-3">
+            <div class="row">
+                <form method="post" action="UpdateProfile">
+                    <div class="form-group">
+                        <div class="col-md-12">
+                            <textarea rows="10" cols="95" name="portfoli" maxlength="1000">@Model.Portfolio</textarea>
+                            <br />
+                        </div>
+                    </div>
+                    <div class="<div class=" form-group">
+                        <div class="col-md-12">
+                            <button type="button" class="btn btn-two" onclick="savePortfolio()">Сохранить</button>
+                        </div>
+                    </div>
+                </form>
+                <script>
+                    function savePortfolio() {
+                        var portfolio = $('[name=portfoli]').val();
 
+                        $.ajax({
+                            type: 'POST',
+                            url: '/Account/UpdateAbout',
+                            data: {
+                                portfolio: portfolio
+                            },
+                            success: function (data) {
+
+                            }
+                        });
+                    }
+                </script>
+            </div>
         </div>
 
         <!-- Тендеры -->
@@ -206,11 +237,11 @@
                     <div class="form-group">
                         <label for="SubTheme2" class="control-label col-md-12">Страна</label>
                         <div class="col-md-4">
-                            <select class="form-control" name="Country" id="CountrysSelect" required>
+                            <select class="form-control" name="Country" id="subCountrysSelect" required>
                                 <option disabled selected>Выберите страну</option>
                                 @foreach (var item in Model.ListCountrys)
                                 {
-                                    <option>@item</option>
+                                    <option id="@item.Id">@item.Name</option>
                                 }
                             </select>
                         </div>
@@ -219,7 +250,7 @@
                     <div class="form-group">
                         <label for="SubTheme2" class="control-label col-md-12">Регион</label>
                         <div class="col-md-4">
-                            <select class="form-control" name="Region" id="RegionSelect" required>
+                            <select class="form-control" name="Region" id="subRegionSelect" required>
                                 <option disabled selected>Выберите регион</option>
                                 @foreach (var item in Model.ListCountrys)
                                 {
@@ -232,7 +263,7 @@
                     <div class="form-group">
                         <label for="SubTheme2" class="control-label col-md-12">Город</label>
                         <div class="col-md-4">
-                            <select class="form-control" name="City" id="CitySelect" required>
+                            <select class="form-control" name="City" id="subCitySelect" required>
                                 <option disabled selected>Выберите город</option>
                             </select>
                         </div>
@@ -242,14 +273,36 @@
                         <button type="button" class="button" onclick="addRegionsToList()">Добавить регион</button>
                     </div>
                     <div class="col-lg-6" id="listCity">
-
+                        @if (Model.SubCitys.Count > 0)
+                        {
+                            foreach (var city in Model.SubCitys)
+                            {
+                                <div class="city-block" id="@city">
+                                    <div class="city-title">
+                                        @city 
+                                        <span class="fa fa-trash-o like-link" onclick="removeFromList(@city)"></span>
+                                    </div>
+                                </div>
+                            }
+                        }
                     </div>
                     <div class="col-lg-6" id="listRegions">
-
+                        @if (Model.SubRegions.Count > 0)
+                        {
+                            foreach (var region in Model.SubRegions)
+                            {
+                                <div class="city-block" id="Москва">
+                                    <div class="city-title">
+                                        @region 
+                                        <span class="fa fa-trash-o like-link" onclick="removeFromList(@region)"></span>
+                                    </div>
+                                </div>
+                            }
+                        }
                     </div>
                     <div class="form-group">
                         <div class="col-md-12" style=" padding-top: 10px;">
-                            <a href="#" class="btn btn-two" onclick="SaveCitys()">Сохранить</a>
+                            <a href="#" class="btn btn-two" onclick="SaveSubCitys()">Сохранить</a>
                         </div>
                     </div>
                 </form>

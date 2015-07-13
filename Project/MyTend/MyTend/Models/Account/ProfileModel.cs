@@ -2,6 +2,7 @@
 {
     using MyTend.Entites;
     using MyTend.Services;
+    using MyTend.Services.Common;
     using System;
     using System.Collections.Generic;
     using System.Linq;
@@ -12,7 +13,9 @@
 
         public List<SubTender> SubTenders { get; set; }
 
-        public List<SubRegions> SubRegions { get; set; }
+        public List<string> SubRegions { get; set; }
+
+        public List<string> SubCitys { get; set; }
 
         public List<Country> ListCountrys { get; set; }
 
@@ -39,6 +42,21 @@
             this.Skype = user.Skype;
             this.FullName = user.FullName;
             this.ListCountrys = RegionService.CountryAll();
+
+            this.SubCitys = new List<string>();
+            this.SubRegions = new List<string>();
+
+            var filter = new RegionFilterService(user);
+
+            foreach (var city in filter.GetCitys())
+            {
+                this.SubCitys.Add(city.Name);
+            }
+
+            foreach (var region in filter.GetRegions())
+            {
+                this.SubRegions.Add(region.Name);
+            }
         }
 
         public bool UpdateProfile()
@@ -73,9 +91,9 @@
                 user.Phone2 = this.Phone2;
                 user.Site = this.Site;
                 user.Skype = this.Skype;
-                //user.City = this.City;
-                //user.Region = this.Region;
-
+                user.Instagram = this.Instagram;
+                user.VKontakte = this.VKontakte;
+                
                 if (user.IsValid())
                 {
                     user.Update();
@@ -91,6 +109,15 @@
             }
 
             return false;
+        }
+
+        public void UpdatePortfolio(string portfolio)
+        {
+            var user = UserSystem.GetById(this.Id);
+
+            user.Portfolio = portfolio;
+
+            user.Update();
         }
 
         public void UpdateAvatar()

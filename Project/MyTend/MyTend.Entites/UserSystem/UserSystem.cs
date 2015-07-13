@@ -61,7 +61,8 @@
         [Property]
         public string AboutShort { get; set; }
 
-        [Property]
+        [Property(Length=1000)]
+        [ValidateLength(1000)]
         public string Portfolio { get; set; }
     }
 }

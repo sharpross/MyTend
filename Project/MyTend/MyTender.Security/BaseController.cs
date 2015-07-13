@@ -33,11 +33,13 @@
 
             if (this.Auth.User != null)
             {
+                var regionFilter = new RegionFilterService(this.Auth.User);
+
                 this.ViewBag.IsAuth = true;
                 this.ViewBag.UserLogin = this.Auth.User.Login;
                 this.ViewBag.UserEmail = this.Auth.User.Email;
                 this.ViewBag.UserName = this.Auth.User.FullName;
-                this.ViewBag.IsSubRegions = false;
+                this.ViewBag.IsSubRegions = regionFilter.HasSubs();
                 this.ViewBag.IsSubTenders = false;
             }
 

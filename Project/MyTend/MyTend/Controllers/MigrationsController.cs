@@ -33,5 +33,18 @@
 
             return JsonSuccess();
         }
+
+        public JsonResult Full()
+        {
+            ActiveRecordStarter.CreateSchema();
+
+            var migration = new RegionMigration();
+            migration.Migrate();
+
+            var migration2 = new TenderThemesMigration();
+            migration2.Migrate();
+
+            return JsonSuccess();
+        }
     }
 }

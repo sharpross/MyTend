@@ -1,6 +1,5 @@
 ﻿namespace MyTend.Controllers
 {
-    using MyTend.Entites;
     using MyTend.Models;
     using MyTender.Core;
     using MyTender.Security;
@@ -38,12 +37,30 @@
         }
 
         [HttpPost]
-        public JsonResult UpdateProfile(ProfileModel model)
+        public JsonResult UpdateAbout(ProfileModel model)
         {
             if (model != null)
             {
                 model.UpdateProfile();
             }
+
+            return JsonSuccess();
+        }
+
+        [HttpPost]
+        public JsonResult UpdateSubRegions(SubRegionModel model)
+        {
+            model.Save(this.Auth.User);
+
+            return JsonSuccess();
+        }
+
+        [HttpPost]
+        public JsonResult UpdateAbout(string portfolio)
+        {
+            var model = new ProfileModel(this.Auth.User);
+
+            model.UpdatePortfolio(portfolio);
 
             return JsonSuccess();
         }

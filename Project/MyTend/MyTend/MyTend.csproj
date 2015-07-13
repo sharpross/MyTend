@@ -156,6 +156,7 @@
     </Compile>
     <Compile Include="Models\Account\ProfileModel.cs" />
     <Compile Include="Models\Account\RegistrationModel.cs" />
+    <Compile Include="Models\Account\SubRegionModel.cs" />
     <Compile Include="Models\CloseTenderTime.cs" />
     <Compile Include="Models\Home\SupportMessageModel.cs" />
     <Compile Include="Models\Home\TenderThemeModel.cs" />

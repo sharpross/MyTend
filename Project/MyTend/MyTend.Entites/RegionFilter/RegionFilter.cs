@@ -2,13 +2,8 @@
 {
     using Castle.ActiveRecord;
     using MyTend.Entites.Enums;
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
 
-    [ActiveRecord("Images")]
+    [ActiveRecord("RegionFilters")]
     public class RegionFilter : BaseEntity<RegionFilter>
     {
         [BelongsTo("UserId")]
