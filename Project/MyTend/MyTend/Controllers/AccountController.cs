@@ -78,6 +78,8 @@
         {
             if (model.TryRegistry())
             {
+                this.Auth.Login(model.Login, model.Password);
+
                 RedirectToAction("Index", "Home");
             }
 

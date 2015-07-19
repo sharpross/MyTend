@@ -160,6 +160,8 @@
     <Compile Include="Models\CloseTenderTime.cs" />
     <Compile Include="Models\Home\SupportMessageModel.cs" />
     <Compile Include="Models\Home\TenderThemeModel.cs" />
+    <Compile Include="Models\Tender\CreateTenderModel.cs" />
+    <Compile Include="Models\Tender\ListThemeTenderModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -592,6 +594,7 @@
     <Content Include="Views\Docs\Index.cshtml" />
     <Content Include="Views\Home\Thanks.cshtml" />
     <Content Include="Views\Home\Support.cshtml" />
+    <Content Include="Views\Tender\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -600,7 +603,6 @@
     <Folder Include="Views\Message\" />
     <Folder Include="Views\Migrations\" />
     <Folder Include="Views\Region\" />
-    <Folder Include="Views\Tender\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

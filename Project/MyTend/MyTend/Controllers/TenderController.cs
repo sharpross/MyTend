@@ -1,5 +1,6 @@
 ﻿namespace MyTend.Controllers
 {
+    using MyTend.Models;
     using MyTender.Core;
     using MyTender.Security;
     using System.Web.Mvc;
@@ -12,7 +13,9 @@
         /// <returns></returns>
         public ActionResult Index()
         {
-            return View();
+            var model = new ListThemeTenderModel();
+
+            return View(model);
         }
 
         /// <summary>
@@ -28,9 +31,24 @@
         /// Создать тенедер
         /// </summary>
         /// <returns></returns>
-        public ActionResult Create()
+        [HttpGet]
+        public ActionResult Create(int id)
         {
-            return View();
+            var model = new CreateTenderModel(id);
+
+            return View(model);
+        }
+
+        /// <summary>
+        /// Создать тенедер
+        /// </summary>
+        /// <returns></returns>
+        [HttpPost]
+        public ActionResult Create(int id)
+        {
+            var model = new CreateTenderModel(id);
+
+            return View(model);
         }
 
         /// <summary>

@@ -5,7 +5,7 @@
     using System;
 
     [ActiveRecord("Tenders")]
-    public class Tender : ActiveRecordBase<Tender>
+    public class Tender : BaseEntity<Tender>
     {
         [PrimaryKey(PrimaryKeyType.Native)]
         public int Id { get; set; }
@@ -14,17 +14,21 @@
         [ValidateNonEmpty]
         public UserSystem User { get; set; }
 
-        [ValidateNonEmpty]
+        /*[ValidateNonEmpty("")]
         [BelongsTo("TenderCategoriesId")]
-        public TenderCategories Categories { get; set; }
+        public TenderCategories Categories { get; set; }*/
 
-        [ValidateNonEmpty]
+        [ValidateNonEmpty("Укажите регоион")]
         [BelongsTo("RegionId")]
         public Region Region { get; set; }
 
         [ValidateNonEmpty]
         [BelongsTo("CityId")]
         public City City { get; set; }
+
+        [ValidateNonEmpty("Укажите тему тендера")]
+        [BelongsTo("ThemeId")]
+        public TenderTheme Theme { get; set; }
 
         [Property]
         public bool IsOpen { get; set; }
@@ -35,16 +39,16 @@
         [Property]
         public decimal Cost { get; set; }
 
+        [ValidateNonEmpty("Укажите заголовок тендера")]
         [Property]
-        [ValidateNonEmpty]
         public string Title { get; set; }
 
+        [ValidateNonEmpty("Укажите сообщение тендера")]
         [Property]
-        [ValidateNonEmpty]
         public string Message { get; set; }
 
+        [ValidateNonEmpty("Укажите дату окончания тендера")]
         [Property]
-        [ValidateNonEmpty]
         public DateTime DateEnd { get; set; }
     }
 }
