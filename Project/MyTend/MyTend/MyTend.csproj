@@ -162,6 +162,8 @@
     <Compile Include="Models\Home\TenderThemeModel.cs" />
     <Compile Include="Models\Tender\CreateTenderModel.cs" />
     <Compile Include="Models\Tender\ListThemeTenderModel.cs" />
+    <Compile Include="Models\Tender\MyTenders.cs" />
+    <Compile Include="Models\Tender\TenderDetails.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -595,6 +597,8 @@
     <Content Include="Views\Home\Thanks.cshtml" />
     <Content Include="Views\Home\Support.cshtml" />
     <Content Include="Views\Tender\Index.cshtml" />
+    <Content Include="Views\Tender\Create.cshtml" />
+    <Content Include="Views\Tender\My.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -26,10 +26,10 @@
             <div style="text-align: center">
                 <div class="col-md-4">
                     <p>
-                        <a href="~/Tender/Create?theme=@item.Id"><img src="~/Content/images/kats/@item.ImageName" class="tenderImg" width="100" height="100" /></a>
+                        <a href="~/Tender/Create?id=@item.Id"><img src="~/Content/images/kats/@item.ImageName" class="tenderImg" width="100" height="100" /></a>
                     </p>
                     <p>
-                        <strong>@Html.ActionLink(item.Theme, "Create", "Tender", new { @theme = item.Id }, new { @style = "color: #000066;" })</strong>
+                        <strong>@Html.ActionLink(item.Theme, "Create", "Tender", new { @id = item.Id }, new { @style = "color: #000066;" })</strong>
                     </p>
                 </div>
             </div>

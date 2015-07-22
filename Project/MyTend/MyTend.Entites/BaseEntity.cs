@@ -7,6 +7,10 @@
 
     public class BaseEntity<T> : ActiveRecordBase<T> where  T : class 
     {
+        [ValidateNonEmpty("Укажите дату дату создания")]
+        [Property]
+        public DateTime CreatedDateTime { get; set; }
+
         public List<string> Errors { get; set; }
 
         [PrimaryKey(PrimaryKeyType.Native)]
@@ -16,6 +20,7 @@
         {
             this.Errors = new List<string>();
             this.Id = 0;
+            this.CreatedDateTime = DateTime.Now;
         }
 
         public bool IsValid()

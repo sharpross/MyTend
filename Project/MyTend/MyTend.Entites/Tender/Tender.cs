@@ -7,22 +7,15 @@
     [ActiveRecord("Tenders")]
     public class Tender : BaseEntity<Tender>
     {
-        [PrimaryKey(PrimaryKeyType.Native)]
-        public int Id { get; set; }
-
         [BelongsTo("UserId")]
-        [ValidateNonEmpty]
+        [ValidateNonEmpty("Не известный пользователь")]
         public UserSystem User { get; set; }
-
-        /*[ValidateNonEmpty("")]
-        [BelongsTo("TenderCategoriesId")]
-        public TenderCategories Categories { get; set; }*/
 
         [ValidateNonEmpty("Укажите регоион")]
         [BelongsTo("RegionId")]
         public Region Region { get; set; }
 
-        [ValidateNonEmpty]
+        [ValidateNonEmpty("Укажите город")]
         [BelongsTo("CityId")]
         public City City { get; set; }
 

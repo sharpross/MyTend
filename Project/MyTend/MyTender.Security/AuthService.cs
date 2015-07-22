@@ -14,7 +14,7 @@ namespace MyTender.Security
     {
         private UserSystem CurrentSystemUser { get; set; }
 
-        public HttpContextBase HttpContext { get; set; }
+        //public HttpContextBase HttpContext { get; set; }
 
         public UserSystem User
         { 
@@ -22,16 +22,13 @@ namespace MyTender.Security
             {
                 try
                 {
-                    if (this.HttpContext != null)
+                    HttpCookie authCookie = System.Web.HttpContext.Current.Request.Cookies.Get(Constants._COOKIE_NAME);
+                    if (authCookie != null && !string.IsNullOrEmpty(authCookie.Value))
                     {
-                        HttpCookie authCookie = HttpContext.Request.Cookies.Get(Constants._COOKIE_NAME);
-                        if (authCookie != null && !string.IsNullOrEmpty(authCookie.Value))
-                        {
-                            var ticket = FormsAuthentication.Decrypt(authCookie.Value);
+                        var ticket = FormsAuthentication.Decrypt(authCookie.Value);
 
-                            this.CurrentSystemUser = UserSystem.GetByProp("Login", ticket.Name.ToLower())
-                                .FirstOrDefault();
-                        }
+                        this.CurrentSystemUser = UserSystem.GetByProp("Login", ticket.Name.ToLower())
+                            .FirstOrDefault();
                     }
                 }
                 catch(Exception e)
@@ -76,7 +73,7 @@ namespace MyTender.Security
 
         public void Logout()
         {
-            var httpCookie = this.HttpContext.Response.Cookies[Constants._COOKIE_NAME];
+            var httpCookie = System.Web.HttpContext.Current.Response.Cookies[Constants._COOKIE_NAME];
 
             if (httpCookie != null)
             {
@@ -108,7 +105,7 @@ namespace MyTender.Security
                 Expires = DateTime.Now.Add(new TimeSpan(30, 0, 0, 0))
             };
 
-            this.HttpContext.Response.Cookies.Set(AuthCookie);
+            System.Web.HttpContext.Current.Response.Cookies.Set(AuthCookie);
 
             //FormsAuthentication.SetAuthCookie(userName, false);
         }

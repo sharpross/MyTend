@@ -1,0 +1,200 @@
+﻿@model MyTend.Models.CreateTenderModel
+
+@{
+    ViewBag.Title = "Новая заявка";
+}
+
+@using (Html.BeginForm("Create", "Tender", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <div class="row">
+            <div class="col-md-4" style="text-align: center">
+                <img src="~/Content/images/kats/@Model.Theme.ImageName" width="140" height="120" />
+            </div>
+            <div class="col-md-8">
+                <br /><br />
+                <h4>Новая заявка - @Model.Theme.Theme</h4>
+            </div>
+        </div>
+        <hr />
+        @if (Model.Errors.Count > 0)
+        {
+            <div class="alert alert-danger" role="alert">
+                @foreach (var item in Model.Errors)
+                {
+                    <p>@item</p>
+                }
+            </div>
+        }
+
+        <input hidden="hidden" value="@Model.Theme" name="Theme" />
+        <div class="form-group">
+            <label for="SubTheme2" class="control-label col-md-4"></label>
+            <div class="col-md-4">
+                @Html.ActionLink("Инструкция заполнеиния заявок", "Instruction", "Home", null, new { @style = "text-decoration: underline;" })
+                <input name="ThemeId" value="@Model.Theme.Id" hidden />
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="TitleString" class="control-label col-md-4">Выберите категорию</label>
+            <div class="col-md-8">
+                <select class="form-control" name="TitleId" required>
+                    @if (string.IsNullOrEmpty(Model.Theme.Title))
+                    {
+                        <option selected="selected" disabled="disabled">Выберите категорию</option>
+                    }
+                    else
+                    {
+                        <option disabled="disabled">Выберите категорию</option>
+                    }
+
+                    @foreach (var item in Model.ListThemes)
+                    {
+                        if (item.IsTitle)
+                        {
+                            <option disabled="disabled" style="background-color: #E0E0E0; color: black;">@item.Title</option>
+                        }
+                        else
+                        {
+                            if (Model.Theme.Id == item.Id)
+                            {
+                                <option value="@item.Id" selected="selected">@item.Title</option>
+                            }
+                            else
+                            {
+                                <option value="@item.Id">@item.Title</option>
+                            }
+                        }
+
+                    }
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="SubTheme2" class="control-label col-md-4">Страна</label>
+            <div class="col-md-4">
+                <select class="form-control" name="CountryId" id="CountrysSelect" required>
+                    <option disabled selected>Выберите страну</option>
+                    @foreach (var item in Model.ListCountrys)
+                    {
+                        <option id="@item.Id">@item.Name</option>
+                    }
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="SubTheme2" class="control-label col-md-4">Регион</label>
+            <div class="col-md-4">
+                <select class="form-control" name="RegionId" id="RegionSelect" required>
+                    <option disabled selected>Выберите регион</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="SubTheme2" class="control-label col-md-4">Город</label>
+            <div class="col-md-4">
+                <select class="form-control" name="CityId" required>
+                    <option disabled selected>Выберите город</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="TenderType" class="control-label col-md-4">Тип заявки</label>
+            <div class="col-md-4">
+                <select class="form-control" name="TenderType">
+                    <option selected="selected">Открытые торги</option>
+                    <option>Закрытые торги</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="Title" class="control-label col-md-4">Название торгов</label>
+            <div class="col-md-8">
+                <input type="text" required class="form-control" placeholder="" name="Title" value="@Model.Title" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="Message" class="control-label col-md-4">Сообщение</label>
+            <div class="col-md-8">
+                <textarea class="form-control" required rows="7" name="Message" placeholder="Максимально подробно опишите детали и условия вашей заявки"></textarea>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="Cost" class="control-label col-md-4">Препологаемый бюджет (&#8381;)</label>
+            <div class="col-md-5">
+                <input type="number" min="1" step="1" class="form-control" name="Cost" placeholder="Средняя цена" value="@Model.Cost" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="ListPhoto" class="control-label col-md-4">Фото</label>
+            <div class="col-md-5">
+                <input type="file" accept="image/*" multiple class="form-control" name="ListPhoto" value="" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="SubTheme2" class="control-label col-md-4">Разрешить писать мне от участников торгов</label>
+            <div class="col-md-4">
+                <div class="checkbox">
+                    <input type="checkbox" name="AllowWrite" value="@Model.AllowWrite" />
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="SubTheme2" class="control-label col-md-4">Время активности</label>
+            <div class="col-md-4">
+                <select class="form-control" name="ActiveTime">
+                    @if (Model.ActiveTime == "3 дня")
+                    {
+                        <option selected="selected">3 дня</option>
+                    }
+                    else
+                    {
+                        <option>3 дня</option>
+                    }
+                    @if (Model.ActiveTime == "7 дней")
+                    {
+                        <option selected="selected">7 дней</option>
+                    }
+                    else
+                    {
+                        <option>7 дней</option>
+                    }
+                    @if (Model.ActiveTime == "14 дней")
+                    {
+                        <option selected="selected">14 дней</option>
+                    }
+                    else
+                    {
+                        <option>14 дней</option>
+                    }
+                    @if (Model.ActiveTime == "21 дней")
+                    {
+                        <option selected="selected">21 дней</option>
+                    }
+                    else
+                    {
+                        <option>21 дней</option>
+                    }
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-12" style="text-align: center;">
+                <button type="submit" class="btn btn-two" style="width: 30%">Добавить</button>
+            </div>
+        </div>
+    </div>
+}
+<script src="~/Scripts/app/selectRegions.js"></script>

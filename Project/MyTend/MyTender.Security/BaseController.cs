@@ -27,8 +27,6 @@
 
         protected override void OnActionExecuting(ActionExecutingContext filterContext)
         {
-            this.Auth.HttpContext = filterContext.HttpContext;
-
             this.ViewBag.IsAuth = false;
 
             if (this.Auth.User != null)

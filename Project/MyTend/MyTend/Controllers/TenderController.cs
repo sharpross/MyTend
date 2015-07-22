@@ -44,9 +44,15 @@
         /// </summary>
         /// <returns></returns>
         [HttpPost]
-        public ActionResult Create(int id)
+        [ValidateInput(false)]
+        public ActionResult Create(CreateTenderModel model)
         {
-            var model = new CreateTenderModel(id);
+            if (model.IsValid())
+            {
+                model.Save();
+
+                return Redirect("My");
+            }
 
             return View(model);
         }
@@ -66,7 +72,9 @@
         /// <returns></returns>
         public ActionResult My()
         {
-            return View();
+            var model = new MyTenders();
+
+            return View(model);
         }
 
         /// <summary>
