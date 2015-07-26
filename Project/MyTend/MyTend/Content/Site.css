@@ -154,14 +154,31 @@ h1, h2, h3 {
 }
 
 .city-block {
-                    max-width: 300px;
-                    text-align: center;
-                }
+    max-width: 300px;
+    text-align: center;
+}
 
-                .like-link {
-                    cursor: pointer;
-                }
+.like-link {
+    cursor: pointer;
+}
 
-                .city-title {
-                    margin-top: 5px;
-                }
+.city-title {
+    margin-top: 5px;
+}
+
+.card-title {
+    color: #B3B1B1;
+    text-transform: uppercase;
+}
+
+.card-table {
+    width: 100%;
+    text-align: right;
+    color: black;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.card-block {
+    padding-bottom: 10px;
+}

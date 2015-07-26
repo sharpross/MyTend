@@ -72,7 +72,7 @@
         /// <returns></returns>
         public ActionResult My()
         {
-            var model = new MyTenders();
+            var model = new MyTendersModel();
 
             return View(model);
         }
@@ -84,7 +84,9 @@
         /// <returns></returns>
         public ActionResult Details(int id)
         {
-            return View();
+            var model = new TenderDetailsModel(id);
+
+            return View(model);
         }
     }
 }

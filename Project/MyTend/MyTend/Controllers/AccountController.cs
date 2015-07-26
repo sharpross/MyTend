@@ -29,11 +29,22 @@
             return View(model);
         }
 
-        public ActionResult Card()
+        public ActionResult Card(string user)
         {
-            var model = new ProfileModel(this.Auth.User);
+            var model = new CardModel(user);
 
             return View(model);
+        }
+
+        [HttpPost]
+        public JsonResult UpdateProfile(ProfileModel model)
+        {
+            if (model != null)
+            {
+                model.UpdateProfile();
+            }
+
+            return JsonSuccess();
         }
 
         [HttpPost]

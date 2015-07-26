@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace MyTend.Models
 {
-    public class MyTenders
+    public class MyTendersModel
     {
         public List<Tender> Tenders { get; set; }
 
-        public MyTenders()
+        public MyTendersModel()
         {
             var authService = new AuthService();
 

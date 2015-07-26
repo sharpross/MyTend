@@ -1,0 +1,134 @@
+﻿@model MyTend.Models.TenderDetailsModel
+
+@{
+    ViewBag.Title = "Тендер";
+    ViewBag.Scripts = "NewTender()";
+}
+<div class="row" style="border: 0px; border-bottom: 0px; border-color: #D8D8D8; border-style: solid;">
+    <div class="col-md-12" style="text-align: center;">
+        <h4>Заявка</h4>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12" style="font-size: 12px;">
+        <p>
+            <span style="font-weight: bold;">Тема:</span><br />
+            @Model.Theme.Theme
+        </p>
+        <p>
+            <span style="font-weight: bold;">Категория:</span><br />
+            @Model.Theme.Title
+        </p>
+        <p>
+            <span style="font-weight: bold;">Регион/Город исполнения заявки:</span><br />
+            @Model.Region.Name / @Model.City.Name
+        </p>
+        <p>
+            <span style="font-weight: bold;">Заголовок:</span><br />
+            @Model.Title
+        </p>
+        <p>
+            <span style="font-weight: bold;">Сообщение:</span><br />
+            @Html.Raw(Model.Message)
+        </p>
+        <p>
+            <span style="font-weight: bold;">Планируемый бюджет:</span><br />
+            @Html.Raw(Model.Cost.ToString("0.00") + " руб.")
+        </p>
+    </div>
+</div>
+
+@if (Model.Images != null && Model.Images.Count > 0)
+{
+    <div class="row" style="padding-bottom: 10px;">
+        @foreach (var item in Model.Images)
+        {
+            <div class="col-md-3">
+                <a href="~/Image/Get?id=@item" data-lightbox="@item">
+                    <img src="~/Image/Get?id=@item" width="100" height="100">
+                </a>
+            </div>
+        }
+    </div>
+}
+
+<div style="padding-top: 15px;"></div>
+
+@if (Model.Messages != null)
+{
+    <div style="padding-top: 15px;"></div>
+    <div class="row" style="border: 1px; border-color: #D8D8D8; border-style: solid;">
+        <div class="col-md-12" style="text-align: center; font-weight: bold;">
+            Предложения
+        </div>
+    </div>
+
+    foreach (var message in Model.Messages)
+    {
+        <div class="row" style="border: 1px; border-color: #D8D8D8; border-style: solid; border-top: 0px">
+            <div class="col-md-3">
+                <div style="width: 100%; text-align: center;">
+                    <p><img src='/Image/Get?id=@message.User.Id' style="width: 150px; height: 150px;  padding-top: 5px;" /></p>
+                    <p><div style="color: blue; width:100%; text-align: center; font-size: 12px;"><strong>@Html.ActionLink(message.User.FullName, "Card", "Account", new { @login = message.User.Login }, null)</strong></div></p>
+                    <p></p>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div style="padding-top: 35px;">
+                    <p>@Html.Raw(message.Message)</p>
+                    <p>
+
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="row" style="border: 1px solid #D8D8D8; border-top: 0px;">
+            <div class="col-md-12">
+                <span>
+                    @Html.ActionLink("Написать сообщение", "Write", "Messages", new { @toUserId = message.User.Id }, null)
+                </span>
+                <span style="padding-left: 20px;">
+                    <a href="#">Добавить в визитки</a>
+                </span>
+                <span style="padding-left: 20px;">
+                    <a href="#">Пожаловаться</a>
+                </span>
+                <span style="padding-left: 40px;">
+                    @if (Model.IsOpen == false)
+                    {
+                        if (message.User.Id != Model.User.Id)
+                        {
+                            if (ViewBag.IsMyTender)
+                            {
+                                @Html.ActionLink("Выбрать победителем", "Winner", "Tender", new { @tenderId = Model.Id, @userId = message.User.Id }, new { @style = "color: red" })
+                            }
+                        }
+                    }
+                </span>
+            </div>
+        </div>
+        <div class="padding-x-16"></div>
+    }
+}
+
+<div style="padding-top: 15px;"></div>
+<div class="row">
+    @using (Html.BeginForm())
+    {
+        <input hidden="hidden" name="User" value="@Model.User.Id" />
+        <input hidden="hidden" name="Tender" value="@Model.Id" />
+        <div class="form-horizontal">
+            <div class="form-group">
+                <div class="col-md-12">
+                    <textarea class="form-control" rows="5" name="Message" placeholder="Максимально подробно опишите детали и условия вашего предложения"></textarea>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="" style="text-align: center;">
+                <button type="submit" class="btn btn-two">Добавить</button>
+            </div>
+        </div>
+    }
+</div>
