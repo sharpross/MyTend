@@ -1,4 +1,6 @@
-﻿using MyTender.Security;
+﻿using MyTend.Entites;
+using MyTend.Services.Common;
+using MyTender.Security;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -16,8 +18,8 @@ namespace MyTend.Controllers
         public ActionResult Index()
         {
             ViewBag.PayScript = GetPayString();
-            ViewBag.PayHistory = new List<string>();
-            ViewBag.PayEnd = null;
+            ViewBag.PayHistory = new PayService(this.Auth.User).GetHistory();
+            ViewBag.PayEnd = new PayService(this.Auth.User).GetDatePayEnd();
 
             return View();
         }
@@ -92,8 +94,8 @@ namespace MyTend.Controllers
 
         public ActionResult Payresult()
         {
-            return null;
-            /*try
+            //return null;
+            try
             {
                 if (this.IsValid())
                 {
@@ -102,30 +104,20 @@ namespace MyTend.Controllers
                     var dateBegin = DateTime.Now;
                     var dateEnd = DateTime.Now.AddMonths(1);
 
-                    var userService = new UserSystemService();
-
-                    var user = userService.Get(int.Parse(userId));
+                    var user = UserSystem.GetById(int.Parse(userId));
 
                     if (user != null)
                     {
-                        var payService = new PayService();
+                        var payService = new PayService(user);
 
-                        payService.Save(new PayInfo()
-                        {
-                            UserId = user.Id,
-                            DateBegin = dateBegin,
-                            DateEnd = dateEnd
-                        });
+                        payService.MakePay();
                     }
 
-                    ViewBag.IsTruePay = "true";
-
-
-                    //return RedirectToAction("Success");
+                    return RedirectToAction("Success");
                 }
                 else
                 {
-                    ViewBag.IsTruePay = "false";
+                    return RedirectToAction("Fail");
                 }
             }
             catch (Exception ex)
@@ -134,8 +126,6 @@ namespace MyTend.Controllers
             }
 
             return View();
-
-            //return RedirectToAction("Fail");*/
         }
 
         private bool IsValid()
@@ -167,7 +157,6 @@ namespace MyTend.Controllers
             }
 
             return true;
-            // perform some action (change order state to paid)  
         }
 
         private string GetPrm(string sName)

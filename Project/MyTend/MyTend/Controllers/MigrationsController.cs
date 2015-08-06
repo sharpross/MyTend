@@ -34,7 +34,7 @@
             return JsonSuccess();
         }
 
-        public JsonResult Full()
+        public JsonResult Zero()
         {
             ActiveRecordStarter.CreateSchema();
 

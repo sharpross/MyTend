@@ -1,4 +1,6 @@
-﻿@{
+﻿@using MyTend.Entites
+
+@{
     ViewBag.Title = "Оплата подписки";
 }
 
@@ -7,7 +9,7 @@
 <div class="row">
     <div class="col-lg-12">
         <p>
-            @if (ViewBag.PayEnd == null)
+            @if (ViewBag.HasPay == false)
             {
                 @:"У вас ещё нет платной подписки!"
             }
@@ -45,9 +47,9 @@
             @if (ViewBag.PayHistory.Count > 0)
             {
                 <ol>
-                    @foreach (var row in ViewBag.PayHistory)
+                    @foreach (var row in (List<PayInfo>)ViewBag.PayHistory)
                     {
-                        <li>@row</li>
+                        <li>@string.Format("{0}: оплачено {1} р.", row.PayDay.ToString("dd.MM.yyyy"), row.Sum.ToString("0.00"))</li>
                     }
                 </ol>
             }

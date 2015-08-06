@@ -5,11 +5,8 @@
     using System;
 
     [ActiveRecord("UserMessages")]
-    public class UserMessage : ActiveRecordBase<UserMessage>
+    public class UserMessage : BaseEntity<UserMessage>
     {
-        [PrimaryKey(PrimaryKeyType.Native)]
-        public int Id { get; set; }
-
         [Property]
         [ValidateNonEmpty]
         public string Message { get; set; }
@@ -17,10 +14,18 @@
         [Property]
         public DateTime Date { get; set; }
 
+        [Property]
+        public bool IsRead { get; set; }
+
         [BelongsTo("FromId")]
         public UserSystem From { get; set; }
 
         [BelongsTo("ToId")]
         public UserSystem To { get; set; }
+
+        public UserMessage()
+        {
+            this.IsRead = false;
+        }
     }
 }

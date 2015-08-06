@@ -20,9 +20,9 @@ namespace MyTend.Controllers
         }
 
         [HttpGet]
-        public JsonResult CityAll()
+        public JsonResult CityAll(int id)
         {
-            var result = RegionService.CityAll();
+            var result = RegionService.CityByRegionId(id);
 
             return JsonSuccess(result);
         }

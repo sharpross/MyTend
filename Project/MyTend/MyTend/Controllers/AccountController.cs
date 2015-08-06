@@ -67,6 +67,24 @@
         }
 
         [HttpPost]
+        public JsonResult UpdateSubThemes(SubThemesModel model)
+        {
+            model.Save(this.Auth.User);
+
+            return JsonSuccess();
+        }
+
+        [HttpPost]
+        public JsonResult GetSubThemes()
+        {
+            var model = new SubThemesModel();
+
+            model.Load(this.Auth.User);
+
+            return JsonSuccess(model.ListThemes);
+        }
+
+        [HttpPost]
         public JsonResult UpdateAbout(string portfolio)
         {
             var model = new ProfileModel(this.Auth.User);

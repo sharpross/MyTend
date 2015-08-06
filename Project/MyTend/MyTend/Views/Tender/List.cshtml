@@ -1,0 +1,46 @@
+﻿@model MyTend.Models.ListTendersModel
+
+@{
+    ViewBag.Title = "Список торгов";
+}
+
+<h2>Список торгов</h2>
+
+<table class="table table-striped">
+    <tr>
+        <th>
+            Название торгов
+        </th>
+
+        <th style="text-align: center">
+            Тема/категория
+        </th>
+
+        <th style="text-align: center">
+            Регион/Город исполнения заявки
+        </th>
+
+        <th style="text-align: center">
+            Бюджет
+        </th>
+    </tr>
+
+    @foreach (var item in Model.Tenders)
+    {
+        <tr>
+            <td width="100">
+                @Html.ActionLink(item.Title, "Details", "Tender", new { id = item.Id }, null)
+            </td>
+            <td width="100" style="text-align: center">
+                @Html.ActionLink(item.Theme.Theme + ": " + item.Theme.Title, "Details", "Tender", new { id = item.Id }, null)
+            </td>
+            <td width="100" style="text-align: center">
+                @Html.ActionLink(item.City.Name, "Details", "Tender", new { id = item.Id }, null)
+            </td>
+            <td width="70" style="text-align: center">
+                @Html.ActionLink(item.Cost.ToString("0.00") + " руб.", "Details", "Tender", new { id = item.Id }, null)
+            </td>
+        </tr>
+    }
+
+</table> 

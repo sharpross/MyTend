@@ -1,4 +1,5 @@
 ﻿using MyTend.Entites;
+using MyTender.Security;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,11 +12,12 @@ namespace MyTend.Models
     {
         public List<TenderMessage> Messages { get; set; }
 
+        public AuthService Auth { get; set; }
+
         public List<int> Images { get; set; }
 
         public TenderDetailsModel(int id)
         {
-            this.Messages = new List<TenderMessage>();
             this.Images = new List<int>();
 
             this.Load(id);
@@ -42,6 +44,22 @@ namespace MyTend.Models
             this.Theme = tender.Theme;
             this.Title = tender.Title;
             this.User = tender.User;
+            this.Winner = tender.Winner;
+            this.Messages = this.LoadMessages();
+        }
+
+        private List<TenderMessage> LoadMessages()
+        {
+            var messages = new List<TenderMessage>();
+
+            messages = TenderMessage
+                .FindAll()
+                .Where(x => x.Tender.Id == this.Id)
+                .OrderBy(x => x.Date)
+                .ToList();
+
+
+            return messages;
         }
     }
 }

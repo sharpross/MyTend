@@ -9,7 +9,9 @@
     {
         public ActionResult Index()
         {
-            return View();
+            var model = new ListThemeTenderModel();
+
+            return View(model);
         }
 
         public ActionResult About()

@@ -11,7 +11,7 @@
     {
         public string PasswordRetry { get; set; }
 
-        public List<SubTender> SubTenders { get; set; }
+        public Dictionary<string, List<TenderTheme>> TenderThemes { get; set; }
 
         public List<string> SubRegions { get; set; }
 
@@ -42,7 +42,7 @@
             this.Skype = user.Skype;
             this.FullName = user.FullName;
             this.ListCountrys = RegionService.CountryAll();
-
+            this.TenderThemes = this.GetListTenderTheme();
             this.SubCitys = new List<string>();
             this.SubRegions = new List<string>();
 
@@ -57,6 +57,23 @@
             {
                 this.SubRegions.Add(region.Name);
             }
+        }
+
+        public Dictionary<string, List<TenderTheme>> GetListTenderTheme()
+        {
+            var result = new Dictionary<string, List<TenderTheme>>();
+
+            var themes = TenderTheme
+                .FindAll()
+                .GroupBy(x => x.Theme)
+                .ToList();
+
+            foreach (var theme in themes)
+            {
+                result.Add(theme.Key, theme.ToList());
+            }
+
+            return result;
         }
 
         public bool UpdateProfile()

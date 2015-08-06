@@ -69,11 +69,13 @@ namespace MyTend.Services
             return result;
         }
         
-        public static List<City> CityAll()
+        public static List<City> CityByRegionId(int id)
         {
             var result = new List<City>();
 
-            var all = City.FindAll();
+            var all = City.FindAll()
+                .Where(x => x.Region.Id == id)
+                .OrderBy(x => x.Name);
 
             result.AddRange(all);
 
@@ -86,9 +88,12 @@ namespace MyTend.Services
 
             try
             {
-                var all = City.Find(id);
+                var all = City.FindAll()
+                    .Where(x => x.Region.Id == id)
+                    .OrderBy(x => x.Name)
+                    .ToList();
 
-                result.Add(all);
+                result.AddRange(all);
             }
             catch
             {

@@ -2,6 +2,7 @@
 using MyTend.Controllers;
 using MyTend.Entites;
 using MyTender.Core;
+using System;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
@@ -26,9 +27,10 @@ namespace MyTend
                 //TODO: подправить под DenyAuthenticatedAccess
                 configuration.For<AccountController>(ac => ac.Registration()).Ignore();
                 //configuration.For<AccountController>(ac => ac.Registration()).DenyAuthenticatedAccess();
-
                 configuration.For<AccountController>(ac => ac.About()).Ignore();
                 configuration.For<AccountController>(ac => ac.Login(string.Empty, string.Empty)).Ignore();
+
+                configuration.For<TenderController>(ac => ac.Create(0)).Ignore();
             });
 
             filters.Add(new HandleErrorAttribute());
@@ -40,12 +42,19 @@ namespace MyTend
             HttpCookie authCookie = context.Request.Cookies.Get(Constants._COOKIE_NAME);
             if (authCookie != null && !string.IsNullOrEmpty(authCookie.Value))
             {
-                var ticket = FormsAuthentication.Decrypt(authCookie.Value);
-                var exist = false;
+                try
+                {
+                    var ticket = FormsAuthentication.Decrypt(authCookie.Value);
+                    var exist = false;
 
-                exist = UserSystem.GetByProp("Login", ticket.Name) != null;
+                    exist = UserSystem.GetByProp("Login", ticket.Name) != null;
 
-                return exist;
+                    return exist;
+                }
+                catch
+                {
+                    return false;
+                }
             }
 
             return false;

@@ -64,5 +64,8 @@
         [Property(Length=1000)]
         [ValidateLength(1000)]
         public string Portfolio { get; set; }
+
+        [BelongsTo("Avatarid")]
+        public Image Avatar { get; set; }
     }
 }

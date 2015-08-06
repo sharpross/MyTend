@@ -4,12 +4,9 @@
     using Castle.Components.Validator;
     using System;
 
-    [ActiveRecord("UserMessages")]
-    public class TenderMessage : ActiveRecordBase<TenderMessage>
+    [ActiveRecord("TenderMessage")]
+    public class TenderMessage : BaseEntity<TenderMessage>
     {
-        [PrimaryKey(PrimaryKeyType.Native)]
-        public int Id { get; set; }
-
         [BelongsTo("TenderId")]
         [ValidateNonEmpty]
         public Tender Tender { get; set; }

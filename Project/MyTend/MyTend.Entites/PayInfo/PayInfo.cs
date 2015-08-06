@@ -5,11 +5,8 @@
     using System;
 
     [ActiveRecord("PayInfos")]
-    public class PayInfo : ActiveRecordBase<PayInfo>
+    public class PayInfo : BaseEntity<PayInfo>
     {
-        [PrimaryKey(PrimaryKeyType.Native)]
-        public int Id { get; set; }
-
         [BelongsTo("UserId")]
         public UserSystem User { get; set; }
 

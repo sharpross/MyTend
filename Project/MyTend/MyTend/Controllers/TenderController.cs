@@ -3,6 +3,7 @@
     using MyTend.Models;
     using MyTender.Core;
     using MyTender.Security;
+    using System;
     using System.Web.Mvc;
 
     public class TenderController : BaseController
@@ -24,7 +25,9 @@
         /// <returns></returns>
         public ActionResult List()
         {
-            return View();
+            var model = new ListTendersModel();
+
+            return View(model);
         }
 
         /// <summary>
@@ -47,6 +50,11 @@
         [ValidateInput(false)]
         public ActionResult Create(CreateTenderModel model)
         {
+            if (this.Auth.User == null)
+            {
+                return RedirectToAction("About", "Account");
+            }
+
             if (model.IsValid())
             {
                 model.Save();
@@ -87,6 +95,34 @@
             var model = new TenderDetailsModel(id);
 
             return View(model);
+        }
+
+        public ActionResult SelectWinner(int userId, int tenderId)
+        {
+            try
+            {
+                var model = new CloseTenderModel(userId, tenderId);
+                model.Close();
+            }
+            catch(Exception ex)
+            {
+                return JsonFailur(ex.Message);
+            }
+
+            return RedirectToAction("Details", new { @id = tenderId});
+        }
+
+        [HttpPost]
+        public ActionResult AddComment(TenderMessageModel model)
+        {
+            if (model.IsValid())
+            {
+                model.Save();
+
+                return JsonSuccess();
+            }
+
+            return JsonFailur(model);
         }
     }
 }

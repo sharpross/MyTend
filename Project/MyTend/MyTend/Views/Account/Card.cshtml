@@ -8,6 +8,10 @@
     <ul class="nav nav-tabs nav-justified">
         <li class="font_black active"><a href="#tab5-1" data-toggle="tab"><i class="icon-star"></i>Визитка</a></li>
         <li class="font_black z"><a href="#tab5-2" data-toggle="tab">Портфолио</a></li>
+        @if(Model.AboutFull.Length > 0)
+        {
+            <li class="font_black"><a href="#tab5-3" data-toggle="tab">О нас</a></li>
+        }
         <li class="font_black"><a href="#tab5-3" data-toggle="tab">О нас</a></li>
     </ul>
     <div class="tab-content">
@@ -17,11 +21,7 @@
                     <img alt="@Model.FullName" src="~/Image/Get?id=@Model.Id" width="300" height="300" class="img-thumbnail">
                     <div class="card-adding widget" style="padding-top: 10px;">
                         <ul class="categories">
-                            <li><a href="@Model.Site" target="_blank"><i class="fa fa-external-link"></i>Сайт</a></li>
-                            <li><a href="#" onclick="AddCutaway(@Model.Id)"><i class="fa fa-star"></i>Добавить в визитницу</a></li>
-                            <li><a href="#"><i class="fa fa-comments"></i>Отправить сообщение</a></li>
-                            <li><a href="#"><i class="fa fa-file-o"></i>На печать</a></li>
-                            <li><a href="#"><i class="fa fa-exclamation-triangle"></i> Пожалоаваться</a></li>
+                            <li><a href="#" onclick="AddFriend('@Model.Login')"><i class="fa fa-star"></i>Добавить в визитницу</a></li>
                         </ul>
                     </div>
                 </div>
@@ -113,6 +113,9 @@
                 </div>
             </div>
         </div>
-        
+        <div class="tab-pane active" id="tab5-3">
+            @Html.Raw(Model.AboutFull.Replace("\n", "</br>"));
+        </div>
     </div>
 </div>
+<script src="~/Scripts/app/addFriend.js"></script>

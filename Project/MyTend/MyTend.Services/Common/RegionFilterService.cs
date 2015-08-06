@@ -161,7 +161,9 @@
                 }
             }
 
-            return tenders;
+            return tenders
+                .Where(x => x.Winner == null)
+                .ToList();
         }
 
         /// <summary>

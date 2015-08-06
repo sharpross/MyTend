@@ -51,6 +51,10 @@
     <Reference Include="Castle.Core">
       <HintPath>..\packages\Castle.Core.2.5.1\lib\NET35\Castle.Core.dll</HintPath>
     </Reference>
+    <Reference Include="FluentScheduler, Version=3.1.45.0, Culture=neutral, PublicKeyToken=b76503528a14ebd1, processorArchitecture=MSIL">
+      <HintPath>..\packages\FluentScheduler.3.1.45\lib\net40\FluentScheduler.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="FluentSecurity">
       <HintPath>..\packages\FluentSecurity.2.1.0\lib\net40\FluentSecurity.dll</HintPath>
     </Reference>
@@ -143,6 +147,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\CardController.cs" />
     <Compile Include="Controllers\DocsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ImageController.cs" />
@@ -158,10 +163,17 @@
     <Compile Include="Models\Account\ProfileModel.cs" />
     <Compile Include="Models\Account\RegistrationModel.cs" />
     <Compile Include="Models\Account\SubRegionModel.cs" />
+    <Compile Include="Models\Account\SubThemesModel.cs" />
+    <Compile Include="Models\Card\FriendModel.cs" />
+    <Compile Include="Models\Card\ListCardModel.cs" />
+    <Compile Include="Models\Card\WriteMessageModel.cs" />
     <Compile Include="Models\CloseTenderTime.cs" />
     <Compile Include="Models\Home\SupportMessageModel.cs" />
     <Compile Include="Models\Home\TenderThemeModel.cs" />
+    <Compile Include="Models\Messages\TenderMessageModel.cs" />
+    <Compile Include="Models\Tender\CloseTenderModel.cs" />
     <Compile Include="Models\Tender\CreateTenderModel.cs" />
+    <Compile Include="Models\Tender\ListTendersModel.cs" />
     <Compile Include="Models\Tender\ListThemeTenderModel.cs" />
     <Compile Include="Models\Tender\MyTendersModel.cs" />
     <Compile Include="Models\Tender\TenderDetailsModel.cs" />
@@ -506,6 +518,8 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Scripts\app\addFriend.js" />
+    <Content Include="Scripts\app\addTenderMessage.js" />
     <Content Include="Scripts\app\common.js" />
     <Content Include="Scripts\app\login.js" />
     <Content Include="Scripts\app\redirect.js" />
@@ -601,6 +615,9 @@
     <Content Include="Views\Tender\Create.cshtml" />
     <Content Include="Views\Tender\My.cshtml" />
     <Content Include="Views\Tender\Details.cshtml" />
+    <Content Include="Views\Tender\List.cshtml" />
+    <Content Include="Views\Card\Index.cshtml" />
+    <Content Include="Views\Card\Write.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

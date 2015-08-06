@@ -20,9 +20,9 @@
 <div class="tabs">
     <ul class="nav nav-tabs nav-justified">
         <li class=""><a href="#tab5-1" data-toggle="tab">Профиль</a></li>
-        <li class=""><a href="#tab5-2" data-toggle="tab">Портфоли</a></li>
+        <!-- <li class=""><a href="#tab5-2" data-toggle="tab">Портфоли</a></li>-->
         <li class=""><a href="#tab5-3" data-toggle="tab">О нас</a></li>
-        <li class=""><a href="#tab5-4" data-toggle="tab">Категории тендеров</a></li>
+         <li class=""><a href="#tab5-4" data-toggle="tab">Категории тендеров</a></li>
         <li class=""><a href="#tab5-5" data-toggle="tab">Регионы и города</a></li>
     </ul>
 
@@ -139,6 +139,14 @@
                             </div>
                         </div>
                     </div>
+                    <div class="row">
+                        <div class="col-lg-10">
+                            <div class="form-group">
+                                <label for="Name">Facebook</label>
+                                <input type="url" class="form-control" name="Facebook" placeholder="Моя страничка в Facebook" value="@Model.Facebook">
+                            </div>
+                        </div>
+                    </div>
 
                     <div class="row">
                         <button type="button" class="btn btn-two" id="updateProfile">Сохранить</button>
@@ -165,7 +173,8 @@
                         Site: $('[name=Site]').val(),
                         Skype: $('[name=Skype]').val(),
                         VKontakte: $('[name=VKontakte]').val(),
-                        Instagram: $('[name=Instagram]').val()
+                        Instagram: $('[name=Instagram]').val(),
+                        Instagram: $('[name=Facebook]').val()
                     }
 
                     $.ajax({
@@ -227,8 +236,110 @@
 
         <!-- Тендеры -->
         <div class="tab-pane" id="tab5-4">
+            <div class="SubTender">
+                @foreach (var theme in Model.TenderThemes)
+                {
+                    <div style="font-weight: bold; padding-top:20px">
+                        @theme.Key
+                    </div>
+                    <table>
+                        <tr>
+                            <th width="420">
 
+                            </th>
+                            <th></th>
+                        </tr>
+                        @foreach (var title in theme.Value)
+                        {
+                            <tr>
+                                <td>
+                                    @title.Title
+                                </td>
+                                <td>
+                                    <input type="checkbox" name="@title.Id" id="@title.Id" class="subCheck" />
+                                </td>
+                            </tr>
+                        }
+                    </table>
+                }
+                <div class="row">
+                    <div class="col-lg-12">
+                        <button type="button" onclick="UpdateSubsciptions()">Подписаться</button>
+                    </div>
+                </div>
+            </div>
         </div>
+        <script>
+            $(document).ready(function () {
+                var max = 3;
+
+                $('input.subCheck').on('click', function (el) {
+                    var selected = $('input.subCheck');
+
+                    var sel = 0;
+
+                    for (var i = 0; i < selected.length; i++) {
+                        if (el.target != selected[i]) {
+                            if (selected[i].checked == true) {
+                                sel++;
+                            }
+
+                            if (sel == max) {
+                                break;
+                            }
+                        }
+                    }
+
+                    if (sel == max) {
+                        el.target.checked = false;
+                    }
+                });
+            });
+
+            function UpdateSubsciptions() {
+                var subs = [];
+
+                var selected = $('input.subCheck');
+
+                for (var i = 0; i < selected.length; i++) {
+                    if (selected[i].checked == true) {
+                        subs.push(selected[i].id);
+                    }
+                }
+
+                $.ajax({
+                    url: '/Account/UpdateSubThemes',
+                    data: {
+                        ListThemes: subs
+                    },
+                    type: 'POST',
+                    success: function (resp) {
+
+                    }
+                });
+            }
+
+            function setChecked(data){
+                for(var i = 0; i <= data.length; i++){
+                    var selected = $('input.subCheck[id='+data[i]+']');
+
+                    if(selected){
+                        selected.attr('checked', true);
+                    }
+                }
+            }
+
+            $(document).ready(function() {
+                $.ajax({
+                    url: '/Account/GetSubThemes',
+                    type: 'POST',
+                    //contentType: 'application/json; charset=utf-8',
+                    success: function (resp) {
+                        setChecked(resp.Data);
+                    }
+                });
+            });
+        </script>
 
         <!-- Города -->
         <div class="tab-pane" id="tab5-5">

@@ -32,13 +32,16 @@
             if (this.Auth.User != null)
             {
                 var regionFilter = new RegionFilterService(this.Auth.User);
+                var themesFilter = new TenderFilterService(this.Auth.User);
+                var payService = new PayService(this.Auth.User);
 
                 this.ViewBag.IsAuth = true;
                 this.ViewBag.UserLogin = this.Auth.User.Login;
                 this.ViewBag.UserEmail = this.Auth.User.Email;
                 this.ViewBag.UserName = this.Auth.User.FullName;
                 this.ViewBag.IsSubRegions = regionFilter.HasSubs();
-                this.ViewBag.IsSubTenders = false;
+                this.ViewBag.IsSubTenders = themesFilter.HasSubs();
+                this.ViewBag.HasPay = payService.HasPay();
             }
 
             base.OnActionExecuting(filterContext);

@@ -86,6 +86,7 @@
     <Compile Include="TenderCategories\TenderCategories.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="TenderFilter\TenderFilter.cs" />
     <Compile Include="TenderMessage\TenderMessage.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -102,9 +103,7 @@
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="TenderFilter\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>

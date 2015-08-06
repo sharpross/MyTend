@@ -4,11 +4,8 @@
     using Castle.Components.Validator;
 
     [ActiveRecord("Images")]
-    public class Image : ActiveRecordBase<Image>
+    public class Image : BaseEntity<Image>
     {
-        [PrimaryKey(PrimaryKeyType.Native)]
-        public int Id { get; set; }
-
         [Property]
         [ValidateNonEmpty]
         public string Name { get; set; }

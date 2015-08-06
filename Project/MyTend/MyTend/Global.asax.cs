@@ -1,5 +1,7 @@
-﻿using MyTend.Data;
+﻿using FluentScheduler;
+using MyTend.Data;
 using MyTend.Entites;
+using MyTend.Scheduler.CloseTender;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,6 +22,11 @@ namespace MyTend
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
             this.InitData();
+        }
+
+        private void InitScheduller()
+        {
+            TaskManager.Initialize(new CloseTender()); 
         }
 
         private void InitData()

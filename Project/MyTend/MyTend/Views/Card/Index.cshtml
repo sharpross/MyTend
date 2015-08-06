@@ -1,0 +1,45 @@
+﻿@model MyTend.Models.ListContactModel
+
+@{
+    ViewBag.Title = "Визитница";
+}
+
+<h2>Визитница</h2>
+
+<table class="table">
+    <tr>
+        <th width="110">
+
+        </th>
+        <th>
+            Коротко о себе
+        </th>
+        <th width="100"></th>
+    </tr>
+
+    @foreach (var item in Model.Users)
+    {
+        <tr>
+            <td style="text-align: center;">
+                @if (item.Avatar == null)
+                {
+                    <img src="/Image/Get?id=0" width="100" />
+                }
+                else
+                {
+                    <img src="/Image/Get?id=@item.Avatar.Id" width="100" />
+                }
+                <p>
+                    @Html.ActionLink(item.FullName, "Card", "Account", new { @user = item.Login }, null)
+                </p>
+            </td>
+            <td style="vertical-align: top;">
+                @Html.ActionLink(item.AboutShort, "Card", "Account", new { @user = item.Email }, null)
+            </td>
+            <td>
+                @Html.ActionLink("Написать", "Write", "Card", new { @toUser = item.Login }, new { @class = "btn btn-two" })
+            </td>
+        </tr>
+    }
+
+</table>

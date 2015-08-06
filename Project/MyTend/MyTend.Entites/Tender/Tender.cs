@@ -11,6 +11,9 @@
         [ValidateNonEmpty("Не известный пользователь")]
         public UserSystem User { get; set; }
 
+        [BelongsTo("WinerId")]
+        public UserSystem Winner { get; set; }
+
         [ValidateNonEmpty("Укажите регоион")]
         [BelongsTo("RegionId")]
         public Region Region { get; set; }
@@ -43,5 +46,18 @@
         [ValidateNonEmpty("Укажите дату окончания тендера")]
         [Property]
         public DateTime DateEnd { get; set; }
+
+        [Property]
+        public bool IsActive { get; set; }
+
+        public void SetWinner(UserSystem user)
+        {
+            this.Winner = user;
+        }
+
+        public Tender()
+        {
+            this.IsActive = true;
+        }
     }
 }

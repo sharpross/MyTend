@@ -69,8 +69,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common\PayService.cs" />
     <Compile Include="Common\RegionFilterService.cs" />
     <Compile Include="Common\SubmiteService.cs" />
+    <Compile Include="Common\TenderFilterService.cs" />
     <Compile Include="IMigration.cs" />
     <Compile Include="Migrations\Regions\RegionMigration.cs" />
     <Compile Include="Migrations\Tender\TenderThemesMigration.cs" />
