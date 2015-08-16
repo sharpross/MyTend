@@ -3,9 +3,11 @@
     using MyTend.Entites;
     using MyTend.Services;
     using MyTend.Services.Common;
+    using MyTend.Services.File;
     using System;
     using System.Collections.Generic;
     using System.Linq;
+    using System.Web;
 
     public class ProfileModel : UserSystem
     {
@@ -17,6 +19,8 @@
 
         public List<string> SubCitys { get; set; }
 
+        public HttpPostedFileBase[] AvatarFile { get; set; }
+
         public List<Country> ListCountrys { get; set; }
 
         public ProfileModel()
@@ -26,6 +30,7 @@
 
         public ProfileModel(UserSystem user)
         {
+            this.Avatar = user.Avatar;
             this.AboutFull = user.AboutFull;
             this.AboutShort = user.AboutShort;
             this.City = user.City;
@@ -113,6 +118,12 @@
                 
                 if (user.IsValid())
                 {
+                    if (this.AvatarFile != null)
+                    {
+                        var newAvatar = this.UpdateAvatar(user);
+                        user.Avatar = newAvatar;
+                    }
+
                     user.Update();
 
                     return true;
@@ -128,28 +139,37 @@
             return false;
         }
 
-        public void UpdatePortfolio(string portfolio)
+        public void UpdateAbout(string portfolio)
         {
             var user = UserSystem.GetById(this.Id);
 
-            user.Portfolio = portfolio;
+            if (user != null)
+            {
+                user.Portfolio = portfolio;
 
-            user.Update();
+                user.Update();
+            }
         }
 
-        public void UpdateAvatar()
+        public FileSystem UpdateAvatar(UserSystem user)
         {
-            
+            FileSystem file = null;
+
+            var service = new FileControllerService();
+
+            file = service.UpdateAvatar(this.AvatarFile, user);
+
+            return file;
         }
 
         public void UpdateSubTenders()
         {
-            
+            throw new NotImplementedException();
         }
 
         public void UpdateSubRegions()
         {
-
+            throw new NotImplementedException();
         }
     }
 

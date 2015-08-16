@@ -6,13 +6,25 @@
 
     public class ListThemeTenderModel
     {
-        public TenderTheme[] Themes { get; set; }
+        public List<TenderTheme> Themes { get; set; }
 
         public ListThemeTenderModel()
         {
-            this.Themes = TenderTheme.FindAll()
-                .Where(x => x.IsTitle == true)
-                .ToArray();
+            this.Themes = new List<TenderTheme>();
+
+            var themes = TenderTheme.FindAll()
+                .GroupBy(x => x.Theme)
+                .ToList();
+
+            foreach (var aa in themes)
+            {
+                var exist = this.Themes.Any(x => x.Theme == aa.Key);
+
+                if(!exist)
+                {
+                    this.Themes.Add(aa.FirstOrDefault());
+                }
+            }
         }
     }
 }

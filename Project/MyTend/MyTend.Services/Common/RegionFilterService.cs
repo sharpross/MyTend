@@ -144,6 +144,23 @@
 
             tenders.AddRange(tendersByRegions);
 
+            foreach(var tender in tendersByCitys)
+            {
+                var exist = tenders
+                    .FirstOrDefault(x => x.Id == tender.Id);
+
+                if (exist == null)
+                {
+                    tenders.Add(tender);
+                }
+            }
+
+            /*var tendersByRegions = this.GetTenderByRegions();
+            var tendersByCitys = this.GetTenderByCitys();
+
+            tenders.AddRange(tendersByRegions);
+            tenders.AddRange(tendersByCitys);
+
             var citys = this.GetCitys();
             var regions = this.GetRegions();
 
@@ -159,7 +176,7 @@
 
                     tenders.AddRange(tendersCity);
                 }
-            }
+            }*/
 
             return tenders
                 .Where(x => x.Winner == null)
@@ -179,7 +196,8 @@
             foreach (var region in regions)
             {
                 var tendersByRegion = Tender.FindAll()
-                    .Where(x => x.Region.Id == region.Id);
+                    .Where(x => x.Region.Id == region.Id)
+                    .Where(x => x.Winner == null);
 
                 tenders.AddRange(tendersByRegion);
             }
@@ -200,7 +218,8 @@
             foreach (var city in citys)
             {
                 var tendersByRegion = Tender.FindAll()
-                    .Where(x => x.City.Id == city.Id);
+                    .Where(x => x.City.Id == city.Id)
+                    .Where(x => x.Winner == null);
 
                 tenders.AddRange(tendersByRegion);
             }

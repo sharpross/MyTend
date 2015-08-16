@@ -11,11 +11,15 @@
 <div class="row">
     <div class="col-md-12" style="font-size: 12px;">
         <p>
-            <span style="font-weight: bold;">Тема:</span><br />
+            <span style="font-weight: bold;">Заказчик/покупатель:</span><br />
+            @Model.User.FullName
+        </p>
+        <p>
+            <span style="font-weight: bold;">Тема заявки:</span><br />
             @Model.Theme.Theme
         </p>
         <p>
-            <span style="font-weight: bold;">Категория:</span><br />
+            <span style="font-weight: bold;">Категория заявки:</span><br />
             @Model.Theme.Title
         </p>
         <p>
@@ -23,11 +27,11 @@
             @Model.Region.Name / @Model.City.Name
         </p>
         <p>
-            <span style="font-weight: bold;">Заголовок:</span><br />
+            <span style="font-weight: bold;">Название торгов:</span><br />
             @Model.Title
         </p>
         <p>
-            <span style="font-weight: bold;">Сообщение:</span><br />
+            <span style="font-weight: bold;">Текст заявки:</span><br />
             @Html.Raw(Model.Message)
         </p>
         <p>
@@ -51,15 +55,54 @@
     </div>
 }
 
+@if (Model.IsActive == false)
+{
+    if (Model.Winner != null)
+    {
+        <div style="color: red; text-align: center">
+            Тендер закрыт! Победитель: <strong>@Html.ActionLink(Model.Winner.FullName, "Card", "Account", new { @user = Model.Winner.Login }, new { @style = "color: red" })</strong>
+        </div>
+        <div style="color: red; text-align: center;">
+            Тендер перенесён в @Html.ActionLink("Закрытые торги", "Closed")
+        </div>
+    }
+    else
+    {
+        <div style="color: red; text-align: center">
+            Тендер закрыт! Время публикации тендера истекло, победитель не выбран.
+        </div>
+        <div style="color: red; text-align: center;">
+            Тендер перенесён в меню @Html.ActionLink("Закрытые торги", "Closed")
+        </div>
+    }
+}
+
 <div style="padding-top: 15px;"></div>
 
 @if (Model.Messages != null)
 {
     <div style="padding-top: 15px;"></div>
-    <div class="row" style="border: 1px; border-color: #D8D8D8; border-style: solid;">
+    <div class="row" style="border: 0px solid #d8dfe6; border-style: solid;">
         <div class="col-md-12" style="text-align: center; font-weight: bold;">
-            Предложения
+            Вам предлагают:
         </div>
+        @if (Model.User.Login == ViewBag.UserLogin)
+        {
+            <div class="col-md-12" style="text-align: left;">
+                Внимательно ознакомьтесь с предложениями продавцов услуг по вашей заявке по мере их поступления.<p>
+                Вы можете  общаться с продавцами в общем чате (видно всем) либо писать личные сообщения.
+                Продавец который сделает для Вас самое выгодное предложение -станет победителем торга (нажмите кнопку "Выбрать победителем") После этого тендер закроется и перейдет в меню закрытые торги.   
+            </div>
+
+        }
+        else
+        {
+            <div class="col-md-12" style="text-align: left;">
+                1Внимательно ознакомьтесь с предложениями продавцов услуг по вашей заявке по мере их поступления.<p>
+                Вы можете  общаться с продавцами в общем чате (видно всем) либо писать личные сообщения.
+                Продавец который сделает для Вас самое выгодное предложение -станет победителем торга (нажмите кнопку "Выбрать победителем") После этого тендер закроется и перейдет в меню закрытые торги.
+            </div>
+        }
     </div>
     if(Model.Messages.Count == 0)
     {
@@ -72,26 +115,38 @@
     <br />
     foreach (var message in Model.Messages)
     {
-        <div class="row" style="border: 1px; border-color: #F3F1F1; border-style: solid;">
+        <div class="row" style="border: 2px solid #d8dfe6; border-style: solid;">
             <div class="col-md-3">
                 <div style="width: 100%; text-align: center;">
-                    <p><img src='/Image/Get?id=@message.User.Id' style="width: 150px; height: 150px;  padding-top: 5px;" /></p>
+                    @if (message.User.Avatar != null)
+                    {
+                        <p><img src='/Image/Get?id=@message.User.Avatar.Id' style="width: 150px; height: 150px;  padding-top: 5px;" /></p>
+                    }
+                    else
+                    {
+                        <p><img src='/Image/Get?id=0' style="width: 150px; height: 150px;  padding-top: 5px;" /></p>
+                    }
+                    
                     <p><div style="color: blue; width:100%; text-align: center; font-size: 12px;"><strong>@Html.ActionLink(message.User.FullName, "Card", "Account", new { @user = message.User.Login }, null)</strong></div></p>
-                    <p></p>
+                    <p>г. @message.User.City.Name</p>
                 </div>
             </div>
             <div class="col-md-9">
                 <div style="padding-top: 5px;">
                     <p>@Html.Raw(message.Message)</p>
-                    <p>
-
-                    </p>
+                    <div style="color:gray">
+                        (@message.Date.ToString("dd.MM.yyyy hh:mm:ss"))
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="row" style="border: 1px solid #F3F1F1; border-top: 0px;">
-            <div class="col-md-12">
+        <div class="row" style="border: 2px solid #d8dfe6; border-top: 0px; background-color: #d8dfe6; font-weight: bold;">
+            <div class="col-md-12" style="text-align: right">
                 
+                <span style="padding-left: 20px;">
+                    @Html.ActionLink("Написать сообщение", "Write", "Card", new { @toUser = message.User.Login }, null) 
+                </span>
+
                 @if (message.User.Login != ViewBag.UserLogin)
                 {
                     <span style="padding-left: 20px;">
@@ -110,7 +165,7 @@
                     {
                         if (message.User.Id == Model.Winner.Id)
                         {
-                            @Html.ActionLink("Победитель!", "Card", "Account", new { @user = message.User.Login }, new { @style = "color: red" })
+                            @Html.ActionLink("Победитель торга", "Card", "Account", new { @user = message.User.Login }, new { @style = "color: red" })
                         } 
                     }
                 </span>
@@ -138,7 +193,7 @@
 
             <div class="form-group">
                 <div class="" style="text-align: center;">
-                    <button type="button" class="btn btn-two" onclick="addTenderMessage()">Добавить</button>
+                    <button type="button" class="btn btn-two" onclick="addTenderMessage()">Добавить предложение / сообщение</button>
                 </div>
             </div>
         }

@@ -3,8 +3,8 @@
     using Castle.ActiveRecord;
     using Castle.Components.Validator;
 
-    [ActiveRecord("Images")]
-    public class Image : BaseEntity<Image>
+    [ActiveRecord("Files")]
+    public class FileSystem : BaseEntity<FileSystem>
     {
         [Property]
         [ValidateNonEmpty]

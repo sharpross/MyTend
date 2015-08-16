@@ -1,0 +1,60 @@
+﻿@model MyTend.Models.ActiveTenderListModel
+
+@{
+    ViewBag.Title = "Закрытые торги";
+}
+
+<table class="table table-striped">
+    <tr>
+        <th>
+            Название торгов
+        </th>
+
+        <th style="text-align: center">
+            Тема/категория
+        </th>
+
+        <th style="text-align: center">
+            Регион/Город исполнения заявки
+        </th>
+
+        <th style="text-align: center">
+            Победитель
+        </th>
+    </tr>
+
+    @if (Model.CloseTenders.Count == 0)
+    {
+        <tr>
+            <td colspan="4" style="text-align: center;">
+                нет активных торгов
+            </td>
+        </tr>
+    }
+
+    @foreach (var item in Model.CloseTenders)
+    {
+        <tr>
+            <td width="100">
+                @Html.ActionLink(item.Title, "Details", "Tender", new { id = item.Id }, null)
+            </td>
+            <td width="100" style="text-align: center">
+                @Html.ActionLink(item.Theme.Theme + ": " + item.Theme.Title, "Details", "Tender", new { id = item.Id }, null)
+            </td>
+            <td width="100" style="text-align: center">
+                @Html.ActionLink(item.City.Name, "Details", "Tender", new { id = item.Id }, null)
+            </td>
+            <td width="70" style="text-align: center">
+                @if (item.Winner == null)
+                {
+                    <div>Победитель не выбран</div>
+                }
+                else
+                {
+                    @Html.ActionLink(item.Winner.FullName, "Details", "Tender", new { id = item.Id }, null)
+                }
+            </td>
+        </tr>
+    }
+
+</table>

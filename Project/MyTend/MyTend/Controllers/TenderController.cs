@@ -71,7 +71,20 @@
         /// <returns></returns>
         public ActionResult Active()
         {
-            return View();
+            var model = new ActiveTenderListModel();
+
+            return View(model);
+        }
+
+        /// <summary>
+        /// Активные тендеры
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult Closed()
+        {
+            var model = new ActiveTenderListModel();
+
+            return View(model);
         }
 
         /// <summary>

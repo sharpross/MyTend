@@ -66,6 +66,6 @@
         public string Portfolio { get; set; }
 
         [BelongsTo("Avatarid")]
-        public Image Avatar { get; set; }
+        public FileSystem Avatar { get; set; }
     }
 }

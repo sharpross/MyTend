@@ -3,6 +3,7 @@
     using Castle.ActiveRecord;
     using Castle.Components.Validator;
     using System;
+using System.Collections.Generic;
 
     [ActiveRecord("Tenders")]
     public class Tender : BaseEntity<Tender>
@@ -22,37 +23,63 @@
         [BelongsTo("CityId")]
         public City City { get; set; }
 
+        /// <summary>
+        /// Тема тендера
+        /// </summary>
         [ValidateNonEmpty("Укажите тему тендера")]
         [BelongsTo("ThemeId")]
         public TenderTheme Theme { get; set; }
 
+        /// <summary>
+        /// Открытый или закрытый тендер (не используется)
+        /// </summary>
         [Property]
         public bool IsOpen { get; set; }
 
+        /// <summary>
+        /// Разрешить писать мне (не используется!!!)
+        /// </summary>
         [Property]
         public bool AllowWriteMe { get; set; }
 
+        /// <summary>
+        /// Приблизительная стоимость
+        /// </summary>
         [Property]
         public decimal Cost { get; set; }
 
+        /// <summary>
+        /// Заголовок тендера
+        /// </summary>
         [ValidateNonEmpty("Укажите заголовок тендера")]
         [Property]
         public string Title { get; set; }
 
+        /// <summary>
+        /// Сообщение тендера
+        /// </summary>
         [ValidateNonEmpty("Укажите сообщение тендера")]
         [Property]
         public string Message { get; set; }
 
+        /// <summary>
+        /// Дата окончания тендера
+        /// </summary>
         [ValidateNonEmpty("Укажите дату окончания тендера")]
         [Property]
         public DateTime DateEnd { get; set; }
 
+        /// <summary>
+        /// Тендер активен/закрыт
+        /// </summary>
         [Property]
         public bool IsActive { get; set; }
 
         public void SetWinner(UserSystem user)
         {
             this.Winner = user;
+            this.IsActive = false;
+            this.Update();
         }
 
         public Tender()

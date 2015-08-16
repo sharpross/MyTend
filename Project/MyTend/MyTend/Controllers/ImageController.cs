@@ -1,6 +1,7 @@
 ﻿namespace MyTend.Controllers
 {
     using MyTend.Entites;
+    using MyTend.Services.File;
     using MyTender.Core;
     using MyTender.Security;
     using System.IO;
@@ -15,7 +16,9 @@
             {
                 if (id.HasValue)
                 {
-                    var obj = Image.Find(id.Value);
+                    var service = new FileService();
+
+                    var obj = service.Get(id.Value);//File.Find(id.Value);
 
                     if (obj != null)
                     {

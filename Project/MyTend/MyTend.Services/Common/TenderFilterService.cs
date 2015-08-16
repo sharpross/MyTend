@@ -28,7 +28,7 @@
             foreach (var filter in filtres)
             {
                 var aa = tenders
-                    .Where(x => x.Theme.Id == filter.Id)
+                    .Where(x => x.Theme.Id == filter.Theme.Id)
                     .ToList();
 
                 result.AddRange(aa);

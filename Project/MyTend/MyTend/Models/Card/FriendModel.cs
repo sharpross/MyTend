@@ -52,7 +52,7 @@ namespace MyTend.Models
             {
                 this.Errors = contact.Errors;
 
-                return true;
+                return false;
             }
 
             if (!this.AdditionalValidation(contact))
@@ -75,7 +75,7 @@ namespace MyTend.Models
             {
                 this.Errors.Add(string.Format("Пользователь {0} уже у вас в контактах.", contact.Friend.Login));
 
-                return true;
+                return false;
             }
 
             var self = Contact
@@ -87,7 +87,7 @@ namespace MyTend.Models
             {
                 this.Errors.Add("Недопустимая операция.");
 
-                return true;
+                return false;
             }
 
             return true;

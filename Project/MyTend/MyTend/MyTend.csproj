@@ -159,6 +159,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Tender\ActiveTenderListModel.cs" />
     <Compile Include="Models\Account\CardModel.cs" />
     <Compile Include="Models\Account\ProfileModel.cs" />
     <Compile Include="Models\Account\RegistrationModel.cs" />
@@ -618,6 +619,12 @@
     <Content Include="Views\Tender\List.cshtml" />
     <Content Include="Views\Card\Index.cshtml" />
     <Content Include="Views\Card\Write.cshtml" />
+    <Content Include="Views\Tender\Active.cshtml" />
+    <Content Include="Views\Tender\Closed.cshtml" />
+    <Content Include="Views\Docs\Instruction.cshtml" />
+    <Content Include="Views\Docs\Rules.cshtml" />
+    <Content Include="Views\Docs\Termins.cshtml" />
+    <Content Include="Views\Docs\AboutProfile.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

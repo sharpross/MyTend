@@ -25,7 +25,8 @@ namespace MyTend.Models
             this.RegionFilter = new RegionFilterService(Auth.User);
             this.TendersFilter = new TenderFilterService(Auth.User);
 
-            var tenders = this.TendersFilter.GetByListTenders(this.RegionFilter.GetTenders());
+            var regionFiltered = this.RegionFilter.GetTenders();
+            var tenders = this.TendersFilter.GetByListTenders(regionFiltered);
 
             this.Tenders = tenders;
         }

@@ -2,11 +2,13 @@
 {
     using MyTend.Entites;
     using MyTend.Services;
+    using MyTend.Services.File;
     using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
+    using System.Web;
 
     public class RegistrationModel : UserSystem
     {
@@ -17,6 +19,8 @@
         public CloseTenderTimeEnum ClosePeriod { get; set; }
 
         public List<Country> ListCountrys { get; set; }
+
+        public HttpPostedFileBase[] Files { get; set; }
 
         public RegistrationModel() : base()
         {
@@ -40,12 +44,28 @@
             {
                 obj.Create();
 
+                var avar = this.UpdateAvatar(obj);
+
+                obj.Avatar = avar;
+                obj.Update();
+
                 return true;
             }
 
             this.Errors = obj.Errors;
 
             return false;
+        }
+
+        public FileSystem UpdateAvatar(UserSystem user)
+        {
+            FileSystem file = null;
+
+            var service = new FileControllerService();
+
+            file = service.UpdateAvatar(this.Files, user);
+
+            return file;
         }
     }
 }

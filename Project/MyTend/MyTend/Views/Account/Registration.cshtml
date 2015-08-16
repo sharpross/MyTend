@@ -5,7 +5,7 @@
 }
 
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm(Html.BeginForm("Registration", "Account", FormMethod.Post, new { enctype = "multipart/form-data" }))) 
 {
     @Html.AntiForgeryToken()
     
@@ -29,10 +29,10 @@
                 
                 <div class="row">
                     <div class="col-md-4" style="text-align: center;">
-                        <form id="avatar">
-                            <img src="/Image/Get?id=0" width="300" height="300" class="img-thumbnail" id="avatar">
-                            <input type="file" accept="image/*" name="avatar" style="padding-top: 10px; padding-bottom: 10px;" />
-                        </form>
+                        
+                        <img src="/Image/Get?id=0" width="300" height="300" class="img-thumbnail" id="avatar">
+                        <input type="file" accept="image/*" name="Files" style="padding-top: 10px; padding-bottom: 10px;" />
+                        
                     </div>
                     <div class="col-md-8">
                         <div class="row">

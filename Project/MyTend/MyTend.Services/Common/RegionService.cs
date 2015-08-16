@@ -14,11 +14,11 @@ namespace MyTend.Services
             var result = new List<Country>();
 
             var all = Country.FindAll();
-            var rus = all.Where(x => x.Name == "Россия").FirstOrDefault();
-            var any = all.Where(x => x.Id != rus.Id)
+            var rus = all.Where(x => x.Name == "Россия");
+            var any = all.Where(x => x.Id != rus.FirstOrDefault().Id)
                 .OrderBy(x => x.Name);
 
-            result.Add(rus);
+            result.AddRange(rus);
             result.AddRange(any);
 
             return result;
@@ -58,9 +58,11 @@ namespace MyTend.Services
 
             try
             {
-                var all = Region.Find(id);
+                var all = Region
+                    .FindAll()
+                    .Where(x => x.Country.Id == id);
 
-                result.Add(all);
+                result.AddRange(all);
             }
             catch
             { 

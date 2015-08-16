@@ -19,6 +19,11 @@
 
         public ActionResult About()
         {
+            if (this.Auth.User != null)
+            {
+                return RedirectToAction("Profile");
+            }
+
             return View();
         }
 
@@ -52,6 +57,7 @@
         {
             if (model != null)
             {
+                ///todo: ошибка
                 model.UpdateProfile();
             }
 
@@ -89,7 +95,7 @@
         {
             var model = new ProfileModel(this.Auth.User);
 
-            model.UpdatePortfolio(portfolio);
+            model.UpdateAbout(portfolio);
 
             return JsonSuccess();
         }
@@ -97,6 +103,11 @@
         [HttpGet]
         public ActionResult Registration()
         {
+            if (this.Auth.User != null)
+            {
+                return RedirectToAction("Profile");
+            }
+
             var model = new RegistrationModel();
 
             return View(model);
@@ -110,6 +121,11 @@
                 this.Auth.Login(model.Login, model.Password);
 
                 RedirectToAction("Index", "Home");
+            }
+
+            if (model.Errors.Count > 0) 
+            {
+                return View(model);
             }
 
             return RedirectToAction("Profile");

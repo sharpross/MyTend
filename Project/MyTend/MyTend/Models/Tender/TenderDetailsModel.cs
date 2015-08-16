@@ -1,4 +1,5 @@
 ﻿using MyTend.Entites;
+using MyTend.Services.File;
 using MyTender.Security;
 using System;
 using System.Collections.Generic;
@@ -15,6 +16,20 @@ namespace MyTend.Models
         public AuthService Auth { get; set; }
 
         public List<int> Images { get; set; }
+
+        public List<FileSystem> Files 
+        {
+            get
+            {
+                var files = new List<FileSystem>();
+
+                var fileService = new FileService();
+
+                //fileService.Get(this.)
+
+                return files;
+            }
+        }
 
         public TenderDetailsModel(int id)
         {

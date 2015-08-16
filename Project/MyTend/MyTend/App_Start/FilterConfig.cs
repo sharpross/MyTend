@@ -30,6 +30,7 @@ namespace MyTend
                 configuration.For<AccountController>(ac => ac.About()).Ignore();
                 configuration.For<AccountController>(ac => ac.Login(string.Empty, string.Empty)).Ignore();
 
+                configuration.For<TenderController>(ac => ac.Index()).Ignore();
                 configuration.For<TenderController>(ac => ac.Create(0)).Ignore();
             });
 

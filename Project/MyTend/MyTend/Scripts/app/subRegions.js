@@ -130,11 +130,11 @@ function SaveSubCitys()
 
 
     for (var i = 0; i < listCitys.length; i++) {
-        citys.push(listCitys[i].id);
+        citys.push(listCitys[i].id.toString().replace(/_/g, ' '));
     }
 
     for (var i = 0; i < listRegions.length; i++) {
-        regions.push(listRegions[i].id);
+        regions.push(listRegions[i].id.toString().replace(/_/g, ' '));
     }
 
     $.ajax({

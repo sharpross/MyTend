@@ -24,6 +24,7 @@ namespace MyTend.Models
                 throw new Exception("Пользователь не найден");
             }
 
+            this.Avatar = user.Avatar;
             this.AboutFull = user.AboutFull;
             this.AboutShort = user.AboutShort;
             this.City = user.City;
