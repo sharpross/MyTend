@@ -1,5 +1,6 @@
 ﻿namespace MyTender.Security
 {
+    using MyTend.Services;
     using MyTend.Services.Common;
     using System.Web.Mvc;
 
@@ -34,6 +35,11 @@
                 var regionFilter = new RegionFilterService(this.Auth.User);
                 var themesFilter = new TenderFilterService(this.Auth.User);
                 var payService = new PayService(this.Auth.User);
+                var tenderService = new TenderService(this.Auth.User);
+                var messageService = new UserMessagesService(this.Auth.User);
+
+                this.ViewBag.ActiveTendersCount = tenderService.GetCountTenders();
+                this.ViewBag.UnreadedMessages = messageService.CountUnread();
 
                 this.ViewBag.IsAuth = true;
                 this.ViewBag.UserLogin = this.Auth.User.Login;

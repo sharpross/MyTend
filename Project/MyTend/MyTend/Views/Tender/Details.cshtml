@@ -18,7 +18,7 @@
             <span style="font-weight: bold;">Тема заявки:</span><br />
             @Model.Theme.Theme
         </p>
-        <p>
+        <p style="word-wrap: break-word;">
             <span style="font-weight: bold;">Категория заявки:</span><br />
             @Model.Theme.Title
         </p>
@@ -30,7 +30,7 @@
             <span style="font-weight: bold;">Название торгов:</span><br />
             @Model.Title
         </p>
-        <p>
+        <p style="word-wrap: break-word;">
             <span style="font-weight: bold;">Текст заявки:</span><br />
             @Html.Raw(Model.Message)
         </p>
@@ -133,7 +133,9 @@
             </div>
             <div class="col-md-9">
                 <div style="padding-top: 5px;">
-                    <p>@Html.Raw(message.Message)</p>
+                    <div style="word-wrap: break-word;">
+                        @message.Message
+                    </div>
                     <div style="color:gray">
                         (@message.Date.ToString("dd.MM.yyyy hh:mm:ss"))
                     </div>

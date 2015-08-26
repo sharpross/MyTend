@@ -1,5 +1,6 @@
 ﻿namespace MyTend.Controllers
 {
+    using MyTend.Models;
     using MyTender.Core;
     using MyTender.Security;
     using System.Web.Mvc;
@@ -9,7 +10,10 @@
         // GET: Message
         public ActionResult Index()
         {
-            return View();
+            var model = new UserMessageModel(this.Auth.User);
+            model.Load();
+
+            return View(model);
         }
 
         [HttpGet]

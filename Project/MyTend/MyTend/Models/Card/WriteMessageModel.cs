@@ -53,6 +53,15 @@ namespace MyTend.Models
                 .OrderBy(x => x.Date)
                 .ToList();
 
+            foreach (var messgae in msgs)
+            {
+                if (messgae.From.Id != this.Auth.User.Id)
+                {
+                    messgae.IsRead = true;
+                    messgae.Update();
+                }
+            }
+
             return msgs;
         }
 

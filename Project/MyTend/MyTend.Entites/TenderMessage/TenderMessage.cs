@@ -19,7 +19,7 @@
         [ValidateNonEmpty]
         public UserSystem User { get; set; }
 
-        [Property]
+        [Property(Length=1000)]
         [ValidateNonEmpty]
         public string Message { get; set; }
     }

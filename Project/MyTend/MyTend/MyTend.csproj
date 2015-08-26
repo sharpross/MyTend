@@ -159,6 +159,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Messages\UserMessagesListModel.cs" />
+    <Compile Include="Models\Messages\UserMessageModel.cs" />
     <Compile Include="Models\Tender\ActiveTenderListModel.cs" />
     <Compile Include="Models\Account\CardModel.cs" />
     <Compile Include="Models\Account\ProfileModel.cs" />
@@ -625,12 +627,12 @@
     <Content Include="Views\Docs\Rules.cshtml" />
     <Content Include="Views\Docs\Termins.cshtml" />
     <Content Include="Views\Docs\AboutProfile.cshtml" />
+    <Content Include="Views\Message\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\Admin\" />
     <Folder Include="Views\Image\" />
-    <Folder Include="Views\Message\" />
     <Folder Include="Views\Migrations\" />
     <Folder Include="Views\Region\" />
   </ItemGroup>

@@ -29,7 +29,7 @@
                         <p style="font-weight: bold"> 
                             @Html.ActionLink(msg.From.FullName, "Card", "Account", new { @user = msg.From.Login }, null):
                         </p>
-                        <p>
+                        <p style="word-wrap: break-word;">
                             @Html.Raw(msg.Message.Replace("\n", "</br>"))
                         </p>
                         <div style="color: rgb(23, 118, 140); font-weight: bold; width: 100%; text-align: right">

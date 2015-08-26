@@ -7,9 +7,27 @@
             @Html.ActionLink("Моя визитка", "Card", "Account", new { user = ViewBag.UserLogin }, new { @style = "color: #245071" })
             @Html.ActionLink(" ред.", "Profile", "Account", null, new { @style = "color: gray; font-size: 10px;" })
         </p>
-        <p>@Html.ActionLink("Сообщения", "Index", "Card", null, new { @style = "color: #245071;" })</p>
+        if (ViewBag.UnreadedMessages == 0)
+        {
+            <p>@Html.ActionLink("Сообщения", "Index", "Message", null, new { @style = "color: #245071;" })</p>
+        }
+        else
+        {
+            var value = (string)(string.Format("Сообщения ({0})", ViewBag.UnreadedMessages).ToString());
+            
+            <p>@Html.ActionLink(value, "Index", "Message", null, new { @style = "color: #245071;" })</p>
+        }
         <p>@Html.ActionLink("Мои заявки", "My", "Tender", null, new { @style = "color: #245071;" })</p>
-        <p>@Html.ActionLink("Заявки на торги", "List", "Tender", null, new { @style = "color: #245071;" })</p>
+
+        if (ViewBag.ActiveTendersCount == 0)
+        {
+            <p>@Html.ActionLink("Заявки на торги", "List", "Tender", null, new { @style = "color: #245071;" })</p>
+        }
+        else
+        {
+            var value = (string)(string.Format("Заявки на торги ({0})", ViewBag.ActiveTendersCount).ToString());
+            <p>@Html.ActionLink(value, "List", "Tender", null, new { @style = "color: #245071;" })</p>
+        }
         <p>@Html.ActionLink("Активные торги", "Active", "Tender", null, new { @style = "color: #245071;" })</p>
         <p>@Html.ActionLink("Закрытые торги", "Closed", "Tender", null, new { @style = "color: #245071;" })</p>
         <p>@Html.ActionLink("Визитница", "Index", "Card", null, new { @style = "color: #245071" })</p>

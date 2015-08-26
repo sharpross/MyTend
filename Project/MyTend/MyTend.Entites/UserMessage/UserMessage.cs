@@ -7,7 +7,7 @@
     [ActiveRecord("UserMessages")]
     public class UserMessage : BaseEntity<UserMessage>
     {
-        [Property]
+        [Property(Length = 1000)]
         [ValidateNonEmpty]
         public string Message { get; set; }
 
