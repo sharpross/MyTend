@@ -68,5 +68,55 @@ namespace MyTend.Services.File
 
             service.Delete(id);
         }
+
+        public void DeletePortFile(int id, UserSystem user)
+        {
+            var service = new FileService();
+
+            service.Delete(id);
+        }
+
+        public void SaveFileTender(HttpPostedFileBase[] files, Tender tender)
+        {
+            if (files == null && tender == null)
+            {
+                return;
+            }
+
+            var fileInfos = new List<FileInfo>();
+
+            foreach (var file in files)
+            {
+                if (file != null)
+                {
+                    fileInfos.Add(new FileInfo()
+                    {
+                        Name = file.FileName,
+                        MimeType = file.ContentType,
+                        Data = file.InputStream
+                    });
+                }
+            }
+
+            var service = new FileService();
+
+            var result = service.Save(tender, fileInfos);
+        }
+
+        public List<FileSystem> Get(Tender tender)
+        {
+            var service = new FileService();
+
+            return service.Get(tender);
+        }
+
+        public List<FileSystem> Get(UserSystem user, bool notAvatar = false)
+        {
+            var service = new FileService();
+
+            return service.Get(user, notAvatar)
+                .Where(x => x != null)
+                .ToList();
+        }
     }
 }

@@ -14,7 +14,7 @@
 
         public const int _MAX_FILES_TENDER = 5;
 
-        public const int _MAX_FILES_USER = 11; //10 на портфолио и 1 аватар
+        public const int _MAX_FILES_USER = 7; //10 на портфолио и 1 аватар
 
         public const double _MAX_FILE_SIZE = 5242881;
     }

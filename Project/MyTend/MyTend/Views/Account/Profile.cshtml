@@ -33,7 +33,7 @@
 <div class="tabs">
     <ul class="nav nav-tabs nav-justified">
         <li class=""><a href="#tab5-1" data-toggle="tab">Профиль</a></li>
-        <!-- <li class=""><a href="#tab5-2" data-toggle="tab">Портфоли</a></li>-->
+        <li class=""><a href="#tab5-2" data-toggle="tab">Портфоли</a></li>
         <li class=""><a href="#tab5-3" data-toggle="tab">О нас</a></li>
          <li class=""><a href="#tab5-4" data-toggle="tab">Категории тендеров</a></li>
         <li class=""><a href="#tab5-5" data-toggle="tab">Регионы и города</a></li>
@@ -245,7 +245,59 @@
 
         <!-- Портфолио -->
         <div class="tab-pane" id="tab5-2">
-           
+            @using (Html.BeginForm("UpdateProfile", "Account", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="form-group">
+                            <label for="Name">Загрузить файлы для портфолио (до 6 файлов)</label>
+                            <input type="file" class="form-control" name="ProfileFiles" multiple />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    @foreach (var item in Model.Portfolios)
+                    {
+                        <div class="col-lg-2" id="portFile-@item.Id">
+                            <div style="padding-top: 20px; padding-bottom: 20px;">
+                                <div>
+                                    <a href="~/File/get?id=@item.Id" target="_blank">
+                                        <img src="~/File/get?id=@item.Id" style="width: 100px; height: 100px;" />
+                                    </a>
+                                </div>
+                                <div style="text-align: center">
+                                    <div style="text-decoration: underline; cursor: pointer" onclick="removePortFile(@item.Id)">Удалить</div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <button type="submit">Загрузить</button>
+                    </div>
+                </div>
+            }
+            <form method="post" action="UpdateProfile">
+                
+            </form>
+            <script>
+                function removePortFile(id) {
+                    $.ajax({
+                        type: 'POST',
+                        url: '/Account/RemovePortfile',
+                        data: {
+                            id: id,
+                            userId: @Model.Id
+                        },
+                        success: function (data) {
+                            $('#portFile-' + id).remove();
+                        }
+                    });
+                }
+            </script>
         </div>
 
         <!-- О нас -->
@@ -286,31 +338,44 @@
         <!-- Тендеры -->
         <div class="tab-pane" id="tab5-4">
             <div class="SubTender">
-                @foreach (var theme in Model.TenderThemes)
-                {
-                    <div style="font-weight: bold; padding-top:20px">
-                        @theme.Key
-                    </div>
-                    <table>
-                        <tr>
-                            <th width="420">
 
-                            </th>
-                            <th></th>
-                        </tr>
-                        @foreach (var title in theme.Value)
-                        {
-                            <tr>
-                                <td>
-                                    @title.Title
-                                </td>
-                                <td>
-                                    <input type="checkbox" name="@title.Id" id="@title.Id" class="subCheck" />
-                                </td>
-                            </tr>
+                <div class="wp-example" id="accordions">
+                    <div class="panel-group" id="accordionThree">
+                        @{
+                            var i = 0;
                         }
-                    </table>
-                }
+                        @foreach (var theme in Model.TenderThemes)
+                        {
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">
+                                        <a data-toggle="collapse" data-parent="#accordionThree" href="@string.Format("#collapse{0}a", i)" class="collapsed">
+                                            @theme.Key
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="@string.Format("collapse{0}a", i)" class="panel-collapse collapse" style="height: 0px;">
+                                    <div class="panel-body">
+                                        <div class="row">
+                                            @foreach (var title in theme.Value)
+                                            {
+                                                <div class="col-md-8">
+                                                    @title.Title
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <input type="checkbox" name="@title.Id" id="@title.Id" class="subCheck" />
+                                                </div>
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                                            i++;
+                        }
+                    </div>
+
+                </div>
+
                 <div class="row">
                     <div class="col-lg-12" style="text-align: center; padding-top: 20px;">
                         <button type="button" class="btn btn-two" onclick="UpdateSubsciptions()">Подписаться</button>

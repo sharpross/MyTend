@@ -149,6 +149,7 @@
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\CardController.cs" />
     <Compile Include="Controllers\DocsController.cs" />
+    <Compile Include="Controllers\FileController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ImageController.cs" />
     <Compile Include="Controllers\MessageController.cs" />
@@ -632,6 +633,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\Admin\" />
+    <Folder Include="Views\File\" />
     <Folder Include="Views\Image\" />
     <Folder Include="Views\Migrations\" />
     <Folder Include="Views\Region\" />

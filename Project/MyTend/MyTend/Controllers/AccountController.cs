@@ -42,6 +42,14 @@
         }
 
         [HttpPost]
+        public ActionResult UpdateProfile(ProfileModel model)
+        {
+            model.AddProfile(this.Auth.User);
+
+            return RedirectToAction("Profile");
+        }
+
+        /*[HttpPost]
         public JsonResult UpdateProfile(ProfileModel model)
         {
             if (model != null)
@@ -50,7 +58,7 @@
             }
 
             return JsonSuccess();
-        }
+        }*/
 
         [HttpPost]
         public JsonResult UpdateAbout(ProfileModel model)
@@ -78,6 +86,27 @@
             model.Save(this.Auth.User);
 
             return JsonSuccess();
+        }
+
+        [HttpPost]
+        public ActionResult RemovePortfile(int? id, int? userId)
+        {
+            var model = new ProfileModel(this.Auth.User);
+
+            if (id.HasValue && userId.HasValue)
+            {
+                try
+                {
+                    model.RemovePortfile(id.Value, userId.Value);
+                    return JsonSuccess();
+                }
+                catch (Exception e)
+                {
+                    return JsonFailur(e);
+                }
+            }
+
+            return View(model);
         }
 
         [HttpPost]

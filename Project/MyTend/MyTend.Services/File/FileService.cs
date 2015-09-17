@@ -31,11 +31,19 @@ using System.Threading.Tasks;
         /// <returns></returns>
         public List<FileSystem> Get(Tender tender)
         {
-            var files = FileStorageInfo
-                .FindAll()
-                .Where(x => x.Tender.Id == tender.Id)
-                .Select(x => x.File)
-                .ToList();
+            var files = new List<FileSystem>();
+
+            try
+            {
+                files = FileStorageInfo
+                    .FindAll()
+                    .Where(x => x.Tender.Id == tender.Id)
+                    .Select(x => x.File)
+                    .ToList();
+            }
+            catch
+            { 
+            }
 
             return files;
         }
@@ -53,12 +61,12 @@ using System.Threading.Tasks;
 
             foreach (var file in files)
             {
-                if (i <= Constants._MAX_FILES_TENDER)
+                if (i > Constants._MAX_FILES_TENDER)
                 {
                     continue;
                 }
 
-                if (file.Data.Length <= Constants._MAX_FILE_SIZE)
+                if (file.Data.Length >= Constants._MAX_FILE_SIZE)
                 {
                     continue;
                 }
@@ -95,13 +103,30 @@ using System.Threading.Tasks;
         /// </summary>
         /// <param name="user"></param>
         /// <returns></returns>
-        public List<FileSystem> Get(UserSystem user)
+        public List<FileSystem> Get(UserSystem user, bool notAvatar = true)
         {
-            var files = FileStorageInfo
-                .FindAll()
-                .Where(x => x.User.Id == user.Id)
-                .Select(x => x.File)
-                .ToList();
+            var files = new List<FileSystem>();
+
+            if (notAvatar)
+            {
+                files = FileStorageInfo
+                    .FindAll()
+                    .Where(x => x.User != null && x.User.Id == user.Id)
+                    .Select(x => x.File)
+                    .ToList();
+            }
+            else
+            {
+                if (user.Avatar != null)
+                {
+                    files = FileStorageInfo
+                        .FindAll()
+                        .Where(x => x.User != null && x.User.Id == user.Id)
+                        .Where(x => x.File.Id != user.Avatar.Id)
+                        .Select(x => x.File)
+                        .ToList();
+                }
+            }
 
             return files;
         }
@@ -146,11 +171,18 @@ using System.Threading.Tasks;
                     User = user
                 };
 
-                fileInfo.Create();
+                try
+                {
+                    fileInfo.Create();
 
-                result.Add(fileInfo);
+                    result.Add(fileInfo);
 
-                i++;
+                    i++;
+                }
+                catch
+                {
+ 
+                }
             }
 
             return result;
@@ -185,7 +217,7 @@ using System.Threading.Tasks;
             {
                 case StoreType.User:
                     data = FileStorageInfo.FindAll()
-                        .Where(x => x.User.Id == user.Id)
+                        .Where(x => x.User != null && x.User.Id == user.Id)
                         .ToList();
                     break;
                 case StoreType.Tender:

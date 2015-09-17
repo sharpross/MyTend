@@ -182,3 +182,9 @@ h1, h2, h3 {
 .card-block {
     padding-bottom: 10px;
 }
+
+input[type="file"] {
+    background-color: transparent;
+    border: 0 none;
+    display: block;
+}

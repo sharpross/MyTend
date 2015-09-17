@@ -15,26 +15,10 @@ namespace MyTend.Models
 
         public AuthService Auth { get; set; }
 
-        public List<int> Images { get; set; }
-
-        public List<FileSystem> Files 
-        {
-            get
-            {
-                var files = new List<FileSystem>();
-
-                var fileService = new FileService();
-
-                //fileService.Get(this.)
-
-                return files;
-            }
-        }
+        public List<FileSystem> Files { get; set; }
 
         public TenderDetailsModel(int id)
         {
-            this.Images = new List<int>();
-
             this.Load(id);
         }
 
@@ -44,7 +28,7 @@ namespace MyTend.Models
 
             if (tender == null)
             {
-                throw new Exception("Не известный тендер.");
+                throw new Exception("Тендер не найден.");
             }
 
             this.Id = tender.Id;
@@ -61,6 +45,15 @@ namespace MyTend.Models
             this.User = tender.User;
             this.Winner = tender.Winner;
             this.Messages = this.LoadMessages();
+
+            this.LoadFiles(tender);
+        }
+
+        private void LoadFiles(Tender tender)
+        {
+            var service = new FileControllerService();
+
+            this.Files = service.Get(tender);
         }
 
         private List<TenderMessage> LoadMessages()

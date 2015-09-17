@@ -2,6 +2,7 @@
 {
     using MyTend.Entites;
     using MyTend.Services;
+    using MyTend.Services.File;
     using MyTender.Security;
     using System;
     using System.Collections.Generic;
@@ -35,6 +36,8 @@
         public string TenderType { get; set; }
 
         public List<Country> ListCountrys { get; set; }
+
+        public HttpPostedFileBase[] ListFiles { get; set; }
 
         public CreateTenderModel()
         {
@@ -82,6 +85,18 @@
             var obj = this.GetObj();
 
             obj.Create();
+
+            this.SaveFiles(obj);
+        }
+
+        private void SaveFiles(Tender tender)
+        {
+            if (this.ListFiles != null && this.ListFiles.Length > 0)
+            {
+                var service = new FileControllerService();
+
+                service.SaveFileTender(this.ListFiles, tender);
+            }
         }
 
         private Tender GetObj()

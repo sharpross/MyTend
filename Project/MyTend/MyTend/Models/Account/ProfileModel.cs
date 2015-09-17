@@ -21,6 +21,10 @@
 
         public HttpPostedFileBase[] AvatarFile { get; set; }
 
+        public HttpPostedFileBase[] ProfileFiles { get; set; }
+
+        public FileSystem[] Portfolios { get; set; }
+
         public List<Country> ListCountrys { get; set; }
 
         public ProfileModel()
@@ -50,6 +54,7 @@
             this.TenderThemes = this.GetListTenderTheme();
             this.SubCitys = new List<string>();
             this.SubRegions = new List<string>();
+            this.Portfolios = new List<FileSystem>().ToArray();
 
             var filter = new RegionFilterService(user);
 
@@ -62,6 +67,35 @@
             {
                 this.SubRegions.Add(region.Name);
             }
+
+            var obj = UserSystem.GetById(this.Id);
+
+            this.LoadPortfolios(obj);
+        }
+
+        public void RemovePortfile(int id, int userId)
+        {
+            var user = UserSystem.GetById(userId);
+
+            if (user == null)
+            {
+                throw new Exception("Пользователь не найден.");
+            }
+
+            if (this.Id != user.Id)
+            {
+                throw new Exception("Не допустимая операция.");
+            }
+
+            var service = new FileControllerService();
+            service.DeletePortFile(id, user);
+        }
+
+        public void LoadPortfolios(UserSystem user)
+        {
+            var service = new FileControllerService();
+
+            this.Portfolios = service.Get(user, true).ToArray();
         }
 
         public Dictionary<string, List<TenderTheme>> GetListTenderTheme()
@@ -160,6 +194,13 @@
             file = service.UpdateAvatar(this.AvatarFile, user);
 
             return file;
+        }
+
+        public void AddProfile(UserSystem user)
+        {
+            var service = new FileControllerService();
+
+            service.UpdateAvatar(this.ProfileFiles, user);
         }
 
         public void UpdateSubTenders()

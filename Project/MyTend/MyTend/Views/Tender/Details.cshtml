@@ -41,14 +41,14 @@
     </div>
 </div>
 
-@if (Model.Images != null && Model.Images.Count > 0)
+@if (Model.Files != null && Model.Files.Count > 0)
 {
     <div class="row" style="padding-bottom: 10px;">
-        @foreach (var item in Model.Images)
+        @foreach (var item in Model.Files)
         {
             <div class="col-md-3">
-                <a href="~/Image/Get?id=@item" data-lightbox="@item">
-                    <img src="~/Image/Get?id=@item" width="100" height="100">
+                <a href="~/File/Get?id=@item.Id">
+                    @item.Name
                 </a>
             </div>
         }
