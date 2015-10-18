@@ -1,5 +1,6 @@
 ﻿namespace MyTend.Controllers
 {
+    using MyTend.Attributes;
     using MyTend.Models;
     using MyTender.Core;
     using MyTender.Security;
@@ -23,6 +24,7 @@
         /// Список тендеров
         /// </summary>
         /// <returns></returns>
+        [OnlySub]
         public ActionResult List()
         {
             var model = new ListTendersModel();
@@ -69,6 +71,7 @@
         /// Активные тендеры
         /// </summary>
         /// <returns></returns>
+        [OnlySub]
         public ActionResult Active()
         {
             var model = new ActiveTenderListModel();

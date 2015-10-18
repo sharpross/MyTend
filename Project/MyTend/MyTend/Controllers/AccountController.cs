@@ -88,6 +88,11 @@
             return JsonSuccess();
         }
 
+        public ActionResult OnlyForSub()
+        {
+            return View();
+        }
+
         [HttpPost]
         public ActionResult RemovePortfile(int? id, int? userId)
         {

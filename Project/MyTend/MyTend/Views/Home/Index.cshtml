@@ -9,7 +9,7 @@
 <div>
     <div class="row">
         <div class="col-lg-12 text-center">
-            @Html.ActionLink("Инструкция заполнеиния заявок", "Instruction", "Home")
+            @Html.ActionLink("Инструкция заполнеиния заявок", "Instruction", "Docs")
         </div>
     </div>
 </div>
@@ -26,7 +26,7 @@
         <div style="text-align: center">
             <div class="col-md-4">
                 <p>
-                    <a href="~/Tender/Create?id=@item.Id"><img src="~/Content/images/kats/@item.ImageName" class="tenderImg" width="140" height="120" /></a>
+                    <a href="~/Tender/Create?id=@item.Id"><img src="~/Content/images/kats/@item.ImageName" class="tenderImg" width="150" height="120" /></a>
                 </p>
                 <p>
                     <strong>@Html.ActionLink(item.Theme, "Create", "Tender", new { @id = item.Id }, new { @style = "color: #245071;" })</strong>

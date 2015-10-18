@@ -49,13 +49,13 @@ namespace MyTend.Controllers
             string sCrc = sbSignature.ToString();
 
             // build URL
-            return "<a href=\"https://auth.robokassa.ru/Merchant/Index.aspx?" +
+            return "<a class=\"btn btn-two\" href=\"https://auth.robokassa.ru/Merchant/Index.aspx?" +
                                                 "MrchLogin=" + sMrchLogin +
                                                 "&OutSum=" + sOutSum +
                                                 "&InvId=" + nInvId +
                                                 "&Desc=" + sDesc +
                                                 "&Shp_item=" + this.Auth.User.Id +
-                                                "&SignatureValue=" + sCrc + "\">оплатить</a>";
+                                                "&SignatureValue=" + sCrc + "\">Оплатить</a>";
 
         }
 

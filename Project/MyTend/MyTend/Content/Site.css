@@ -185,6 +185,10 @@ h1, h2, h3 {
 
 input[type="file"] {
     background-color: transparent;
-    border: 0 none;
+    border: 0 none; 
     display: block;
+}
+
+.wp-theme-1 .lw .bg-3 {
+    color: black !important;
 }

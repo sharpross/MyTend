@@ -145,6 +145,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Attributes\OnlySubAttribute.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\CardController.cs" />
@@ -629,6 +630,9 @@
     <Content Include="Views\Docs\Termins.cshtml" />
     <Content Include="Views\Docs\AboutProfile.cshtml" />
     <Content Include="Views\Message\Index.cshtml" />
+    <Content Include="Views\Account\OnlyForSub.cshtml" />
+    <Content Include="Views\Docs\AboutMenu.cshtml" />
+    <Content Include="Views\Docs\Aferta.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

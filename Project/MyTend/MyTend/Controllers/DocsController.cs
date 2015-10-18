@@ -46,5 +46,23 @@
         {
             return View();
         }
+
+        /// <summary>
+        /// О меню
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult AboutMenu()
+        {
+            return View();
+        }
+
+        /// <summary>
+        /// Договор оферты
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult Aferta()
+        {
+            return View();
+        }
     }
 }

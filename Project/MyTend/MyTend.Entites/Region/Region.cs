@@ -12,7 +12,7 @@
         [Property]
         public string Name { get; set; }
 
-        [BelongsTo("CountryId")]
+        [BelongsTo("CountryId", Cascade=CascadeEnum.All)]
         public Country Country { get; set; }
 
         [Property]
