@@ -1,6 +1,8 @@
 ﻿using MyTend.Entites;
 using MyTend.Services.Common;
+using MyTender.Core;
 using MyTender.Security;
+using RomanPushkin.BetterRobokassa;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -26,85 +28,34 @@ namespace MyTend.Controllers
 
         private string GetPayString()
         {
-            // your registration data
-            string sMrchLogin = "my-tend.com";
-            string sMrchPass1 = "my-tend2015";
-            // order properties
-            decimal nOutSum = 10M;
-            int nInvId = 0;
-            string sDesc = "desc";
+            var priceRub = Constants._SUB_SUM;
+            var orderId = 0;
+            var customerEmail = this.Auth.User.Login;
 
-            string sOutSum = nOutSum.ToString("0.00", CultureInfo.InvariantCulture);
-            string sCrcBase = string.Format("{0}:{1}:{2}:{3}:Shp_item={4}",
-                                             sMrchLogin, sOutSum, nInvId, sMrchPass1, this.Auth.User.Id);
+            string redirectUrl =
+                string.Format("<a class=\"btn btn-two\" href=\"{0}\">Оплатить</a>",
+                Robokassa.GetRedirectUrl(priceRub, orderId, customerEmail, this.Auth.User.Id.ToString()));
+                
 
-            // build CRC value
-            MD5CryptoServiceProvider md5 = new MD5CryptoServiceProvider();
-            byte[] bSignature = md5.ComputeHash(Encoding.ASCII.GetBytes(sCrcBase));
-
-            StringBuilder sbSignature = new StringBuilder();
-            foreach (byte b in bSignature)
-                sbSignature.AppendFormat("{0:x2}", b);
-
-            string sCrc = sbSignature.ToString();
-
-            // build URL
-            return "<a class=\"btn btn-two\" href=\"https://auth.robokassa.ru/Merchant/Index.aspx?" +
-                                                "MrchLogin=" + sMrchLogin +
-                                                "&OutSum=" + sOutSum +
-                                                "&InvId=" + nInvId +
-                                                "&Desc=" + sDesc +
-                                                "&Shp_item=" + this.Auth.User.Id +
-                                                "&SignatureValue=" + sCrc + "\">Оплатить</a>";
+            return redirectUrl;
 
         }
 
-        public ActionResult Success()
+        public ActionResult Success(RobokassaConfirmationRequest confirmationRequest)
         {
-            return View();
-        }
+            ViewBag.Email = this.Request.Url.ToString();
 
-        public ActionResult Fail()
-        {
-            return View();
-        }
-
-        public ActionResult sjrfhgsiueh()
-        {
-            return null;
-            /*var payService = new PayService();
-            var userService = new UserSystemService();
-
-            var records = payService.GetAll();
-
-            var list = new List<PayInfoModel>();
-
-            foreach (var rec in records)
-            {
-                list.Add(new PayInfoModel()
-                {
-                    UserMail = userService.GetAll().Where(x => x.Id == rec.UserId).FirstOrDefault().Login,
-                    PayDay = rec.DateBegin,
-                    PayEnd = rec.DateEnd
-                });
-            }
-
-            return View(list);*/
-        }
-
-        public ActionResult Payresult()
-        {
-            //return null;
             try
             {
-                if (this.IsValid())
+
+                if (confirmationRequest.IsQueryValid(RobokassaQueryType.SuccessURL))
                 {
-                    var userId = GetPrm("Shp_item");
+                    var userId = int.Parse(confirmationRequest.Shp_item);//GetPrm("Email");
 
                     var dateBegin = DateTime.Now;
                     var dateEnd = DateTime.Now.AddMonths(1);
 
-                    var user = UserSystem.GetById(int.Parse(userId));
+                    var user = UserSystem.GetById(userId); //(int.Parse(userId));
 
                     if (user != null)
                     {
@@ -113,19 +64,47 @@ namespace MyTend.Controllers
                         payService.MakePay();
                     }
 
-                    return RedirectToAction("Success");
-                }
-                else
-                {
-                    return RedirectToAction("Fail");
+                    return View(); // content for user
                 }
             }
-            catch (Exception ex)
-            {
-                ViewBag.IsTruePay = ex.StackTrace;
-            }
+            catch (Exception) { }
+
+            return RedirectToAction("Fail");
+        }
+
+        public ActionResult Fail()
+        {
+            ViewBag.Email = this.Request.Url.ToString();
 
             return View();
+        }
+
+        public ActionResult Payresult(RobokassaConfirmationRequest confirmationRequest)
+        {
+            try
+            {
+                if (confirmationRequest.IsQueryValid(RobokassaQueryType.SuccessURL))
+                {
+                    var userId = int.Parse(confirmationRequest.Shp_item);//GetPrm("Email");
+
+                    var dateBegin = DateTime.Now;
+                    var dateEnd = DateTime.Now.AddMonths(1);
+
+                    var user = UserSystem.GetById(userId); //(int.Parse(userId));
+
+                    if (user != null)
+                    {
+                        var payService = new PayService(user);
+
+                        payService.MakePay();
+                    }
+
+                    return View(); // content for user
+                }
+            }
+            catch (Exception) { }
+
+            return RedirectToAction("Fail");
         }
 
         private bool IsValid()

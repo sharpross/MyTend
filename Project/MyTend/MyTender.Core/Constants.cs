@@ -12,10 +12,12 @@
 
         public const int _MAX_SUB_CITYS = 10;
 
-        public const int _MAX_FILES_TENDER = 5;
+        public const int _MAX_FILES_TENDER = 3;
 
-        public const int _MAX_FILES_USER = 7; //10 на портфолио и 1 аватар
+        public const int _MAX_FILES_USER = 20; //10 на портфолио и 1 аватар
 
-        public const double _MAX_FILE_SIZE = 2097152;
+        public const double _MAX_FILE_SIZE = 3670016;
+
+        public const int _SUB_SUM = 5;
     }
 }

@@ -3,6 +3,7 @@
     using MyTend.Entites;
     using MyTend.Services;
     using MyTend.Services.File;
+    using MyTender.Security.Utils;
     using System;
     using System.Collections.Generic;
     using System.Linq;
@@ -13,6 +14,10 @@
     public class RegistrationModel : UserSystem
     {
         public string RegionId { get; set; }
+
+        public string Password2 { get; set; }
+
+        public string IsAllowRules { get; set; }
 
         public string CityId { get; set; }
 
@@ -35,24 +40,44 @@
                 Email = this.Login.ToLower(),
                 Login = this.Login,
                 FullName = this.FullName,
-                Password = this.Password,
+                Password = MD5Helper.GetMD5String(this.Password),
                 City = City.FindAllByProperty("Name", this.CityId).FirstOrDefault(),
                 Region = Region.FindAllByProperty("Name", this.RegionId).FirstOrDefault()
             };
 
             if (obj.IsValid())
             {
-                obj.Create();
+                var next = true;
 
-                var avar = this.UpdateAvatar(obj);
+                if (this.Password != this.Password2)
+                {
+                    this.Errors.Add("Пароли не совпадают.");
+                    next = false;
+                }
 
-                obj.Avatar = avar;
-                obj.Update();
+                if (this.IsAllowRules != "on")
+                {
+                    this.Errors.Add("Вы не согласились с правилами сайта.");
+                    next = false;
+                }
 
-                return true;
+                if (next)
+                {
+                    obj.Create();
+
+                    var avar = this.UpdateAvatar(obj);
+
+                    if (avar != null)
+                    {
+                        obj.Avatar = avar;
+                        obj.Update();
+                    }
+
+                    return true;
+                }
             }
 
-            this.Errors = obj.Errors;
+            this.Errors.AddRange(obj.Errors);
 
             return false;
         }

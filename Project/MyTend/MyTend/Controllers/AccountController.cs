@@ -27,40 +27,39 @@
             return View();
         }
 
-        public ActionResult Profile()
+        public ActionResult Profile(string tab)
         {
             var model = new ProfileModel(this.Auth.User);
-
+            this.ViewBag.OpenTabParam = tab;
             return View(model);
         }
 
-        public ActionResult Card(string user)
+        public ActionResult Card(string user, string tab)
         {
             var model = new CardModel(user);
-
+            this.ViewBag.OpenTabParam = tab;
             return View(model);
         }
 
         [HttpPost]
-        public ActionResult UpdateProfile(ProfileModel model)
+        public ActionResult UpdateProfiles(ProfileModel model)
         {
             model.AddProfile(this.Auth.User);
 
-            return RedirectToAction("Profile");
+            return RedirectToAction("Profile", new { @tab= "tab5-2" });
         }
 
-        /*[HttpPost]
+        [HttpPost]
         public JsonResult UpdateProfile(ProfileModel model)
         {
             if (model != null)
             {
                 model.UpdateProfile();
             }
-
             return JsonSuccess();
-        }*/
+        }
 
-        [HttpPost]
+        /*[HttpPost]
         public JsonResult UpdateAbout(ProfileModel model)
         {
             if (model != null)
@@ -70,7 +69,7 @@
             }
 
             return JsonSuccess();
-        }
+        }*/
 
         [HttpPost]
         public JsonResult UpdateSubRegions(SubRegionModel model)
@@ -157,7 +156,7 @@
                 RedirectToAction("Index", "Home");
             }
 
-            if (model.Errors.Count > 0) 
+            if (model.Errors.Count > 0)
             {
                 return View(model);
             }

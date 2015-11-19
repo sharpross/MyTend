@@ -1,15 +1,16 @@
 ﻿namespace MyTend.Services.File
 {
     using MyTend.Entites;
-using MyTend.Entites.Enums;
-using MyTend.Entites.FileStorageInfo;
-using MyTender.Core;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+    using MyTend.Entites.Enums;
+    using MyTend.Entites.FileStorageInfo;
+    using MyTender.Core;
+    using System;
+    using System.Collections.Generic;
+    using System.IO;
+    using System.Linq;
+    using System.Text;
+    using System.Threading;
+    using System.Threading.Tasks;
 
     /// <summary>
     /// Сервис по работе с файлами. 
@@ -37,7 +38,7 @@ using System.Threading.Tasks;
             {
                 files = FileStorageInfo
                     .FindAll()
-                    .Where(x => x.Tender.Id == tender.Id)
+                    .Where(x => x.Tender != null && x.Tender.Id == tender.Id)
                     .Select(x => x.File)
                     .ToList();
             }
@@ -57,7 +58,7 @@ using System.Threading.Tasks;
         {
             var result = new List<FileStorageInfo>();
 
-            var i = this.GetCurrentCountFiles(StoreType.Tender, null, tender);
+            var i = 0;// this.GetCurrentCountFiles(StoreType.Tender, null, tender);
 
             foreach (var file in files)
             {
@@ -112,6 +113,7 @@ using System.Threading.Tasks;
                 files = FileStorageInfo
                     .FindAll()
                     .Where(x => x.User != null && x.User.Id == user.Id)
+                    .Where(x => x.IsAvatar == false)
                     .Select(x => x.File)
                     .ToList();
             }
@@ -122,7 +124,7 @@ using System.Threading.Tasks;
                     files = FileStorageInfo
                         .FindAll()
                         .Where(x => x.User != null && x.User.Id == user.Id)
-                        .Where(x => x.File.Id != user.Avatar.Id)
+                        .Where(x => x.IsAvatar == true)
                         .Select(x => x.File)
                         .ToList();
                 }
@@ -163,25 +165,41 @@ using System.Threading.Tasks;
                     MimeType = file.MimeType
                 };
 
-                fileSystem.Create();
-
+                while (fileSystem.Id == 0)
+                {
+                    fileSystem.Save();
+                    Thread.Sleep(200);
+                }
+                
                 var fileInfo = new FileStorageInfo()
                 {
                     File = fileSystem,
-                    User = user
+                    User = user,
+                    IsAvatar = file.IsAvatar
                 };
 
                 try
                 {
-                    fileInfo.Create();
+                    if (fileInfo.IsValid())
+                    {
+                        while (fileInfo.Id == 0)
+                        {
+                            fileInfo.SaveAndFlush();
+                            Thread.Sleep(300);
+                        }
 
-                    result.Add(fileInfo);
+                        result.Add(fileInfo);
 
-                    i++;
+                        i++;
+                    }
+                    else
+                    {
+                        var aa = 1;
+                    }
                 }
                 catch
                 {
- 
+                    //fileSystem.Delete();
                 }
             }
 
@@ -200,10 +218,7 @@ using System.Threading.Tasks;
 
             if (fileStorageInfo != null)
             {
-                var file = fileStorageInfo.File;
-
                 fileStorageInfo.Delete();
-                file.Delete();
             }
         }
 

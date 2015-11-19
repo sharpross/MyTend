@@ -23,8 +23,10 @@ namespace MyTend.Attributes
             {
                 base.OnActionExecuting(filterContext);
             }
-
-            filterContext.Result = new RedirectResult("~/Account/OnlyForSub");
+            else
+            {
+                filterContext.Result = new RedirectResult("~/Account/OnlyForSub");
+            }
         }
     }
 }

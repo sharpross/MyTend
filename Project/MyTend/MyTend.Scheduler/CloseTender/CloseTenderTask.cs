@@ -28,6 +28,7 @@ namespace MyTend.Scheduler.CloseTender
             foreach (var tender in tenders)
             {
                 tender.IsActive = false;
+
                 tender.Update();
             }
         }

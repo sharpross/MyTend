@@ -9,7 +9,7 @@
         [Property]
         public string Name { get; set; }
 
-        [BelongsTo("RegionId")]
+        [BelongsTo("RegionId", Cascade = CascadeEnum.All)]
         public Region Region { get; set; }
 
         public City()

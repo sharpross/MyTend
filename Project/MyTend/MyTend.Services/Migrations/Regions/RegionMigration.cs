@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace MyTend.Services.Migrations.Regions
@@ -18,10 +19,10 @@ namespace MyTend.Services.Migrations.Regions
         {
             
             var rus = new Country() { Name = "Россия" };
-            rus.Create();
+            //rus.Create();
 
             var adigeya = new Region() { Country = rus, Name = "Республика Адыгея", NomberSort = 0, IsMillion = true };
-            adigeya.Create();
+            //adigeya.Create();
             var listRu = new List<City>();
                listRu.Add(new City(){Name="Адыгейск",Region=adigeya});
                listRu.Add(new City(){Name="Гиагинская",Region=adigeya});
@@ -43,7 +44,7 @@ namespace MyTend.Services.Migrations.Regions
 
            
             var altay = new Region() { Country = rus, Name = "Республика Алтай", NomberSort = 0, IsMillion = false };
-            altay.Create();
+            //altay.Create();
             var listRu2 = new List<City>();
 
                listRu2.Add(new City() { Name = "Акташ", Region = altay });
@@ -62,7 +63,7 @@ namespace MyTend.Services.Migrations.Regions
             this.Create(listRu2);
 
             var bashkortostan = new Region() { Country = rus, Name = "Республика Башкортостан", NomberSort = 0, IsMillion = false };
-            bashkortostan.Create();
+            //bashkortostan.Create();
             var listRu3 = new List<City>();
 
                 listRu3.Add(new City(){Name="Агидель",Region=bashkortostan});
@@ -131,7 +132,7 @@ namespace MyTend.Services.Migrations.Regions
             this.Create(listRu3);
 
             var buryatyia = new Region() { Country = rus, Name = "Республика Бурятия", NomberSort = 0, IsMillion = false };
-            buryatyia.Create();
+            //buryatyia.Create();
             var listRu4 = new List<City>();
 
                listRu4.Add(new City(){Name="Багдарин",Region=buryatyia});
@@ -165,7 +166,7 @@ namespace MyTend.Services.Migrations.Regions
             this.Create(listRu4);
 
             var dagestan = new Region() { Country = rus, Name = "Республика Дагестан", NomberSort = 0, IsMillion = false };
-            dagestan.Create();
+            //dagestan.Create();
             var listRu5 = new List<City>();
 
                listRu5.Add(new City(){Name="Агвали",Region=dagestan});
@@ -230,7 +231,7 @@ namespace MyTend.Services.Migrations.Regions
             this.Create(listRu5);
 
             var ingushetiia = new Region() { Country = rus, Name = "Республика Ингушетия", NomberSort = 0, IsMillion = false };
-            ingushetiia.Create();
+            //ingushetiia.Create();
             var listRu6 = new List<City>();
 
               listRu6.Add(new City(){Name="Али-Юрт",Region=ingushetiia});
@@ -256,7 +257,7 @@ namespace MyTend.Services.Migrations.Regions
             this.Create(listRu6);
 
             var kabardinobalkariia = new Region() { Country = rus, Name = "Республика Кабардино-Балкария", NomberSort = 0, IsMillion = false };
-            kabardinobalkariia.Create();
+            //kabardinobalkariia.Create();
             var listRu7 = new List<City>();
 
               listRu7.Add(new City(){Name="Баксан",Region=kabardinobalkariia});
@@ -277,7 +278,7 @@ namespace MyTend.Services.Migrations.Regions
             this.Create(listRu7);
 
             var kalmykiia = new Region() { Country = rus, Name = "Республика Калмыкия", NomberSort = 0, IsMillion = false };
-            kalmykiia.Create();
+            //kalmykiia.Create();
             var listRu8 = new List<City>();
               listRu8.Add(new City(){Name="Аршан",Region=kalmykiia});
               listRu8.Add(new City(){Name="Большой Царын",Region=kalmykiia});
@@ -297,7 +298,7 @@ namespace MyTend.Services.Migrations.Regions
 	    this.Create(listRu8);
  	
             var karachaevocherkesiia = new Region() { Country = rus, Name = "Республика Карачаево-Черкесия", NomberSort = 0, IsMillion = false };
-            karachaevocherkesiia.Create();
+            //karachaevocherkesiia.Create();
             var listRu9 = new List<City>();
   
               listRu9.Add(new City(){Name="Али-Бердуковский",Region=karachaevocherkesiia});
@@ -321,7 +322,7 @@ namespace MyTend.Services.Migrations.Regions
             this.Create(listRu9);
 
             var kareliia = new Region() { Country = rus, Name = "Республика Карелия", NomberSort = 0, IsMillion = false };
-            kareliia.Create();
+            //kareliia.Create();
             var listRu10 = new List<City>();
 
               listRu10.Add(new City(){Name="Беломорск",Region=kareliia});
@@ -344,7 +345,7 @@ namespace MyTend.Services.Migrations.Regions
             this.Create(listRu10);
 
             var komi = new Region() { Country = rus, Name = "Республика Коми", NomberSort = 0, IsMillion = false };
-            komi.Create();
+            //komi.Create();
             var listRu11 = new List<City>();
 
               listRu11.Add(new City(){Name="Айкино",Region=komi});
@@ -379,7 +380,7 @@ namespace MyTend.Services.Migrations.Regions
             this.Create(listRu11);
 
             var krym = new Region() { Country = rus, Name = "Республика Крым", NomberSort = 0, IsMillion = false };
-            krym.Create();
+            //krym.Create();
             var listRu12 = new List<City>();
 
               listRu12.Add(new City(){Name="Алушта",Region=krym});
@@ -408,7 +409,7 @@ namespace MyTend.Services.Migrations.Regions
 
 
             var maryiel = new Region() { Country = rus, Name = "Республика Марий Эл", NomberSort = 0, IsMillion = false };
-            maryiel.Create();
+            //maryiel.Create();
             var listRu13 = new List<City>();
 
               listRu13.Add(new City(){Name="Волжск",Region=maryiel});
@@ -436,7 +437,7 @@ namespace MyTend.Services.Migrations.Regions
             this.Create(listRu13);
 
             var mordoviia = new Region() { Country = rus, Name = "Республика Мордовия", NomberSort = 0, IsMillion = false };
-            mordoviia.Create();
+            //mordoviia.Create();
             var listRu14 = new List<City>();
 
               listRu14.Add(new City(){Name="Ардатов",Region=mordoviia});
@@ -469,7 +470,7 @@ namespace MyTend.Services.Migrations.Regions
             this.Create(listRu14);
 
             var saha = new Region() { Country = rus, Name = "Республика Саха (Якутия)", NomberSort = 0, IsMillion = false };
-            saha.Create();
+            //saha.Create();
             var listRu15 = new List<City>();
 
               listRu15.Add(new City(){Name="Айхал",Region=saha});
@@ -517,7 +518,7 @@ namespace MyTend.Services.Migrations.Regions
             this.Create(listRu15);
 
             var Alaniia = new Region() { Country = rus, Name = "Республика Северная Осетия - Алания", NomberSort = 0, IsMillion = false };
-            Alaniia.Create();
+            //Alaniia.Create();
             var listRu16 = new List<City>();
   
               listRu16.Add(new City(){Name="Алагир",Region=Alaniia});
@@ -545,7 +546,7 @@ namespace MyTend.Services.Migrations.Regions
             this.Create(listRu16);
 
             var Tatarstan = new Region() { Country = rus, Name = "Республика Татарстан", NomberSort = 0, IsMillion = false };
-            Tatarstan.Create();
+            //Tatarstan.Create();
             var listRu17 = new List<City>();
 
               listRu17.Add(new City(){Name="Агрыз",Region=Tatarstan});
@@ -3878,6 +3879,7 @@ namespace MyTend.Services.Migrations.Regions
             foreach (var rec in list)
             {
                 rec.Create();
+                Thread.Sleep(200);
             }
         }
     }

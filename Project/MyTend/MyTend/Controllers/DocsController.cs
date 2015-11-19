@@ -64,5 +64,19 @@
         {
             return View();
         }
+
+        /// <summary>
+        /// Договор оферты
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult Oferta()
+        {
+            return View();
+        }
+
+        public ActionResult AboutWork()
+        {
+            return View();
+        }
     }
 }

@@ -14,7 +14,7 @@
         {
             try
             {
-                if (id.HasValue)
+                if (id.HasValue && id.Value != 0)
                 {
                     var service = new FileService();
 

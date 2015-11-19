@@ -40,6 +40,7 @@
             this.City = user.City;
             this.Email = user.Email;
             this.Facebook = user.Facebook;
+            this.VKontakte = user.VKontakte;
             this.Id = user.Id;
             this.Instagram = user.Instagram;
             this.Login = user.Login;
@@ -147,6 +148,7 @@
                 user.Phone2 = this.Phone2;
                 user.Site = this.Site;
                 user.Skype = this.Skype;
+                user.AboutShort = this.AboutShort;
                 user.Instagram = this.Instagram;
                 user.VKontakte = this.VKontakte;
                 
@@ -200,7 +202,7 @@
         {
             var service = new FileControllerService();
 
-            service.UpdateAvatar(this.ProfileFiles, user);
+            service.UpdateFiles(this.ProfileFiles, user);
         }
 
         public void UpdateSubTenders()

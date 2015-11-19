@@ -14,5 +14,7 @@ namespace MyTend.Services.File
         public Stream Data { get; set; }
 
         public string Name { get; set; }
+
+        public bool IsAvatar { get; set; }
     }
 }

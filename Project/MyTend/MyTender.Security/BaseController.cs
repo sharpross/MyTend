@@ -4,6 +4,7 @@
     using MyTend.Services.Common;
     using System.Web.Mvc;
 
+    [ErrorAtr]
     public class BaseController : Controller
     {
         public AuthService Auth { get; set; }

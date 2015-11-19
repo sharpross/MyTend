@@ -1,5 +1,6 @@
 ﻿using MyTend.Entites;
 using MyTender.Core;
+using MyTender.Security.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -46,7 +47,9 @@ namespace MyTender.Security
 
             if (user != null)
             {
-                if (user.Password != password)
+                var pswd = MD5Helper.GetMD5String(password);
+
+                if (user.Password != pswd)
                 {
                     throw new Exception(Constants._UNKNOW_USER);
                 }
@@ -106,8 +109,6 @@ namespace MyTender.Security
             };
 
             System.Web.HttpContext.Current.Response.Cookies.Set(AuthCookie);
-
-            //FormsAuthentication.SetAuthCookie(userName, false);
         }
     }
 }

@@ -58,11 +58,10 @@
         [Property]
         public string AboutFull { get; set; }
 
-        [Property]
+        [Property(Length=15)]
         public string AboutShort { get; set; }
 
-        [Property(Length=1000)]
-        [ValidateLength(1000)]
+        [Property(Length=10000)]
         public string Portfolio { get; set; }
 
         [BelongsTo("Avatarid")]

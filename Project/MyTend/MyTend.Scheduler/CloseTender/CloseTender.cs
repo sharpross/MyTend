@@ -12,8 +12,10 @@ namespace MyTend.Scheduler.CloseTender
         public CloseTender()
         {
             Schedule<CloseTenderTask>()
-                .ToRunEvery(1).Days()
-                .At(0, 0);
+                .ToRunEvery(5).Minutes();
+
+                //.ToRunEvery(1).Days()
+                //.At(0, 0);
         }
     }
 }

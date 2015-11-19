@@ -10,6 +10,49 @@ namespace MyTend.Services.File
 {
     public class FileControllerService
     {
+        public List<FileSystem> UpdateFiles(HttpPostedFileBase[] files, UserSystem user)
+        {
+            List<FileSystem> result = null;
+
+            if (files != null)
+            {
+                var service = new FileService();
+
+                var data = new List<FileInfo>();
+
+                foreach (var file in files)
+                {
+                    if (file == null)
+                    {
+                        continue;
+                    }
+
+                    var fileInfo = new FileInfo()
+                    {
+                        Data = file.InputStream,
+                        Name = file.FileName,
+                        MimeType = file.ContentType,
+                        IsAvatar = false
+                    };
+
+                    data.Add(fileInfo);
+                }
+
+                //this.DeleteOldAvatar(user);
+
+                var resultData = service.Save(user, data);
+
+                if (resultData.Count > 0)
+                {
+                    result = resultData
+                        .Select(x => x.File)
+                        .ToList();
+                }
+            }
+
+            return result;
+        }
+
         public FileSystem UpdateAvatar(HttpPostedFileBase[] files, UserSystem user)
         {
             FileSystem result = null;
@@ -31,7 +74,8 @@ namespace MyTend.Services.File
                     {
                         Data = file.InputStream,
                         Name = file.FileName,
-                        MimeType = file.ContentType
+                        MimeType = file.ContentType,
+                        IsAvatar = true
                     };
 
                     data.Add(fileInfo);
@@ -112,6 +156,9 @@ namespace MyTend.Services.File
 
         public List<FileSystem> Get(UserSystem user, bool notAvatar = false)
         {
+            var file = FileSystem.FindAll();
+                
+
             var service = new FileService();
 
             return service.Get(user, notAvatar)

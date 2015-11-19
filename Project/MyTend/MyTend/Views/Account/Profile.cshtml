@@ -3,11 +3,14 @@
 @{
     ViewBag.Title = "Профиль";
 }
+<script>
+    var openTabParam = "@ViewBag.OpenTabParam";
+</script>
 
 @if (ViewBag.IsSubRegions == false || ViewBag.IsSubTenders == false)
 {
-    <div class="alert alert-danger" role="alert">
-        @if(ViewBag.IsSubRegions == false)
+    <div class="alert alert-success" role="alert">
+        @if (ViewBag.IsSubRegions == false)
         {
             <div>
                 - Подпишитесь на регионы и города
@@ -19,21 +22,21 @@
                 - Подпишитесь на категории тендеров
             </div>
         }
-        @if(Model.Errors != null && Model.Errors.Count > 0)
+        @if (Model.Errors != null && Model.Errors.Count > 0)
         {
             foreach (var error in Model.Errors)
             {
-                 <div>
-                     @string.Format("- {0}", error)
-                 </div>
+                <div>
+                    @string.Format("- {0}", error)
+                </div>
             }
         }
     </div>
 }
 <div class="tabs">
     <ul class="nav nav-tabs nav-justified">
-        <li class=""><a href="#tab5-1" data-toggle="tab">Профиль</a></li>
-        <li class=""><a href="#tab5-2" data-toggle="tab">Портфоли</a></li>
+        <li class=""><a href="#tab5-1" data-toggle="tab">Визитка</a></li>
+        <li class=""><a href="#tab5-2" data-toggle="tab">Портфолио</a></li>
         <li class=""><a href="#tab5-3" data-toggle="tab">О нас</a></li>
          <li class=""><a href="#tab5-4" data-toggle="tab">Категории тендеров</a></li>
         <li class=""><a href="#tab5-5" data-toggle="tab">Регионы и города</a></li>
@@ -105,7 +108,7 @@
                         <div class="col-lg-12">
                             <div class="form-group">
                                 <label for="Name">Чем занимаюсь</label>
-                                <input type="text" class="form-control" name="AboutShort" placeholder="Чем занимаюсь (кратко)" value="@Model.AboutShort">
+                                <input type="text" class="form-control" name="AboutShort" max="15" placeholder="Чем занимаюсь (кратко)" value="@Model.AboutShort">
                             </div>
                         </div>
                     </div>
@@ -203,25 +206,9 @@
                     form_data.append("Site", $('[name=Site]').val());
                     form_data.append("VKontakte", $('[name=VKontakte]').val());
                     form_data.append("Instagram", $('[name=Instagram]').val());
+                    form_data.append("Skype", $('[name=Skype]').val());
                     form_data.append("Facebook", $('[name=Facebook]').val());
                     //debugger;
-
-                    var profileInfo = {
-                        AvatarFile: avatarFile,
-                        Login: $('[name=Login]').val(),
-                        Email: $('[name=Email]').val(),
-                        Password: $('[name=Password]').val(),
-                        PasswordRetry: $('[name=PasswordRetry]').val(),
-                        FullName: $('[name=FullName]').val(),
-                        AboutShort: $('[name=AboutShort]').val(),
-                        Phone: $('[name=Phone]').val(),
-                        Phone2: $('[name=Phone2]').val(),
-                        Site: $('[name=Site]').val(),
-                        Skype: $('[name=Skype]').val(),
-                        VKontakte: $('[name=VKontakte]').val(),
-                        Instagram: $('[name=Instagram]').val(),
-                        Facebook: $('[name=Facebook]').val()
-                    }
 
                     $.ajax({
                         type: 'POST',
@@ -232,7 +219,8 @@
                         processData: false,
                         success: function (data) {
                             if (data.Success) {
-                                window.location.reload();
+                                var url = window.location.origin + window.location.pathname + "?tab=tab5-1";
+                                window.location = url;
                             }
                         }
                     });
@@ -245,13 +233,15 @@
 
         <!-- Портфолио -->
         <div class="tab-pane" id="tab5-2">
-            @using (Html.BeginForm("UpdateProfile", "Account", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            @using (Html.BeginForm("UpdateProfiles", "Account", FormMethod.Post, new { enctype = "multipart/form-data" }))
             {
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="form-group">
-                            <label for="Name">Загрузить файлы для портфолио (до 6 файлов)</label>
-                            <input type="file" class="form-control" name="ProfileFiles" multiple />
+                            <input type="file" accept="image/*" class="form-control" name="ProfileFiles" multiple />
+                            <div>
+                                Загрузить файлы для портфолио (до 20 файлов, размером не более 3,5 Мб)
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -274,9 +264,9 @@
                     }
                 </div>
 
-                <div class="row">
+                <div class="row" style="text-align: center;">
                     <div class="col-lg-12">
-                        <button type="submit">Загрузить</button>
+                        <button type="submit" class="btn btn-two">Загрузить</button>
                     </div>
                 </div>
             }
@@ -306,7 +296,7 @@
                 <form method="post" action="UpdateProfile">
                     <div class="form-group">
                         <div class="col-md-12">
-                            <textarea rows="10" cols="95" name="portfoli" maxlength="1000">@Model.Portfolio</textarea>
+                            <textarea rows="10" cols="95" name="portfoli" maxlength="10000">@Model.Portfolio</textarea>
                             <br />
                         </div>
                     </div>
@@ -327,7 +317,8 @@
                                 portfolio: portfolio
                             },
                             success: function (data) {
-
+                                var url = window.location.origin + window.location.pathname + "?tab=tab5-3";
+                                window.location = url;
                             }
                         });
                     }
@@ -350,7 +341,7 @@
                                 <div class="panel-heading">
                                     <h4 class="panel-title">
                                         <a data-toggle="collapse" data-parent="#accordionThree" href="@string.Format("#collapse{0}a", i)" class="collapsed">
-                                            @theme.Key
+                                            @theme.Key)
                                         </a>
                                     </h4>
                                 </div>
@@ -428,7 +419,8 @@
                     },
                     type: 'POST',
                     success: function (resp) {
-
+                        var url = window.location.origin + window.location.pathname + "?tab=tab5-4";
+                        window.location = url;
                     }
                 });
             }
@@ -447,7 +439,6 @@
                 $.ajax({
                     url: '/Account/GetSubThemes',
                     type: 'POST',
-                    //contentType: 'application/json; charset=utf-8',
                     success: function (resp) {
                         setChecked(resp.Data);
                     }
@@ -537,3 +528,4 @@
         </div>
     </div>
 </div>
+<script src="~/Scripts/app/openTab.js"></script>

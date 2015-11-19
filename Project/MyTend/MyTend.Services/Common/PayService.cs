@@ -1,4 +1,5 @@
 ﻿using MyTend.Entites;
+using MyTender.Core;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,9 +23,11 @@ namespace MyTend.Services.Common
             {
                 PayDay = DateTime.Now,
                 PayEnd = DateTime.Now.AddMonths(1),
-                Sum = 100,
+                Sum = Constants._SUB_SUM,
                 User = this.User
             };
+
+            newPay.Save();
         }
 
         public List<PayInfo> GetHistory()
@@ -44,9 +47,10 @@ namespace MyTend.Services.Common
                 var has = PayInfo
                     .FindAll()
                     .Where(x => x.User.Id == this.User.Id)
-                    .FirstOrDefault(x => x.PayDay >= DateTime.Now && x.PayDay <= DateTime.Now);
+                    .OrderBy(x => x.PayEnd)
+                    .First();
 
-                return has.PayEnd;
+                return has != null ? (DateTime?)has.PayEnd : null;
             }
 
             return null;
@@ -57,7 +61,7 @@ namespace MyTend.Services.Common
             var has = PayInfo
                 .FindAll()
                 .Where(x => x.User.Id == this.User.Id)
-                .Where(x => x.PayEnd <= DateTime.Now)
+                .Where(x => DateTime.Now <= x.PayEnd)
                 .Any();
 
             return has;

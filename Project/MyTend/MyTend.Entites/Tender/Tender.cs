@@ -82,6 +82,12 @@ using System.Collections.Generic;
             this.Update();
         }
 
+        public void Cancel()
+        {
+            this.IsActive = false;
+            this.Update();
+        }
+
         public Tender()
         {
             this.IsActive = true;

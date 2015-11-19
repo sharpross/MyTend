@@ -25,6 +25,14 @@ namespace MyTend.Models
             this.Friend = new FriendModel(this.Winner.Login);
         }
 
+        public void Cancel()
+        {
+            if (this.Winner.Id == this.Tender.User.Id)
+            {
+                this.Tender.Cancel();
+            }
+        }
+
         public bool Close()
         {
             this.Tender.SetWinner(this.Winner);

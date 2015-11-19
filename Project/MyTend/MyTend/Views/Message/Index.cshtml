@@ -4,47 +4,53 @@
     ViewBag.Title = "Index";
 }
 
-<table class="table">
-    <tr>
-        <th width="110">
-
-        </th>
-        <th>
-            Коротко о себе
-        </th>
-        <th width="100"></th>
-    </tr>
-
-    @foreach (var item in Model.Contacts)
-    {
+@if (Model.Contacts.Count > 0)
+{
+    <table class="table">
         <tr>
-            <td style="text-align: center;">
-                @if (item.User.Avatar == null)
-                {
-                    <img src="/Image/Get?id=0" width="100" />
-                }
-                else
-                {
-                    <img src="/Image/Get?id=@item.User.Avatar.Id" width="100" />
-                }
-                <p>
-                    @Html.ActionLink(item.User.FullName, "Card", "Account", new { @user = item.User.Login }, null)
-                </p>
-            </td>
-            <td style="vertical-align: top;">
-                @Html.ActionLink(item.User.AboutShort, "Card", "Account", new { @user = item.User.Email }, null)
-            </td>
-            <td>
-                @if (item.Unreaded > 0)
-                {
-                    @Html.ActionLink(string.Format("Написать ({0})", item.Unreaded), "Write", "Card", new { @toUser = item.User.Login }, new { @class = "btn btn-two" })
-                }
-                else
-                {
-                    @Html.ActionLink("Написать", "Write", "Card", new { @toUser = item.User.Login }, new { @class = "btn btn-two" })
-                }
-            </td>
-        </tr>
-    }
+            <th width="110">
 
-</table>
+            </th>
+            <th>
+                Коротко о себе
+            </th>
+            <th width="100"></th>
+        </tr>
+
+
+
+        @foreach (var item in Model.Contacts)
+        {
+            <tr>
+                <td style="text-align: center;">
+                    @if (item.User.Avatar == null)
+                    {
+                        <img src="/Image/Get?id=0" width="100" />
+                    }
+                    else
+                    {
+                        <img src="/Image/Get?id=@item.User.Avatar.Id" width="100" />
+                    }
+                    <p>
+                        @Html.ActionLink(item.User.FullName, "Card", "Account", new { @user = item.User.Login }, null)
+                    </p>
+                </td>
+                <td style="vertical-align: top;">
+                    @Html.ActionLink(item.User.AboutShort, "Card", "Account", new { @user = item.User.Email }, null)
+                </td>
+                <td>
+                    @if (item.Unreaded > 0)
+                    {
+                        @Html.ActionLink(string.Format("Написать ({0})", item.Unreaded), "Write", "Card", new { @toUser = item.User.Login }, new { @class = "btn btn-two" })
+                    }
+                    else
+                    {
+                        @Html.ActionLink("Написать", "Write", "Card", new { @toUser = item.User.Login }, new { @class = "btn btn-two" })
+                    }
+                </td>
+            </tr>
+        }
+
+    </table>
+
+}

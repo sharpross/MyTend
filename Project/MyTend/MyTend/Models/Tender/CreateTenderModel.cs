@@ -145,7 +145,7 @@
 
             if (theme == null)
             {
-                throw new Exception("Не известная тема тендера");
+                //throw new Exception("Не известная тема тендера");
             }
 
             newTender.Theme = theme;
@@ -155,7 +155,7 @@
 
             if (region == null)
             {
-                throw new Exception("Не известный региион");
+                //throw new Exception("Не известный региион");
             }
 
             var city = City.FindAll()
@@ -164,7 +164,7 @@
 
             if (city == null)
             {
-                throw new Exception("Не известный город");
+                //throw new Exception("Не известный город");
             }
 
             newTender.Region = region;

@@ -147,7 +147,8 @@ function SaveSubCitys()
         },
         method: 'POST',
         success: function (resp) {
-            
+            var url = window.location.origin + window.location.pathname + "?tab=tab5-5";
+            window.location = url;
         }
     });
 }

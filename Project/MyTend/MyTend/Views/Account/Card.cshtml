@@ -3,14 +3,14 @@
 @{
     ViewBag.Title = "Визитная карточка:" + Model.FullName;
 }
-
+<script>
+    var openTabParam = "@ViewBag.OpenTabParam";
+</script>
 <div class="tabs">
     <ul class="nav nav-tabs nav-justified">
         <li class="font_black active"><a href="#tab5-1" data-toggle="tab"><i class="icon-star"></i>Визитка</a></li>
-        @if (Model.AboutFull != null && Model.AboutFull.Length > 0)
-        {
-            <li class="font_black"><a href="#tab5-3" data-toggle="tab">О нас</a></li>
-        }
+        <li class="font_black"><a href="#tab5-2" data-toggle="tab">О нас</a></li>
+        <li class="font_black"><a href="#tab5-3" data-toggle="tab">Портфолио</a></li>
     </ul>
     <div class="tab-content">
         <div class="tab-pane active" id="tab5-1">
@@ -24,106 +24,168 @@
                     {
                         <img src="/Image/Get?id=0" width="300" height="300" class="img-thumbnail" id="avatar">
                     }
-                    <div class="card-adding widget" style="padding-top: 10px;">
-                        <ul class="categories">
-                            <li><a href="#" onclick="AddFriend('@Model.Login')"><i class="fa fa-star"></i>Добавить в визитницу</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-md-8">
-                    @if (ViewBag.User != null && ViewBag.User.Id == Model.Id)
+                    @if (ViewBag.UserLogin != null && Model.Login != ViewBag.UserLogin)
                     {
-                        <div style="width: 100%; text-align: right">
-                            @Html.ActionLink("Редактировать визитку", "Profile", "Account", null, new { @style = "font-style: italic; color: #BEB7B7;" })
+                        <div class="card-adding widget" style="padding-top: 10px;">
+                            <ul class="categories">
+                                <li><a href="#" onclick="AddFriend('@Model.Login')"><i class="fa fa-star"></i>Добавить в визитницу</a></li>
+                            </ul>
                         </div>
                     }
+                </div>
+                <div class="col-md-8">
                     <div class="card-table">
+                        <div class="row">
+                        <div class="col-md-12" style="text-align: right;">
+                            @if (Model.Login == ViewBag.UserLogin)
+                            {
+                                @Html.ActionLink("Редактировать визитку", "Profile", "Account", new { @tab = "tab5-1" }, null)
+                            }
+                        </div>
+                    </div>
                         <p>
                             <h2>
                                 @Model.FullName
                             </h2>
                         </p>
-                        @if (!string.IsNullOrEmpty(Model.AboutFull))
+                        @if (!string.IsNullOrEmpty(Model.AboutShort))
                         {
                             <div class="card-block">
-                                <div class="card-title">Обо мне</div>
-                                <div>@Model.AboutShort</div>
+                                <div class="card-title">Чем я занимаюсь</div>
+                                <div class="card-table-content"><strong>@Model.AboutShort</strong></div>
                             </div>
                         }
                         @if (Model.City != null)
                         {
                             <div class="card-block">
                                 <div class="card-title">я живу</div>
-                                <div>@Model.City.Region.Name</div>
-                                <div>@Model.City.Name</div>
+                                <div class="card-table-content">@Model.City.Region.Country.Name</div>
+                                <div class="card-table-content">@Model.City.Region.Name</div>
+                                <div class="card-table-content">@Model.City.Name</div>
                             </div>
                         }
                         @if (!string.IsNullOrEmpty(Model.Phone))
                         {
                             <div class="card-block">
-                                <div class="card-title">Телефон</div>
-                                <div>@Model.Phone</div>
+                                <div class="card-title">телефон</div>
+                                <div class="card-table-content">@Model.Phone</div>
                             </div>
                         }
                         @if (!string.IsNullOrEmpty(Model.Phone2))
                         {
                             <div class="card-block">
-                                <div class="card-title">Доп. телефон</div>
-                                <div>@Model.Phone2</div>
+                                <div class="card-title">доп. телефон</div>
+                                <div class="card-table-content">@Model.Phone2</div>
                             </div>
                         }
                         @if (!string.IsNullOrEmpty(Model.Email))
                         {
                             <div class="card-block">
-                                <div class="card-title">Мой Email</div>
-                                <div>@Model.Email</div>
+                                <div class="card-title">мой email</div>
+                                <div class="card-table-content">@Model.Email</div>
                             </div>
                         }
                         @if (!string.IsNullOrEmpty(Model.Site))
                         {
                             <div class="card-block">
-                                <div class="card-title">Мой сайт</div>
-                                <div>@Model.Site</div>
+                                <div class="card-title">мой сайт</div>
+                                <div class="card-table-content">@Model.Site</div>
                             </div>
                         }
                         @if (!string.IsNullOrEmpty(Model.Skype))
                         {
                             <div class="card-block">
                                 <div class="card-title">мой skype</div>
-                                <div>@Model.Skype</div>
+                                <div class="card-table-content">@Model.Skype</div>
                             </div>
                         }
                         @if (!string.IsNullOrEmpty(Model.VKontakte))
                         {
                             <div class="card-block">
-                                <div class="card-title">Моя страничка ВКонтакте</div>
-                                <div>@Model.VKontakte</div>
+                                <div class="card-title">моя страничка ВКонтакте</div>
+                                <div class="card-table-content"><a href="@Model.VKontakte">@Model.VKontakte</a></div>
                             </div>
                         }
                         @if (!string.IsNullOrEmpty(Model.Instagram))
                         {
                             <div class="card-block">
-                                <div class="card-title">Моя страничка Instagram</div>
-                                <div>@Model.Instagram</div>
+                                <div class="card-title">моя страничка Instagram</div>
+                                <div class="card-table-content"><a href="@Model.Instagram">@Model.Instagram</a></div>
                             </div>
                         }
                         @if (!string.IsNullOrEmpty(Model.Facebook))
                         {
                             <div class="card-block">
-                                <div class="card-title">Моя страничка Facebook</div>
-                                <div>@Model.Facebook</div>
+                                <div class="card-title">моя страничка Facebook</div>
+                                <div class="card-table-content"><a href="@Model.Facebook">@Model.Facebook</a></div>
                             </div>
                         }
                     </div>
                 </div>
             </div>
         </div>
-        <div class="tab-pane active" id="tab5-3">
-            @if (Model.AboutFull != null)
-            {
-                @Html.Raw(Model.AboutFull.Replace("\n", "</br>"));
-            }
-        </div>
+        
+        @if (Model.Portfolio != null)
+        {
+            <div class="tab-pane" id="tab5-2" style="text-align: right;">
+                @if (Model.Login == ViewBag.UserLogin)
+                {
+                    @Html.ActionLink("Редактировать визитку", "Profile", "Account", new { @tab = "tab5-3" }, null)
+                }
+            </div>
+            <div class="tab-pane" id="tab5-2">
+                @Html.Raw(Model.Portfolio.Replace("\n", "</br>"))          
+            </div>
+        }
+        else
+        {
+            <div class="tab-pane" id="tab5-2" style="text-align: right;">
+                @if (Model.Login == ViewBag.UserLogin)
+                {
+                    @Html.ActionLink("Редактировать визитку", "Profile", "Account", new { @tab = "tab5-3" }, null)
+                }
+            </div>
+            <div class="tab-pane" id="tab5-2">
+                Не заполнено
+            </div>
+        }
+        @if (Model.Portfiles != null && Model.Portfiles.Length > 0)
+        {
+            <div class="tab-pane" id="tab5-3" style="text-align: right;">
+                @if (Model.Login == ViewBag.UserLogin)
+                {
+                    @Html.ActionLink("Редактировать визитку", "Profile", "Account", new { @tab = "tab5-2" }, null)
+                }
+            </div>
+            <div class="tab-pane" id="tab5-3">
+                
+                <div id="gallery" style="display:none;">
+                    @foreach (var file in Model.Portfiles)
+                    {
+                        <img src="~/File/get?id=@file.Id" data-image="/File/get?id=@file.Id" data-description="" style="display:none" />
+                    }
+                </div>
+
+                <script language="javascript">
+                    $(document).ready(function () {
+                        $("#gallery").unitegallery();
+                    });
+                </script>
+            </div>
+        }
+        else
+        {
+            <div class="tab-pane" id="tab5-3" style="text-align: right;">
+                @if (Model.Login == ViewBag.UserLogin)
+                {
+                    @Html.ActionLink("Редактировать визитку", "Profile", "Account", null, new { @tab = "tab5-2" })
+                }
+            </div>
+            <div class="tab-pane" id="tab5-3">
+                Не заполнено
+            </div>
+        }
     </div>
 </div>
 <script src="~/Scripts/app/addFriend.js"></script>
+<script src="~/Scripts/app/openTab.js"></script>

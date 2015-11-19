@@ -7,7 +7,7 @@
 
     public class BaseEntity<T> : ActiveRecordBase<T> where  T : class 
     {
-        [ValidateNonEmpty("Укажите дату дату создания")]
+        [ValidateNonEmpty("Укажите дату создания")]
         [Property]
         public DateTime CreatedDateTime { get; set; }
 

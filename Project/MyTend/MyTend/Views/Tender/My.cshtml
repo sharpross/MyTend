@@ -23,6 +23,9 @@
         <th style="text-align: center">
             Бюджет
         </th>
+        <th style="text-align: center">
+            
+        </th>
     </tr>
 
     @foreach (var item in Model.Tenders)
@@ -39,6 +42,16 @@
             </td>
             <td width="70" style="text-align: center">
                 @Html.ActionLink(item.Cost.ToString("0.00") + " руб.", "Details", "Tender", new { id = item.Id }, null)
+            </td>
+            <td width="70" style="text-align: center">
+                @if (item.IsActive)
+                {
+                    @Html.ActionLink("Отменить", "CancelTender", "Tender", new { id = item.Id }, null)
+                }
+                else
+                {
+                    <div>Закрыт</div> 
+                }
             </td>
         </tr>
     }

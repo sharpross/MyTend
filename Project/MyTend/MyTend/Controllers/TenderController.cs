@@ -61,7 +61,7 @@
             {
                 model.Save();
 
-                return Redirect("My");
+                return RedirectToAction("My");
             }
 
             return View(model);
@@ -80,7 +80,7 @@
         }
 
         /// <summary>
-        /// Активные тендеры
+        /// Закрыте тендеры
         /// </summary>
         /// <returns></returns>
         public ActionResult Closed()
@@ -126,6 +126,14 @@
             }
 
             return RedirectToAction("Details", new { @id = tenderId});
+        }
+
+        public ActionResult CancelTender(int id)
+        {
+            var model = new CloseTenderModel(this.Auth.User.Id, id);
+            model.Cancel();
+
+            return RedirectToAction("My");
         }
 
         [HttpPost]

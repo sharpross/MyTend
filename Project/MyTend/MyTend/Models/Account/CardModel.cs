@@ -1,4 +1,5 @@
 ﻿using MyTend.Entites;
+using MyTend.Services.File;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,8 @@ namespace MyTend.Models
 {
     public class CardModel : UserSystem
     {
+        public FileSystem[] Portfiles { get; set; }
+
         public CardModel(string login)
         {
             this.Load(login);
@@ -42,6 +45,15 @@ namespace MyTend.Models
             this.Site = user.Site;
             this.Skype = user.Skype;
             this.VKontakte = user.VKontakte;
+
+            this.LoadPortfolios(user);
+        }
+
+        public void LoadPortfolios(UserSystem user)
+        {
+            var service = new FileControllerService();
+
+            this.Portfiles = service.Get(user, true).ToArray();
         }
     }
 }
