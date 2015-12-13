@@ -18,7 +18,7 @@ namespace MyTend.Models
 
             this.Tenders = Tender.FindAll()
                 .Where(x => x.User.Id == authService.User.Id)
-                .OrderBy(x => x.CreatedDateTime)
+                .OrderByDescending(x => x.CreatedDateTime)
                 .ToList();
         }
     }

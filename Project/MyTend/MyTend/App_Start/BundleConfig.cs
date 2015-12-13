@@ -53,10 +53,9 @@ namespace MyTend
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/theme/assets/bootstrap/css/bootstrap.min.css",
-                      "~/Content/site.css",
-                      
                       "~/Content/theme/css/global-style.css",
-                      "~/Content/theme/assets/fancybox/jquery.fancybox.css"
+                      "~/Content/theme/assets/fancybox/jquery.fancybox.css",
+                      "~/Content/site.css"
                       ));
 
 

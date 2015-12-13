@@ -14,7 +14,7 @@
         </p>
         if (ViewBag.UnreadedMessages == 0)
         {
-            <p>@Html.ActionLink("Сообщения", "Index", "Message", null, new { @style = "color: #245071;" })</p>
+            <p>@Html.ActionLink("Сообщения", "Index", "Card", null, new { @style = "color: #245071;" })</p>
         }
         else
         {
@@ -41,10 +41,11 @@
         <p>@Html.ActionLink("Стать продавцом", "Index", "Pay", null, new { @style = "color: #245071" })</p>
         <p>@Html.ActionLink("Связаться с нами", "Support", "Home", null, new { @style = "color: #245071;" })</p>
         <p>@Html.ActionLink("О меню", "AboutMenu", "Docs", null, new { @style = "color: gray; font-style: oblique" })</p>
+        <p>@Html.ActionLink("Часто задаваемые вопросы", "faq", "Docs", null, new { @style = "color: gray; font-style: oblique" })</p>
+        <p>@Html.ActionLink("Блог", "Blog", "Home", null, new { @style = "color: gray; font-style: oblique" })</p>
     }
     else
     {
-        <p>@Html.ActionLink("Регистрация", "AboutWork", "Docs", null, new { @style = "color: #245071;" })</p>
         <p>@Html.ActionLink("Как это работает", "AboutWork", "Docs", null, new { @style = "color: #245071;" })</p>
     }
     

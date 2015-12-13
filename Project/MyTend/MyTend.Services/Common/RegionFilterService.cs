@@ -26,7 +26,9 @@
 
         public bool HasSubs()
         {
-            return RegionFilter.FindAll().Any();
+            return RegionFilter.FindAll()
+                .Where(x => x.User.Id == user.Id)
+                .Any();
         }
 
         /// <summary>

@@ -2,6 +2,9 @@
 {
     using Castle.ActiveRecord;
     using Castle.Components.Validator;
+    using MyTend.Entites.Block;
+    using System;
+    using System.Linq;
 
     [ActiveRecord("users")]
     public class UserSystem : BaseEntity<UserSystem>
@@ -66,5 +69,16 @@
 
         [BelongsTo("Avatarid")]
         public FileSystem Avatar { get; set; }
+
+        public bool IsBlocked
+        {
+            get 
+            {
+                var blocks = BlockUser.FindAll()
+                    .Any(x => x.DateTo > DateTime.Now);
+
+                return blocks;
+            }
+        }
     }
 }

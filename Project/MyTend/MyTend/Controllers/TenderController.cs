@@ -25,6 +25,7 @@
         /// </summary>
         /// <returns></returns>
         [OnlySub]
+        [BanResource]
         public ActionResult List()
         {
             var model = new ListTendersModel();
@@ -37,6 +38,7 @@
         /// </summary>
         /// <returns></returns>
         [HttpGet]
+        [BanResource]
         public ActionResult Create(int id)
         {
             var model = new CreateTenderModel(id);
@@ -50,6 +52,7 @@
         /// <returns></returns>
         [HttpPost]
         [ValidateInput(false)]
+        [BanResource]
         public ActionResult Create(CreateTenderModel model)
         {
             if (this.Auth.User == null)
@@ -72,6 +75,7 @@
         /// </summary>
         /// <returns></returns>
         [OnlySub]
+        [BanResource]
         public ActionResult Active()
         {
             var model = new ActiveTenderListModel();
@@ -137,6 +141,7 @@
         }
 
         [HttpPost]
+        [BanResource]
         public ActionResult AddComment(TenderMessageModel model)
         {
             if (model.IsValid())

@@ -69,7 +69,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BalanceInfo.cs" />
     <Compile Include="BaseEntity.cs" />
+    <Compile Include="Block\BlockUser.cs" />
     <Compile Include="City\City.cs" />
     <Compile Include="Contacts\Contacts.cs" />
     <Compile Include="Country\Country.cs" />

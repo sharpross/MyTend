@@ -9,21 +9,12 @@
 <table class="table table-striped">
     <tr>
         <th>
-            Название торгов
-        </th>
 
-        <th style="text-align: center">
-            Тема/категория
         </th>
-
-        <th style="text-align: center">
-            Регион/Город исполнения заявки
+        <th>
+            
         </th>
-
-        <th style="text-align: center">
-            Бюджет
-        </th>
-        <th style="text-align: center">
+        <th>
             
         </th>
     </tr>
@@ -31,26 +22,63 @@
     @foreach (var item in Model.Tenders)
     {
         <tr>
-            <td width="100">
-                @Html.ActionLink(item.Title, "Details", "Tender", new { id = item.Id }, null)
+            <td>
+                <a href="~/Tender/Details?id=@item.Id">
+                    <img src="~/Content/images/kats/@item.Theme.ImageName" width="50" height="40" />
+                </a>
             </td>
-            <td width="100" style="text-align: center">
-                @Html.ActionLink(item.Theme.Theme + ": " + item.Theme.Title, "Details", "Tender", new { id = item.Id }, null)
+            <td>
+                <table style="width: 100%">
+                    <tr>
+                        <td width="20%" style="text-align: right;">
+                            <strong>Название торгов:</strong>
+                        </td>
+                        <td style="padding-left: 10px;">
+                            @Html.ActionLink(item.Title, "Details", "Tender", new { id = item.Id }, null)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="20%" style="text-align: right;">
+                            <strong>Тема/категория:</strong>
+                        </td>
+                        <td style="padding-left: 10px;">
+                            @Html.ActionLink(item.Theme.Theme + ": " + item.Theme.Title, "Details", "Tender", new { id = item.Id }, null)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="20%" style="text-align: right;">
+                            <strong>Регион/Город:</strong>
+                        </td>
+                        <td style="padding-left: 10px;">
+                            @Html.ActionLink(item.City.Name, "Details", "Tender", new { id = item.Id }, null)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="20%" style="text-align: right;">
+                            <strong>Бюджет:</strong>
+                        </td>
+                        <td style="padding-left: 10px;">
+                            @Html.ActionLink(item.Cost.ToString("0.00") + " руб.", "Details", "Tender", new { id = item.Id }, null)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="20%" style="text-align: right;">
+                            
+                        </td>
+                        <td style="padding-left: 10px;">
+                            @Html.ActionLink("Подробнее...", "Details", "Tender", new { id = item.Id }, null)
+                        </td>
+                    </tr>
+                </table>
             </td>
-            <td width="100" style="text-align: center">
-                @Html.ActionLink(item.City.Name, "Details", "Tender", new { id = item.Id }, null)
-            </td>
-            <td width="70" style="text-align: center">
-                @Html.ActionLink(item.Cost.ToString("0.00") + " руб.", "Details", "Tender", new { id = item.Id }, null)
-            </td>
-            <td width="70" style="text-align: center">
+            <td>
                 @if (item.IsActive)
                 {
                     @Html.ActionLink("Отменить", "CancelTender", "Tender", new { id = item.Id }, null)
                 }
                 else
                 {
-                    <div>Закрыт</div> 
+                    <div>Закрыт</div>
                 }
             </td>
         </tr>

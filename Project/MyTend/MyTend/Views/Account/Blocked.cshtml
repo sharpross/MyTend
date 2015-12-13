@@ -1,0 +1,37 @@
+﻿@model MyTend.Entites.Block.BlockUser
+
+@{
+    ViewBag.Title = "Заблокированы";
+}
+
+<h2>Вы заблокированы за нарушения</h2>
+
+<div>
+    <div>
+        Вы заблокированы до: @Model.DateTo.ToString("dd.MM.yyyy")
+    </div>
+    @if (!string.IsNullOrEmpty(Model.Log))
+    {
+        <div>
+            По причине: @Model.Log
+        </div> 
+    }
+</div>
+<br />
+<div>
+    Вы не можете:
+    <ul>
+        <li>
+            Писать сообщения в торгах
+        </li>
+        <li>
+            Создавать торги
+        </li>
+        <li>
+            Просматривать активные торги
+        </li>
+        <li>
+            Писать сообщения в торгах
+        </li>
+    </ul>
+</div>

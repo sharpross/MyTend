@@ -12,10 +12,28 @@
         }
 
         /// <summary>
+        /// Чяво
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult FAQ()
+        {
+            return View();
+        }
+
+        /// <summary>
         /// Инструкция заполнеиния заявок
         /// </summary>
         /// <returns></returns>
         public ActionResult Instruction()
+        {
+            return View();
+        }
+
+        /// <summary>
+        /// Публичуе данные
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult PublicData()
         {
             return View();
         }

@@ -10,12 +10,36 @@ hr {
     color: red;
 }
 
+a.btn.btn-two {
+    color: white;
+}
+
+.wp-theme-1 a .btn-two {
+    color: white;
+}
+
+.wp-theme-1 a:hover .btn-two {
+    color: white;
+}
+
 .wp-theme-1 a {
-    text-decoration: none;
+    text-decoration: underline;
+    color: #245071;
+}
+
+.wp-theme-1 a:hover {
+    text-decoration: underline !important;
+    color: #245071;
+}
+
+.widget a {
+    text-decoration: none !important;
+    color: #245071 !important;
 }
 
 form a {
     text-decoration: underline;
+    color: #245071;
 }
 
 header .navbar-brand img {
@@ -257,50 +281,8 @@ div.tabs ul.nav-tabs a:last-child, div.tabs ul.nav-tabs a:last-child:hover {
     text-align: center;
 }
 
-.customButon {
- -moz-box-shadow: 0px 1px 0px 0px #d69f9a;
- -webkit-box-shadow: 0px 1px 0px 0px #d69f9a;
- box-shadow: 0px 1px 0px 0px #d69f9a;
- background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #fe1a00), color-stop(1, #d60000));
- background:-moz-linear-gradient(top, #fe1a00 5%, #d60000 100%);
- background:-webkit-linear-gradient(top, #fe1a00 5%, #d60000 100%);
- background:-o-linear-gradient(top, #fe1a00 5%, #d60000 100%);
- background:-ms-linear-gradient(top, #fe1a00 5%, #d60000 100%);
- background:linear-gradient(to bottom, #fe1a00 5%, #d60000 100%);
- filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#fe1a00', endColorstr='#d60000',GradientType=0);
- background-color:#fe1a00;
- -moz-border-radius:5px;
- -webkit-border-radius:5px;
- border-radius:5px;
- display:inline-block;
- cursor:pointer;
- color:#ffffff;
- font-family:Arial;
- font-size:17px;
- padding:8px 7px;
- text-decoration:none;
- text-shadow:0px 0px 0px #b03434;
- color: white;
-}
-.customButon:hover {
-color: white;
- background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #d60000), color-stop(1, #fe1a00));
- background:-moz-linear-gradient(top, #d60000 5%, #fe1a00 100%);
- background:-webkit-linear-gradient(top, #d60000 5%, #fe1a00 100%);
- background:-o-linear-gradient(top, #d60000 5%, #fe1a00 100%);
- background:-ms-linear-gradient(top, #d60000 5%, #fe1a00 100%);
- background:linear-gradient(to bottom, #d60000 5%, #fe1a00 100%);
- filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#d60000', endColorstr='#fe1a00',GradientType=0);
- background-color:#d60000;
-}
-.customButon:active {
-    color: white;
- position:relative;
- top:1px;
-}
-
 div.tabs ul.nav-tabs a {
-    background: #4A5D71 none repeat scroll 0 0 !important;
+    background: #34475a none repeat scroll 0 0 !important;
 }
 
 div.tabs ul.nav-tabs a:hover {
@@ -312,5 +294,5 @@ div.tabs ul.nav-tabs li.active a {
 }
 
 div.tabs div.tab-content {
-    background-color: #eef0f2 !important;
+    background-color: #f0f2f7 !important;
 }

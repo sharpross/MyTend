@@ -71,6 +71,10 @@
     <Reference Include="NHibernate.Search">
       <HintPath>..\packages\Castle.Activerecord.3.0.0.1\lib\Net40\NHibernate.Search.dll</HintPath>
     </Reference>
+    <Reference Include="Npgsql, Version=3.0.3.0, Culture=neutral, PublicKeyToken=5d8b90d52f46fda7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Npgsql.3.0.3\lib\net45\Npgsql.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Remotion.Data.Linq">
       <HintPath>..\packages\NHibernate.3.0.0.4000\lib\Remotion.Data.Linq.dll</HintPath>
     </Reference>
@@ -145,6 +149,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Attributes\BanResourceAttribute.cs" />
     <Compile Include="Attributes\OnlySubAttribute.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
@@ -775,6 +780,10 @@
     <Content Include="Views\Docs\AboutWork.cshtml" />
     <Content Include="Views\Shared\_ReportTenderMessage.cshtml" />
     <Content Include="Views\Shared\_UpdateOk.cshtml" />
+    <Content Include="Views\Docs\PublicData.cshtml" />
+    <Content Include="Views\Docs\FAQ.cshtml" />
+    <Content Include="Views\Home\Blog.cshtml" />
+    <Content Include="Views\Account\Blocked.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,10 +1,13 @@
 ﻿namespace MyTend.Controllers
 {
+    using MyTend.Attributes;
+    using MyTend.Entites.Block;
     using MyTend.Models;
     using MyTender.Core;
     using MyTender.Security;
     using System;
     using System.Web.Mvc;
+    using System.Linq;
 
     public class AccountController : BaseController
     {
@@ -203,6 +206,16 @@
             {
                 throw new Exception(e.Message);
             }
+        }
+
+        [BanResource]
+        public ActionResult Blocked()
+        {
+            var block = BlockUser.FindAll()
+                .Where(x => x.DateTo < DateTime.Now)
+                .FirstOrDefault();
+
+            return View(block);
         }
     }
 }

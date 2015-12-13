@@ -1,7 +1,21 @@
 ﻿@model MyTend.Models.CardModel
 
 @{
-    ViewBag.Title = "Визитная карточка:" + Model.FullName;
+    ViewBag.Title = "Визитная карточка: " + Model.FullName;
+
+    var parts = Model.FullName.Split(' ');
+    var secondname = string.Empty;
+    var firstname = string.Empty;
+
+    if (parts.Length > 2)
+    {
+        secondname = parts[0];
+        firstname = string.Join(" ", parts).Replace(secondname, string.Empty);
+    }
+    else
+    {
+        secondname = Model.FullName;
+    }
 }
 <script>
     var openTabParam = "@ViewBag.OpenTabParam";
@@ -45,14 +59,30 @@
                     </div>
                         <p>
                             <h2>
-                                @Model.FullName
+                                @if (string.IsNullOrEmpty(secondname))
+                                {
+                                    @firstname
+                                }
+                                else
+                                { 
+                                    @:<div>
+                                        @secondname.ToUpper()
+                                    @:</div>
+                                    @:<div>
+                                        @firstname
+                                    @:</div>
+                                }
                             </h2>
                         </p>
                         @if (!string.IsNullOrEmpty(Model.AboutShort))
                         {
                             <div class="card-block">
                                 <div class="card-title">Чем я занимаюсь</div>
-                                <div class="card-table-content"><strong>@Model.AboutShort</strong></div>
+                                <div class="card-table-content">
+                                    <strong style="word-wrap: break-word;">
+                                        @Model.AboutShort
+                                    </strong>
+                                </div>
                             </div>
                         }
                         @if (Model.City != null)
@@ -127,14 +157,16 @@
         
         @if (Model.Portfolio != null)
         {
-            <div class="tab-pane" id="tab5-2" style="text-align: right;">
+            <div class="tab-pane" id="tab5-2" style="text-align: left;">
                 @if (Model.Login == ViewBag.UserLogin)
                 {
-                    @Html.ActionLink("Редактировать визитку", "Profile", "Account", new { @tab = "tab5-3" }, null)
+                    <div style="text-align: right">
+                        @Html.ActionLink("Редактировать визитку", "Profile", "Account", new { @tab = "tab5-3" }, null)
+                    </div>                    
                 }
-            </div>
-            <div class="tab-pane" id="tab5-2">
-                @Html.Raw(Model.Portfolio.Replace("\n", "</br>"))          
+                <div>
+                    @Html.Raw(Model.Portfolio.Replace("\n", "</br>"))
+                </div>
             </div>
         }
         else
@@ -146,19 +178,18 @@
                 }
             </div>
             <div class="tab-pane" id="tab5-2">
-                Не заполнено
+                
             </div>
         }
         @if (Model.Portfiles != null && Model.Portfiles.Length > 0)
         {
-            <div class="tab-pane" id="tab5-3" style="text-align: right;">
-                @if (Model.Login == ViewBag.UserLogin)
-                {
-                    @Html.ActionLink("Редактировать визитку", "Profile", "Account", new { @tab = "tab5-2" }, null)
-                }
-            </div>
             <div class="tab-pane" id="tab5-3">
-                
+                <div style="text-align: right;">
+                    @if (Model.Login == ViewBag.UserLogin)
+                    {
+                        @Html.ActionLink("Редактировать визитку", "Profile", "Account", new { @tab = "tab5-2" }, null)
+                    }
+                </div>    
                 <div id="gallery" style="display:none;">
                     @foreach (var file in Model.Portfiles)
                     {

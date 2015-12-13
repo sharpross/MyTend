@@ -1,0 +1,60 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>Пользователи</h2>
+        <br />
+        <div>
+            Сегодня: 10
+        </div>
+        <div>
+            За неделю: 10
+        </div>
+        <br />
+        <div>
+            <strong>Всего: </strong>10
+        </div>
+        <br />
+        <div>
+            @Html.ActionLink("Перейти", "Index", "User", null, new { @class="btn btn-primary"})
+        </div>
+    </div>
+    <div class="col-md-4">
+        <h2>Тендеры</h2>
+        <br />
+        <div>
+            Сегодня: 10
+        </div>
+        <div>
+            За неделю: 10
+        </div>
+        <br />
+        <div>
+            <strong>Всего: </strong>10
+        </div>
+        <br />
+        <div class="">
+            @Html.ActionLink("Перейти", "Index", "User", null, new { @class = "btn btn-primary" })
+        </div>
+    </div>
+    <div class="col-md-4">
+        <h2>Оплаты</h2>
+        <br />
+        <div>
+            Сегодня: 10
+        </div>
+        <div>
+            За неделю: 10
+        </div>
+        <br />
+        <div>
+            <strong>Всего: </strong>10
+        </div>
+        <br />
+        <div>
+            @Html.ActionLink("Перейти", "Index", "User", null, new { @class = "btn btn-primary" })
+        </div>
+    </div>
+</div>
