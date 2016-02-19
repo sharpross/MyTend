@@ -35,6 +35,16 @@
             this.Errors.Clear();
             this.Errors.AddRange(runner.GetErrorSummary(this).ErrorMessages);
 
+            if (this.Errors.Contains("Login is currently in use. Please pick up a new Login."))
+            {
+                this.Errors.Remove("Login is currently in use. Please pick up a new Login.");
+                this.Errors.Add("Такой логин уже используется. Пожалуйста выберите другой логин.");
+            }
+            if (this.Errors.Contains("Email is currently in use. Please pick up a new Email."))
+            {
+                this.Errors.Remove("Email is currently in use. Please pick up a new Email.");
+            }
+
             return false;
         }
 

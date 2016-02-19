@@ -55,7 +55,8 @@
         public void Save(List<string> citys, List<string> regions)
         {
             var allFilters = RegionFilter.FindAll()
-               .Where(x => x.User.Id == user.Id);
+               .Where(x => x.User.Id == user.Id)
+               .ToList();
 
             foreach (var filter in allFilters)
             {
@@ -181,7 +182,6 @@
             }*/
 
             return tenders
-                .Where(x => x.Winner == null)
                 .ToList();
         }
 
@@ -198,8 +198,7 @@
             foreach (var region in regions)
             {
                 var tendersByRegion = Tender.FindAll()
-                    .Where(x => x.Region.Id == region.Id)
-                    .Where(x => x.Winner == null);
+                    .Where(x => x.Region.Id == region.Id);
 
                 tenders.AddRange(tendersByRegion);
             }

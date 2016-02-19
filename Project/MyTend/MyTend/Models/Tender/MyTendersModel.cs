@@ -10,16 +10,21 @@ namespace MyTend.Models
 {
     public class MyTendersModel
     {
-        public List<Tender> Tenders { get; set; }
+        public List<Tender> OpenTenders { get; set; }
+
+        public List<Tender> CloseTenders { get; set; }
 
         public MyTendersModel()
         {
             var authService = new AuthService();
 
-            this.Tenders = Tender.FindAll()
-                .Where(x => x.User.Id == authService.User.Id)
-                .OrderByDescending(x => x.CreatedDateTime)
-                .ToList();
+            this.OpenTenders = new List<Tender>();
+            this.CloseTenders = new List<Tender>();
+
+            var my = new TenderService().GetMy();
+
+            this.OpenTenders = my.Open;
+            this.CloseTenders = my.Close;
         }
     }
 }

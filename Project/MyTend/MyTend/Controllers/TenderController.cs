@@ -1,10 +1,13 @@
 ﻿namespace MyTend.Controllers
 {
     using MyTend.Attributes;
+    using MyTend.Entites;
     using MyTend.Models;
     using MyTender.Core;
     using MyTender.Security;
     using System;
+    using System.Collections.Generic;
+    using System.Linq;
     using System.Web.Mvc;
 
     public class TenderController : BaseController
@@ -28,10 +31,11 @@
         [BanResource]
         public ActionResult List()
         {
-            var model = new ListTendersModel();
+            var model = new ActiveTenderListModel();
 
             return View(model);
         }
+
 
         /// <summary>
         /// Создать тенедер
@@ -76,20 +80,9 @@
         /// <returns></returns>
         [OnlySub]
         [BanResource]
-        public ActionResult Active()
+        public ActionResult Active() 
         {
-            var model = new ActiveTenderListModel();
-
-            return View(model);
-        }
-
-        /// <summary>
-        /// Закрыте тендеры
-        /// </summary>
-        /// <returns></returns>
-        public ActionResult Closed()
-        {
-            var model = new ActiveTenderListModel();
+            var model = new ListTendersModel();
 
             return View(model);
         }
@@ -105,6 +98,17 @@
             return View(model);
         }
 
+        [OnlySub]
+        [BanResource]
+        public ActionResult Winner()
+        {
+            var model = new WinnerTenderModel();
+
+            model.Load();
+
+            return View(model);
+        }
+
         /// <summary>
         /// Подробно
         /// </summary>
@@ -112,7 +116,7 @@
         /// <returns></returns>
         public ActionResult Details(int id)
         {
-            var model = new TenderDetailsModel(id);
+            var model = new TenderDetailsModel(this.Auth, id);
 
             return View(model);
         }
@@ -152,6 +156,26 @@
             }
 
             return JsonFailur(model);
+        }
+
+        public ActionResult Map()
+        {
+            var themes = new Dictionary<string, List<TenderTheme>>();
+
+            var all = TenderTheme.FindAll()
+                .OrderBy(x => x.Theme)
+                .ToList();
+
+            all.ForEach(x => {
+                if (!themes.Keys.Contains(x.Theme))
+                {
+                    themes.Add(x.Theme, new List<TenderTheme>());
+                }
+
+                themes[x.Theme].Add(x);
+            });
+
+            return View(themes);
         }
     }
 }

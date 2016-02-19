@@ -8,9 +8,19 @@
 {
     @Html.AntiForgeryToken()
 
+    <div class="row">
+        <div class="col-lg-12">
+            <ul class="list-group">
+                <li class="list-group-item list-group-item-success">
+                    Заполняя данную регистрационную форму и нажимая кнопку «Зарегистрироваться», вы автоматически становитесь Покупателем. Если вы хотите стать Продавцом, вам необходимо после регистрации заполнить все остальные вкладки «Визитки» и перейти в раздел меню «Стать продавцом».
+                </li>
+            </ul>
+        </div>
+    </div>
+    
     <div class="tabs">
         <ul class="nav nav-tabs nav-justified">
-            <li class="active"><a href="#tab5-1" data-toggle="tab"><i class="icon-star"></i>Регистрация нового пользователя</a></li>
+            <li class="active"><a href="#tab5-1" data-toggle="tab"><i class="icon-star"></i><strong>Регистрация нового пользователя</strong></a></li>
         </ul>
         <div class="tab-content">
             <div class="tab-pane active" id="tab5-1">
@@ -38,7 +48,7 @@
                             <div class="col-lg-6">
                                 <div class="form-group">
                                     <label for="Name">Ваш e-mail (логин)</label>
-                                    <input type="email" class="form-control" name="Login" placeholder="my@mail.ru" value="@Model.Login" required>
+                                    <input type="email" class="form-control" name="Login" placeholder="Ведите ваш Е-mail" value="@Model.Login" required>
                                 </div>
                             </div>
                         </div>
@@ -46,7 +56,7 @@
                             <div class="col-lg-6">
                                 <div class="form-group">
                                     <label for="Name">Пароль</label>
-                                    <input type="password" min="5" class="form-control" name="Password" placeholder="Пароль" value="@Model.Password" required>
+                                    <input type="password" min="5" class="form-control" name="Password" placeholder="Придумайте пароль" value="@Model.Password" required>
                                 </div>
                             </div>
                         </div>
@@ -54,7 +64,7 @@
                             <div class="col-lg-6">
                                 <div class="form-group">
                                     <label for="Name">Повторите пароль</label>
-                                    <input type="password" min="5" class="form-control" name="Password2" placeholder="Пароль" value="@Model.Password" required>
+                                    <input type="password" min="5" class="form-control" name="Password2" placeholder="Повторите пароль" value="@Model.Password" required>
                                 </div>
                             </div>
                         </div>
@@ -62,16 +72,16 @@
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="form-group">
-                                    <label for="Name">Ваше полное имя</label>
-                                    <input type="text" class="form-control" name="FullName" placeholder="Иванов Иван Иванович" value="@Model.FullName" required>
+                                    <label for="Name">Ваше имя или название компании. которую Вы представляете</label>
+                                    <input type="text" class="form-control" name="FullName" placeholder="Иванов Иван Иванович/ООО Иванов и партнеры" value="@Model.FullName" required>
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="form-group">
-                                    <label for="Name">Чем вы занимаетесь?</label>
-                                    <input type="text" class="form-control" name="AboutShort" placeholder="кем работаете, можете быть полезны / на пенсии, домохозяйка" value="@Model.AboutShort">
+                                    <label for="Name">Коротко: кем Вы работаете, чем занимаетесь? (80 символов)</label>
+                                    <input type="text" class="form-control" name="AboutShort" placeholder="Риэлтор/тамада/юрист/домохозяйка" value="@Model.AboutShort">
                                 </div>
                             </div>
                         </div>
@@ -112,11 +122,16 @@
                         </div>
                         <div class="row">
                             <div style="padding-bottom: 20px;">
-                                <input type="checkbox" name="IsAllowRules" id="IsAllowRules" /> С <a href="/Docs/Rules" target="_blank">правилами пользования сайтом</a> ознакомлен и согласен.
+                                <input type="checkbox" name="IsAllowRules" id="IsAllowRules" /> С <a href="~/Docs/Rules" target="_blank">правилами пользования сайтом</a> ознакомлен и согласен.
                             </div>
                         </div>
                         <div class="row">
-                            <button type="submit">Зарегистрироваться</button>
+                            <div style="padding-bottom: 20px;">
+                                <input type="checkbox" name="IsAllowPublic" id="IsAllowPublic" /> Я прочитал и принял <a href="~/Docs/PublicData" target="_blank">Соглашение на обработку персональных данных</a>.
+                            </div>
+                        </div>
+                        <div class="row">
+                            <button type="submit" class="btn btn-custom-red">Зарегистрироваться</button>
                         </div>
                     </div>
                 </div>

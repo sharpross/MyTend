@@ -1,46 +1,147 @@
-﻿@model MyTend.Models.ListTendersModel
+﻿@model MyTend.Models.ActiveTenderListModel
 
 @{
-    ViewBag.Title = "Список торгов";
+    ViewBag.Title = "Мои предложения";
 }
 
-<h2>Список торгов</h2>
+<h2>Мои предложения</h2>
+<h4>Торги, в которых Вы принимаете участие как продавец услуг/товаров</h4>
 
-<table class="table table-striped">
-    <tr>
-        <th>
-            Название торгов
-        </th>
+<div class="tabs">
+    <ul class="nav nav-tabs nav-justified">
+        <li class="active"><a href="#tab5-1" data-toggle="tab" style="text-decoration: none;"><strong>Идет выбор исполнителя</strong></a></li>
+        <li class=""><a href="#tab5-2" data-toggle="tab" style="text-decoration: none;"><strong>Победитель выбран/торг закрыт</strong></a></li>
+    </ul>
+    <div class="tab-content">
+        <div class="tab-pane active" id="tab5-1">
+            @foreach (var item in Model.OpenTenders)
+            {
+                <div class="row">
+                    <div class="col-lg-1">
+                        <a href="~/Tender/Details?id=@item.Id">
+                            <img src="~/Content/images/kats/@item.Theme.ImageName" width="50" height="40" />
+                        </a>
+                    </div>
+                    <div class="col-lg-11">
+                        <table style="width: 100%">
+                            <tr>
+                                <td width="20%" style="text-align: right;">
+                                    <strong>Название торгов:</strong>
+                                </td>
+                                <td style="padding-left: 10px;">
+                                    @item.Title
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="20%" style="text-align: right;">
+                                    <strong>Тема/категория:</strong>
+                                </td>
+                                <td style="padding-left: 10px;">
+                                    @item.Theme.Theme: @item.Theme.Title
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="20%" style="text-align: right;">
+                                    <strong>Регион/Город:</strong>
+                                </td>
+                                <td style="padding-left: 10px;">
+                                    @item.City.Name
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="20%" style="text-align: right;">
+                                    <strong>Бюджет:</strong>
+                                </td>
+                                <td style="padding-left: 10px;">
+                                    @item.Cost.ToString("0.00")  руб.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="20%" style="text-align: right;">
+                                    <strong>Период торга:</strong>
+                                </td>
+                                <td style="padding-left: 10px;">
+                                    @string.Format("C " + item.CreatedDateTime.ToString("dd.MM.yyyy") + " до " + item.DateEnd.ToString("dd.MM.yyyy"))
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="20%" style="text-align: right;"></td>
+                                <td style="padding-left: 10px;">
+                                    @Html.ActionLink("Подробнее...", "Details", "Tender", new { id = item.Id }, null)
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+    <div class="rowWhite">
 
-        <th style="text-align: center">
-            Тема/категория
-        </th>
+    </div>
+            }
+        </div>
+        <div class="tab-pane" id="tab5-2">
+            @foreach (var item in Model.CloseTenders)
+            {
+                <div class="row">
+                    <div class="col-lg-1">
+                        <a href="~/Tender/Details?id=@item.Id">
+                            <img src="~/Content/images/kats/@item.Theme.ImageName" width="50" height="40" />
+                        </a>
+                    </div>
+                    <div class="col-lg-11">
+                        <table style="width: 100%">
+                            <tr>
+                                <td width="20%" style="text-align: right;">
+                                    <strong>Название торгов:</strong>
+                                </td>
+                                <td style="padding-left: 10px;">
+                                    @item.Title
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="20%" style="text-align: right;">
+                                    <strong>Тема/категория:</strong>
+                                </td>
+                                <td style="padding-left: 10px;">
+                                    @item.Theme.Theme: @item.Theme.Title
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="20%" style="text-align: right;">
+                                    <strong>Регион/Город:</strong>
+                                </td>
+                                <td style="padding-left: 10px;">
+                                    @item.City.Name
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="20%" style="text-align: right;">
+                                    <strong>Бюджет:</strong>
+                                </td>
+                                <td style="padding-left: 10px;">
+                                    @item.Cost.ToString("0.00") руб.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="20%" style="text-align: right;">
+                                    <strong>Период торга:</strong>
+                                </td>
+                                <td style="padding-left: 10px;">
+                                    @string.Format("C " + item.CreatedDateTime.ToString("dd.MM.yyyy") + " до " + item.DateEnd.ToString("dd.MM.yyyy"))
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="20%" style="text-align: right;"></td>
+                                <td style="padding-left: 10px;">
+                                    @Html.ActionLink("Подробнее...", "Details", "Tender", new { id = item.Id }, null)
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+    <div class="rowWhite">
 
-        <th style="text-align: center">
-            Регион/Город исполнения заявки
-        </th>
-
-        <th style="text-align: center">
-            Бюджет
-        </th>
-    </tr>
-
-    @foreach (var item in Model.Tenders)
-    {
-        <tr>
-            <td width="100">
-                @Html.ActionLink(item.Title, "Details", "Tender", new { id = item.Id }, null)
-            </td>
-            <td width="100" style="text-align: center">
-                @Html.ActionLink(item.Theme.Theme + ": " + item.Theme.Title, "Details", "Tender", new { id = item.Id }, null)
-            </td>
-            <td width="100" style="text-align: center">
-                @Html.ActionLink(item.City.Name, "Details", "Tender", new { id = item.Id }, null)
-            </td>
-            <td width="70" style="text-align: center">
-                @Html.ActionLink(item.Cost.ToString("0.00") + " руб.", "Details", "Tender", new { id = item.Id }, null)
-            </td>
-        </tr>
-    }
-
-</table> 
+    </div>
+            }
+        </div>
+    </div>
+</div>

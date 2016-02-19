@@ -4,157 +4,120 @@
     ViewBag.Title = "Визитная карточка: " + Model.FullName;
 
     var parts = Model.FullName.Split(' ');
-    var secondname = string.Empty;
+    var secondname = Model.FullName;
     var firstname = string.Empty;
 
-    if (parts.Length > 2)
-    {
-        secondname = parts[0];
-        firstname = string.Join(" ", parts).Replace(secondname, string.Empty);
-    }
-    else
-    {
-        secondname = Model.FullName;
-    }
 }
 <script>
     var openTabParam = "@ViewBag.OpenTabParam";
 </script>
 <div class="tabs">
     <ul class="nav nav-tabs nav-justified">
-        <li class="font_black active"><a href="#tab5-1" data-toggle="tab"><i class="icon-star"></i>Визитка</a></li>
-        <li class="font_black"><a href="#tab5-2" data-toggle="tab">О нас</a></li>
-        <li class="font_black"><a href="#tab5-3" data-toggle="tab">Портфолио</a></li>
+        <li class="font_black active"><a href="#tab5-1" data-toggle="tab" style="text-decoration: none"><i class="icon-star"></i><strong>Визитка</strong></a></li>
+        <li class="font_black"><a href="#tab5-2" data-toggle="tab" style="text-decoration: none"><strong>Об услуге</strong></a></li>
+        <li class="font_black"><a href="#tab5-3" data-toggle="tab" style="text-decoration: none"><strong>Портфолио</strong></a></li>
     </ul>
-    <div class="tab-content">
+    <div class="tab-content cardBackground">
         <div class="tab-pane active" id="tab5-1">
             <div class="row">
-                <div class="col-md-4">
-                    @if (Model.Avatar != null)
+                <div class="col-md-12" style="text-align: right;">
+                    @if (Model.Login == ViewBag.UserLogin)
                     {
-                        <img src="/Image/Get?id=@Model.Avatar.Id" width="300" height="300" class="img-thumbnail" id="avatar">
-                    }
-                    else
-                    {
-                        <img src="/Image/Get?id=0" width="300" height="300" class="img-thumbnail" id="avatar">
-                    }
-                    @if (ViewBag.UserLogin != null && Model.Login != ViewBag.UserLogin)
-                    {
-                        <div class="card-adding widget" style="padding-top: 10px;">
-                            <ul class="categories">
-                                <li><a href="#" onclick="AddFriend('@Model.Login')"><i class="fa fa-star"></i>Добавить в визитницу</a></li>
-                            </ul>
-                        </div>
+                        @Html.ActionLink("Редактировать визитку", "Profile", "Account", new { @tab = "tab5-1" }, null)
                     }
                 </div>
+            </div>
+
+            <div class="row" style="min-height: 350px; padding-bottom: 30px;">
+                <div class="col-md-4 col-sm-12">
+                    <div style="padding-top: 15px;">
+                        @if (Model.Avatar != null)
+                        {
+                            <img src="/Image/Get?id=@Model.Avatar.Id" width="300" height="300" class="img-thumbnail" id="avatar">
+                        }
+                        else
+                        {
+                            <img src="/Image/Get?id=0" width="300" height="300" class="img-thumbnail" id="avatar">
+                        }
+                    </div>
+                </div>
+
                 <div class="col-md-8">
                     <div class="card-table">
-                        <div class="row">
-                        <div class="col-md-12" style="text-align: right;">
-                            @if (Model.Login == ViewBag.UserLogin)
-                            {
-                                @Html.ActionLink("Редактировать визитку", "Profile", "Account", new { @tab = "tab5-1" }, null)
-                            }
-                        </div>
-                    </div>
-                        <p>
-                            <h2>
-                                @if (string.IsNullOrEmpty(secondname))
-                                {
-                                    @firstname
-                                }
-                                else
-                                { 
-                                    @:<div>
-                                        @secondname.ToUpper()
-                                    @:</div>
-                                    @:<div>
-                                        @firstname
-                                    @:</div>
-                                }
-                            </h2>
-                        </p>
+
+                        <h2 style="font-weight: bold; color: #d92431">
+                            @Model.FullName.ToUpper()
+                        </h2>
+
                         @if (!string.IsNullOrEmpty(Model.AboutShort))
                         {
                             <div class="card-block">
-                                <div class="card-title">Чем я занимаюсь</div>
-                                <div class="card-table-content">
-                                    <strong style="word-wrap: break-word;">
-                                        @Model.AboutShort
-                                    </strong>
+                                <div class="card-table-content" style="word-wrap: break-word; color: #7f7e7e; font-size: 20px;">
+                                    @Model.AboutShort
                                 </div>
                             </div>
                         }
+                        <br />
                         @if (Model.City != null)
                         {
                             <div class="card-block">
-                                <div class="card-title">я живу</div>
-                                <div class="card-table-content">@Model.City.Region.Country.Name</div>
-                                <div class="card-table-content">@Model.City.Region.Name</div>
-                                <div class="card-table-content">@Model.City.Name</div>
+                                <div class="card-table-content"><h4>@string.Format("{0}, {1}, {2}", Model.City.Region.Country.Name, Model.City.Region.Name, Model.City.Name)</h4></div>
                             </div>
                         }
                         @if (!string.IsNullOrEmpty(Model.Phone))
                         {
                             <div class="card-block">
-                                <div class="card-title">телефон</div>
                                 <div class="card-table-content">@Model.Phone</div>
                             </div>
                         }
                         @if (!string.IsNullOrEmpty(Model.Phone2))
                         {
                             <div class="card-block">
-                                <div class="card-title">доп. телефон</div>
                                 <div class="card-table-content">@Model.Phone2</div>
                             </div>
                         }
+                        <br />
                         @if (!string.IsNullOrEmpty(Model.Email))
                         {
                             <div class="card-block">
-                                <div class="card-title">мой email</div>
-                                <div class="card-table-content">@Model.Email</div>
+                                <div class="card-title">E-mail:</div>
+                                <div class="card-table-content"><a href="mailto:@Model.Email">@Model.Email</a></div>
                             </div>
                         }
                         @if (!string.IsNullOrEmpty(Model.Site))
                         {
                             <div class="card-block">
-                                <div class="card-title">мой сайт</div>
-                                <div class="card-table-content">@Model.Site</div>
+                                <div class="card-title">Сайт:</div>
+                                <div class="card-table-content"><a href="@Model.Site" target="_blank">@Model.Site.ToLower().Replace("http://", string.Empty).Replace("https://", string.Empty)</a></div>
                             </div>
                         }
                         @if (!string.IsNullOrEmpty(Model.Skype))
                         {
                             <div class="card-block">
-                                <div class="card-title">мой skype</div>
-                                <div class="card-table-content">@Model.Skype</div>
+                                <div class="card-title">Skype:</div>
+                                <div class="card-table-content"><a href="callto:@Model.Skype">@Model.Skype</a></div>
                             </div>
                         }
                         @if (!string.IsNullOrEmpty(Model.VKontakte))
                         {
                             <div class="card-block">
-                                <div class="card-title">моя страничка ВКонтакте</div>
-                                <div class="card-table-content"><a href="@Model.VKontakte">@Model.VKontakte</a></div>
+                                <div class="card-title">ВКонтакте:</div>
+                                <div class="card-table-content"><a href="@Model.VKontakte">@Model.VKontakte.ToLower().Replace("http://", string.Empty).Replace("https://", string.Empty)</a></div>
                             </div>
                         }
                         @if (!string.IsNullOrEmpty(Model.Instagram))
                         {
                             <div class="card-block">
-                                <div class="card-title">моя страничка Instagram</div>
-                                <div class="card-table-content"><a href="@Model.Instagram">@Model.Instagram</a></div>
+                                <div class="card-title">Instagram:</div>
+                                <div class="card-table-content"><a href="@Model.Instagram">@Model.Instagram.ToLower().Replace("http://", string.Empty).Replace("https://", string.Empty)</a></div>
                             </div>
                         }
-                        @if (!string.IsNullOrEmpty(Model.Facebook))
-                        {
-                            <div class="card-block">
-                                <div class="card-title">моя страничка Facebook</div>
-                                <div class="card-table-content"><a href="@Model.Facebook">@Model.Facebook</a></div>
-                            </div>
-                        }
+                        <br />
                     </div>
                 </div>
             </div>
         </div>
-        
+
         @if (Model.Portfolio != null)
         {
             <div class="tab-pane" id="tab5-2" style="text-align: left;">
@@ -162,9 +125,9 @@
                 {
                     <div style="text-align: right">
                         @Html.ActionLink("Редактировать визитку", "Profile", "Account", new { @tab = "tab5-3" }, null)
-                    </div>                    
+                    </div>
                 }
-                <div>
+                <div style="padding-bottom: 50px;">
                     @Html.Raw(Model.Portfolio.Replace("\n", "</br>"))
                 </div>
             </div>
@@ -174,11 +137,10 @@
             <div class="tab-pane" id="tab5-2" style="text-align: right;">
                 @if (Model.Login == ViewBag.UserLogin)
                 {
-                    @Html.ActionLink("Редактировать визитку", "Profile", "Account", new { @tab = "tab5-3" }, null)
+                    <div style="padding-bottom: 50px;">
+                        @Html.ActionLink("Редактировать визитку", "Profile", "Account", new { @tab = "tab5-3" }, null)
+                    </div>
                 }
-            </div>
-            <div class="tab-pane" id="tab5-2">
-                
             </div>
         }
         @if (Model.Portfiles != null && Model.Portfiles.Length > 0)
@@ -187,10 +149,12 @@
                 <div style="text-align: right;">
                     @if (Model.Login == ViewBag.UserLogin)
                     {
-                        @Html.ActionLink("Редактировать визитку", "Profile", "Account", new { @tab = "tab5-2" }, null)
+                        <div style="padding-bottom: 50px;">
+                            @Html.ActionLink("Редактировать визитку", "Profile", "Account", new { @tab = "tab5-2" }, null)
+                        </div>
                     }
-                </div>    
-                <div id="gallery" style="display:none;">
+                </div>
+                <div id="gallery" style="display:none; padding-bottom: 30px;">
                     @foreach (var file in Model.Portfiles)
                     {
                         <img src="~/File/get?id=@file.Id" data-image="/File/get?id=@file.Id" data-description="" style="display:none" />
@@ -209,7 +173,9 @@
             <div class="tab-pane" id="tab5-3" style="text-align: right;">
                 @if (Model.Login == ViewBag.UserLogin)
                 {
-                    @Html.ActionLink("Редактировать визитку", "Profile", "Account", null, new { @tab = "tab5-2" })
+                    <div style="padding-bottom: 50px;">
+                        @Html.ActionLink("Редактировать визитку", "Profile", "Account", null, new { @tab = "tab5-2" })
+                    </div>
                 }
             </div>
             <div class="tab-pane" id="tab5-3">
@@ -218,5 +184,15 @@
         }
     </div>
 </div>
-<script src="~/Scripts/app/addFriend.js"></script>
-<script src="~/Scripts/app/openTab.js"></script>
+<!-- Put this script tag to the <head> of your page -->
+<script type="text/javascript" src="//vk.com/js/api/openapi.js?121"></script>
+
+<script type="text/javascript">
+    VK.init({ apiId: 5303394, onlyWidgets: true });
+</script>
+
+<!-- Put this div tag to the place, where the Like block will be -->
+<div id="vk_like"></div>
+<script type="text/javascript">
+    VK.Widgets.Like("vk_like", { type: "full" });
+</script>

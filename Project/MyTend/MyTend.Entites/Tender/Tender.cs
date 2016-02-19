@@ -3,7 +3,6 @@
     using Castle.ActiveRecord;
     using Castle.Components.Validator;
     using System;
-using System.Collections.Generic;
 
     [ActiveRecord("Tenders")]
     public class Tender : BaseEntity<Tender>
@@ -59,7 +58,7 @@ using System.Collections.Generic;
         /// Сообщение тендера
         /// </summary>
         [ValidateNonEmpty("Укажите сообщение тендера")]
-        [Property]
+        [Property(Length=12000)]
         public string Message { get; set; }
 
         /// <summary>

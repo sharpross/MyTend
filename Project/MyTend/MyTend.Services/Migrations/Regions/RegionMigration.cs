@@ -20,8 +20,28 @@ namespace MyTend.Services.Migrations.Regions
 
             var rus = new Country() { Name = "Россия" };
             //rus.Create();
+			
+			
+			var  Moscow = new Region() { Country = rus, Name = "Москва", NomberSort = 0, IsMillion = true };
+            //Moscow.Create();
+            var listRu11111 = new List<City>();
+            listRu11111.Add(new City() { Name = "Москва", Region = Moscow });
+             this.Create(listRu11111);
+			 
+			var  SaintPetersburg = new Region() { Country = rus, Name = "Санкт-Петербург", NomberSort = 1, IsMillion = true };
+            //saint petersburg.Create();
+            var listRu1111111 = new List<City>();
+            listRu1111111.Add(new City() { Name = "Санкт-Петербург", Region = SaintPetersburg });
+             this.Create(listRu1111111); 
+			 
+			var  Sevastopol = new Region() { Country = rus, Name = "Севастополь", NomberSort = 2, IsMillion = true };
+            Sevastopol.Create();
 
-            var adigeya = new Region() { Country = rus, Name = "Республика Адыгея", NomberSort = 0, IsMillion = true };
+            var listRu11111111111 = new List<City>();
+            listRu11111111111.Add(new City() { Name = "Севастополь", Region = Sevastopol });
+             this.Create(listRu11111111111); 
+
+            var adigeya = new Region() { Country = rus, Name = "Республика Адыгея", NomberSort = 3, IsMillion = false };
             //adigeya.Create();
             var listRu = new List<City>();
             listRu.Add(new City() { Name = "Адыгейск", Region = adigeya });
@@ -41,6 +61,8 @@ namespace MyTend.Services.Migrations.Regions
             listRu.Add(new City() { Name = "Энем", Region = adigeya });
             listRu.Add(new City() { Name = "Яблоновский", Region = adigeya });
             this.Create(listRu);
+			
+			
 
 
             var altay = new Region() { Country = rus, Name = "Республика Алтай", NomberSort = 0, IsMillion = false };
@@ -203,7 +225,7 @@ namespace MyTend.Services.Migrations.Regions
             listRu5.Add(new City() { Name = "Мамедкала", Region = dagestan });
             listRu5.Add(new City() { Name = "Махачкала", Region = dagestan });
             listRu5.Add(new City() { Name = "Мехельта", Region = dagestan });
-            listRu5.Add(new City() { Name = "НижнееКазанище", Region = dagestan });
+            listRu5.Add(new City() { Name = "Нижнее Казанище", Region = dagestan });
             listRu5.Add(new City() { Name = "Новокаякент", Region = dagestan });
             listRu5.Add(new City() { Name = "Новолакское", Region = dagestan });
             listRu5.Add(new City() { Name = "Новый Кяхулай", Region = dagestan });
@@ -398,7 +420,6 @@ namespace MyTend.Services.Migrations.Regions
             listRu12.Add(new City() { Name = "Октябрьское", Region = krym });
             listRu12.Add(new City() { Name = "Приморский", Region = krym });
             listRu12.Add(new City() { Name = "Саки", Region = krym });
-            listRu12.Add(new City() { Name = "Севастополь", Region = krym });
             listRu12.Add(new City() { Name = "Симферополь", Region = krym });
             listRu12.Add(new City() { Name = "Судак", Region = krym });
             listRu12.Add(new City() { Name = "Феодосия", Region = krym });
@@ -563,7 +584,7 @@ namespace MyTend.Services.Migrations.Regions
             listRu17.Add(new City() { Name = "Богатые Сабы", Region = Tatarstan });
             listRu17.Add(new City() { Name = "Болгар", Region = Tatarstan });
             listRu17.Add(new City() { Name = "Большая Атня", Region = Tatarstan });
-            listRu17.Add(new City() { Name = "БольшиеКайбицы", Region = Tatarstan });
+            listRu17.Add(new City() { Name = "Большие Кайбицы", Region = Tatarstan });
             listRu17.Add(new City() { Name = "Бугульма", Region = Tatarstan });
             listRu17.Add(new City() { Name = "Буинск", Region = Tatarstan });
             listRu17.Add(new City() { Name = "Васильево", Region = Tatarstan });
@@ -1302,41 +1323,41 @@ namespace MyTend.Services.Migrations.Regions
             listRu34.Add(new City() { Name = "Чёрный Яр", Region = Astrahan });
             this.Create(listRu34);
 
-            var Belogorod = new Region() { Country = rus, Name = "Белогородская область", NomberSort = 0, IsMillion = false };
-            Belogorod.Create();
+            var Belgorod = new Region() { Country = rus, Name = "Белгородская область", NomberSort = 0, IsMillion = false };
+            Belgorod.Create();
             var listRu35 = new List<City>();
 
-            listRu35.Add(new City() { Name = "Алексеевка", Region = Belogorod });
-            listRu35.Add(new City() { Name = "Белгород", Region = Belogorod });
-            listRu35.Add(new City() { Name = "Бирюч", Region = Belogorod });
-            listRu35.Add(new City() { Name = "Борисовка", Region = Belogorod });
-            listRu35.Add(new City() { Name = "Валуйки", Region = Belogorod });
-            listRu35.Add(new City() { Name = "Вейделевка", Region = Belogorod });
-            listRu35.Add(new City() { Name = "Волоконовка", Region = Belogorod });
-            listRu35.Add(new City() { Name = "Грайворон", Region = Belogorod });
-            listRu35.Add(new City() { Name = "Губкин", Region = Belogorod });
-            listRu35.Add(new City() { Name = "Дубовое", Region = Belogorod });
-            listRu35.Add(new City() { Name = "Ивня", Region = Belogorod });
-            listRu35.Add(new City() { Name = "Короча", Region = Belogorod });
-            listRu35.Add(new City() { Name = "Красная Яруга", Region = Belogorod });
-            listRu35.Add(new City() { Name = "Красное", Region = Belogorod });
-            listRu35.Add(new City() { Name = "Майский", Region = Belogorod });
-            listRu35.Add(new City() { Name = "Новый Оскол", Region = Belogorod });
-            listRu35.Add(new City() { Name = "Октябрьский", Region = Belogorod });
-            listRu35.Add(new City() { Name = "Пролетарский", Region = Belogorod });
-            listRu35.Add(new City() { Name = "Прохоровка", Region = Belogorod });
-            listRu35.Add(new City() { Name = "Разумное", Region = Belogorod });
-            listRu35.Add(new City() { Name = "Ракитное", Region = Belogorod });
-            listRu35.Add(new City() { Name = "Ровеньки", Region = Belogorod });
-            listRu35.Add(new City() { Name = "Северный", Region = Belogorod });
-            listRu35.Add(new City() { Name = "Старый Оскол", Region = Belogorod });
-            listRu35.Add(new City() { Name = "Стрелецкое", Region = Belogorod });
-            listRu35.Add(new City() { Name = "Строитель", Region = Belogorod });
-            listRu35.Add(new City() { Name = "Томаровка", Region = Belogorod });
-            listRu35.Add(new City() { Name = "Троицкий", Region = Belogorod });
-            listRu35.Add(new City() { Name = "Уразово", Region = Belogorod });
-            listRu35.Add(new City() { Name = "Чернянка", Region = Belogorod });
-            listRu35.Add(new City() { Name = "Шебекино", Region = Belogorod });
+            listRu35.Add(new City() { Name = "Алексеевка", Region = Belgorod });
+            listRu35.Add(new City() { Name = "Белгород", Region = Belgorod });
+            listRu35.Add(new City() { Name = "Бирюч", Region = Belgorod });
+            listRu35.Add(new City() { Name = "Борисовка", Region = Belgorod });
+            listRu35.Add(new City() { Name = "Валуйки", Region = Belgorod });
+            listRu35.Add(new City() { Name = "Вейделевка", Region = Belgorod });
+            listRu35.Add(new City() { Name = "Волоконовка", Region = Belgorod });
+            listRu35.Add(new City() { Name = "Грайворон", Region = Belgorod });
+            listRu35.Add(new City() { Name = "Губкин", Region = Belgorod });
+            listRu35.Add(new City() { Name = "Дубовое", Region = Belgorod });
+            listRu35.Add(new City() { Name = "Ивня", Region = Belgorod });
+            listRu35.Add(new City() { Name = "Короча", Region = Belgorod });
+            listRu35.Add(new City() { Name = "Красная Яруга", Region = Belgorod });
+            listRu35.Add(new City() { Name = "Красное", Region = Belgorod });
+            listRu35.Add(new City() { Name = "Майский", Region = Belgorod });
+            listRu35.Add(new City() { Name = "Новый Оскол", Region = Belgorod });
+            listRu35.Add(new City() { Name = "Октябрьский", Region = Belgorod });
+            listRu35.Add(new City() { Name = "Пролетарский", Region = Belgorod });
+            listRu35.Add(new City() { Name = "Прохоровка", Region = Belgorod });
+            listRu35.Add(new City() { Name = "Разумное", Region = Belgorod });
+            listRu35.Add(new City() { Name = "Ракитное", Region = Belgorod });
+            listRu35.Add(new City() { Name = "Ровеньки", Region = Belgorod });
+            listRu35.Add(new City() { Name = "Северный", Region = Belgorod });
+            listRu35.Add(new City() { Name = "Старый Оскол", Region = Belgorod });
+            listRu35.Add(new City() { Name = "Стрелецкое", Region = Belgorod });
+            listRu35.Add(new City() { Name = "Строитель", Region = Belgorod });
+            listRu35.Add(new City() { Name = "Томаровка", Region = Belgorod });
+            listRu35.Add(new City() { Name = "Троицкий", Region = Belgorod });
+            listRu35.Add(new City() { Name = "Уразово", Region = Belgorod });
+            listRu35.Add(new City() { Name = "Чернянка", Region = Belgorod });
+            listRu35.Add(new City() { Name = "Шебекино", Region = Belgorod });
             this.Create(listRu35);
 
             var Bryansk = new Region() { Country = rus, Name = "Брянская область", NomberSort = 0, IsMillion = false };
@@ -1383,7 +1404,7 @@ namespace MyTend.Services.Migrations.Regions
             listRu36.Add(new City() { Name = "Фокино", Region = Bryansk });
             this.Create(listRu36);
 
-            var Vladimir = new Region() { Country = rus, Name = "Владимирмкая область", NomberSort = 0, IsMillion = false };
+            var Vladimir = new Region() { Country = rus, Name = "Владимирская область", NomberSort = 0, IsMillion = false };
             Vladimir.Create();
             var listRu37 = new List<City>();
 
@@ -1550,6 +1571,7 @@ namespace MyTend.Services.Migrations.Regions
             listRu41.Add(new City() { Name = "Ново-Талицы", Region = Ivan });
             listRu41.Add(new City() { Name = "Палех", Region = Ivan });
             listRu41.Add(new City() { Name = "Пестяки", Region = Ivan });
+			listRu41.Add(new City() { Name = "Плёс", Region = Ivan });
             listRu41.Add(new City() { Name = "Приволжск", Region = Ivan });
             listRu41.Add(new City() { Name = "Пучеж", Region = Ivan });
             listRu41.Add(new City() { Name = "Родники", Region = Ivan });
@@ -1909,7 +1931,6 @@ namespace MyTend.Services.Migrations.Regions
             listRu50.Add(new City() { Name = "Посёлок имени Морозова", Region = Leningrad });
             listRu50.Add(new City() { Name = "Приозерск", Region = Leningrad });
             listRu50.Add(new City() { Name = "Рощино", Region = Leningrad });
-            listRu50.Add(new City() { Name = "Санкт-Петербург", Region = Leningrad });
             listRu50.Add(new City() { Name = "Светогорск", Region = Leningrad });
             listRu50.Add(new City() { Name = "Сертолово", Region = Leningrad });
             listRu50.Add(new City() { Name = "Сиверский", Region = Leningrad });
@@ -1922,7 +1943,7 @@ namespace MyTend.Services.Migrations.Regions
             listRu50.Add(new City() { Name = "Шлиссельбург", Region = Leningrad });
             this.Create(listRu50);
 
-            var Lipeck = new Region() { Country = rus, Name = "Липицкая область", NomberSort = 0, IsMillion = false };
+            var Lipeck = new Region() { Country = rus, Name = "Липецкая область", NomberSort = 0, IsMillion = false };
             Lipeck.Create();
             var listRu51 = new List<City>();
 
@@ -2016,8 +2037,6 @@ namespace MyTend.Services.Migrations.Regions
             listRu53.Add(new City() { Name = "Люберцы", Region = Mos });
             listRu53.Add(new City() { Name = "Можайск", Region = Mos });
             listRu53.Add(new City() { Name = "Молодёжный", Region = Mos });
-            listRu53.Add(new City() { Name = "Москва", Region = Mos });
-            listRu53.Add(new City() { Name = "Московскаяобласть", Region = Mos });
             listRu53.Add(new City() { Name = "Мытищи", Region = Mos });
             listRu53.Add(new City() { Name = "Наро-Фоминск", Region = Mos });
             listRu53.Add(new City() { Name = "Ногинск", Region = Mos });
@@ -2038,12 +2057,12 @@ namespace MyTend.Services.Migrations.Regions
             listRu53.Add(new City() { Name = "Реутов", Region = Mos });
             listRu53.Add(new City() { Name = "Рошаль", Region = Mos });
             listRu53.Add(new City() { Name = "Руза", Region = Mos });
-            listRu53.Add(new City() { Name = "СергиевПосад", Region = Mos });
-            listRu53.Add(new City() { Name = "СеребряныеПруды", Region = Mos });
+            listRu53.Add(new City() { Name = "Сергиев Посад", Region = Mos });
+            listRu53.Add(new City() { Name = "Серебряные Пруды", Region = Mos });
             listRu53.Add(new City() { Name = "Серпухов", Region = Mos });
             listRu53.Add(new City() { Name = "Серпухов ", Region = Mos });
             listRu53.Add(new City() { Name = "Солнечногорск", Region = Mos });
-            listRu53.Add(new City() { Name = "СтараяКупавна", Region = Mos });
+            listRu53.Add(new City() { Name = "Старая Купавна", Region = Mos });
             listRu53.Add(new City() { Name = "Ступино", Region = Mos });
             listRu53.Add(new City() { Name = "Талдом", Region = Mos });
             listRu53.Add(new City() { Name = "Фрязино", Region = Mos });
@@ -2173,7 +2192,7 @@ namespace MyTend.Services.Migrations.Regions
             listRu55.Add(new City() { Name = "Юганец", Region = Nijegorod });
             this.Create(listRu55);
 
-            var Novgorod = new Region() { Country = rus, Name = "Новогородская область", NomberSort = 0, IsMillion = false };
+            var Novgorod = new Region() { Country = rus, Name = "Новгородская область", NomberSort = 0, IsMillion = false };
             Novgorod.Create();
             var listRu56 = new List<City>();
 
@@ -2207,7 +2226,7 @@ namespace MyTend.Services.Migrations.Regions
 
             listRu57.Add(new City() { Name = "Баган", Region = Novosibirsk });
             listRu57.Add(new City() { Name = "Барабинск", Region = Novosibirsk });
-            listRu57.Add(new City() { Name = "Бердск", Region = Novosibirsk });
+            listRu57.Add(new City() { Name = "Бердск",	  Region = Novosibirsk });
             listRu57.Add(new City() { Name = "Болотное", Region = Novosibirsk });
             listRu57.Add(new City() { Name = "Венгерово", Region = Novosibirsk });
             listRu57.Add(new City() { Name = "Горный", Region = Novosibirsk });
@@ -3127,7 +3146,7 @@ namespace MyTend.Services.Migrations.Regions
             listRu81.Add(new City() { Name = "Эгвекинот", Region = chao });
             this.Create(listRu81);
 
-            var yamnenao = new Region() { Country = rus, Name = "Ямало-Нинецкий автономный округ", NomberSort = 0, IsMillion = false };
+            var yamnenao = new Region() { Country = rus, Name = "Ямало-Ненецкий автономный округ", NomberSort = 0, IsMillion = false };
             yamnenao.Create();
             var listRu82 = new List<City>();
 
@@ -3152,225 +3171,267 @@ namespace MyTend.Services.Migrations.Regions
             listRu82.Add(new City() { Name = "Яр-Сале", Region = yamnenao });
             this.Create(listRu82);
 
-            var abhaziya = new Country() { Name = "Абхазия" };
-            abhaziya.Create();
+            var abhaz = new Country() { Name = "Абхазия" };
+            abhaz.Create();
 
-            var choise1 = new Region() { Country = abhaziya, Name = "Выберите город", NomberSort = 0, IsMillion = true };
-            choise1.Create(); ;
+            var gaga = new Region() { Country = abhaz, Name = "Гагрский район", NomberSort = 0, IsMillion = false };
+            gaga.Create();
             var listRu83 = new List<City>();
 
-            listRu83.Add(new City() { Name = "Гагра", Region = choise1 });
-            listRu83.Add(new City() { Name = "Гали", Region = choise1 });
-            listRu83.Add(new City() { Name = "Гудаута", Region = choise1 });
-            listRu83.Add(new City() { Name = "Новый Афон", Region = choise1 });
-            listRu83.Add(new City() { Name = "Очамчыра", Region = choise1 });
-            listRu83.Add(new City() { Name = "Пицунда", Region = choise1 });
-            listRu83.Add(new City() { Name = "Сухум", Region = choise1 });
-            listRu83.Add(new City() { Name = "Ткуарчал", Region = choise1 });
+            listRu83.Add(new City() { Name = "Алахадзы", Region = gaga});
+            listRu83.Add(new City() { Name = "Амзара", Region = gaga});
+            listRu83.Add(new City() { Name = "Багрыпста", Region = gaga});
+            listRu83.Add(new City() { Name = "Бзыпта	", Region = gaga});
+            listRu83.Add(new City() { Name = "Гагра", Region = gaga});
+            listRu83.Add(new City() { Name = "Гечрипш", Region = gaga});
+            listRu83.Add(new City() { Name = "Лдзаа", Region = gaga});
+            listRu83.Add(new City() { Name = "Махадыр", Region = gaga});
+            listRu83.Add(new City() { Name = "Мкялрыпш", Region = gaga});
+            listRu83.Add(new City() { Name = "Пицунда", Region = gaga});
+            listRu83.Add(new City() { Name = "Псахара", Region = gaga});
+            listRu83.Add(new City() { Name = "Хашпсы", Region = gaga});
+            listRu83.Add(new City() { Name = "Хышхарыпш", Region = gaga});
+            listRu83.Add(new City() { Name = "Цандрипш", Region = gaga});
+
             this.Create(listRu83);
 
-            var azer = new Country() { Name = "Азербайджан" };
-            azer.Create();
-
-            var choise2 = new Region() { Country = azer, Name = "Выберите город", NomberSort = 0, IsMillion = true };
-            choise2.Create();
+            var gal = new Region() { Country = abhaz, Name = "Гальский (Галский) район", NomberSort = 0, IsMillion = false };
+            gal.Create();
             var listRu84 = new List<City>();
-            listRu84.Add(new City() { Name = "Агдам", Region = choise2 });
-            listRu84.Add(new City() { Name = "Агдаш", Region = choise2 });
-            listRu84.Add(new City() { Name = "Агдере", Region = choise2 });
-            listRu84.Add(new City() { Name = "Агджабеди", Region = choise2 });
-            listRu84.Add(new City() { Name = "Аджигабул", Region = choise2 });
-            listRu84.Add(new City() { Name = "Акстафа", Region = choise2 });
-            listRu84.Add(new City() { Name = "Астара", Region = choise2 });
-            listRu84.Add(new City() { Name = "Ахсу", Region = choise2 });
-            listRu84.Add(new City() { Name = "Баку", Region = choise2 });
-            listRu84.Add(new City() { Name = "Барда", Region = choise2 });
-            listRu84.Add(new City() { Name = "Бейлаган", Region = choise2 });
-            listRu84.Add(new City() { Name = "Белоканы", Region = choise2 });
-            listRu84.Add(new City() { Name = "Билясувар", Region = choise2 });
-            listRu84.Add(new City() { Name = "Габала", Region = choise2 });
-            listRu84.Add(new City() { Name = "Гёйгёль", Region = choise2 });
-            listRu84.Add(new City() { Name = "Гёйтепе", Region = choise2 });
-            listRu84.Add(new City() { Name = "Геокчай", Region = choise2 });
-            listRu84.Add(new City() { Name = "Геранбой", Region = choise2 });
-            listRu84.Add(new City() { Name = "Гобустан", Region = choise2 });
-            listRu84.Add(new City() { Name = "Горадиз", Region = choise2 });
-            listRu84.Add(new City() { Name = "Гянджа", Region = choise2 });
-            listRu84.Add(new City() { Name = "Далимамедли", Region = choise2 });
-            listRu84.Add(new City() { Name = "Дашкесан", Region = choise2 });
-            listRu84.Add(new City() { Name = "Джалилабад", Region = choise2 });
-            listRu84.Add(new City() { Name = "Джебраил", Region = choise2 });
-            listRu84.Add(new City() { Name = "Джульфа", Region = choise2 });
-            listRu84.Add(new City() { Name = "Евлах", Region = choise2 });
-            listRu84.Add(new City() { Name = "Закаталы", Region = choise2 });
-            listRu84.Add(new City() { Name = "Зангелан", Region = choise2 });
-            listRu84.Add(new City() { Name = "Зардоб", Region = choise2 });
-            listRu84.Add(new City() { Name = "Имишли", Region = choise2 });
-            listRu84.Add(new City() { Name = "Исмаиллы", Region = choise2 });
-            listRu84.Add(new City() { Name = "Казах", Region = choise2 });
-            listRu84.Add(new City() { Name = "Кахи", Region = choise2 });
-            listRu84.Add(new City() { Name = "Кедабек", Region = choise2 });
-            listRu84.Add(new City() { Name = "Кельбаджар", Region = choise2 });
-            listRu84.Add(new City() { Name = "Куба", Region = choise2 });
-            listRu84.Add(new City() { Name = "Кубатлы", Region = choise2 });
-            listRu84.Add(new City() { Name = "Кусары", Region = choise2 });
-            listRu84.Add(new City() { Name = "Кюрдамир", Region = choise2 });
-            listRu84.Add(new City() { Name = "Лачин", Region = choise2 });
-            listRu84.Add(new City() { Name = "Ленкорань", Region = choise2 });
-            listRu84.Add(new City() { Name = "Лерик", Region = choise2 });
-            listRu84.Add(new City() { Name = "Лиман", Region = choise2 });
-            listRu84.Add(new City() { Name = "Масаллы", Region = choise2 });
-            listRu84.Add(new City() { Name = "Мингечаур", Region = choise2 });
-            listRu84.Add(new City() { Name = "Нафталан", Region = choise2 });
-            listRu84.Add(new City() { Name = "Нахичевань", Region = choise2 });
-            listRu84.Add(new City() { Name = "Нефтечала", Region = choise2 });
-            listRu84.Add(new City() { Name = "Огуз", Region = choise2 });
-            listRu84.Add(new City() { Name = "Ордубад", Region = choise2 });
-            listRu84.Add(new City() { Name = "Саатлы", Region = choise2 });
-            listRu84.Add(new City() { Name = "Сабирабад", Region = choise2 });
-            listRu84.Add(new City() { Name = "Сальяны", Region = choise2 });
-            listRu84.Add(new City() { Name = "Самух", Region = choise2 });
-            listRu84.Add(new City() { Name = "Сиазань", Region = choise2 });
-            listRu84.Add(new City() { Name = "Сумгаит", Region = choise2 });
-            listRu84.Add(new City() { Name = "Тауз", Region = choise2 });
-            listRu84.Add(new City() { Name = "Тертер", Region = choise2 });
-            listRu84.Add(new City() { Name = "Уджары", Region = choise2 });
-            listRu84.Add(new City() { Name = "Физули", Region = choise2 });
-            listRu84.Add(new City() { Name = "Ханкенди", Region = choise2 });
-            listRu84.Add(new City() { Name = "Хачмас", Region = choise2 });
-            listRu84.Add(new City() { Name = "Ходжавенд", Region = choise2 });
-            listRu84.Add(new City() { Name = "Ходжалы", Region = choise2 });
-            listRu84.Add(new City() { Name = "Худат", Region = choise2 });
-            listRu84.Add(new City() { Name = "Хызы", Region = choise2 });
-            listRu84.Add(new City() { Name = "Хырдалан", Region = choise2 });
-            listRu84.Add(new City() { Name = "Шабран", Region = choise2 });
-            listRu84.Add(new City() { Name = "Шамкир", Region = choise2 });
-            listRu84.Add(new City() { Name = "Шарур", Region = choise2 });
-            listRu84.Add(new City() { Name = "Шахбуз", Region = choise2 });
-            listRu84.Add(new City() { Name = "Шеки", Region = choise2 });
-            listRu84.Add(new City() { Name = "Шемаха", Region = choise2 });
-            listRu84.Add(new City() { Name = "Ширван", Region = choise2 });
-            listRu84.Add(new City() { Name = "Шуша", Region = choise2 });
-            listRu84.Add(new City() { Name = "Ярдымлы", Region = choise2 });
+
+            listRu84.Add(new City() { Name = "Верхний Баргеби", Region =gal});
+            listRu84.Add(new City() { Name = "Гагида", Region =gal});
+            listRu84.Add(new City() { Name = "Гал", Region =gal});
+            listRu84.Add(new City() { Name = "Ганахлеба(Марчхапон)	", Region =gal});
+            listRu84.Add(new City() { Name = "Дихазурга", Region =gal});
+            listRu84.Add(new City() { Name = "Махунджиа", Region =gal});
+            listRu84.Add(new City() { Name = "Набакеви", Region =gal});
+            listRu84.Add(new City() { Name = "Нижний Баргеби", Region =gal});
+            listRu84.Add(new City() { Name = "Отобая Вторая", Region =gal});
+            listRu84.Add(new City() { Name = "Отобая Первая", Region =gal});
+            listRu84.Add(new City() { Name = "Папынрхуа", Region =gal});
+            listRu84.Add(new City() { Name = "Пичора", Region =gal});
+            listRu84.Add(new City() { Name = "Приморск", Region =gal});
+            listRu84.Add(new City() { Name = "Ряп (Репо-Эцери)", Region =gal});
+            listRu84.Add(new City() { Name = "Сида", Region =gal});
+            listRu84.Add(new City() { Name = "Тагилон (Таглан)", Region =gal});
+            listRu84.Add(new City() { Name = "Чубурхинджи", Region =gal});
+            listRu84.Add(new City() { Name = "Шашиквара", Region =gal});
+     
             this.Create(listRu84);
 
-            var armenia = new Country() { Name = "Армения" };
-            armenia.Create();
-
-            var choise3 = new Region() { Country = armenia, Name = "Выберите город", NomberSort = 0, IsMillion = true };
-            choise3.Create();
+            var gudaut = new Region() { Country = abhaz, Name = "Гудаутский район", NomberSort = 0, IsMillion = false };
+            gudaut.Create();
             var listRu85 = new List<City>();
-            listRu85.Add(new City() { Name = "Абовян", Region = choise3 });
-            listRu85.Add(new City() { Name = "Алаверди", Region = choise3 });
-            listRu85.Add(new City() { Name = "Арарат", Region = choise3 });
-            listRu85.Add(new City() { Name = "Армавир", Region = choise3 });
-            listRu85.Add(new City() { Name = "Арташат", Region = choise3 });
-            listRu85.Add(new City() { Name = "Артик", Region = choise3 });
-            listRu85.Add(new City() { Name = "Аштарак", Region = choise3 });
-            listRu85.Add(new City() { Name = "Вагаршапат", Region = choise3 });
-            listRu85.Add(new City() { Name = "Ванадзор", Region = choise3 });
-            listRu85.Add(new City() { Name = "Гавар", Region = choise3 });
-            listRu85.Add(new City() { Name = "Горис", Region = choise3 });
-            listRu85.Add(new City() { Name = "Гюмри", Region = choise3 });
-            listRu85.Add(new City() { Name = "Ереван", Region = choise3 });
-            listRu85.Add(new City() { Name = "Иджеван", Region = choise3 });
-            listRu85.Add(new City() { Name = "Капан", Region = choise3 });
-            listRu85.Add(new City() { Name = "Масис", Region = choise3 });
-            listRu85.Add(new City() { Name = "Раздан", Region = choise3 });
-            listRu85.Add(new City() { Name = "Севан", Region = choise3 });
-            listRu85.Add(new City() { Name = "Сисиан", Region = choise3 });
-            listRu85.Add(new City() { Name = "Чаренцаван", Region = choise3 });
+
+            listRu85.Add(new City() { Name = "Аацы", Region =gudaut});
+            listRu85.Add(new City() { Name = "Абгархук", Region =gudaut});
+            listRu85.Add(new City() { Name = "Амжикухуа", Region =gudaut});
+            listRu85.Add(new City() { Name = "Анхуа", Region =gudaut});
+            listRu85.Add(new City() { Name = "Ачандара", Region =gudaut});
+            listRu85.Add(new City() { Name = "Бармыш", Region =gudaut});
+            listRu85.Add(new City() { Name = "Блабырхуа", Region =gudaut});
+            listRu85.Add(new City() { Name = "Гудаута", Region =gudaut});
+            listRu85.Add(new City() { Name = "Джирхуа", Region =gudaut});
+            listRu85.Add(new City() { Name = "Дурипш", Region =gudaut});
+            listRu85.Add(new City() { Name = "Звандрипш", Region =gudaut});
+            listRu85.Add(new City() { Name = "Калдахуара", Region =gudaut});
+            listRu85.Add(new City() { Name = "Куланырхуа", Region =gudaut});
+            listRu85.Add(new City() { Name = "Лыхны", Region =gudaut});
+            listRu85.Add(new City() { Name = "Мгудзырхуа", Region =gudaut});
+            listRu85.Add(new City() { Name = "Мцара", Region =gudaut});
+            listRu85.Add(new City() { Name = "Мысра (Мюссера)", Region =gudaut});
+            listRu85.Add(new City() { Name = "Новый Афон", Region =gudaut});
+            listRu85.Add(new City() { Name = "Отхара", Region =gudaut});
+            listRu85.Add(new City() { Name = "Псырдзха", Region =gudaut});
+            listRu85.Add(new City() { Name = "Хуап", Region =gudaut});
+            listRu85.Add(new City() { Name = "Хыпста", Region =gudaut});
+            listRu85.Add(new City() { Name = "Цкуара (Арсаул)", Region =gudaut});
+
             this.Create(listRu85);
 
-            var belorus = new Country() { Name = "Белоруссия" };
-            armenia.Create();
-
-            var brat = new Region() { Country = belorus, Name = "Бретская область", NomberSort = 0, IsMillion = true };
-            brat.Create();
+            var gulrish = new Region() { Country = abhaz, Name = "Гулрыпшский район", NomberSort = 0, IsMillion = false };
+            gulrish.Create();
             var listRu86 = new List<City>();
 
-            listRu86.Add(new City() { Name = "Барановичи", Region = brat });
-            listRu86.Add(new City() { Name = "Белоозёрск", Region = brat });
-            listRu86.Add(new City() { Name = "Берёза", Region = brat });
-            listRu86.Add(new City() { Name = "Брест", Region = brat });
-            listRu86.Add(new City() { Name = "Ганцевичи", Region = brat });
-            listRu86.Add(new City() { Name = "Дрогичин", Region = brat });
-            listRu86.Add(new City() { Name = "Жабинка", Region = brat });
-            listRu86.Add(new City() { Name = "Иваново", Region = brat });
-            listRu86.Add(new City() { Name = "Ивацевичи", Region = brat });
-            listRu86.Add(new City() { Name = "Каменец", Region = brat });
-            listRu86.Add(new City() { Name = "Кобрин", Region = brat });
-            listRu86.Add(new City() { Name = "Лунинец", Region = brat });
-            listRu86.Add(new City() { Name = "Ляховичи", Region = brat });
-            listRu86.Add(new City() { Name = "Малорита", Region = brat });
-            listRu86.Add(new City() { Name = "Микашевичи", Region = brat });
-            listRu86.Add(new City() { Name = "Пинск", Region = brat });
-            listRu86.Add(new City() { Name = "Пружаны", Region = brat });
-            listRu86.Add(new City() { Name = "Столин", Region = brat });
+            listRu86.Add(new City() { Name = "Агудзера", Region =gulrish});
+            listRu86.Add(new City() { Name = "Ажара", Region =gulrish});
+            listRu86.Add(new City() { Name = "Бабышира", Region =gulrish});
+            listRu86.Add(new City() { Name = "Багмаран", Region =gulrish});
+            listRu86.Add(new City() { Name = "Гулрыпш", Region =gulrish});
+            listRu86.Add(new City() { Name = "Дранда", Region =gulrish});
+            listRu86.Add(new City() { Name = "Кацикыт", Region =gulrish});
+            listRu86.Add(new City() { Name = "Мархяул", Region =gulrish});
+            listRu86.Add(new City() { Name = "Мачара", Region =gulrish});
+            listRu86.Add(new City() { Name = "Пшап", Region =gulrish});
+            listRu86.Add(new City() { Name = "Цабал", Region =gulrish});
+
+            this.Create(listRu86);
+
+            var ochamir = new Region() { Country = abhaz, Name = "Очамчырский район", NomberSort = 0, IsMillion = false };
+            ochamir.Create();
+            var listRu87 = new List<City>();
+
+            listRu87.Add(new City() { Name = "Адзюбжа", Region =ochamir});
+            listRu87.Add(new City() { Name = "Акуаскиа", Region =ochamir});
+            listRu87.Add(new City() { Name = "Араду", Region =ochamir});
+            listRu87.Add(new City() { Name = "Аракич", Region =ochamir});
+            listRu87.Add(new City() { Name = "Арасадзых", Region =ochamir});
+            listRu87.Add(new City() { Name = "Атара", Region =ochamir});
+            listRu87.Add(new City() { Name = "Атара-Армянская", Region =ochamir});
+            listRu87.Add(new City() { Name = "Ачгуара", Region =ochamir});
+            listRu87.Add(new City() { Name = "Баслаху", Region =ochamir});
+            listRu87.Add(new City() { Name = "Гуада", Region =ochamir});
+            listRu87.Add(new City() { Name = "Гудава", Region =ochamir});
+            listRu87.Add(new City() { Name = "Гуп", Region =ochamir});
+            listRu87.Add(new City() { Name = "Джгерда", Region =ochamir});
+            listRu87.Add(new City() { Name = "Илор", Region =ochamir});
+            listRu87.Add(new City() { Name = "Кочара", Region =ochamir});
+            listRu87.Add(new City() { Name = "Кутол", Region =ochamir});
+            listRu87.Add(new City() { Name = "Кындыг", Region =ochamir});
+            listRu87.Add(new City() { Name = "Лабра", Region =ochamir});
+            listRu87.Add(new City() { Name = "Меркула", Region =ochamir});
+            listRu87.Add(new City() { Name = "Мокуа", Region =ochamir});
+            listRu87.Add(new City() { Name = "Отап", Region =ochamir});
+            listRu87.Add(new City() { Name = "Охурей", Region =ochamir});
+            listRu87.Add(new City() { Name = "Очамчыра", Region =ochamir});
+            listRu87.Add(new City() { Name = "Пакуаш", Region =ochamir});
+            listRu87.Add(new City() { Name = "Река", Region =ochamir});
+            listRu87.Add(new City() { Name = "Тамыш", Region =ochamir});
+            listRu87.Add(new City() { Name = "Тхина", Region =ochamir});
+            listRu87.Add(new City() { Name = "Члоу", Region =ochamir});
+            listRu87.Add(new City() { Name = "Шашалат", Region =ochamir});
+
+            this.Create(listRu87);
+
+            var suhum = new Region() { Country = abhaz, Name = "Сухумский район", NomberSort = 0, IsMillion = false };
+            suhum.Create();
+            var listRu88 = new List<City>();
+
+            listRu88.Add(new City() { Name = "Акапа", Region =suhum});
+            listRu88.Add(new City() { Name = "Баслата", Region =suhum});
+            listRu88.Add(new City() { Name = "Верхняя", Region =suhum});
+            listRu88.Add(new City() { Name = "Гума", Region =suhum});
+            listRu88.Add(new City() { Name = "Гумиста", Region =suhum});
+            listRu88.Add(new City() { Name = "Дзыгута", Region =suhum});
+            listRu88.Add(new City() { Name = "Псху", Region =suhum});
+            listRu88.Add(new City() { Name = "Сухум", Region =suhum});
+            listRu88.Add(new City() { Name = "Эшера", Region =suhum});
+            listRu88.Add(new City() { Name = "Эшера", Region =suhum});
+            listRu88.Add(new City() { Name = "Яштхуа", Region =suhum});
+            
+            this.Create(listRu88);
+
+            var tkuarchel = new Region() { Country = abhaz, Name = "Ткуарчальский (Ткуарчалский) район", NomberSort = 0, IsMillion = false };
+            tkuarchel.Create();
+            var listRu89 = new List<City>();
+
+            listRu89.Add(new City() { Name = "Агубедиа", Region =tkuarchel});
+            listRu89.Add(new City() { Name = "Бедиа", Region =tkuarchel});
+            listRu89.Add(new City() { Name = "Гумрыш", Region =tkuarchel});
+            listRu89.Add(new City() { Name = "Махур", Region =tkuarchel});
+            listRu89.Add(new City() { Name = "Окум", Region =tkuarchel});
+            listRu89.Add(new City() { Name = "Первая Бедиа", Region =tkuarchel});
+            listRu89.Add(new City() { Name = "Первый Гал", Region =tkuarchel});
+            listRu89.Add(new City() { Name = "Речху", Region =tkuarchel});
+            listRu89.Add(new City() { Name = "Ткуарчал", Region =tkuarchel});
+            listRu89.Add(new City() { Name = "Ткуарчал", Region =tkuarchel});
+            listRu89.Add(new City() { Name = "Царча", Region =tkuarchel});
+            listRu89.Add(new City() { Name = "Чхуартал", Region =tkuarchel});
+  
+            this.Create(listRu89);
+
+
+
+            var belorus = new Country() { Name = "Белоруссия" };
+            belorus.Create();
+
+            var brat = new Region() { Country = belorus, Name = "Брестская область", NomberSort = 0, IsMillion = true };
+            brat.Create();
+            var listRu86listRu86 = new List<City>();
+
+            listRu86listRu86.Add(new City() { Name = "Барановичи", Region = brat });
+            listRu86listRu86.Add(new City() { Name = "Белоозёрск", Region = brat });
+            listRu86listRu86.Add(new City() { Name = "Берёза", Region = brat });
+            listRu86listRu86.Add(new City() { Name = "Брест", Region = brat });
+            listRu86listRu86.Add(new City() { Name = "Ганцевичи", Region = brat });
+            listRu86listRu86.Add(new City() { Name = "Дрогичин", Region = brat });
+            listRu86listRu86.Add(new City() { Name = "Жабинка", Region = brat });
+            listRu86listRu86.Add(new City() { Name = "Иваново", Region = brat });
+            listRu86listRu86.Add(new City() { Name = "Ивацевичи", Region = brat });
+            listRu86listRu86.Add(new City() { Name = "Каменец", Region = brat });
+            listRu86listRu86.Add(new City() { Name = "Кобрин", Region = brat });
+            listRu86listRu86.Add(new City() { Name = "Лунинец", Region = brat });
+            listRu86listRu86.Add(new City() { Name = "Ляховичи", Region = brat });
+            listRu86listRu86.Add(new City() { Name = "Малорита", Region = brat });
+            listRu86listRu86.Add(new City() { Name = "Микашевичи", Region = brat });
+            listRu86listRu86.Add(new City() { Name = "Пинск", Region = brat });
+            listRu86listRu86.Add(new City() { Name = "Пружаны", Region = brat });
+            listRu86listRu86.Add(new City() { Name = "Столин", Region = brat });
             this.Create(listRu86);
 
             var vitebsk = new Region() { Country = belorus, Name = "Витебская область", NomberSort = 0, IsMillion = true };
             vitebsk.Create();
-            var listRu87 = new List<City>();
+            var listRu8734 = new List<City>();
 
-            listRu87.Add(new City() { Name = "Барань", Region = vitebsk });
-            listRu87.Add(new City() { Name = "Бешенковичи", Region = vitebsk });
-            listRu87.Add(new City() { Name = "Браслав", Region = vitebsk });
-            listRu87.Add(new City() { Name = "Верхнедвинск", Region = vitebsk });
-            listRu87.Add(new City() { Name = "Витебск", Region = vitebsk });
-            listRu87.Add(new City() { Name = "Глубокое", Region = vitebsk });
-            listRu87.Add(new City() { Name = "Городок", Region = vitebsk });
-            listRu87.Add(new City() { Name = "Докшицы", Region = vitebsk });
-            listRu87.Add(new City() { Name = "Дубровно", Region = vitebsk });
-            listRu87.Add(new City() { Name = "Лепель", Region = vitebsk });
-            listRu87.Add(new City() { Name = "Лиозно", Region = vitebsk });
-            listRu87.Add(new City() { Name = "Миоры", Region = vitebsk });
-            listRu87.Add(new City() { Name = "Новолукомль", Region = vitebsk });
-            listRu87.Add(new City() { Name = "Новополоцк", Region = vitebsk });
-            listRu87.Add(new City() { Name = "Орша", Region = vitebsk });
-            listRu87.Add(new City() { Name = "Полоцк", Region = vitebsk });
-            listRu87.Add(new City() { Name = "Поставы", Region = vitebsk });
-            listRu87.Add(new City() { Name = "Россоны", Region = vitebsk });
-            listRu87.Add(new City() { Name = "Руба", Region = vitebsk });
-            listRu87.Add(new City() { Name = "Сенно", Region = vitebsk });
-            listRu87.Add(new City() { Name = "Толочин", Region = vitebsk });
-            listRu87.Add(new City() { Name = "Ушачи", Region = vitebsk });
-            listRu87.Add(new City() { Name = "Чашники", Region = vitebsk });
-            listRu87.Add(new City() { Name = "Шарковщина", Region = vitebsk });
-            listRu87.Add(new City() { Name = "Шумилино", Region = vitebsk });
-            this.Create(listRu87);
+            listRu8734.Add(new City() { Name = "Барань", Region = vitebsk });
+            listRu8734.Add(new City() { Name = "Бешенковичи", Region = vitebsk });
+            listRu8734.Add(new City() { Name = "Браслав", Region = vitebsk });
+            listRu8734.Add(new City() { Name = "Верхнедвинск", Region = vitebsk });
+            listRu8734.Add(new City() { Name = "Витебск", Region = vitebsk });
+            listRu8734.Add(new City() { Name = "Глубокое", Region = vitebsk });
+            listRu8734.Add(new City() { Name = "Городок", Region = vitebsk });
+            listRu8734.Add(new City() { Name = "Докшицы", Region = vitebsk });
+            listRu8734.Add(new City() { Name = "Дубровно", Region = vitebsk });
+            listRu8734.Add(new City() { Name = "Лепель", Region = vitebsk });
+            listRu8734.Add(new City() { Name = "Лиозно", Region = vitebsk });
+            listRu8734.Add(new City() { Name = "Миоры", Region = vitebsk });
+            listRu8734.Add(new City() { Name = "Новолукомль", Region = vitebsk });
+            listRu8734.Add(new City() { Name = "Новополоцк", Region = vitebsk });
+            listRu8734.Add(new City() { Name = "Орша", Region = vitebsk });
+            listRu8734.Add(new City() { Name = "Полоцк", Region = vitebsk });
+            listRu8734.Add(new City() { Name = "Поставы", Region = vitebsk });
+            listRu8734.Add(new City() { Name = "Россоны", Region = vitebsk });
+            listRu8734.Add(new City() { Name = "Руба", Region = vitebsk });
+            listRu8734.Add(new City() { Name = "Сенно", Region = vitebsk });
+            listRu8734.Add(new City() { Name = "Толочин", Region = vitebsk });
+            listRu8734.Add(new City() { Name = "Ушачи", Region = vitebsk });
+            listRu8734.Add(new City() { Name = "Чашники", Region = vitebsk });
+            listRu8734.Add(new City() { Name = "Шарковщина", Region = vitebsk });
+            listRu8734.Add(new City() { Name = "Шумилино", Region = vitebsk });
+            this.Create(listRu8734);
 
             var gomel = new Region() { Country = belorus, Name = "Гомелевская область", NomberSort = 0, IsMillion = true };
             gomel.Create();
-            var listRu88 = new List<City>();
+            var listRu88listRu88 = new List<City>();
 
-            listRu88.Add(new City() { Name = "Брагин", Region = gomel });
-            listRu88.Add(new City() { Name = "Буда-Кошелёво", Region = gomel });
-            listRu88.Add(new City() { Name = "Ветка", Region = gomel });
-            listRu88.Add(new City() { Name = "Гомель", Region = gomel });
-            listRu88.Add(new City() { Name = "Добруш", Region = gomel });
-            listRu88.Add(new City() { Name = "Ельск", Region = gomel });
-            listRu88.Add(new City() { Name = "Житковичи", Region = gomel });
-            listRu88.Add(new City() { Name = "Жлобин", Region = gomel });
-            listRu88.Add(new City() { Name = "Калинковичи", Region = gomel });
-            listRu88.Add(new City() { Name = "Корма", Region = gomel });
-            listRu88.Add(new City() { Name = "Костюковка", Region = gomel });
-            listRu88.Add(new City() { Name = "Лельчицы", Region = gomel });
-            listRu88.Add(new City() { Name = "Лоев", Region = gomel });
-            listRu88.Add(new City() { Name = "Мозырь", Region = gomel });
-            listRu88.Add(new City() { Name = "Наровля", Region = gomel });
-            listRu88.Add(new City() { Name = "Октябрьский", Region = gomel });
-            listRu88.Add(new City() { Name = "Петриков", Region = gomel });
-            listRu88.Add(new City() { Name = "Речица", Region = gomel });
-            listRu88.Add(new City() { Name = "Рогачёв", Region = gomel });
-            listRu88.Add(new City() { Name = "Светлогорск", Region = gomel });
-            listRu88.Add(new City() { Name = "Хойники", Region = gomel });
-            listRu88.Add(new City() { Name = "Чечерск", Region = gomel });
-            this.Create(listRu88);
+            listRu88listRu88.Add(new City() { Name = "Брагин", Region = gomel });
+            listRu88listRu88.Add(new City() { Name = "Буда-Кошелёво", Region = gomel });
+            listRu88listRu88.Add(new City() { Name = "Ветка", Region = gomel });
+            listRu88listRu88.Add(new City() { Name = "Гомель", Region = gomel });
+            listRu88listRu88.Add(new City() { Name = "Добруш", Region = gomel });
+            listRu88listRu88.Add(new City() { Name = "Ельск", Region = gomel });
+            listRu88listRu88.Add(new City() { Name = "Житковичи", Region = gomel });
+            listRu88listRu88.Add(new City() { Name = "Жлобин", Region = gomel });
+            listRu88listRu88.Add(new City() { Name = "Калинковичи", Region = gomel });
+            listRu88listRu88.Add(new City() { Name = "Корма", Region = gomel });
+            listRu88listRu88.Add(new City() { Name = "Костюковка", Region = gomel });
+            listRu88listRu88.Add(new City() { Name = "Лельчицы", Region = gomel });
+            listRu88listRu88.Add(new City() { Name = "Лоев", Region = gomel });
+            listRu88listRu88.Add(new City() { Name = "Мозырь", Region = gomel });
+            listRu88listRu88.Add(new City() { Name = "Наровля", Region = gomel });
+            listRu88listRu88.Add(new City() { Name = "Октябрьский", Region = gomel });
+            listRu88listRu88.Add(new City() { Name = "Петриков", Region = gomel });
+            listRu88listRu88.Add(new City() { Name = "Речица", Region = gomel });
+            listRu88listRu88.Add(new City() { Name = "Рогачёв", Region = gomel });
+            listRu88listRu88.Add(new City() { Name = "Светлогорск", Region = gomel });
+            listRu88listRu88.Add(new City() { Name = "Хойники", Region = gomel });
+            listRu88listRu88.Add(new City() { Name = "Чечерск", Region = gomel });
+            this.Create(listRu88listRu88);
 
             var grodno = new Region() { Country = belorus, Name = "Гродненская область", NomberSort = 0, IsMillion = true };
             grodno.Create();
-            var listRu89 = new List<City>();
+            listRu89 = new List<City>();
 
             listRu89.Add(new City() { Name = "Берёзовка", Region = grodno });
             listRu89.Add(new City() { Name = "Берестовица", Region = grodno });
@@ -3411,7 +3472,7 @@ namespace MyTend.Services.Migrations.Regions
             listRu90.Add(new City() { Name = "Логойск", Region = minsk });
             listRu90.Add(new City() { Name = "Любань", Region = minsk });
             listRu90.Add(new City() { Name = "Марьина Горка", Region = minsk });
-            listRu90.Add(new City() { Name = "Минск", Region = minsk });
+            listRu90.Add(new City() { Name = "-Минск-", Region = minsk });
             listRu90.Add(new City() { Name = "Молодечно", Region = minsk });
             listRu90.Add(new City() { Name = "Мядель", Region = minsk });
             listRu90.Add(new City() { Name = "Несвиж", Region = minsk });
@@ -3452,420 +3513,949 @@ namespace MyTend.Services.Migrations.Regions
             listRu91.Add(new City() { Name = "Шклов", Region = mogilev });
             this.Create(listRu91);
 
-            var gruz = new Country() { Name = "Грузия" };
-            gruz.Create();
-
-            var choise4 = new Region() { Country = belorus, Name = "Выберите город", NomberSort = 0, IsMillion = true };
-            choise4.Create();
-            var listRu92 = new List<City>();
-
-            listRu92.Add(new City() { Name = "Абаша", Region = choise4 });
-            listRu92.Add(new City() { Name = "Амбролаури", Region = choise4 });
-            listRu92.Add(new City() { Name = "Анаклиа", Region = choise4 });
-            listRu92.Add(new City() { Name = "Ахалкалаки", Region = choise4 });
-            listRu92.Add(new City() { Name = "Ахалцихе", Region = choise4 });
-            listRu92.Add(new City() { Name = "Ахмета", Region = choise4 });
-            listRu92.Add(new City() { Name = "Багдати", Region = choise4 });
-            listRu92.Add(new City() { Name = "Батуми", Region = choise4 });
-            listRu92.Add(new City() { Name = "Болниси", Region = choise4 });
-            listRu92.Add(new City() { Name = "Боржоми", Region = choise4 });
-            listRu92.Add(new City() { Name = "Вале", Region = choise4 });
-            listRu92.Add(new City() { Name = "Вани", Region = choise4 });
-            listRu92.Add(new City() { Name = "Гардабани", Region = choise4 });
-            listRu92.Add(new City() { Name = "Гори", Region = choise4 });
-            listRu92.Add(new City() { Name = "Гурджаани", Region = choise4 });
-            listRu92.Add(new City() { Name = "Дедоплис-Цкаро", Region = choise4 });
-            listRu92.Add(new City() { Name = "Джвари", Region = choise4 });
-            listRu92.Add(new City() { Name = "Дманиси", Region = choise4 });
-            listRu92.Add(new City() { Name = "Душети", Region = choise4 });
-            listRu92.Add(new City() { Name = "Зестафони", Region = choise4 });
-            listRu92.Add(new City() { Name = "Зугдиди", Region = choise4 });
-            listRu92.Add(new City() { Name = "Карели", Region = choise4 });
-            listRu92.Add(new City() { Name = "Каспи", Region = choise4 });
-            listRu92.Add(new City() { Name = "Кварели", Region = choise4 });
-            listRu92.Add(new City() { Name = "Кобулети", Region = choise4 });
-            listRu92.Add(new City() { Name = "Кутаиси", Region = choise4 });
-            listRu92.Add(new City() { Name = "Лагодехи", Region = choise4 });
-            listRu92.Add(new City() { Name = "Ланчхути", Region = choise4 });
-            listRu92.Add(new City() { Name = "Марнеули", Region = choise4 });
-            listRu92.Add(new City() { Name = "Мартвили", Region = choise4 });
-            listRu92.Add(new City() { Name = "Мцхета", Region = choise4 });
-            listRu92.Add(new City() { Name = "Ниноцминда", Region = choise4 });
-            listRu92.Add(new City() { Name = "Озургети", Region = choise4 });
-            listRu92.Add(new City() { Name = "Они", Region = choise4 });
-            listRu92.Add(new City() { Name = "Поти", Region = choise4 });
-            listRu92.Add(new City() { Name = "Рустави", Region = choise4 });
-            listRu92.Add(new City() { Name = "Сагареджо", Region = choise4 });
-            listRu92.Add(new City() { Name = "Самтредиа", Region = choise4 });
-            listRu92.Add(new City() { Name = "Сачхере", Region = choise4 });
-            listRu92.Add(new City() { Name = "Сенаки", Region = choise4 });
-            listRu92.Add(new City() { Name = "Сигнахи", Region = choise4 });
-            listRu92.Add(new City() { Name = "Тбилиси", Region = choise4 });
-            listRu92.Add(new City() { Name = "Телави", Region = choise4 });
-            listRu92.Add(new City() { Name = "Тержола", Region = choise4 });
-            listRu92.Add(new City() { Name = "Тетри-Цкаро", Region = choise4 });
-            listRu92.Add(new City() { Name = "Ткибули", Region = choise4 });
-            listRu92.Add(new City() { Name = "Хашури", Region = choise4 });
-            listRu92.Add(new City() { Name = "Хоби", Region = choise4 });
-            listRu92.Add(new City() { Name = "Хони", Region = choise4 });
-            listRu92.Add(new City() { Name = "Цагери", Region = choise4 });
-            listRu92.Add(new City() { Name = "Цаленджиха", Region = choise4 });
-            listRu92.Add(new City() { Name = "Цалка", Region = choise4 });
-            listRu92.Add(new City() { Name = "Цнори", Region = choise4 });
-            listRu92.Add(new City() { Name = "Цхалтубо", Region = choise4 });
-            listRu92.Add(new City() { Name = "Чиатура", Region = choise4 });
-            this.Create(listRu92);
-
             var kaz = new Country() { Name = "Казахстан" };
             kaz.Create();
 
-            var choise5 = new Region() { Country = kaz, Name = "Выберите город", NomberSort = 0, IsMillion = true };
-            choise5.Create();
-            var listRu93 = new List<City>();
-
-            listRu93.Add(new City() { Name = "Абай", Region = choise5 });
-            listRu93.Add(new City() { Name = "Акколь", Region = choise5 });
-            listRu93.Add(new City() { Name = "Аксай", Region = choise5 });
-            listRu93.Add(new City() { Name = "Аксу", Region = choise5 });
-            listRu93.Add(new City() { Name = "Актобе", Region = choise5 });
-            listRu93.Add(new City() { Name = "Алга", Region = choise5 });
-            listRu93.Add(new City() { Name = "Алма-Ата", Region = choise5 });
-            listRu93.Add(new City() { Name = "Аральск", Region = choise5 });
-            listRu93.Add(new City() { Name = "Аркалык", Region = choise5 });
-            listRu93.Add(new City() { Name = "Арыс", Region = choise5 });
-            listRu93.Add(new City() { Name = "Астана ", Region = choise5 });
-            listRu93.Add(new City() { Name = "Атбасар", Region = choise5 });
-            listRu93.Add(new City() { Name = "Атбасар", Region = choise5 });
-            listRu93.Add(new City() { Name = "Аягуз", Region = choise5 });
-            listRu93.Add(new City() { Name = "Байконур", Region = choise5 });
-            listRu93.Add(new City() { Name = "Байконыр ", Region = choise5 });
-            listRu93.Add(new City() { Name = "Булаево", Region = choise5 });
-            listRu93.Add(new City() { Name = "Державинск", Region = choise5 });
-            listRu93.Add(new City() { Name = "Ерейментау", Region = choise5 });
-            listRu93.Add(new City() { Name = "Есик", Region = choise5 });
-            listRu93.Add(new City() { Name = "Есиль", Region = choise5 });
-            listRu93.Add(new City() { Name = "Жанатас", Region = choise5 });
-            listRu93.Add(new City() { Name = "Жаркент", Region = choise5 });
-            listRu93.Add(new City() { Name = "Жем", Region = choise5 });
-            listRu93.Add(new City() { Name = "Жетысай", Region = choise5 });
-            listRu93.Add(new City() { Name = "Житикара", Region = choise5 });
-            listRu93.Add(new City() { Name = "Зайсан", Region = choise5 });
-            listRu93.Add(new City() { Name = "Зыряновск", Region = choise5 });
-            listRu93.Add(new City() { Name = "Казалинск", Region = choise5 });
-            listRu93.Add(new City() { Name = "Кандыагаш", Region = choise5 });
-            listRu93.Add(new City() { Name = "Капчагай", Region = choise5 });
-            listRu93.Add(new City() { Name = "Караганда", Region = choise5 });
-            listRu93.Add(new City() { Name = "Каражал", Region = choise5 });
-            listRu93.Add(new City() { Name = "Каратау", Region = choise5 });
-            listRu93.Add(new City() { Name = "Каркаралинск", Region = choise5 });
-            listRu93.Add(new City() { Name = "Каскелен", Region = choise5 });
-            listRu93.Add(new City() { Name = "Кульсары", Region = choise5 });
-            listRu93.Add(new City() { Name = "Курчатов", Region = choise5 });
-            listRu93.Add(new City() { Name = "Кызылорда", Region = choise5 });
-            listRu93.Add(new City() { Name = "Ленгер", Region = choise5 });
-            listRu93.Add(new City() { Name = "Лисаковск", Region = choise5 });
-            listRu93.Add(new City() { Name = "Макинск", Region = choise5 });
-            listRu93.Add(new City() { Name = "Мамлютка", Region = choise5 });
-            listRu93.Add(new City() { Name = "Павлодар", Region = choise5 });
-            listRu93.Add(new City() { Name = "Приозёрск", Region = choise5 });
-            listRu93.Add(new City() { Name = "Риддер", Region = choise5 });
-            listRu93.Add(new City() { Name = "Сарань", Region = choise5 });
-            listRu93.Add(new City() { Name = "Сарканд", Region = choise5 });
-            listRu93.Add(new City() { Name = "Сарыагаш", Region = choise5 });
-            listRu93.Add(new City() { Name = "Семей", Region = choise5 });
-            listRu93.Add(new City() { Name = "Сергеевка", Region = choise5 });
-            listRu93.Add(new City() { Name = "Серебрянск", Region = choise5 });
-            listRu93.Add(new City() { Name = "Степногорск", Region = choise5 });
-            listRu93.Add(new City() { Name = "Степняк", Region = choise5 });
-            listRu93.Add(new City() { Name = "Тайынша", Region = choise5 });
-            listRu93.Add(new City() { Name = "Талгар", Region = choise5 });
-            listRu93.Add(new City() { Name = "Тараз", Region = choise5 });
-            listRu93.Add(new City() { Name = "Текели", Region = choise5 });
-            listRu93.Add(new City() { Name = "Темир", Region = choise5 });
-            listRu93.Add(new City() { Name = "Уральск", Region = choise5 });
-            listRu93.Add(new City() { Name = "Усть-Каменогорск", Region = choise5 });
-            listRu93.Add(new City() { Name = "Ушарал", Region = choise5 });
-            listRu93.Add(new City() { Name = "Уштобе", Region = choise5 });
-            listRu93.Add(new City() { Name = "Форт-Шевченко", Region = choise5 });
-            listRu93.Add(new City() { Name = "Хромтау", Region = choise5 });
-            listRu93.Add(new City() { Name = "Чарск", Region = choise5 });
-            listRu93.Add(new City() { Name = "Шалкар", Region = choise5 });
-            listRu93.Add(new City() { Name = "Шардара", Region = choise5 });
-            listRu93.Add(new City() { Name = "Шахтинск", Region = choise5 });
-            listRu93.Add(new City() { Name = "Шемонаиха", Region = choise5 });
-            listRu93.Add(new City() { Name = "Шу", Region = choise5 });
-            listRu93.Add(new City() { Name = "Щучинск", Region = choise5 });
-            listRu93.Add(new City() { Name = "Эмба", Region = choise5 });
-            this.Create(listRu93);
-
-
-            var kir = new Country() { Name = "Киргизия" };
-            kir.Create();
-
-            var choise6 = new Region() { Country = kir, Name = "Выберите город", NomberSort = 0, IsMillion = true };
-            choise6.Create();
-            var listRu94 = new List<City>();
-
-            listRu94.Add(new City() { Name = "Айдаркен", Region = choise6 });
-            listRu94.Add(new City() { Name = "Балыкчы", Region = choise6 });
-            listRu94.Add(new City() { Name = "Баткен", Region = choise6 });
-            listRu94.Add(new City() { Name = "Бишкек", Region = choise6 });
-            listRu94.Add(new City() { Name = "Джалал-Абад", Region = choise6 });
-            listRu94.Add(new City() { Name = "Исфана", Region = choise6 });
-            listRu94.Add(new City() { Name = "Кадамжай", Region = choise6 });
-            listRu94.Add(new City() { Name = "Каинды", Region = choise6 });
-            listRu94.Add(new City() { Name = "Кант", Region = choise6 });
-            listRu94.Add(new City() { Name = "Кара-Балта", Region = choise6 });
-            listRu94.Add(new City() { Name = "Каракол", Region = choise6 });
-            listRu94.Add(new City() { Name = "Кара-Куль", Region = choise6 });
-            listRu94.Add(new City() { Name = "Кара-Суу", Region = choise6 });
-            listRu94.Add(new City() { Name = "Кемин", Region = choise6 });
-            listRu94.Add(new City() { Name = "Кербен", Region = choise6 });
-            listRu94.Add(new City() { Name = "Кок-Джангак", Region = choise6 });
-            listRu94.Add(new City() { Name = "Кочкор-Ата", Region = choise6 });
-            listRu94.Add(new City() { Name = "Кызыл-Кия", Region = choise6 });
-            listRu94.Add(new City() { Name = "Майлуу-Суу", Region = choise6 });
-            listRu94.Add(new City() { Name = "Нарын", Region = choise6 });
-            listRu94.Add(new City() { Name = "Ноокат", Region = choise6 });
-            listRu94.Add(new City() { Name = "Орловка", Region = choise6 });
-            listRu94.Add(new City() { Name = "Ош", Region = choise6 });
-            listRu94.Add(new City() { Name = "Сулюкта", Region = choise6 });
-            listRu94.Add(new City() { Name = "Талас", Region = choise6 });
-            listRu94.Add(new City() { Name = "Таш-Кумыр", Region = choise6 });
-            listRu94.Add(new City() { Name = "Токмок", Region = choise6 });
-            listRu94.Add(new City() { Name = "Токтогул", Region = choise6 });
-            listRu94.Add(new City() { Name = "Узген", Region = choise6 });
-            listRu94.Add(new City() { Name = "Чолпон-Ата", Region = choise6 });
-            listRu94.Add(new City() { Name = "Шопоков", Region = choise6 });
-            this.Create(listRu94);
-
-            var mold = new Country() { Name = "Молдавия" };
-            mold.Create();
-
-            var choise7 = new Region() { Country = mold, Name = "Выберите город", NomberSort = 0, IsMillion = true };
-            choise7.Create();
-            var listRu95 = new List<City>();
-
-            listRu95.Add(new City() { Name = "Бельцы", Region = choise7 });
-            listRu95.Add(new City() { Name = "Бендеры", Region = choise7 });
-            listRu95.Add(new City() { Name = "Бессарабка", Region = choise7 });
-            listRu95.Add(new City() { Name = "Бируинца", Region = choise7 });
-            listRu95.Add(new City() { Name = "Бричаны", Region = choise7 });
-            listRu95.Add(new City() { Name = "Быковец", Region = choise7 });
-            listRu95.Add(new City() { Name = "Вадул-луй-Водэ", Region = choise7 });
-            listRu95.Add(new City() { Name = "Ватра", Region = choise7 });
-            listRu95.Add(new City() { Name = "Вулканешты", Region = choise7 });
-            listRu95.Add(new City() { Name = "Гиндешты", Region = choise7 });
-            listRu95.Add(new City() { Name = "Глодяны", Region = choise7 });
-            listRu95.Add(new City() { Name = "Григориополь", Region = choise7 });
-            listRu95.Add(new City() { Name = "Днестровск", Region = choise7 });
-            listRu95.Add(new City() { Name = "Дондюшаны", Region = choise7 });
-            listRu95.Add(new City() { Name = "Дрокия", Region = choise7 });
-            listRu95.Add(new City() { Name = "Дубоссары", Region = choise7 });
-            listRu95.Add(new City() { Name = "Дурлешты", Region = choise7 });
-            listRu95.Add(new City() { Name = "Единец", Region = choise7 });
-            listRu95.Add(new City() { Name = "Кагул", Region = choise7 });
-            listRu95.Add(new City() { Name = "Каинары", Region = choise7 });
-            listRu95.Add(new City() { Name = "Калараш", Region = choise7 });
-            listRu95.Add(new City() { Name = "Каменка", Region = choise7 });
-            listRu95.Add(new City() { Name = "Кантемир", Region = choise7 });
-            listRu95.Add(new City() { Name = "Каушаны", Region = choise7 });
-            listRu95.Add(new City() { Name = "Кишинёв", Region = choise7 });
-            listRu95.Add(new City() { Name = "Кодру", Region = choise7 });
-            listRu95.Add(new City() { Name = "Комрат", Region = choise7 });
-            listRu95.Add(new City() { Name = "Конгаз", Region = choise7 });
-            listRu95.Add(new City() { Name = "Корнешты", Region = choise7 });
-            listRu95.Add(new City() { Name = "Костешты", Region = choise7 });
-            listRu95.Add(new City() { Name = "Красное", Region = choise7 });
-            listRu95.Add(new City() { Name = "Криково", Region = choise7 });
-            listRu95.Add(new City() { Name = "Криулень", Region = choise7 });
-            listRu95.Add(new City() { Name = "Купчинь", Region = choise7 });
-            listRu95.Add(new City() { Name = "Леова", Region = choise7 });
-            listRu95.Add(new City() { Name = "Липканы", Region = choise7 });
-            listRu95.Add(new City() { Name = "Маркулешты", Region = choise7 });
-            listRu95.Add(new City() { Name = "Маяк", Region = choise7 });
-            listRu95.Add(new City() { Name = "Ниспорены", Region = choise7 });
-            listRu95.Add(new City() { Name = "Новотираспольский", Region = choise7 });
-            listRu95.Add(new City() { Name = "Новые Анены", Region = choise7 });
-            listRu95.Add(new City() { Name = "Окница", Region = choise7 });
-            listRu95.Add(new City() { Name = "Орхей", Region = choise7 });
-            listRu95.Add(new City() { Name = "Отачь", Region = choise7 });
-            listRu95.Add(new City() { Name = "Резина", Region = choise7 });
-            listRu95.Add(new City() { Name = "Рыбница", Region = choise7 });
-            listRu95.Add(new City() { Name = "Рышканы", Region = choise7 });
-            listRu95.Add(new City() { Name = "Слободзея", Region = choise7 });
-            listRu95.Add(new City() { Name = "Сороки", Region = choise7 });
-            listRu95.Add(new City() { Name = "Страшены", Region = choise7 });
-            listRu95.Add(new City() { Name = "Сынджера", Region = choise7 });
-            listRu95.Add(new City() { Name = "Сынжерея", Region = choise7 });
-            listRu95.Add(new City() { Name = "Тараклия", Region = choise7 });
-            listRu95.Add(new City() { Name = "Твардица", Region = choise7 });
-            listRu95.Add(new City() { Name = "Теленешты", Region = choise7 });
-            listRu95.Add(new City() { Name = "Тирасполь", Region = choise7 });
-            listRu95.Add(new City() { Name = "Унгень", Region = choise7 });
-            listRu95.Add(new City() { Name = "Фалешты", Region = choise7 });
-            listRu95.Add(new City() { Name = "Флорешты", Region = choise7 });
-            listRu95.Add(new City() { Name = "Фрунзе", Region = choise7 });
-            listRu95.Add(new City() { Name = "Хынчешты", Region = choise7 });
-            listRu95.Add(new City() { Name = "Чадыр-Лунга", Region = choise7 });
-            listRu95.Add(new City() { Name = "Чимишлия", Region = choise7 });
-            listRu95.Add(new City() { Name = "Шолданешты", Region = choise7 });
-            listRu95.Add(new City() { Name = "Штефан-Водэ", Region = choise7 });
-            listRu95.Add(new City() { Name = "Яловены", Region = choise7 });
-            listRu95.Add(new City() { Name = "Яргара", Region = choise7 });
-            this.Create(listRu95);
-
-            var tadj = new Country() { Name = "Таджикистан" };
-            tadj.Create();
-
-            var choise8 = new Region() { Country = tadj, Name = "Выберите город", NomberSort = 0, IsMillion = true };
-            choise8.Create();
+            var astana = new Region() { Country = kaz, Name = "Астана", NomberSort = 0, IsMillion = true };
+            astana.Create();
             var listRu96 = new List<City>();
-
-            listRu96.Add(new City() { Name = "Вахдат", Region = choise8 });
-            listRu96.Add(new City() { Name = "Душанбе", Region = choise8 });
-            listRu96.Add(new City() { Name = "Истаравшан", Region = choise8 });
-            listRu96.Add(new City() { Name = "Истиклол", Region = choise8 });
-            listRu96.Add(new City() { Name = "Исфара", Region = choise8 });
-            listRu96.Add(new City() { Name = "Кайраккум", Region = choise8 });
-            listRu96.Add(new City() { Name = "Канибадам", Region = choise8 });
-            listRu96.Add(new City() { Name = "Куляб", Region = choise8 });
-            listRu96.Add(new City() { Name = "Курган-Тюбе", Region = choise8 });
-            listRu96.Add(new City() { Name = "Нурек", Region = choise8 });
-            listRu96.Add(new City() { Name = "Пенджикент", Region = choise8 });
-            listRu96.Add(new City() { Name = "Рогун", Region = choise8 });
-            listRu96.Add(new City() { Name = "Сарбанд", Region = choise8 });
-            listRu96.Add(new City() { Name = "Турсунзаде", Region = choise8 });
-            listRu96.Add(new City() { Name = "Хорог", Region = choise8 });
-            listRu96.Add(new City() { Name = "Худжанд", Region = choise8 });
-            listRu96.Add(new City() { Name = "Чкаловск", Region = choise8 });
+            listRu96.Add(new City() { Name = "Астана", Region = astana });
             this.Create(listRu96);
 
-            var turkmen = new Country() { Name = "Туркмения" };
-            turkmen.Create();
+		   var almaata = new Region() { Country = kaz, Name = "Алама-Ата", NomberSort = 0, IsMillion = true };
+            almaata.Create();
+            var listRu96listRu96 = new List<City>();
+           listRu96listRu96.Add(new City() { Name = "Алма-Ата", Region = almaata });         
+           this.Create(listRu96listRu96);
 
-            var choise9 = new Region() { Country = turkmen, Name = "Выберите город", NomberSort = 0, IsMillion = true };
-            choise9.Create();
-            var listRu97 = new List<City>();
+           var akmolinsk = new Region() { Country = kaz, Name = "Акмолинская область", NomberSort = 0, IsMillion = true };
+           akmolinsk.Create();
+           var listRu97 = new List<City>();
 
-            listRu97.Add(new City() { Name = "Ашхабад", Region = choise9 });
-            listRu97.Add(new City() { Name = "Аннау", Region = choise9 });
-            listRu97.Add(new City() { Name = "Атамурат", Region = choise9 });
-            listRu97.Add(new City() { Name = "Байрамали", Region = choise9 });
-            listRu97.Add(new City() { Name = "Балканабат", Region = choise9 });
-            listRu97.Add(new City() { Name = "Берекет", Region = choise9 });
-            listRu97.Add(new City() { Name = "Бехерден", Region = choise9 });
-            listRu97.Add(new City() { Name = "Газаджак", Region = choise9 });
-            listRu97.Add(new City() { Name = "Гёкдепе", Region = choise9 });
-            listRu97.Add(new City() { Name = "Дашогуз", Region = choise9 });
-            listRu97.Add(new City() { Name = "Ёлётен", Region = choise9 });
-            listRu97.Add(new City() { Name = "Карабогаз", Region = choise9 });
-            listRu97.Add(new City() { Name = "Кёнеургенч", Region = choise9 });
-            listRu97.Add(new City() { Name = "Кумдаг", Region = choise9 });
-            listRu97.Add(new City() { Name = "Магданлы", Region = choise9 });
-            listRu97.Add(new City() { Name = "Мары", Region = choise9 });
-            listRu97.Add(new City() { Name = "Сейди", Region = choise9 });
-            listRu97.Add(new City() { Name = "Сердар", Region = choise9 });
-            listRu97.Add(new City() { Name = "Серхетабад", Region = choise9 });
-            listRu97.Add(new City() { Name = "Теджен", Region = choise9 });
-            listRu97.Add(new City() { Name = "Туркменабат", Region = choise9 });
-            listRu97.Add(new City() { Name = "Туркменбашы", Region = choise9 });
-            listRu97.Add(new City() { Name = "Хазар", Region = choise9 });
-            listRu97.Add(new City() { Name = "Шатлык", Region = choise9 });
-            this.Create(listRu97);
+		   listRu97.Add(new City() { Name = "Кокшетау", Region = akmolinsk });
+           listRu97.Add(new City() { Name = "Акколь", Region = akmolinsk });
+           listRu97.Add(new City() { Name = "Атбасар", Region = akmolinsk });
+           listRu97.Add(new City() { Name = "Атбасар", Region = akmolinsk });
+           listRu97.Add(new City() { Name = "Державинск", Region = akmolinsk });
+           listRu97.Add(new City() { Name = "Ерейментау", Region = akmolinsk });
+           listRu97.Add(new City() { Name = "Есиль", Region = akmolinsk });
+           listRu97.Add(new City() { Name = "Макинск", Region = akmolinsk });
+           listRu97.Add(new City() { Name = "Степногорск", Region = akmolinsk });
+           listRu97.Add(new City() { Name = "Степняк", Region = akmolinsk });
+           listRu97.Add(new City() { Name = "Щучинск", Region = akmolinsk });
 
-            var kir2 = new Country() { Name = "Узбекистан" };
-            kir2.Create();
+           this.Create(listRu97);
 
-            var choise10 = new Region() { Country = kir, Name = "Выберите город", NomberSort = 0, IsMillion = true };
-            choise10.Create();
-            var listRu98 = new List<City>();
+           var aktub = new Region() { Country = kaz, Name = "Актюбинская область", NomberSort = 0, IsMillion = true };
+           aktub.Create();
+           var listRu98 = new List<City>();
 
-            listRu98.Add(new City() { Name = "Аккурган", Region = choise10 });
-            listRu98.Add(new City() { Name = "Акташ", Region = choise10 });
-            listRu98.Add(new City() { Name = "Алмалык", Region = choise10 });
-            listRu98.Add(new City() { Name = "Ангрен", Region = choise10 });
-            listRu98.Add(new City() { Name = "Ахангаран", Region = choise10 });
-            listRu98.Add(new City() { Name = "Байсун", Region = choise10 });
-            listRu98.Add(new City() { Name = "Бахт", Region = choise10 });
-            listRu98.Add(new City() { Name = "Бекабад", Region = choise10 });
-            listRu98.Add(new City() { Name = "Беруни", Region = choise10 });
-            listRu98.Add(new City() { Name = "Бешарык", Region = choise10 });
-            listRu98.Add(new City() { Name = "Бука", Region = choise10 });
-            listRu98.Add(new City() { Name = "Булунгур", Region = choise10 });
-            listRu98.Add(new City() { Name = "Бустан", Region = choise10 });
-            listRu98.Add(new City() { Name = "Газалкент", Region = choise10 });
-            listRu98.Add(new City() { Name = "Гулистан", Region = choise10 });
-            listRu98.Add(new City() { Name = "Денау", Region = choise10 });
-            listRu98.Add(new City() { Name = "Джамбай", Region = choise10 });
-            listRu98.Add(new City() { Name = "Джаркурган", Region = choise10 });
-            listRu98.Add(new City() { Name = "Джума", Region = choise10 });
-            listRu98.Add(new City() { Name = "Дустабад", Region = choise10 });
-            listRu98.Add(new City() { Name = "Иштыхан", Region = choise10 });
-            listRu98.Add(new City() { Name = "Касансай", Region = choise10 });
-            listRu98.Add(new City() { Name = "Каттакурган", Region = choise10 });
-            listRu98.Add(new City() { Name = "Келес", Region = choise10 });
-            listRu98.Add(new City() { Name = "Коканд", Region = choise10 });
-            listRu98.Add(new City() { Name = "Кува", Region = choise10 });
-            listRu98.Add(new City() { Name = "Кувасай", Region = choise10 });
-            listRu98.Add(new City() { Name = "Кумкурган", Region = choise10 });
-            listRu98.Add(new City() { Name = "Кунград", Region = choise10 });
-            listRu98.Add(new City() { Name = "Мангит", Region = choise10 });
-            listRu98.Add(new City() { Name = "Маргилан", Region = choise10 });
-            listRu98.Add(new City() { Name = "Муйнак", Region = choise10 });
-            listRu98.Add(new City() { Name = "Наманган", Region = choise10 });
-            listRu98.Add(new City() { Name = "Нукус", Region = choise10 });
-            listRu98.Add(new City() { Name = "Нурабад", Region = choise10 });
-            listRu98.Add(new City() { Name = "Пайарык", Region = choise10 });
-            listRu98.Add(new City() { Name = "Пап", Region = choise10 });
-            listRu98.Add(new City() { Name = "Паркент", Region = choise10 });
-            listRu98.Add(new City() { Name = "Питнак", Region = choise10 });
-            listRu98.Add(new City() { Name = "Пскент", Region = choise10 });
-            listRu98.Add(new City() { Name = "Риштан", Region = choise10 });
-            listRu98.Add(new City() { Name = "Самарканд", Region = choise10 });
-            listRu98.Add(new City() { Name = "Сырдарья", Region = choise10 });
-            listRu98.Add(new City() { Name = "Тахиаташ", Region = choise10 });
-            listRu98.Add(new City() { Name = "Ташкент", Region = choise10 });
-            listRu98.Add(new City() { Name = "Термез", Region = choise10 });
-            listRu98.Add(new City() { Name = "Тинчлик", Region = choise10 });
-            listRu98.Add(new City() { Name = "Тойтепа", Region = choise10 });
-            listRu98.Add(new City() { Name = "Туракурган", Region = choise10 });
-            listRu98.Add(new City() { Name = "Турткуль", Region = choise10 });
-            listRu98.Add(new City() { Name = "Ургенч", Region = choise10 });
-            listRu98.Add(new City() { Name = "Ургут", Region = choise10 });
-            listRu98.Add(new City() { Name = "Учкурган", Region = choise10 });
-            listRu98.Add(new City() { Name = "Фергана", Region = choise10 });
-            listRu98.Add(new City() { Name = "Хаккулабад", Region = choise10 });
-            listRu98.Add(new City() { Name = "Халкабад", Region = choise10 });
-            listRu98.Add(new City() { Name = "Хива", Region = choise10 });
-            listRu98.Add(new City() { Name = "Ходжейли", Region = choise10 });
-            listRu98.Add(new City() { Name = "Чартак", Region = choise10 });
-            listRu98.Add(new City() { Name = "Челек", Region = choise10 });
-            listRu98.Add(new City() { Name = "Чимбай", Region = choise10 });
-            listRu98.Add(new City() { Name = "Чиназ", Region = choise10 });
-            listRu98.Add(new City() { Name = "Чирчик", Region = choise10 });
-            listRu98.Add(new City() { Name = "Чуст", Region = choise10 });
-            listRu98.Add(new City() { Name = "Шаргунь", Region = choise10 });
-            listRu98.Add(new City() { Name = "Шерабад", Region = choise10 });
-            listRu98.Add(new City() { Name = "Ширин", Region = choise10 });
-            listRu98.Add(new City() { Name = "Шуманай", Region = choise10 });
-            listRu98.Add(new City() { Name = "Шурчи", Region = choise10 });
-            listRu98.Add(new City() { Name = "Яйпан", Region = choise10 });
-            listRu98.Add(new City() { Name = "Янгиабад", Region = choise10 });
-            listRu98.Add(new City() { Name = "Янгиер", Region = choise10 });
-            listRu98.Add(new City() { Name = "Янгиюль", Region = choise10 });
-            this.Create(listRu98);
+           listRu98.Add(new City() { Name = "Актобе", Region = aktub });
+           listRu98.Add(new City() { Name = "Алга", Region = aktub });
+           listRu98.Add(new City() { Name = "Жем", Region = aktub });
+           listRu98.Add(new City() { Name = "Кандыагаш", Region = aktub });
+           listRu98.Add(new City() { Name = "Темир", Region = aktub });
+           listRu98.Add(new City() { Name = "Хромтау", Region = aktub });
+           listRu98.Add(new City() { Name = "Шалкар", Region = aktub });
+           listRu98.Add(new City() { Name = "Эмба", Region = aktub });
+           
+           this.Create(listRu98);
 
-            var uos = new Country() { Name = "Южная Осетия" };
-            uos.Create();
+           var almatinsk = new Region() { Country = kaz, Name = "Алматинская область", NomberSort = 0, IsMillion = true };
+           akmolinsk.Create();
+           var listRu99 = new List<City>();
 
-            var choise11 = new Region() { Country = uos, Name = "Выберите город", NomberSort = 0, IsMillion = true };
-            choise11.Create();
-            var listRu99 = new List<City>();
+           listRu99.Add(new City() { Name = "Талдыкорган", Region = almatinsk });
+		   listRu99.Add(new City() { Name = "Есик", Region = almatinsk });
+           listRu99.Add(new City() { Name = "Жаркент", Region = almatinsk });
+           listRu99.Add(new City() { Name = "Капчагай", Region = almatinsk });
+           listRu99.Add(new City() { Name = "Каскелен", Region = almatinsk });
+           listRu99.Add(new City() { Name = "Сарканд", Region = almatinsk });
+           listRu99.Add(new City() { Name = "Талгар", Region = almatinsk });
+           listRu99.Add(new City() { Name = "Текели", Region = almatinsk });
+           listRu99.Add(new City() { Name = "Ушарал", Region = almatinsk });
+           listRu99.Add(new City() { Name = "Уштобе", Region = almatinsk });
 
-            listRu99.Add(new City() { Name = "Квайса", Region = choise11 });
-            listRu99.Add(new City() { Name = "Цхинвал", Region = choise11 });
-            this.Create(listRu99);
+           this.Create(listRu99);
+
+           var atirau = new Region() { Country = kaz, Name = "Атырауская область", NomberSort = 0, IsMillion = true };
+           atirau.Create();
+           var listRu100 = new List<City>();
+
+           listRu100.Add(new City() { Name = "Кульсары", Region = atirau });
+           this.Create(listRu100);
+
+
+           var vostkazobl = new Region() { Country = kaz, Name = "Восточно-Казахстанская область", NomberSort = 0, IsMillion = true };
+           vostkazobl.Create();
+           var listRu101 = new List<City>();
+
+           listRu101.Add(new City() { Name = "Аягуз", Region = vostkazobl });
+           listRu101.Add(new City() { Name = "Зайсан", Region = vostkazobl });
+           listRu101.Add(new City() { Name = "Зыряновск", Region = vostkazobl });
+           listRu101.Add(new City() { Name = "Курчатов", Region = vostkazobl });
+           listRu101.Add(new City() { Name = "Риддер", Region = vostkazobl });
+           listRu101.Add(new City() { Name = "Семей", Region = vostkazobl });
+           listRu101.Add(new City() { Name = "Серебрянск", Region = vostkazobl });
+           listRu101.Add(new City() { Name = "Усть-Каменогорск", Region = vostkazobl });
+           listRu101.Add(new City() { Name = "Чарск", Region = vostkazobl });
+           listRu101.Add(new City() { Name = "Шемонаиха", Region = vostkazobl });
+
+           this.Create(listRu101);
+
+           var jambl = new Region() { Country = kaz, Name = "Жамбылская область", NomberSort = 0, IsMillion = true };
+           jambl.Create();
+           var listRu102 = new List<City>();
+
+           listRu102.Add(new City() { Name = "Жанатас", Region = jambl});
+           listRu102.Add(new City() { Name = "Каратау", Region = jambl});
+           listRu102.Add(new City() { Name = "Тараз", Region = jambl});
+           listRu102.Add(new City() { Name = "Шу", Region = jambl});
+
+           this.Create(listRu102);
+
+           var zapkazobl = new Region() { Country = kaz, Name = "Западно-Казахстанская область", NomberSort = 0, IsMillion = true };
+           zapkazobl.Create();
+           var listRu103 = new List<City>();
+           
+           listRu103.Add(new City() { Name = "Аксай", Region = jambl});
+           listRu103.Add(new City() { Name = "Уральск", Region = jambl});
+
+           this.Create(listRu103);
+
+          
+           var karganda = new Region() { Country = kaz, Name = "Карагандинская область", NomberSort = 0, IsMillion = true };
+           karganda.Create();
+           var listRu104 = new List<City>();
+
+           listRu104.Add(new City() { Name = "Абай", Region = karganda});
+           listRu104.Add(new City() { Name = "Караганда", Region = karganda});
+           listRu104.Add(new City() { Name = "Каражал", Region = karganda});
+           listRu104.Add(new City() { Name = "Каркаралинск", Region = karganda});
+           listRu104.Add(new City() { Name = "Приозёрск", Region = karganda});
+           listRu104.Add(new City() { Name = "Сарань", Region = karganda});
+           listRu104.Add(new City() { Name = "Шахтинск", Region = karganda});
+
+           this.Create(listRu104);
+
+           var kostansk = new Region() { Country = kaz, Name = "Костанайская область", NomberSort = 0, IsMillion = true };
+           kostansk.Create();
+           var listRu105 = new List<City>();
+            
+		   listRu105.Add(new City() { Name = "Костанай", Region = kostansk});
+           listRu105.Add(new City() { Name = "Аркалык", Region = kostansk});
+           listRu105.Add(new City() { Name = "Житикара", Region = kostansk});
+           listRu105.Add(new City() { Name = "Лисаковск", Region = kostansk});
+
+           this.Create(listRu105);
+
+           var kizil = new Region() { Country = kaz, Name = "Кызылординская область", NomberSort = 0, IsMillion = true };
+           kizil.Create();
+           var listRu106 = new List<City>();
+
+           listRu106.Add(new City() { Name = "Аральск", Region = kizil});
+           listRu106.Add(new City() { Name = "Байконур", Region = kizil});
+           listRu106.Add(new City() { Name = "Казалинск", Region = kizil});
+           listRu106.Add(new City() { Name = "Кызылорда", Region = kizil});
+
+           this.Create(listRu106);
+
+           var mangist = new Region() { Country = kaz, Name = "Мангистауская  область", NomberSort = 0, IsMillion = true };
+           mangist.Create();
+           var listRu107 = new List<City>();
+
+           listRu107.Add(new City() { Name = "Форт-Шевченко", Region = mangist});
+
+           this.Create(listRu107);
+           
+           var pavlodarsk = new Region() { Country = kaz, Name = "Павлодарская  область", NomberSort = 0, IsMillion = true };
+           akmolinsk.Create();
+           var listRu108 = new List<City>();
+           
+           listRu108.Add(new City() { Name = "Аксу", Region = pavlodarsk});
+           listRu108.Add(new City() { Name = "Павлодар", Region = pavlodarsk});
+
+           this.Create(listRu108);
+
+           var sevkazobl = new Region() { Country = kaz, Name = "Северо-Казахстанская область", NomberSort = 0, IsMillion = true };
+           sevkazobl.Create();
+           var listRu109 = new List<City>();
+
+           listRu109.Add(new City() { Name = "Булаево", Region = sevkazobl});
+           listRu109.Add(new City() { Name = "Мамлютка", Region = sevkazobl});
+		   listRu109.Add(new City() { Name = "Петропавловск", Region = sevkazobl});
+           listRu109.Add(new City() { Name = "Сергеевка", Region = sevkazobl});
+           listRu109.Add(new City() { Name = "Тайынша", Region = sevkazobl});
+
+          this.Create(listRu109);
+
+           var ukazobl = new Region() { Country = kaz, Name = "Южно-Казахстанская область", NomberSort = 0, IsMillion = true };
+           ukazobl.Create();
+           var listRu110 = new List<City>();
+
+           listRu110.Add(new City() { Name = "Арыс", Region = ukazobl});
+           listRu110.Add(new City() { Name = "Жетысай", Region = ukazobl});
+           listRu110.Add(new City() { Name = "Ленгер", Region = ukazobl});
+           listRu110.Add(new City() { Name = "Сарыагаш", Region = ukazobl});
+           listRu110.Add(new City() { Name = "Шардара", Region = ukazobl});
+		   listRu110.Add(new City() { Name = "Шыкмент", Region = ukazobl});
+
+           this.Create(listRu110);
+
+
+                 	
+			
+        var ukr = new Country() { Name = "Украина" };
+            ukr.Create();
+
+           var vineck = new Region() { Country = ukr, Name = "Винницкая область", NomberSort = 0, IsMillion = true };
+           vineck.Create();
+           var listRu112 = new List<City>();
+
+           listRu112.Add(new City() { Name = "Бар", Region = vineck});
+           listRu112.Add(new City() { Name = "Бершадь", Region = vineck});
+           listRu112.Add(new City() { Name = "Винница", Region = vineck});
+           listRu112.Add(new City() { Name = "Гайсин", Region = vineck});
+           listRu112.Add(new City() { Name = "Гнивань", Region = vineck});
+           listRu112.Add(new City() { Name = "Жмеринка", Region = vineck});
+           listRu112.Add(new City() { Name = "Ильинцы", Region = vineck});
+           listRu112.Add(new City() { Name = "Казатин", Region = vineck});
+           listRu112.Add(new City() { Name = "Калиновка", Region = vineck});
+           listRu112.Add(new City() { Name = "Крыжополь", Region = vineck});
+           listRu112.Add(new City() { Name = "Ладыжин", Region = vineck});
+           listRu112.Add(new City() { Name = "Липовец", Region = vineck});
+           listRu112.Add(new City() { Name = "Могилёв-Подольский", Region = vineck});
+           listRu112.Add(new City() { Name = "Немиров", Region = vineck});
+           listRu112.Add(new City() { Name = "Погребище", Region = vineck});
+           listRu112.Add(new City() { Name = "Стрижавка", Region = vineck});
+           listRu112.Add(new City() { Name = "Тульчин", Region = vineck});
+           listRu112.Add(new City() { Name = "Хмельник", Region = vineck});
+           listRu112.Add(new City() { Name = "Шаргород", Region = vineck});
+           listRu112.Add(new City() { Name = "Ямполь", Region = vineck});
+
+           this.Create(listRu112);
+
+           var volinsk = new Region() { Country = ukr, Name = "Волынская область", NomberSort = 0, IsMillion = true };
+           volinsk.Create();
+           var listRu113 = new List<City>();
+
+           listRu113.Add(new City() { Name = "Берестечко", Region = volinsk});
+           listRu113.Add(new City() { Name = "Владимир-Волынский", Region = volinsk});
+           listRu113.Add(new City() { Name = "Горохов", Region = volinsk});
+           listRu113.Add(new City() { Name = "Иваничи", Region = volinsk});
+           listRu113.Add(new City() { Name = "Камень-Каширский", Region = volinsk});
+           listRu113.Add(new City() { Name = "Киверцы", Region = volinsk});
+           listRu113.Add(new City() { Name = "Ковель", Region = volinsk});
+           listRu113.Add(new City() { Name = "Луцк", Region = volinsk});
+           listRu113.Add(new City() { Name = "Любешов", Region = volinsk});
+           listRu113.Add(new City() { Name = "Любомль", Region = volinsk});
+           listRu113.Add(new City() { Name = "Маневичи", Region = volinsk});
+           listRu113.Add(new City() { Name = "Нововолынск", Region = volinsk});
+           listRu113.Add(new City() { Name = "Ратно", Region = volinsk});
+           listRu113.Add(new City() { Name = "Рожище", Region = volinsk});
+           listRu113.Add(new City() { Name = "Старая Выжевка", Region = volinsk});
+           listRu113.Add(new City() { Name = "Турийск", Region = volinsk});
+           listRu113.Add(new City() { Name = "Устилуг", Region = volinsk});
+           listRu113.Add(new City() { Name = "Цумань", Region = volinsk});
+           listRu113.Add(new City() { Name = "Шацк", Region = volinsk});
+
+           this.Create(listRu113);
+
+           var dnepr = new Region() { Country = ukr, Name = "Днепропетровская область", NomberSort = 0, IsMillion = true };
+           dnepr.Create();
+           var listRu114 = new List<City>();
+
+           listRu114.Add(new City() { Name = "Апостолово", Region = dnepr});
+           listRu114.Add(new City() { Name = "Васильковка", Region = dnepr});
+           listRu114.Add(new City() { Name = "Верхнеднепровск", Region = dnepr});
+           listRu114.Add(new City() { Name = "Верховцево", Region = dnepr});
+           listRu114.Add(new City() { Name = "Вольногорск", Region = dnepr});
+           listRu114.Add(new City() { Name = "Днепродзержинск", Region = dnepr});
+           listRu114.Add(new City() { Name = "Днепропетровск", Region = dnepr});
+           listRu114.Add(new City() { Name = "Жёлтые Воды", Region = dnepr});
+           listRu114.Add(new City() { Name = "Зеленодольск", Region = dnepr});
+           listRu114.Add(new City() { Name = "Кривой Рог", Region = dnepr});
+           listRu114.Add(new City() { Name = "Марганец", Region = dnepr});
+           listRu114.Add(new City() { Name = "Никополь", Region = dnepr});
+           listRu114.Add(new City() { Name = "Новомосковск", Region = dnepr});
+           listRu114.Add(new City() { Name = "Орджоникидзе", Region = dnepr});
+           listRu114.Add(new City() { Name = "Павлоград", Region = dnepr});
+           listRu114.Add(new City() { Name = "Перещепино", Region = dnepr});
+           listRu114.Add(new City() { Name = "Першотравенск", Region = dnepr});
+           listRu114.Add(new City() { Name = "Подгородное", Region = dnepr});
+           listRu114.Add(new City() { Name = "Покровское", Region = dnepr});
+           listRu114.Add(new City() { Name = "Пятихатки", Region = dnepr});
+           listRu114.Add(new City() { Name = "Синельниково", Region = dnepr});
+           listRu114.Add(new City() { Name = "Терновка", Region = dnepr});
+           listRu114.Add(new City() { Name = "Широкое", Region = dnepr});
+           listRu114.Add(new City() { Name = "Юбилейное", Region = dnepr});
+
+           this.Create(listRu114);
+
+           var dnr = new Region() { Country = ukr, Name = "Донецкая народная республика", NomberSort = 0, IsMillion = true };
+           dnr.Create();
+           var listRu115 = new List<City>();
+
+           listRu115.Add(new City() { Name = "Авдеевка", Region = dnr});
+           listRu115.Add(new City() { Name = "Александровка", Region = dnr});
+           listRu115.Add(new City() { Name = "Амвросиевка", Region = dnr});
+           listRu115.Add(new City() { Name = "Артёмово", Region = dnr});
+           listRu115.Add(new City() { Name = "Артёмовск", Region = dnr});
+           listRu115.Add(new City() { Name = "Белицкое", Region = dnr});
+           listRu115.Add(new City() { Name = "Белозёрское", Region = dnr});
+           listRu115.Add(new City() { Name = "Великая Новосёлка", Region = dnr});
+           listRu115.Add(new City() { Name = "Волноваха", Region = dnr});
+           listRu115.Add(new City() { Name = "Володарское", Region = dnr});
+           listRu115.Add(new City() { Name = "Горловка", Region = dnr});
+           listRu115.Add(new City() { Name = "Горняк", Region = dnr});
+           listRu115.Add(new City() { Name = "Дебальцево", Region = dnr});
+           listRu115.Add(new City() { Name = "Дзержинск", Region = dnr});
+           listRu115.Add(new City() { Name = "Димитров", Region = dnr});
+           listRu115.Add(new City() { Name = "Доброполье", Region = dnr});
+           listRu115.Add(new City() { Name = "Докучаевск", Region = dnr});
+           listRu115.Add(new City() { Name = "Донецк", Region = dnr});
+           listRu115.Add(new City() { Name = "Дружковка", Region = dnr});
+           listRu115.Add(new City() { Name = "Енакиево", Region = dnr});
+           listRu115.Add(new City() { Name = "Ждановка", Region = dnr});
+           listRu115.Add(new City() { Name = "Зугрэс", Region = dnr});
+           listRu115.Add(new City() { Name = "Иловайск", Region = dnr});
+           listRu115.Add(new City() { Name = "Кировское", Region = dnr});
+           listRu115.Add(new City() { Name = "Комсомольское", Region = dnr});
+           listRu115.Add(new City() { Name = "Константиновка", Region = dnr});
+           listRu115.Add(new City() { Name = "Краматорск", Region = dnr});
+           listRu115.Add(new City() { Name = "Красноармейск", Region = dnr});
+           listRu115.Add(new City() { Name = "Красногоровка", Region = dnr});
+           listRu115.Add(new City() { Name = "Красный Лиман", Region = dnr});
+           listRu115.Add(new City() { Name = "Курахово", Region = dnr});
+           listRu115.Add(new City() { Name = "Макеевка", Region = dnr});
+           listRu115.Add(new City() { Name = "Мангуш", Region = dnr});
+           listRu115.Add(new City() { Name = "Мариуполь", Region = dnr});
+           listRu115.Add(new City() { Name = "Марьинка", Region = dnr});
+           listRu115.Add(new City() { Name = "Моспино", Region = dnr});
+           listRu115.Add(new City() { Name = "Николаевка", Region = dnr});
+           listRu115.Add(new City() { Name = "Новоазовск", Region = dnr});
+           listRu115.Add(new City() { Name = "Новогродовка", Region = dnr});
+           listRu115.Add(new City() { Name = "Родинское", Region = dnr});
+           listRu115.Add(new City() { Name = "Светлодарск", Region = dnr});
+           listRu115.Add(new City() { Name = "Святогорск", Region = dnr});
+           listRu115.Add(new City() { Name = "Северск", Region = dnr});
+           listRu115.Add(new City() { Name = "Селидово", Region = dnr});
+           listRu115.Add(new City() { Name = "Славянск", Region = dnr});
+           listRu115.Add(new City() { Name = "Снежное", Region = dnr});
+           listRu115.Add(new City() { Name = "Соледар", Region = dnr});
+           listRu115.Add(new City() { Name = "Старобешево", Region = dnr});
+           listRu115.Add(new City() { Name = "Тельманово", Region = dnr});
+           listRu115.Add(new City() { Name = "Торез", Region = dnr});
+           listRu115.Add(new City() { Name = "Углегорск", Region = dnr});
+           listRu115.Add(new City() { Name = "Угледар", Region = dnr});
+           listRu115.Add(new City() { Name = "Украинск", Region = dnr});
+           listRu115.Add(new City() { Name = "Харцызск", Region = dnr});
+           listRu115.Add(new City() { Name = "Часов Яр", Region = dnr});
+           listRu115.Add(new City() { Name = "Шахтёрск", Region = dnr});
+           listRu115.Add(new City() { Name = "Юнокоммунаровск", Region = dnr});
+           listRu115.Add(new City() { Name = "Ясиноватая", Region = dnr});
+
+           this.Create(listRu115);
+
+           var jitomer = new Region() { Country = ukr, Name = "Житомирская область", NomberSort = 0, IsMillion = true };
+           jitomer.Create();
+           var listRu116 = new List<City>();
+
+           listRu116.Add(new City() { Name = "Андрушёвка", Region = jitomer});
+           listRu116.Add(new City() { Name = "Барановка", Region = jitomer});
+           listRu116.Add(new City() { Name = "Бердичев", Region = jitomer});
+           listRu116.Add(new City() { Name = "Володарск-Волынский", Region = jitomer});
+           listRu116.Add(new City() { Name = "Емильчино", Region = jitomer});
+           listRu116.Add(new City() { Name = "Житомир", Region = jitomer});
+           listRu116.Add(new City() { Name = "Иршанск", Region = jitomer});
+           listRu116.Add(new City() { Name = "Коростень", Region = jitomer});
+           listRu116.Add(new City() { Name = "Коростышев", Region = jitomer});
+           listRu116.Add(new City() { Name = "Малин", Region = jitomer});
+           listRu116.Add(new City() { Name = "Новая Боровая", Region = jitomer});
+           listRu116.Add(new City() { Name = "Новоград-Волынский", Region = jitomer});
+           listRu116.Add(new City() { Name = "Овруч", Region = jitomer});
+           listRu116.Add(new City() { Name = "Озёрное", Region = jitomer});
+           listRu116.Add(new City() { Name = "Олевск", Region = jitomer});
+           listRu116.Add(new City() { Name = "Попельня", Region = jitomer});
+           listRu116.Add(new City() { Name = "Радомышль", Region = jitomer});
+           listRu116.Add(new City() { Name = "Романов", Region = jitomer});
+           listRu116.Add(new City() { Name = "Черняхов", Region = jitomer});
+           listRu116.Add(new City() { Name = "Чуднов", Region = jitomer});
+        
+           this.Create(listRu116);
+
+           var zakarpatsk = new Region() { Country = ukr, Name = "Закарпацкая область", NomberSort = 0, IsMillion = true };
+           zakarpatsk.Create();
+           var listRu117 = new List<City>();
+
+           listRu117.Add(new City() { Name = "Белки", Region = zakarpatsk});
+           listRu117.Add(new City() { Name = "Берегово", Region = zakarpatsk});
+           listRu117.Add(new City() { Name = "Буштыно", Region = zakarpatsk});
+           listRu117.Add(new City() { Name = "Великая Добронь", Region = zakarpatsk});
+           listRu117.Add(new City() { Name = "Великие Комяты", Region = zakarpatsk});
+           listRu117.Add(new City() { Name = "Великие Лучки", Region = zakarpatsk});
+           listRu117.Add(new City() { Name = "Великий Березный", Region = zakarpatsk});
+           listRu117.Add(new City() { Name = "Великий Бычков", Region = zakarpatsk});
+           listRu117.Add(new City() { Name = "Виноградов", Region = zakarpatsk});
+           listRu117.Add(new City() { Name = "Воловец", Region = zakarpatsk});
+           listRu117.Add(new City() { Name = "Вышково", Region = zakarpatsk});
+           listRu117.Add(new City() { Name = "Грушево", Region = zakarpatsk});
+           listRu117.Add(new City() { Name = "Деловое", Region = zakarpatsk});
+           listRu117.Add(new City() { Name = "Долгое", Region = zakarpatsk});
+           listRu117.Add(new City() { Name = "Дубовое", Region = zakarpatsk});
+           listRu117.Add(new City() { Name = "Ильница", Region = zakarpatsk});
+           listRu117.Add(new City() { Name = "Иршава", Region = zakarpatsk});
+           listRu117.Add(new City() { Name = "Калины", Region = zakarpatsk});
+           listRu117.Add(new City() { Name = "Королёво", Region = zakarpatsk});
+           listRu117.Add(new City() { Name = "Кушница", Region = zakarpatsk});
+           listRu117.Add(new City() { Name = "Межгорье", Region = zakarpatsk});
+           listRu117.Add(new City() { Name = "Мукачево", Region = zakarpatsk});
+           listRu117.Add(new City() { Name = "Нижняя Апша", Region = zakarpatsk});
+           listRu117.Add(new City() { Name = "Перечин", Region = zakarpatsk});
+           listRu117.Add(new City() { Name = "Рахов", Region = zakarpatsk});
+           listRu117.Add(new City() { Name = "Свалява", Region = zakarpatsk});
+           listRu117.Add(new City() { Name = "Солотвино", Region = zakarpatsk});
+           listRu117.Add(new City() { Name = "Среднее Водяное", Region = zakarpatsk});
+           listRu117.Add(new City() { Name = "Тересва", Region = zakarpatsk});
+           listRu117.Add(new City() { Name = "Тячев", Region = zakarpatsk});
+           listRu117.Add(new City() { Name = "Ужгород", Region = zakarpatsk});
+           listRu117.Add(new City() { Name = "Хуст", Region = zakarpatsk});
+           listRu117.Add(new City() { Name = "Чинадиево", Region = zakarpatsk});
+           listRu117.Add(new City() { Name = "Чоп", Region = zakarpatsk});
+           listRu117.Add(new City() { Name = "Ясиня", Region = zakarpatsk});
+
+           this.Create(listRu117);
+
+           var zaporoje = new Region() { Country = ukr, Name = "Запорожская область", NomberSort = 0, IsMillion = true };
+           zaporoje.Create();
+           var listRu118 = new List<City>();
+
+           listRu118.Add(new City() { Name = "Акимовка", Region = zaporoje});
+           listRu118.Add(new City() { Name = "Бердянск", Region = zaporoje});
+           listRu118.Add(new City() { Name = "Васильевка", Region = zaporoje});
+           listRu118.Add(new City() { Name = "Весёлое", Region = zaporoje});
+           listRu118.Add(new City() { Name = "Вольнянск", Region = zaporoje});
+           listRu118.Add(new City() { Name = "Гуляйполе", Region = zaporoje});
+           listRu118.Add(new City() { Name = "Днепрорудное", Region = zaporoje});
+           listRu118.Add(new City() { Name = "Запорожье", Region = zaporoje});
+           listRu118.Add(new City() { Name = "Каменка-Днепровская", Region = zaporoje});
+           listRu118.Add(new City() { Name = "Константиновка", Region = zaporoje});
+           listRu118.Add(new City() { Name = "Куйбышево", Region = zaporoje});
+           listRu118.Add(new City() { Name = "Кушугум", Region = zaporoje});
+           listRu118.Add(new City() { Name = "Мелитополь", Region = zaporoje});
+           listRu118.Add(new City() { Name = "Михайловка", Region = zaporoje});
+           listRu118.Add(new City() { Name = "Молочанск", Region = zaporoje});
+           listRu118.Add(new City() { Name = "Орехов", Region = zaporoje});
+           listRu118.Add(new City() { Name = "Пологи", Region = zaporoje});
+           listRu118.Add(new City() { Name = "Приморск", Region = zaporoje});
+           listRu118.Add(new City() { Name = "Токмак", Region = zaporoje});
+           listRu118.Add(new City() { Name = "Энергодар", Region = zaporoje});
+
+           this.Create(listRu118);
+
+           var ifo = new Region() { Country = ukr, Name = "Ивано-Франковская область", NomberSort = 0, IsMillion = true };
+           ifo.Create();
+           var listRu119 = new List<City>();
+
+           listRu119.Add(new City() { Name = "Богородчаны	", Region = ifo});
+           listRu119.Add(new City() { Name = "Болехов", Region = ifo});
+           listRu119.Add(new City() { Name = "Бурштын", Region = ifo});
+           listRu119.Add(new City() { Name = "Галич", Region = ifo});
+           listRu119.Add(new City() { Name = "Городенка", Region = ifo});
+           listRu119.Add(new City() { Name = "Делятин", Region = ifo});
+           listRu119.Add(new City() { Name = "Долина", Region = ifo});
+           listRu119.Add(new City() { Name = "Ивано-Франковск", Region = ifo});
+           listRu119.Add(new City() { Name = "Калуш", Region = ifo});
+           listRu119.Add(new City() { Name = "Коломыя", Region = ifo});
+           listRu119.Add(new City() { Name = "Косов", Region = ifo});
+           listRu119.Add(new City() { Name = "Ланчин", Region = ifo});
+           listRu119.Add(new City() { Name = "Надворная", Region = ifo});
+           listRu119.Add(new City() { Name = "Перегинское", Region = ifo});
+           listRu119.Add(new City() { Name = "Рогатин", Region = ifo});
+           listRu119.Add(new City() { Name = "Снятын", Region = ifo});
+           listRu119.Add(new City() { Name = "Тлумач", Region = ifo});
+           listRu119.Add(new City() { Name = "Тысменица", Region = ifo});
+           listRu119.Add(new City() { Name = "Яремче", Region = ifo});
+         
+           this.Create(listRu119);
+
+           var kievsk = new Region() { Country = ukr, Name = "Киевская область", NomberSort = 0, IsMillion = true };
+           kievsk.Create();
+           var listRu120 = new List<City>();
+
+           listRu120.Add(new City() { Name = "Барышевка	", Region = kievsk});
+           listRu120.Add(new City() { Name = "Белая Церковь	", Region = kievsk});
+           listRu120.Add(new City() { Name = "Березань", Region = kievsk});
+           listRu120.Add(new City() { Name = "Богуслав", Region = kievsk});
+           listRu120.Add(new City() { Name = "Борисполь", Region = kievsk});
+           listRu120.Add(new City() { Name = "Бородянка", Region = kievsk});
+           listRu120.Add(new City() { Name = "Боярка", Region = kievsk});
+           listRu120.Add(new City() { Name = "Бровары", Region = kievsk});
+           listRu120.Add(new City() { Name = "Буча", Region = kievsk});
+           listRu120.Add(new City() { Name = "Васильков", Region = kievsk});
+           listRu120.Add(new City() { Name = "Вишнёвое", Region = kievsk});
+           listRu120.Add(new City() { Name = "Вышгород", Region = kievsk});
+           listRu120.Add(new City() { Name = "Гостомель", Region = kievsk});
+           listRu120.Add(new City() { Name = "Иванков", Region = kievsk});
+           listRu120.Add(new City() { Name = "Ирпень", Region = kievsk});
+           listRu120.Add(new City() { Name = "Кагарлык", Region = kievsk});
+		   listRu120.Add(new City() { Name = "Киев", Region = kievsk});
+           listRu120.Add(new City() { Name = "Коцюбинское", Region = kievsk});
+           listRu120.Add(new City() { Name = "Макаров", Region = kievsk});
+           listRu120.Add(new City() { Name = "Мироновка", Region = kievsk});
+           listRu120.Add(new City() { Name = "Обухов", Region = kievsk});
+           listRu120.Add(new City() { Name = "Переяслав-Хмельницкий", Region = kievsk});
+           listRu120.Add(new City() { Name = "Ракитное", Region = kievsk});
+           listRu120.Add(new City() { Name = "Ржищев", Region = kievsk});
+           listRu120.Add(new City() { Name = "Сквира", Region = kievsk});
+           listRu120.Add(new City() { Name = "Славутич", Region = kievsk});
+           listRu120.Add(new City() { Name = "Тараща", Region = kievsk});
+           listRu120.Add(new City() { Name = "Тетиев", Region = kievsk});
+           listRu120.Add(new City() { Name = "Узин", Region = kievsk});
+           listRu120.Add(new City() { Name = "Украинка", Region = kievsk});
+           listRu120.Add(new City() { Name = "Фастов", Region = kievsk});
+           listRu120.Add(new City() { Name = "Яготин", Region = kievsk});        
+
+           this.Create(listRu120);
+
+           var kirovograd = new Region() { Country = ukr, Name = "Кировоградская область", NomberSort = 0, IsMillion = true };
+           kirovograd.Create();
+           var listRu121 = new List<City>();
+
+           listRu121.Add(new City() { Name = "Александрия", Region = kirovograd});
+           listRu121.Add(new City() { Name = "Александровка", Region = kirovograd});
+           listRu121.Add(new City() { Name = "Бобринец", Region = kirovograd});
+           listRu121.Add(new City() { Name = "Власовка", Region = kirovograd});
+           listRu121.Add(new City() { Name = "Гайворон", Region = kirovograd});
+           listRu121.Add(new City() { Name = "Голованевск", Region = kirovograd});
+           listRu121.Add(new City() { Name = "Долинская", Region = kirovograd});
+           listRu121.Add(new City() { Name = "Знаменка", Region = kirovograd});
+           listRu121.Add(new City() { Name = "Кировоград", Region = kirovograd});
+           listRu121.Add(new City() { Name = "Малая Виска", Region = kirovograd});
+           listRu121.Add(new City() { Name = "Новая Прага", Region = kirovograd});
+           listRu121.Add(new City() { Name = "Новоархангельск", Region = kirovograd});
+           listRu121.Add(new City() { Name = "Новое", Region = kirovograd});
+           listRu121.Add(new City() { Name = "Новомиргород", Region = kirovograd});
+           listRu121.Add(new City() { Name = "Новоукраинка", Region = kirovograd});
+           listRu121.Add(new City() { Name = "Петрово", Region = kirovograd});
+           listRu121.Add(new City() { Name = "Побугское", Region = kirovograd});
+           listRu121.Add(new City() { Name = "Помошная", Region = kirovograd});
+           listRu121.Add(new City() { Name = "Светловодск", Region = kirovograd});
+           listRu121.Add(new City() { Name = "Смолино", Region = kirovograd});
+           listRu121.Add(new City() { Name = "Ульяновка", Region = kirovograd});
+
+           this.Create(listRu121);
+
+           var lnr = new Region() { Country = ukr, Name = "Луганская народная республика", NomberSort = 0, IsMillion = true };
+           lnr.Create();
+           var listRu122 = new List<City>();
+
+           listRu122.Add(new City() { Name = "Александровск	", Region = lnr});
+           listRu122.Add(new City() { Name = "Алмазная", Region = lnr});
+           listRu122.Add(new City() { Name = "Алчевск", Region = lnr});
+           listRu122.Add(new City() { Name = "Антрацит", Region = lnr});
+           listRu122.Add(new City() { Name = "Артёмовск", Region = lnr});
+           listRu122.Add(new City() { Name = "Брянка", Region = lnr});
+           listRu122.Add(new City() { Name = "Вахрушево", Region = lnr});
+           listRu122.Add(new City() { Name = "Горское", Region = lnr});
+           listRu122.Add(new City() { Name = "Зимогорье", Region = lnr});
+           listRu122.Add(new City() { Name = "Золотое", Region = lnr});
+           listRu122.Add(new City() { Name = "Зоринск", Region = lnr});
+           listRu122.Add(new City() { Name = "Ирмино", Region = lnr});
+           listRu122.Add(new City() { Name = "Кировск", Region = lnr});
+           listRu122.Add(new City() { Name = "Краснодон", Region = lnr});
+           listRu122.Add(new City() { Name = "Красный Луч", Region = lnr});
+           listRu122.Add(new City() { Name = "Кременная", Region = lnr});
+           listRu122.Add(new City() { Name = "Лисичанск", Region = lnr});
+           listRu122.Add(new City() { Name = "Луганск", Region = lnr});
+           listRu122.Add(new City() { Name = "Лутугино", Region = lnr});
+           listRu122.Add(new City() { Name = "Миусинск", Region = lnr});
+           listRu122.Add(new City() { Name = "Молодогвардейск", Region = lnr});
+           listRu122.Add(new City() { Name = "Новодружеск", Region = lnr});
+           listRu122.Add(new City() { Name = "Первомайск", Region = lnr});
+           listRu122.Add(new City() { Name = "Перевальск", Region = lnr});
+           listRu122.Add(new City() { Name = "Петровское", Region = lnr});
+           listRu122.Add(new City() { Name = "Попасная", Region = lnr});
+           listRu122.Add(new City() { Name = "Приволье", Region = lnr});
+           listRu122.Add(new City() { Name = "Ровеньки", Region = lnr});
+           listRu122.Add(new City() { Name = "Рубежное", Region = lnr});
+           listRu122.Add(new City() { Name = "Сватово", Region = lnr});
+           listRu122.Add(new City() { Name = "Свердловск", Region = lnr});
+           listRu122.Add(new City() { Name = "Северодонецк", Region = lnr});
+           listRu122.Add(new City() { Name = "Станица Луганская", Region = lnr});
+           listRu122.Add(new City() { Name = "Старобельск", Region = lnr});
+           listRu122.Add(new City() { Name = "Стаханов", Region = lnr});
+           listRu122.Add(new City() { Name = "Суходольск", Region = lnr});
+           listRu122.Add(new City() { Name = "Счастье", Region = lnr});
+           listRu122.Add(new City() { Name = "Червонопартизанск", Region = lnr});
+           listRu122.Add(new City() { Name = "Юбилейное", Region = lnr});
+
+           this.Create(listRu122);
+
+           var lvov = new Region() { Country = ukr, Name = "Львовская область", NomberSort = 0, IsMillion = true };
+           lvov.Create();
+           var listRu123 = new List<City>();
+
+           listRu123.Add(new City() { Name = "Белз", Region = lvov});
+           listRu123.Add(new City() { Name = "Бобрка", Region = lvov});
+           listRu123.Add(new City() { Name = "Борислав", Region = lvov});
+           listRu123.Add(new City() { Name = "Броды", Region = lvov});
+           listRu123.Add(new City() { Name = "Буск", Region = lvov});
+           listRu123.Add(new City() { Name = "Великие Мосты", Region = lvov});
+           listRu123.Add(new City() { Name = "Винники", Region = lvov});
+           listRu123.Add(new City() { Name = "Глиняны", Region = lvov});
+           listRu123.Add(new City() { Name = "Городок", Region = lvov});
+           listRu123.Add(new City() { Name = "Добромиль", Region = lvov});
+           listRu123.Add(new City() { Name = "Дрогобыч", Region = lvov});
+           listRu123.Add(new City() { Name = "Дубляны", Region = lvov});
+           listRu123.Add(new City() { Name = "Жидачов", Region = lvov});
+           listRu123.Add(new City() { Name = "Жолква", Region = lvov});
+           listRu123.Add(new City() { Name = "Золочев", Region = lvov});
+           listRu123.Add(new City() { Name = "Каменка-Бугская", Region = lvov});
+           listRu123.Add(new City() { Name = "Комарно", Region = lvov});
+           listRu123.Add(new City() { Name = "Львов", Region = lvov});
+           listRu123.Add(new City() { Name = "Моршин", Region = lvov});
+           listRu123.Add(new City() { Name = "Мостиска", Region = lvov});
+           listRu123.Add(new City() { Name = "Николаев", Region = lvov});
+           listRu123.Add(new City() { Name = "Новояворовск", Region = lvov});
+           listRu123.Add(new City() { Name = "Новый Калинов", Region = lvov});
+           listRu123.Add(new City() { Name = "Новый Роздол", Region = lvov});
+           listRu123.Add(new City() { Name = "Перемышляны", Region = lvov});
+           listRu123.Add(new City() { Name = "Пустомыты", Region = lvov});
+           listRu123.Add(new City() { Name = "Рава-Русская", Region = lvov});
+           listRu123.Add(new City() { Name = "Радехов", Region = lvov});
+           listRu123.Add(new City() { Name = "Рудки", Region = lvov});
+           listRu123.Add(new City() { Name = "Самбор", Region = lvov});
+           listRu123.Add(new City() { Name = "Сколе", Region = lvov});
+           listRu123.Add(new City() { Name = "Сокаль", Region = lvov});
+           listRu123.Add(new City() { Name = "Сосновка", Region = lvov});
+           listRu123.Add(new City() { Name = "Старый Самбор", Region = lvov});
+           listRu123.Add(new City() { Name = "Стебник", Region = lvov});
+           listRu123.Add(new City() { Name = "Стрый", Region = lvov});
+           listRu123.Add(new City() { Name = "Судовая Вишня	", Region = lvov});
+           listRu123.Add(new City() { Name = "Трускавец", Region = lvov});
+           listRu123.Add(new City() { Name = "Турка", Region = lvov});
+           listRu123.Add(new City() { Name = "Угнев", Region = lvov});
+           listRu123.Add(new City() { Name = "Ходоров", Region = lvov});
+           listRu123.Add(new City() { Name = "Хыров", Region = lvov});
+           listRu123.Add(new City() { Name = "Червоноград", Region = lvov});
+           listRu123.Add(new City() { Name = "Яворов", Region = lvov});
+        
+           this.Create(listRu123);
+
+           var nikolaevsk = new Region() { Country = ukr, Name = "Николаевская область", NomberSort = 0, IsMillion = true };
+           nikolaevsk.Create();
+           var listRu124 = new List<City>();
+
+          listRu124.Add(new City() { Name = "Баштанка", Region = lvov});
+          listRu124.Add(new City() { Name = "Вознесенск", Region = lvov});
+          listRu124.Add(new City() { Name = "Николаев", Region = lvov});
+          listRu124.Add(new City() { Name = "Новая Одесса", Region = lvov});
+          listRu124.Add(new City() { Name = "Новый Буг", Region = lvov});
+          listRu124.Add(new City() { Name = "Очаков", Region = lvov});
+          listRu124.Add(new City() { Name = "Первомайск", Region = lvov});
+          listRu124.Add(new City() { Name = "Снигирёвка", Region = lvov});
+          listRu124.Add(new City() { Name = "Южноукраинск", Region = lvov});
+
+          this.Create(listRu124);
+
+           var odessa = new Region() { Country = ukr, Name = "Одесская область", NomberSort = 0, IsMillion = true };
+           odessa.Create();
+           var listRu125 = new List<City>();
+
+           listRu125.Add(new City() { Name = "Ананьев", Region = odessa});
+           listRu125.Add(new City() { Name = "Арциз", Region = odessa});
+           listRu125.Add(new City() { Name = "Балта", Region = odessa});
+           listRu125.Add(new City() { Name = "Белгород-Днестровский", Region = odessa});
+           listRu125.Add(new City() { Name = "Беляевка", Region = odessa});
+           listRu125.Add(new City() { Name = "Березовка", Region = odessa});
+           listRu125.Add(new City() { Name = "Болград", Region = odessa});
+           listRu125.Add(new City() { Name = "Вилково", Region = odessa});
+           listRu125.Add(new City() { Name = "Измаил", Region = odessa});
+           listRu125.Add(new City() { Name = "Ильичёвск	", Region = odessa});
+           listRu125.Add(new City() { Name = "Килия", Region = odessa});
+           listRu125.Add(new City() { Name = "Кодыма", Region = odessa});
+           listRu125.Add(new City() { Name = "Котовск", Region = odessa});
+           listRu125.Add(new City() { Name = "Одесса", Region = odessa});
+           listRu125.Add(new City() { Name = "Раздельная", Region = odessa});
+           listRu125.Add(new City() { Name = "Рени", Region = odessa});
+           listRu125.Add(new City() { Name = "Татарбунары", Region = odessa});
+           listRu125.Add(new City() { Name = "Теплодар", Region = odessa});
+           listRu125.Add(new City() { Name = "Южное", Region = odessa});
+      
+           this.Create(listRu125);
+
+           var poltava = new Region() { Country = ukr, Name = "Полтавская область", NomberSort = 0, IsMillion = true };
+           poltava.Create();
+           var listRu126 = new List<City>();
+
+           listRu126.Add(new City() { Name = "Гадяч", Region = poltava});
+           listRu126.Add(new City() { Name = "Глобино", Region = poltava});
+           listRu126.Add(new City() { Name = "Гребёнка", Region = poltava});
+           listRu126.Add(new City() { Name = "Диканька", Region = poltava});
+           listRu126.Add(new City() { Name = "Зеньков", Region = poltava});
+           listRu126.Add(new City() { Name = "Карловка", Region = poltava});
+           listRu126.Add(new City() { Name = "Кобеляки", Region = poltava});
+           listRu126.Add(new City() { Name = "Комсомольск", Region = poltava});
+           listRu126.Add(new City() { Name = "Котельва", Region = poltava});
+           listRu126.Add(new City() { Name = "Кременчуг", Region = poltava});
+           listRu126.Add(new City() { Name = "Лохвица", Region = poltava});
+           listRu126.Add(new City() { Name = "Лубны", Region = poltava});
+           listRu126.Add(new City() { Name = "Миргород", Region = poltava});
+           listRu126.Add(new City() { Name = "Новые Санжары", Region = poltava});
+           listRu126.Add(new City() { Name = "Пирятин", Region = poltava});
+           listRu126.Add(new City() { Name = "Полтава", Region = poltava});
+           listRu126.Add(new City() { Name = "Решетиловка", Region = poltava});
+           listRu126.Add(new City() { Name = "Хорол", Region = poltava});
+           listRu126.Add(new City() { Name = "Червонозаводское", Region = poltava});
+           listRu126.Add(new City() { Name = "Шишаки", Region = poltava});
+
+           this.Create(listRu126);
+
+           var rovnensk = new Region() { Country = ukr, Name = "Ровненская область", NomberSort = 0, IsMillion = true };
+           rovnensk.Create();
+           var listRu127 = new List<City>();
+
+           listRu127.Add(new City() { Name = "Березно", Region = rovnensk});
+           listRu127.Add(new City() { Name = "Дубно", Region = rovnensk});
+           listRu127.Add(new City() { Name = "Дубровица", Region = rovnensk});
+           listRu127.Add(new City() { Name = "Здолбунов", Region = rovnensk});
+           listRu127.Add(new City() { Name = "Корец", Region = rovnensk});
+           listRu127.Add(new City() { Name = "Костополь", Region = rovnensk});
+           listRu127.Add(new City() { Name = "Кузнецовск", Region = rovnensk});
+           listRu127.Add(new City() { Name = "Острог", Region = rovnensk});
+           listRu127.Add(new City() { Name = "Радивилов", Region = rovnensk});
+           listRu127.Add(new City() { Name = "Ровно", Region = rovnensk});
+           listRu127.Add(new City() { Name = "Сарны", Region = rovnensk});
+        
+           this.Create(listRu127);
+
+           var sumsk = new Region() { Country = ukr, Name = "Сумская область", NomberSort = 0, IsMillion = true };
+           sumsk.Create();
+           var listRu128 = new List<City>();
+
+           listRu128.Add(new City() { Name = "Ахтырка", Region = sumsk});
+           listRu128.Add(new City() { Name = "Белополье", Region = sumsk});
+           listRu128.Add(new City() { Name = "Бурынь", Region = sumsk});
+           listRu128.Add(new City() { Name = "Ворожба", Region = sumsk});
+           listRu128.Add(new City() { Name = "Воронеж", Region = sumsk});
+           listRu128.Add(new City() { Name = "Глухов", Region = sumsk});
+           listRu128.Add(new City() { Name = "Дружба", Region = sumsk});
+           listRu128.Add(new City() { Name = "Конотоп", Region = sumsk});
+           listRu128.Add(new City() { Name = "Краснополье", Region = sumsk});
+           listRu128.Add(new City() { Name = "Кролевец", Region = sumsk});
+           listRu128.Add(new City() { Name = "Лебедин", Region = sumsk});
+           listRu128.Add(new City() { Name = "Липовая Долина", Region = sumsk});
+           listRu128.Add(new City() { Name = "Недригайлов", Region = sumsk});
+           listRu128.Add(new City() { Name = "Путивль", Region = sumsk});
+           listRu128.Add(new City() { Name = "Ромны", Region = sumsk});
+           listRu128.Add(new City() { Name = "Свесса", Region = sumsk});
+           listRu128.Add(new City() { Name = "Середина-Буда", Region = sumsk});
+           listRu128.Add(new City() { Name = "Степановка", Region = sumsk});
+           listRu128.Add(new City() { Name = "Сумы", Region = sumsk});
+           listRu128.Add(new City() { Name = "Тростянец", Region = sumsk});
+           listRu128.Add(new City() { Name = "Шостка", Region = sumsk});
+
+           this.Create(listRu128);
+
+           var ternopl = new Region() { Country = ukr, Name = "Тернопольская область", NomberSort = 0, IsMillion = true };
+           ternopl.Create();
+           var listRu129 = new List<City>();
+
+           listRu129.Add(new City() { Name = "Бережаны", Region = ternopl});
+           listRu129.Add(new City() { Name = "Борщёв", Region = ternopl});
+           listRu129.Add(new City() { Name = "Бучач", Region = ternopl});
+           listRu129.Add(new City() { Name = "Великая Березовица", Region = ternopl});
+           listRu129.Add(new City() { Name = "Гусятин", Region = ternopl});
+           listRu129.Add(new City() { Name = "Залещики", Region = ternopl});
+           listRu129.Add(new City() { Name = "Збараж", Region = ternopl});
+           listRu129.Add(new City() { Name = "Зборов", Region = ternopl});
+           listRu129.Add(new City() { Name = "Козова", Region = ternopl});
+           listRu129.Add(new City() { Name = "Копычинцы", Region = ternopl});
+           listRu129.Add(new City() { Name = "Кременец", Region = ternopl});
+           listRu129.Add(new City() { Name = "Лановцы", Region = ternopl});
+           listRu129.Add(new City() { Name = "Монастыриска", Region = ternopl});
+           listRu129.Add(new City() { Name = "Подволочиск", Region = ternopl});
+           listRu129.Add(new City() { Name = "Подгайцы", Region = ternopl});
+           listRu129.Add(new City() { Name = "Почаев", Region = ternopl});
+           listRu129.Add(new City() { Name = "Скалат", Region = ternopl});
+           listRu129.Add(new City() { Name = "Теребовля", Region = ternopl});
+           listRu129.Add(new City() { Name = "Тернополь", Region = ternopl});
+           listRu129.Add(new City() { Name = "Хоростков", Region = ternopl});
+           listRu129.Add(new City() { Name = "Чортков", Region = ternopl});
+           listRu129.Add(new City() { Name = "Шумск", Region = ternopl});
+         
+           this.Create(listRu129);
+
+           var harkov = new Region() { Country = ukr, Name = "Харьковская область", NomberSort = 0, IsMillion = true };
+           harkov.Create();
+           var listRu130 = new List<City>();
+           listRu130.Add(new City() { Name = "Балаклея", Region = harkov});
+           listRu130.Add(new City() { Name = "Барвенково", Region = harkov});
+           listRu130.Add(new City() { Name = "Богодухов", Region = harkov});
+           listRu130.Add(new City() { Name = "Валки", Region = harkov});
+           listRu130.Add(new City() { Name = "Волчанск", Region = harkov});
+           listRu130.Add(new City() { Name = "Высокий", Region = harkov});
+           listRu130.Add(new City() { Name = "Дергачи", Region = harkov});
+           listRu130.Add(new City() { Name = "Змиёв", Region = harkov});
+           listRu130.Add(new City() { Name = "Изюм", Region = harkov});
+           listRu130.Add(new City() { Name = "Ковшаровка", Region = harkov});
+           listRu130.Add(new City() { Name = "Комсомольское", Region = harkov});
+           listRu130.Add(new City() { Name = "Красноград", Region = harkov});
+           listRu130.Add(new City() { Name = "Купянск", Region = harkov});
+           listRu130.Add(new City() { Name = "Лозовая", Region = harkov});
+           listRu130.Add(new City() { Name = "Люботин", Region = harkov});
+           listRu130.Add(new City() { Name = "Мерефа", Region = harkov});
+           listRu130.Add(new City() { Name = "Новая Водолага", Region = harkov});
+           listRu130.Add(new City() { Name = "Первомайский", Region = harkov});
+           listRu130.Add(new City() { Name = "Песочин", Region = harkov});
+           listRu130.Add(new City() { Name = "Пивденное", Region = harkov});
+           listRu130.Add(new City() { Name = "Солоницевка", Region = harkov});
+           listRu130.Add(new City() { Name = "Харьков", Region = harkov});
+           listRu130.Add(new City() { Name = "Чугуев", Region = harkov});
+
+           this.Create(listRu130);
+
+           var herson = new Region() { Country = ukr, Name = "Херсонская область", NomberSort = 0, IsMillion = true };
+           herson.Create();
+           var listRu131 = new List<City>();
+
+           listRu131.Add(new City() { Name = "Антоновка", Region = herson});
+           listRu131.Add(new City() { Name = "Белозёрка", Region = herson});
+           listRu131.Add(new City() { Name = "Берислав", Region = herson});
+           listRu131.Add(new City() { Name = "Великая Александровка", Region = herson});
+           listRu131.Add(new City() { Name = "Великая Лепетиха", Region = herson});
+           listRu131.Add(new City() { Name = "Геническ", Region = herson});
+           listRu131.Add(new City() { Name = "Голая Пристань", Region = herson});
+           listRu131.Add(new City() { Name = "Горностаевка", Region = herson});
+           listRu131.Add(new City() { Name = "Каланчак", Region = herson});
+           listRu131.Add(new City() { Name = "Камышаны", Region = herson});
+           listRu131.Add(new City() { Name = "Каховка", Region = herson});
+           listRu131.Add(new City() { Name = "Новая Каховка", Region = herson});
+           listRu131.Add(new City() { Name = "Новая Маячка", Region = herson});
+           listRu131.Add(new City() { Name = "Новоалексеевка", Region = herson});
+           listRu131.Add(new City() { Name = "Нововоронцовка", Region = herson});
+           listRu131.Add(new City() { Name = "Новотроицкое", Region = herson});
+           listRu131.Add(new City() { Name = "Скадовск", Region = herson});
+           listRu131.Add(new City() { Name = "Таврийск", Region = herson});
+           listRu131.Add(new City() { Name = "Херсон", Region = herson});
+           listRu131.Add(new City() { Name = "Цюрупинск", Region = herson});
+           listRu131.Add(new City() { Name = "Чаплинка", Region = herson});
+   
+           this.Create(listRu131);
+
+
+           var hmelnick = new Region() { Country = ukr, Name = "Хмельницкая область", NomberSort = 0, IsMillion = true };
+           hmelnick.Create();
+           var listRu132 = new List<City>();
+
+           listRu132.Add(new City() { Name = "Белогорье", Region = hmelnick});
+           listRu132.Add(new City() { Name = "Виньковцы", Region = hmelnick});
+           listRu132.Add(new City() { Name = "Волочиск", Region = hmelnick});
+           listRu132.Add(new City() { Name = "Городок", Region = hmelnick});
+           listRu132.Add(new City() { Name = "Деражня", Region = hmelnick});
+           listRu132.Add(new City() { Name = "Дунаевцы", Region = hmelnick});
+           listRu132.Add(new City() { Name = "Изяслав", Region = hmelnick});
+           listRu132.Add(new City() { Name = "Каменец-Подольский", Region = hmelnick});
+           listRu132.Add(new City() { Name = "Красилов", Region = hmelnick});
+           listRu132.Add(new City() { Name = "Летичев", Region = hmelnick});
+           listRu132.Add(new City() { Name = "Нетешин", Region = hmelnick});
+           listRu132.Add(new City() { Name = "Полонное", Region = hmelnick});
+           listRu132.Add(new City() { Name = "Понинка", Region = hmelnick});
+           listRu132.Add(new City() { Name = "Славута", Region = hmelnick});
+           listRu132.Add(new City() { Name = "Старая Синява", Region = hmelnick});
+           listRu132.Add(new City() { Name = "Староконстантинов", Region = hmelnick});
+           listRu132.Add(new City() { Name = "Теофиполь", Region = hmelnick});
+           listRu132.Add(new City() { Name = "Хмельницкий", Region = hmelnick});
+           listRu132.Add(new City() { Name = "Чемеровцы", Region = hmelnick});
+           listRu132.Add(new City() { Name = "Шепетовка", Region = hmelnick});
+           listRu132.Add(new City() { Name = "Ярмолинцы", Region = hmelnick});
+ 
+           this.Create(listRu132);
+
+           var cherkessk = new Region() { Country = ukr, Name = "Черкесская область", NomberSort = 0, IsMillion = true };
+           cherkessk.Create();
+           var listRu133 = new List<City>();
+
+           listRu133.Add(new City() { Name = "Ватутино", Region = cherkessk});
+           listRu133.Add(new City() { Name = "Городище", Region = cherkessk});
+           listRu133.Add(new City() { Name = "Драбов", Region = cherkessk});
+           listRu133.Add(new City() { Name = "Жашков", Region = cherkessk});
+           listRu133.Add(new City() { Name = "Звенигородка", Region = cherkessk});
+           listRu133.Add(new City() { Name = "Золотоноша", Region = cherkessk});
+           listRu133.Add(new City() { Name = "Каменка", Region = cherkessk});
+           listRu133.Add(new City() { Name = "Канев", Region = cherkessk});
+           listRu133.Add(new City() { Name = "Корсунь-Шевченковский", Region = cherkessk});
+           listRu133.Add(new City() { Name = "Лысянка", Region = cherkessk});
+           listRu133.Add(new City() { Name = "Маньковка", Region = cherkessk});
+           listRu133.Add(new City() { Name = "Монастырище", Region = cherkessk});
+           listRu133.Add(new City() { Name = "Смела", Region = cherkessk});
+           listRu133.Add(new City() { Name = "Тальное", Region = cherkessk});
+           listRu133.Add(new City() { Name = "Умань", Region = cherkessk});
+           listRu133.Add(new City() { Name = "Христиновка", Region = cherkessk});
+           listRu133.Add(new City() { Name = "Черкассы", Region = cherkessk});
+           listRu133.Add(new City() { Name = "Чернобай", Region = cherkessk});
+           listRu133.Add(new City() { Name = "Чигирин", Region = cherkessk});
+           listRu133.Add(new City() { Name = "Шпола", Region = cherkessk});
+
+           this.Create(listRu133);
+
+           var chernigov = new Region() { Country = ukr, Name = "Черниговская область", NomberSort = 0, IsMillion = true };
+           chernigov.Create();
+           var listRu134 = new List<City>();
+
+           listRu134.Add(new City() { Name = "Батурин", Region = chernigov});
+           listRu134.Add(new City() { Name = "Бахмач", Region = chernigov});
+           listRu134.Add(new City() { Name = "Бобровица", Region = chernigov});
+           listRu134.Add(new City() { Name = "Борзна", Region = chernigov});
+           listRu134.Add(new City() { Name = "Варва", Region = chernigov});
+           listRu134.Add(new City() { Name = "Городня", Region = chernigov});
+           listRu134.Add(new City() { Name = "Десна", Region = chernigov});
+           listRu134.Add(new City() { Name = "Ичня", Region = chernigov});
+           listRu134.Add(new City() { Name = "Козелец", Region = chernigov});
+           listRu134.Add(new City() { Name = "Короп", Region = chernigov});
+           listRu134.Add(new City() { Name = "Корюковка", Region = chernigov});
+           listRu134.Add(new City() { Name = "Куликовка", Region = chernigov});
+           listRu134.Add(new City() { Name = "Ладан", Region = chernigov});
+           listRu134.Add(new City() { Name = "Мена", Region = chernigov});
+           listRu134.Add(new City() { Name = "Нежин", Region = chernigov});
+           listRu134.Add(new City() { Name = "Новгород-Северский", Region = chernigov});
+           listRu134.Add(new City() { Name = "Носовка", Region = chernigov});
+           listRu134.Add(new City() { Name = "Остер", Region = chernigov});
+           listRu134.Add(new City() { Name = "Прилуки", Region = chernigov});
+           listRu134.Add(new City() { Name = "Репки", Region = chernigov});
+           listRu134.Add(new City() { Name = "Семёновка", Region = chernigov});
+           listRu134.Add(new City() { Name = "Сосница", Region = chernigov});
+           listRu134.Add(new City() { Name = "Талалаевка", Region = chernigov});
+           listRu134.Add(new City() { Name = "Чернигов", Region = chernigov});
+           listRu134.Add(new City() { Name = "Щорс", Region = chernigov});
+
+           this.Create(listRu134);
+
+           var chernoveck = new Region() { Country = ukr, Name = "Черновецкая область", NomberSort = 0, IsMillion = true };
+           chernoveck.Create();
+           var listRu135 = new List<City>();
+
+           listRu135.Add(new City() { Name = "Берегомет", Region = chernoveck});
+           listRu135.Add(new City() { Name = "Вашковцы", Region = chernoveck});
+           listRu135.Add(new City() { Name = "Великий Кучуров", Region = chernoveck});
+           listRu135.Add(new City() { Name = "Вижница", Region = chernoveck});
+           listRu135.Add(new City() { Name = "Герца", Region = chernoveck});
+           listRu135.Add(new City() { Name = "Глыбокая", Region = chernoveck});
+           listRu135.Add(new City() { Name = "Заставна", Region = chernoveck});
+           listRu135.Add(new City() { Name = "Каменка", Region = chernoveck});
+           listRu135.Add(new City() { Name = "Кельменцы", Region = chernoveck});
+           listRu135.Add(new City() { Name = "Кицмань", Region = chernoveck});
+           listRu135.Add(new City() { Name = "Клишковцы", Region = chernoveck});
+           listRu135.Add(new City() { Name = "Красноильск", Region = chernoveck});
+           listRu135.Add(new City() { Name = "Новоднестровск", Region = chernoveck});
+           listRu135.Add(new City() { Name = "Новоселица", Region = chernoveck});
+           listRu135.Add(new City() { Name = "Сокиряны", Region = chernoveck});
+           listRu135.Add(new City() { Name = "Сторожинец", Region = chernoveck});
+           listRu135.Add(new City() { Name = "Хотин", Region = chernoveck});
+           listRu135.Add(new City() { Name = "Черновцы", Region = chernoveck});
+          
+           this.Create(listRu135);
 
         }
 
@@ -3878,6 +4468,8 @@ namespace MyTend.Services.Migrations.Regions
         {
             foreach (var rec in list)
             {
+                rec.Name = rec.Name.Trim();
+
                 rec.Create();
                 Thread.Sleep(200);
             }

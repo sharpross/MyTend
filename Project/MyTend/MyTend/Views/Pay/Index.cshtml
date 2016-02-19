@@ -11,7 +11,7 @@
         <p>
             @if (ViewBag.HasPay == false)
             {
-                @:"Доступ к участию в торгах и получению заявок не оплачен/закрыт"
+                @:Доступ к участию в торгах и получению заявок не оплачен/закрыт
             }
         </p>
         <div style="color: #65267a; font-weight: bold;">Информация по оплате торгового взноса:</div>
@@ -22,32 +22,42 @@
         </div>
         <ol>
             <li>
-                Оплата торгового взноса производится денежными средствами на основании @Html.ActionLink("договора оказания платных услуг", "Aferta", "Docs", null, new { @style = "color: #316e99;" }), по безналичному расчету на территории РФ и странах ближнего зарубежья, любым удобным и доступным пользователю способом, который предлагает интернет сервис  <a href="http://www.robokassa.ru" target="_blank">ROBOKASSA</a> по отношению к сайту <a href="http://my-tend.com/" target="_blank">Я ПРЕДЛАГАЮ</a>.
+                Оплата торгового взноса производится денежными средствами на основании @Html.ActionLink("Договора оказания платных услуг", "Aferta", "Docs", null, new { @style = "color: #316e99;" }), по безналичному расчету на территории РФ и странах ближнего зарубежья, любым удобным и доступным пользователю способом, который предлагает интернет сервис  <a href="http://www.robokassa.ru" target="_blank">ROBOKASSA</a> по отношению к сайту <a href="http://my-tend.com/" target="_blank">Я ПРЕДЛАГАЮ</a>.
             </li>
             <li>
-                После оплаты вы можете проверить статус своей подписки в личном кабинете на страница "Оплата"
+                После оплаты вы можете проверить статус своей подписки в личном кабинете на странице «Оплата».
             </li>
 
             <li>
-                При каких либо ошибках во воремя оплаты, Вы можете написать в @Html.ActionLink("Службу поддержки", "Support", "Home", null, new { @style = "color: #316e99;" })
+                При каких-либо ошибках во время оплаты, Вы можете написать в @Html.ActionLink("Службу поддержки", "Support", "Home", null, new { @style = "color: #316e99;" }).
             </li>
         </ol>
         <div style="color: #bb071c; font-weight: bold;">Внимание важно: </div>
         <p>
             Перед проведением оплаты торгового взноса рекомендуем проверить подписки по оказанию услуг и городов.
         </p>
-        <div style="color: #1e7315; font-weight: bold;"> Право на участие в торгах предоставляется на условиях полной предоплаты торгового взноса, в размере 1000 рублей за 1 календарный месяц.</div>
-        <p></p>
+        <div style="color: #1e7315; font-weight: bold;"> Право на участие в торгах предоставляется на условиях полной предоплаты торгового взноса в размере 1000 рублей за 1 календарный месяц.</div>
+        </p>
         <p>
             <div class="text-center">
-                @Html.ActionLink("Я ознакомился и принял условия договора платных услуг", "Aferta", "Docs", null, new { @style = "color: #316e99;" })
+                @if (this.ViewBag.HasPay == false)
+                {
+                    <input type="checkbox" id="agree" />
+                    @Html.ActionLink("Я ознакомился и принял условия договора платных услуг", "Oferta", "Docs", null, new { @style = "color: ##245071;" })
                     <div class="text-center">
                         @Html.Raw(ViewBag.PayScript)
-
                     </div>
+                }
+                else
+                {
+                    <div style="text-align: center; color: green">
+                        <strong>У вас уже оплачена подписка до @this.ViewBag.PayEnd.ToString("dd.MM.yyyy")</strong>
+                    </div>
+                }
+
             </div>
         </p>
-        </div>
+    </div>
     <div>
         <p>
             История подписок:
@@ -67,3 +77,13 @@
         }
     </div>
 </div>
+<script>
+    $('#agree').on('change', function (el, v) {
+        debugger;
+        if (el.target.checked) {
+            $('#gopay').removeAttr('disabled');
+        } else {
+            $('#gopay').attr('disabled', true);
+        }
+    });
+</script>

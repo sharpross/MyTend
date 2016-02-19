@@ -1,16 +1,13 @@
-﻿using MyTend.Entites;
-using MyTender.Core;
-using MyTender.Security.Utils;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Web;
-using System.Web.Security;
-
-namespace MyTender.Security
+﻿namespace MyTender.Security
 {
+    using MyTend.Entites;
+    using MyTender.Core;
+    using MyTender.Security.Utils;
+    using System;
+    using System.Linq;
+    using System.Web;
+    using System.Web.Security;
+
     public class AuthService
     {
         private UserSystem CurrentSystemUser { get; set; }
@@ -28,8 +25,8 @@ namespace MyTender.Security
                     {
                         var ticket = FormsAuthentication.Decrypt(authCookie.Value);
 
-                        this.CurrentSystemUser = UserSystem.GetByProp("Login", ticket.Name.ToLower())
-                            .FirstOrDefault();
+                        this.CurrentSystemUser = UserSystem.FindAll()
+                            .FirstOrDefault(x => x.Login.ToLower() == ticket.Name.ToLower());
                     }
                 }
                 catch(Exception e)
@@ -43,7 +40,8 @@ namespace MyTender.Security
 
         public void Login(string login, string password)
         {
-            var user = UserSystem.GetByProp("Login", login.ToLower()).FirstOrDefault();
+            var user = UserSystem.FindAll()
+                .FirstOrDefault(x => x.Login.ToLower() == login.ToLower());
 
             if (user != null)
             {

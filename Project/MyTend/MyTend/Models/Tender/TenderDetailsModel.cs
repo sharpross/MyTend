@@ -1,4 +1,5 @@
 ﻿using MyTend.Entites;
+using MyTend.Services.Common;
 using MyTend.Services.File;
 using MyTender.Security;
 using System;
@@ -15,16 +16,39 @@ namespace MyTend.Models
 
         public AuthService Auth { get; set; }
 
+        public RegionFilterService RegionFilter { get; set; }
+
+        public TenderFilterService TendersFilter { get; set; }
+
         public List<FileSystem> Files { get; set; }
 
-        public TenderDetailsModel(int id)
+        public List<Tender> Tenders { get; set; }
+
+        public TenderDetailsModel(AuthService auth, int id)
         {
-            this.Load(id);
+            this.Tenders = new List<Tender>();
+            this.Auth = auth;
+            this.RegionFilter = new RegionFilterService(Auth.User);
+            this.TendersFilter = new TenderFilterService(Auth.User);
+
+            if (this.Auth != null)
+            {
+                this.LoadTenders(id);
+
+                this.Load(id);
+            }
+        }
+
+        private void LoadTenders(int id)
+        {
+            var tender = Tender.GetById(id);
+
+            this.Tenders.Add(tender);
         }
 
         private void Load(int id)
         {
-            var tender = Tender.GetById(id);
+            var tender = this.Tenders.FirstOrDefault(x => x.Id == id);
 
             if (tender == null)
             {
@@ -45,6 +69,7 @@ namespace MyTend.Models
             this.User = tender.User;
             this.Winner = tender.Winner;
             this.Messages = this.LoadMessages();
+            this.IsActive = tender.IsActive;
 
             this.LoadFiles(tender);
         }

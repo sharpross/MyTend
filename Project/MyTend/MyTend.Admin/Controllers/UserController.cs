@@ -14,7 +14,9 @@ namespace MyTend.Admin.Controllers
         {
             var users = new List<UserSystem>();
 
-            users.Add(new UserSystem() 
+            users = UserSystem.FindAll().ToList();
+
+            /*users.Add(new UserSystem() 
             {
                 FullName = "Василий Викторович",
                 Email = "vasya@yandex.ru",
@@ -44,7 +46,7 @@ namespace MyTend.Admin.Controllers
                 Email = "vasya@yandex.ru",
                 Login = "vasya@yandex.ru",
                 AboutShort = "Торгую танками"
-            });
+            });*/
 
             return View(users);
         }

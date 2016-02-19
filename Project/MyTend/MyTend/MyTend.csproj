@@ -159,7 +159,6 @@
     <Compile Include="Controllers\FileController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ImageController.cs" />
-    <Compile Include="Controllers\MessageController.cs" />
     <Compile Include="Controllers\MigrationsController.cs" />
     <Compile Include="Controllers\PayController.cs" />
     <Compile Include="Controllers\RegionController.cs" />
@@ -169,6 +168,7 @@
     </Compile>
     <Compile Include="Models\Messages\UserMessagesListModel.cs" />
     <Compile Include="Models\Messages\UserMessageModel.cs" />
+    <Compile Include="Models\TenderService.cs" />
     <Compile Include="Models\Tender\ActiveTenderListModel.cs" />
     <Compile Include="Models\Account\CardModel.cs" />
     <Compile Include="Models\Account\ProfileModel.cs" />
@@ -188,6 +188,7 @@
     <Compile Include="Models\Tender\ListThemeTenderModel.cs" />
     <Compile Include="Models\Tender\MyTendersModel.cs" />
     <Compile Include="Models\Tender\TenderDetailsModel.cs" />
+    <Compile Include="Models\Tender\WinnerTenderModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -195,6 +196,13 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\common\md5.js" />
     <Content Include="Content\common\md5.min.js" />
+    <Content Include="Content\font-awesome.css" />
+    <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\images\ahtung.png" />
+    <Content Include="Content\images\cardBackground.png" />
+    <Content Include="Content\images\info-mini.png" />
+    <Content Include="Content\images\logoMini.png" />
+    <Content Include="Content\images\ok.jpg" />
     <Content Include="Content\images\image_not_found.png" />
     <Content Include="Content\images\inf1.png" />
     <Content Include="Content\images\inf2.png" />
@@ -215,9 +223,10 @@
     <Content Include="Content\images\kats\8.png" />
     <Content Include="Content\images\kats\9.png" />
     <Content Include="Content\images\logo.jpg" />
-    <Content Include="Content\images\reklama.gif" />
     <Content Include="Content\images\robokassa.png" />
-    <Content Include="Content\images\знаков.png" />
+    <Content Include="Content\images\winner.png" />
+    <Content Include="Content\images\znakov.png" />
+    <Content Include="Content\ladda.min.css" />
     <Content Include="Content\theme\assets\animate\animate.css" />
     <Content Include="Content\theme\assets\animate\animate.min.css" />
     <Content Include="Content\theme\assets\animate\_notes\dwsync.xml" />
@@ -651,6 +660,7 @@
     <Content Include="Content\unitegallery\themes\video\skin-right-title-only.css" />
     <Content Include="Content\unitegallery\themes\video\ug-theme-video.js" />
     <Content Include="favicon.ico" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -712,6 +722,11 @@
     <Content Include="Content\fonts\futura.ttf" />
     <Content Include="Content\fonts\HelveticaNeue.otf" />
     <Content Include="Content\fonts\uefddprm-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\FontAwesome.otf" />
     <None Include="Properties\PublishProfiles\1.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -721,12 +736,16 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\kamati.js" />
+    <Content Include="Scripts\ladda.min.js" />
     <Content Include="Scripts\md5.js" />
     <Content Include="Scripts\md5.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\spin.min.js" />
     <Content Include="Scripts\_references.js" />
+    <Content Include="sitemap.xml" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -753,7 +772,6 @@
     <Content Include="Views\Account\Profile.cshtml" />
     <Content Include="Views\Account\Card.cshtml" />
     <Content Include="Views\Pay\Index.cshtml" />
-    <Content Include="Views\Account\About.cshtml" />
     <Content Include="Views\Docs\Index.cshtml" />
     <Content Include="Views\Home\Thanks.cshtml" />
     <Content Include="Views\Home\Support.cshtml" />
@@ -784,6 +802,11 @@
     <Content Include="Views\Docs\FAQ.cshtml" />
     <Content Include="Views\Home\Blog.cshtml" />
     <Content Include="Views\Account\Blocked.cshtml" />
+    <Content Include="Views\Docs\Torgs.cshtml" />
+    <Content Include="Views\Tender\Winner.cshtml" />
+    <Content Include="Views\Error\Error.cshtml" />
+    <Content Include="Views\Error\AccessDenied.cshtml" />
+    <Content Include="Views\Tender\Map.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

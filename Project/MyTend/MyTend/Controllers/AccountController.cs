@@ -8,6 +8,7 @@
     using System;
     using System.Web.Mvc;
     using System.Linq;
+    using MyTend.Services.EmailService;
 
     public class AccountController : BaseController
     {
@@ -20,16 +21,6 @@
             return RedirectToAction("Profile");
         }
 
-        public ActionResult About()
-        {
-            if (this.Auth.User != null)
-            {
-                return RedirectToAction("Profile");
-            }
-
-            return View();
-        }
-
         public ActionResult Profile(string tab)
         {
             var model = new ProfileModel(this.Auth.User);
@@ -39,6 +30,8 @@
 
         public ActionResult Card(string user, string tab)
         {
+            this.ViewBag.NoIndexing = true;
+
             var model = new CardModel(user);
             this.ViewBag.OpenTabParam = tab;
             return View(model);
@@ -49,7 +42,7 @@
         {
             model.AddProfile(this.Auth.User);
 
-            return RedirectToAction("Profile", new { @tab= "tab5-2" });
+            return RedirectToAction("Card", new { @user = this.Auth.User.Login, @tab = "tab5-3" });
         }
 
         [HttpPost]
@@ -57,22 +50,17 @@
         {
             if (model != null)
             {
-                model.UpdateProfile();
+                try
+                {
+                    model.UpdateProfile();
+                }
+                catch(Exception e)
+                {
+                    return JsonFailur(e.Message);
+                }
             }
             return JsonSuccess();
         }
-
-        /*[HttpPost]
-        public JsonResult UpdateAbout(ProfileModel model)
-        {
-            if (model != null)
-            {
-                ///todo: ошибка
-                model.UpdateProfile();
-            }
-
-            return JsonSuccess();
-        }*/
 
         [HttpPost]
         public JsonResult UpdateSubRegions(SubRegionModel model)
@@ -155,6 +143,16 @@
             if (model.TryRegistry())
             {
                 this.Auth.Login(model.Login, model.Password);
+
+                try
+                { 
+                    var emailService = new EmailService();
+                    emailService.Registration(model.Login, model.Password, model.Login);
+                }
+                catch
+                {
+
+                }
 
                 RedirectToAction("Index", "Home");
             }

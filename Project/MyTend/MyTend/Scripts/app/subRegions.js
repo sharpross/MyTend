@@ -57,7 +57,7 @@
 function addCityToList() {
     var e = $('select#subCitySelect')
 
-    if (e.val() == 'Выберите регион' || e.val() == null) {
+    if (e.val() == 'Выберите город' || e.val() == null) {
         return;
     }
 
@@ -65,10 +65,12 @@ function addCityToList() {
         var id = e.val().toString().replace(/\s/g, '_');
         var newVal = '<div class="city-block" id="' + id + '"><div class="city-title">'
             + e.val()
-            + ' <span class="fa fa-trash-o like-link" onclick="removeFromList('
-            + id + ')"></span></div></div>';
+            + ' <span class="fa fa-times red like-link" onclick="removeFromList('
+            + 'this' + ')"></span></div></div>';
 
         $('div#listCity').append(newVal);
+
+        SaveSubCitys();
     }
 }
 
@@ -83,16 +85,19 @@ function addRegionsToList() {
         var id = e.val().toString().replace(/\s/g, '_');
         var newVal = '<div class="city-block" id="' + id + '"><div class="city-title">'
             + e.val()
-            + ' <span class="fa fa-trash-o like-link" onclick="removeFromList('
-            + id + ')"></span></div></div>';
+            + ' <span class="fa fa-times red like-link" onclick="removeFromList('
+            + 'this' + ')"></span></div></div>';
 
         $('div#listRegions').append(newVal);
+
+        SaveSubCitys();
     }
 }
 
 function removeFromList(id) {
     if (id) {
-        id.remove()
+        id.parentElement.parentElement.remove();
+        SaveSubCitys();
     }
 }
 
@@ -108,7 +113,11 @@ function canAdd(type, name) {
 
     var items = $('[id=' + list + '] > div');
 
-    if (items.length >= 10) {
+    if (list == "listRegions" && items.length > 4) {
+        return false;
+    }
+
+    if (list == "listCity" && items.length > 10) {
         return false;
     }
 
@@ -147,8 +156,7 @@ function SaveSubCitys()
         },
         method: 'POST',
         success: function (resp) {
-            var url = window.location.origin + window.location.pathname + "?tab=tab5-5";
-            window.location = url;
+            
         }
     });
 }

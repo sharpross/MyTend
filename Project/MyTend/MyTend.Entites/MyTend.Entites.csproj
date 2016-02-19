@@ -75,11 +75,14 @@
     <Compile Include="City\City.cs" />
     <Compile Include="Contacts\Contacts.cs" />
     <Compile Include="Country\Country.cs" />
+    <Compile Include="Enums\LogLevel.cs" />
     <Compile Include="Enums\SubRegionType.cs" />
     <Compile Include="FileStorageInfo\FileStorageInfo.cs" />
     <Compile Include="FileSystem\FileSystem.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Log\Log.cs" />
+    <Compile Include="OldData\OldData.cs" />
     <Compile Include="PayInfo\PayInfo.cs">
       <SubType>Code</SubType>
     </Compile>

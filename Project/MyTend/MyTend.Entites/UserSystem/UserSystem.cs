@@ -29,25 +29,25 @@
         [ValidateNonEmpty("Почтовый адрес не может быть пустым")]
         public string Email { get; set; }
 
-        [Property]
+        [Property(Length = 255)]
         public string Skype { get; set; }
 
-        [Property]
+        [Property(Length = 255)]
         public string VKontakte { get; set; }
 
-        [Property]
+        [Property(Length = 255)]
         public string Facebook { get; set; }
 
-        [Property]
+        [Property(Length = 255)]
         public string Site { get; set; }
 
-        [Property]
+        [Property(Length = 255)]
         public string Instagram { get; set; }
 
-        [Property]
+        [Property(Length = 255)]
         public string Phone { get; set; }
 
-        [Property]
+        [Property(Length = 255)]
         public string Phone2 { get; set; }
 
         [ValidateNonEmpty("Укажите регион")]
@@ -58,10 +58,10 @@
         [BelongsTo("cityid")]
         public City City { get; set; }
 
-        [Property]
+        [Property(Length = 10000)]
         public string AboutFull { get; set; }
 
-        [Property(Length=15)]
+        [Property(Length = 255)]
         public string AboutShort { get; set; }
 
         [Property(Length=10000)]

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Security;
 
 namespace MyTend.Services.Migrations.User
 {
@@ -27,8 +28,8 @@ namespace MyTend.Services.Migrations.User
             {
                 FullName = "Admin",
                 Login = "admin@admin.ru",
-                Password = "testtest",
-                Email = "test@test.ru",
+                Password = this.GetMD5String("testtest"),
+                Email = "admin@test.ru",
                 AboutShort = "admin user",
                 Region = region,
                 City = city
@@ -37,10 +38,10 @@ namespace MyTend.Services.Migrations.User
 
             var user1 = new UserSystem()
             {
-                FullName = "User1",
-                Login = "user1@user.ru",
-                Password = "user1user1",
-                Email = "user1@test.ru",
+                FullName = "Модератор №1",
+                Login = "moder1@user.ru",
+                Password = this.GetMD5String("testtest"),
+                Email = "moder1@test.ru",
                 AboutShort = "user1",
                 Region = region,
                 City = city
@@ -49,9 +50,9 @@ namespace MyTend.Services.Migrations.User
 
             var user2 = new UserSystem()
             {
-                FullName = "User2",
-                Login = "user2@user.ru",
-                Password = "user2user2",
+                FullName = "Модератор №2",
+                Login = "moder2@user.ru",
+                Password = this.GetMD5String("testtest"),
                 Email = "user2@test.ru",
                 AboutShort = "user2",
                 Region = region,
@@ -61,20 +62,56 @@ namespace MyTend.Services.Migrations.User
 
             var user3 = new UserSystem()
             {
-                FullName = "User3",
-                Login = "user3@user.ru",
-                Password = "user3user3",
+                FullName = "Модератор №3",
+                Login = "moder3@user.ru",
+                Password = this.GetMD5String("testtest"),
                 Email = "user3@test.ru",
                 AboutShort = "user3",
                 Region = region,
                 City = city
             };
             user3.Create();
+
+            var payInfo = new PayInfo()
+            {
+                PayDay = DateTime.Now,
+                PayEnd = DateTime.Now.AddYears(100),
+                Sum = 100,
+                User = user1
+            };
+            payInfo.Save();
+
+            var payInfo2 = new PayInfo()
+            {
+                PayDay = DateTime.Now,
+                PayEnd = DateTime.Now.AddYears(100),
+                Sum = 100,
+                User = user1
+            };
+            payInfo2.Save();
+
+            var payInfo3 = new PayInfo()
+            {
+                PayDay = DateTime.Now,
+                PayEnd = DateTime.Now.AddYears(100),
+                Sum = 100,
+                User = admin
+            };
+            payInfo3.Save();
         }
 
         public bool NeedMigrate()
         {
             return true;
+        }
+
+        public string GetMD5String(string password)
+        {
+            var md5string = string.Empty;
+
+            md5string = FormsAuthentication.HashPasswordForStoringInConfigFile(password, "MD5");
+
+            return md5string;
         }
     }
 }

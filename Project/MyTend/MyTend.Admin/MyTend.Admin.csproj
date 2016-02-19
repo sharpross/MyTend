@@ -157,12 +157,23 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\font-awesome.css" />
+    <Content Include="Content\font-awesome.min.css" />
     <Content Include="favicon.ico" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="app.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\FontAwesome.otf" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -204,9 +215,25 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\MyTend.Data\MyTend.Data.csproj">
+      <Project>{dfe574fd-1293-47d0-87a8-dad8ebb4ff4c}</Project>
+      <Name>MyTend.Data</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MyTend.Entites\MyTend.Entites.csproj">
       <Project>{25b60dea-95e0-4a29-b163-09c01d076e40}</Project>
       <Name>MyTend.Entites</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MyTend.Services\MyTend.Services.csproj">
+      <Project>{d323833e-2511-45fd-b4c4-51502484ae8f}</Project>
+      <Name>MyTend.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MyTender.Core\MyTender.Core.csproj">
+      <Project>{ff896143-d318-48a1-a889-7d9d68fb6d29}</Project>
+      <Name>MyTender.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MyTender.Security\MyTender.Security.csproj">
+      <Project>{debbd8b9-34e7-401c-aa0b-d735ade12bce}</Project>
+      <Name>MyTender.Security</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

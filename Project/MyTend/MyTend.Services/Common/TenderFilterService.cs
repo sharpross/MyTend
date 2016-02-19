@@ -57,23 +57,26 @@
         /// <param name="filtres"></param>
         public void SaveFiltres(List<int> filtres)
         {
-            this.ClearAllFiltres();
-
-            foreach(var id in filtres)
+            if (filtres != null)
             {
-                var theme = TenderTheme.GetById(id);
+                this.ClearAllFiltres();
 
-                if(theme != null)
+                foreach (var id in filtres)
                 {
-                    var newFilter = new TenderFilter()
-                    {
-                        User = this.User,
-                        Theme = theme
-                    };
+                    var theme = TenderTheme.GetById(id);
 
-                    if (!this.Exist(newFilter))
+                    if (theme != null)
                     {
-                        newFilter.Create();
+                        var newFilter = new TenderFilter()
+                        {
+                            User = this.User,
+                            Theme = theme
+                        };
+
+                        if (!this.Exist(newFilter))
+                        {
+                            newFilter.Create();
+                        }
                     }
                 }
             }

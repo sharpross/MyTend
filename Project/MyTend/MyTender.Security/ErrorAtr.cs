@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Web.Mvc;
-
-namespace MyTender.Security
+﻿namespace MyTender.Security
 {
+    using System.Web.Mvc;
+
     public class ErrorAtr : HandleErrorAttribute
     {
         public override void OnException(ExceptionContext filterContext)

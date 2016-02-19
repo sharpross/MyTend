@@ -12,33 +12,48 @@ namespace MyTend.Services
     {
         private UserSystem User { get; set; }
 
-        private RegionFilterService RegionFilter { get; set; }
+        public RegionFilterService RegionFilter { get; set; }
 
-        private TenderFilterService TendersFilter { get; set; }
+        public TenderFilterService TendersFilter { get; set; }
 
         public TenderService(UserSystem user)
         {
             this.User = user;
+            this.RegionFilter = new RegionFilterService(this.User);
+            this.TendersFilter = new TenderFilterService(this.User);
         }
 
         public int GetCountTenders()
         {
-            var count = this.GetTenders().Count;
-
-
+            var count = this.GetTenders()
+                .Where(x => x.Winner == null)
+                .ToList()
+                .Count;
 
             return count;
         }
 
         public List<Tender> GetTenders()
         {
-            this.RegionFilter = new RegionFilterService(this.User);
-            this.TendersFilter = new TenderFilterService(this.User);
-
             var regionFiltered = this.RegionFilter.GetTenders();
-            var tenders = this.TendersFilter.GetByListTenders(regionFiltered);
+            var tenders = this.TendersFilter.GetByListTenders(regionFiltered)
+                .Where(x => x.IsActive)
+                .ToList();
 
-            return tenders;
+            var tenderResult = new List<Tender>();
+
+            tenders.ForEach(x =>
+            {
+                var exist = TenderMessage.FindAll()
+                    .Any(y => y.User.Id == x.Id);
+
+                if (!exist)
+                {
+                    tenderResult.Add(x);
+                }
+            });
+
+            return tenderResult;
         }
     }
 }

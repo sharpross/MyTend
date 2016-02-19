@@ -6,49 +6,34 @@
     using MyTend.Services.Migrations.User;
     using MyTender.Core;
     using MyTender.Security;
+    using System;
     using System.Web.Mvc;
 
     public class MigrationsController : BaseController
     {
-        public JsonResult AddUpdateTenderThemes()
+        public JsonResult Zero(string id)
         {
-            var migration = new TenderThemesMigration();
+            var shtamp = string.Format("017{0}_{1}", DateTime.Now.ToString("ddMMyyyyhh"), "kadastr");
 
-            migration.Migrate();
+            if (!string.IsNullOrEmpty(id) && id == shtamp) 
+            {
+                ActiveRecordStarter.CreateSchema();
 
-            return JsonSuccess();
-        }
+                var migration = new RegionMigration();
+                migration.Migrate();
 
-        public JsonResult CreateSchema()
-        {
-            ActiveRecordStarter.CreateSchema();
+                var migration2 = new TenderThemesMigration();
+                migration2.Migrate();
 
-            return JsonSuccess();
-        }
+                var migration3 = new UserMigration();
+                migration3.Migrate();
 
-        public JsonResult CreateRegions()
-        {
-            var migration = new RegionMigration();
+                return JsonSuccess();
+            }
 
-            migration.Migrate();
+            var no = new { Result = " no auth" };
 
-            return JsonSuccess();
-        }
-
-        public JsonResult Zero()
-        {
-            ActiveRecordStarter.CreateSchema();
-
-            var migration = new RegionMigration();
-            migration.Migrate();
-
-            var migration2 = new TenderThemesMigration();
-            migration2.Migrate();
-
-            var migration3 = new UserMigration();
-            migration3.Migrate();
-
-            return JsonSuccess();
+            return JsonFailur(no);
         }
     }
 }

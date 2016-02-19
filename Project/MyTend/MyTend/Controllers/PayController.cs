@@ -19,6 +19,8 @@ namespace MyTend.Controllers
         // GET: Pay
         public ActionResult Index()
         {
+            this.ViewBag.NoIndexing = true;
+
             ViewBag.PayScript = GetPayString();
             ViewBag.PayHistory = new PayService(this.Auth.User).GetHistory();
             ViewBag.PayEnd = new PayService(this.Auth.User).GetDatePayEnd();
@@ -33,7 +35,7 @@ namespace MyTend.Controllers
             var customerEmail = this.Auth.User.Login;
 
             string redirectUrl =
-                string.Format("<a class=\"btn btn-two\" href=\"{0}\">Оплатить</a>",
+                string.Format("<a id=\"gopay\" class=\"btn btn-custom-green\" href=\"{0}\" disabled >Оплатить</a>",
                 Robokassa.GetRedirectUrl(priceRub, orderId, customerEmail, this.Auth.User.Id.ToString()));
                 
 
@@ -41,8 +43,10 @@ namespace MyTend.Controllers
 
         }
 
-        public ActionResult Success(RobokassaConfirmationRequest confirmationRequest)
+        /*public ActionResult Result(RobokassaConfirmationRequest confirmationRequest)
         {
+            this.ViewBag.NoIndexing = true;
+
             ViewBag.Email = this.Request.Url.ToString();
 
             try
@@ -70,17 +74,54 @@ namespace MyTend.Controllers
             catch (Exception) { }
 
             return RedirectToAction("Fail");
+        }*/
+
+        public ActionResult Success(RobokassaConfirmationRequest confirmationRequest)
+        {
+            this.ViewBag.NoIndexing = true;
+
+            ViewBag.Email = this.Request.Url.ToString();
+
+            try
+            {
+
+                if (confirmationRequest.IsQueryValid(RobokassaQueryType.SuccessURL))
+                {
+                    var userId = int.Parse(confirmationRequest.Shp_item);//GetPrm("Email");
+
+                    var dateBegin = DateTime.Now;
+                    var dateEnd = DateTime.Now.AddMonths(1);
+
+                    var user = UserSystem.GetById(userId); //(int.Parse(userId));
+
+                    if (user != null)
+                    {
+                        var payService = new PayService(user);
+
+                        payService.MakePay();
+                    }
+
+                    return View(); // content for user
+                }
+            }
+            catch (Exception) { }
+
+            return RedirectToAction("Fail");
+            
+            return View();
         }
 
         public ActionResult Fail()
         {
-            ViewBag.Email = this.Request.Url.ToString();
+            this.ViewBag.NoIndexing = true;
 
             return View();
         }
 
         public ActionResult Payresult(RobokassaConfirmationRequest confirmationRequest)
         {
+            this.ViewBag.NoIndexing = true;
+
             try
             {
                 if (confirmationRequest.IsQueryValid(RobokassaQueryType.SuccessURL))

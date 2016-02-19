@@ -45,7 +45,8 @@ namespace MyTend.Services
         {
             var result = new List<Region>();
 
-            var all = Region.FindAll();
+            var all = Region.FindAll()
+                .OrderBy(x => x.Name);
 
             result.AddRange(all);
 
@@ -60,7 +61,9 @@ namespace MyTend.Services
             {
                 var all = Region
                     .FindAll()
-                    .Where(x => x.Country.Id == id);
+                    .Where(x => x.Country.Id == id)
+                    .OrderBy(x => x.Name)
+                    .OrderByDescending(x => x.IsMillion);
 
                 result.AddRange(all);
             }

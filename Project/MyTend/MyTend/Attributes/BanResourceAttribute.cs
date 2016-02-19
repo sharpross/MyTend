@@ -12,18 +12,24 @@ namespace MyTend.Attributes
     public class BanResourceAttribute : ActionFilterAttribute
     {
         public AuthService Auth { get; set; }
-
-        private BlockUser BlockUser { get; set; }
+        
+        public BanResourceAttribute()
+        {
+            this.Auth = new AuthService();
+        }
 
         public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
-            if (!this.Auth.User.IsBlocked)
+            if (this.Auth.User != null)
             {
-                base.OnActionExecuting(filterContext);
-            }
-            else
-            {
-                filterContext.Result = new RedirectResult("~/Account/OnlyForSub");
+                if (!this.Auth.User.IsBlocked)
+                {
+                    base.OnActionExecuting(filterContext);
+                }
+                else
+                {
+                    filterContext.Result = new RedirectResult("~/Account/OnlyForSub");
+                }
             }
 
             base.OnActionExecuting(filterContext);

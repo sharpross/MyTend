@@ -8,7 +8,7 @@
 
         public const string _UNKNOW_USER = "Пользователь с таким логином и паролем не найдены.";
 
-        public const int _MAX_SUB_REGIONS = 10;
+        public const int _MAX_SUB_REGIONS = 4;
 
         public const int _MAX_SUB_CITYS = 10;
 
@@ -18,6 +18,6 @@
 
         public const double _MAX_FILE_SIZE = 3670016;
 
-        public const int _SUB_SUM = 5;
+        public const int _SUB_SUM = 1000;
     }
 }

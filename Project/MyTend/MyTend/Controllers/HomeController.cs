@@ -19,11 +19,6 @@
             return View();
         }
 
-        public ActionResult Contact()
-        {
-            return View();
-        }
-
         [HttpGet]
         public ActionResult Support()
         {

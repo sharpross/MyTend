@@ -3,7 +3,11 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <meta name="google-site-verification" content="q6C-RpaKhHmEshk4Vt6OGA-y35ftS7v2VCQCwR6_VFk" /> 
+    @if (this.ViewBag.NoIndexing != null && this.ViewBag.NoIndexing == true)
+    {
+        <meta name="robots" content="noindex">
+    }
     <title>@ViewBag.Title</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
@@ -15,6 +19,8 @@
     <script src="~/Content/unitegallery/js/unitegallery.js"></script>
     <script src="~/Content/unitegallery/themes/tilesgrid/ug-theme-tilesgrid.js"></script>
     <script src="~/Scripts/app/redirect.js"></script>
+    <script src="~/Scripts/spin.min.js"></script>
+    <script src="~/Scripts/ladda.min.js"></script>
 </head>
 <body>
     <div class="wrapper">

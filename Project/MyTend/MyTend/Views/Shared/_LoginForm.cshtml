@@ -8,12 +8,14 @@
     <div id="loginForm" class="modal">
         <div class="modal-dialog">
             <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Закрыть</span></button>
-                    <h4 class="modal-title">Войти</h4>
-                </div>
                 <div class="modal-body">
                     <form name="LoginForm" action="/Account/Login" method="post">
+                        <div class="form-group" style="text-align: center">
+                            <img src="@Url.Content("~/Content/images/logo.jpg")" height="65">
+                            <div>
+                                Сайт, на котором исполнитель соревнуется за заказчика
+                            </div>
+                        </div>
                         <div class="form-group">
                             <input type="email" class="form-control" name="Login" placeholder="Email">
                         </div>
@@ -21,7 +23,12 @@
                             <input type="password" class="form-control" name="Password" placeholder="Пароль">
                         </div>
                         <div class="LoginError" style="padding-bottom: 10px; color: red;"></div>
-                        <button type="button" class="btn btn-primary" name="LoginButton">Войти</button>
+                        <div style="padding-bottom: 10px; text-align: center;">
+                            Нажатие кнопки "Войти" означает согласие с <a href="~/Docs/Rules">Условиями использования сайта</a>.
+                        </div>
+                        <div style="text-align: center">
+                            <button type="button" class="btn btn-custom-red" name="LoginButton">Войти</button>
+                        </div>
                     </form>
 
                 </div>
@@ -34,7 +41,27 @@
     string loginName = ViewBag.UserLogin.ToString();
 
     <div style="text-align: center;">
-        <p><strong>@Html.ActionLink(loginName, "Profile", "Account", null, new { @style = "color: #245071;" })</strong></p>
+        <p><strong>@Html.ActionLink(loginName, "Card", "Account", new { user = ViewBag.UserLogin }, new { @style = "color: #245071" })</strong></p>
+        @if (this.ViewBag.PayEnd != null)
+        {
+            <div style="font-size: 10px;">
+                Вы продавец до: @if (this.ViewBag.PayEnd is string)
+                {
+                    <div>
+                        @this.ViewBag.PayEnd.ToString()
+                    </div>
+                }
+                else
+                {
+                    if (this.ViewBag.PayEnd != null)
+                    {
+                        <div>
+                            @this.ViewBag.PayEnd.ToString("dd.MM.yyyy")
+                        </div>
+                    }
+                }
+            </div>
+        }
         <p><strong><a name="LogoutButton" style="color: #245071;">Выход</a></strong></p>
     </div>
 }

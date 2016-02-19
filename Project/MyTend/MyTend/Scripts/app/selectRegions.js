@@ -30,11 +30,18 @@
             method: 'GET',
             success: function (resp) {
                 var sel = $('select[name=RegionId]');
-                sel.empty();
-                sel.append('<option disabled selected>Выберите регион</option>');
-                closeCity();
-                for (var i = 0; i < resp.Data.length; i++) {
-                    var value = '<option id="' + resp.Data[i].Id + '">' + resp.Data[i].Name + '</option>';
+                
+                if (resp.Data.length > 1) {
+                    sel.empty();
+                    sel.append('<option disabled selected>Выберите регион</option>');
+                    closeCity();
+                    for (var i = 0; i < resp.Data.length; i++) {
+                        var value = '<option id="' + resp.Data[i].Id + '">' + resp.Data[i].Name + '</option>';
+                        sel.append(value);
+                    }
+                } else {
+                    sel.empty();
+                    var value = '<option id="' + resp.Data[0].Id + '" selected>' + resp.Data[0].Name + '</option>';
                     sel.append(value);
                 }
             }
@@ -51,10 +58,16 @@
             method: 'GET',
             success: function (resp) {
                 var sel = $('select[name=CityId]');
-                sel.empty();
-                sel.append('<option disabled selected>Выберите город</option>');
-                for (var i = 0; i < resp.Data.length; i++) {
-                    var value = '<option id="' + resp.Data[i].Id + '">' + resp.Data[i].Name + '</option>';
+                if (resp.Data.length > 1) {
+                    sel.empty();
+                    sel.append('<option disabled selected>Выберите город</option>');
+                    for (var i = 0; i < resp.Data.length; i++) {
+                        var value = '<option id="' + resp.Data[i].Id + '">' + resp.Data[i].Name + '</option>';
+                        sel.append(value);
+                    }
+                } else {
+                    sel.empty();
+                    var value = '<option id="' + resp.Data[0].Id + '" selected>' + resp.Data[0].Name + '</option>';
                     sel.append(value);
                 }
             }

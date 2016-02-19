@@ -19,6 +19,8 @@
 
         public string IsAllowRules { get; set; }
 
+        public string IsAllowPublic { get; set; }
+
         public string CityId { get; set; }
 
         public CloseTenderTimeEnum ClosePeriod { get; set; }
@@ -56,6 +58,12 @@
                 }
 
                 if (this.IsAllowRules != "on")
+                {
+                    this.Errors.Add("Вы не согласились с правилами сайта.");
+                    next = false;
+                }
+
+                if (this.IsAllowPublic != "on")
                 {
                     this.Errors.Add("Вы не согласились с правилами сайта.");
                     next = false;

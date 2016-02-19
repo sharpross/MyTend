@@ -1,5 +1,6 @@
 ﻿namespace MyTender.Security
 {
+    using MyTend.Entites;
     using MyTend.Services;
     using MyTend.Services.Common;
     using System.Web.Mvc;
@@ -27,9 +28,56 @@
             this.Auth = new AuthService();
         }
 
+        private void LogError(ExceptionContext filterContext)
+        {
+            var user = string.Empty;
+
+            if (this.Auth != null && this.Auth.User != null)
+            {
+                user = this.Auth.User.Login;
+            }
+
+            var logRec = new Log()
+            {
+                Context = filterContext.Controller.ControllerContext.HttpContext.Request.Path,
+                Level = MyTend.Entites.Enums.LogLevel.Error,
+                Message = filterContext.Exception.Message,
+                Stack = filterContext.Exception.StackTrace,
+                UserName = user
+            };
+
+            logRec.Save();
+        }
+
+        protected override void OnException(ExceptionContext filterContext)
+        {
+            try
+            {
+                this.LogError(filterContext);
+            }
+            catch
+            {
+
+            }
+            finally
+            {
+                if (filterContext.Exception is HttpNotFoundResult)
+                {
+                    filterContext.Result = new RedirectResult("~/Error/NotFound");
+                }
+                else
+                {
+                    filterContext.Result = new RedirectResult("~/Error/Error");
+                }
+            }
+
+            base.OnException(filterContext);
+        }
+
         protected override void OnActionExecuting(ActionExecutingContext filterContext)
         {
             this.ViewBag.IsAuth = false;
+            this.ViewBag.NoIndexing = false;
 
             if (this.Auth.User != null)
             {
@@ -49,6 +97,7 @@
                 this.ViewBag.IsSubRegions = regionFilter.HasSubs();
                 this.ViewBag.IsSubTenders = themesFilter.HasSubs();
                 this.ViewBag.HasPay = payService.HasPay();
+                this.ViewBag.PayEnd = payService.PayEnd();
             }
 
             base.OnActionExecuting(filterContext);
@@ -82,6 +131,8 @@
                 Data = data,
                 Success = false
             };
+
+            this.Response.StatusCode = 500;
 
             return Json(result, JsonRequestBehavior.AllowGet); ;
         }

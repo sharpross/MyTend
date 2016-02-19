@@ -15,9 +15,9 @@
 
         public Dictionary<string, List<TenderTheme>> TenderThemes { get; set; }
 
-        public List<string> SubRegions { get; set; }
+        public List<Region> SubRegions { get; set; }
 
-        public List<string> SubCitys { get; set; }
+        public List<City> SubCitys { get; set; }
 
         public HttpPostedFileBase[] AvatarFile { get; set; }
 
@@ -53,20 +53,20 @@
             this.FullName = user.FullName;
             this.ListCountrys = RegionService.CountryAll();
             this.TenderThemes = this.GetListTenderTheme();
-            this.SubCitys = new List<string>();
-            this.SubRegions = new List<string>();
+            this.SubCitys = new List<City>();
+            this.SubRegions = new List<Region>();
             this.Portfolios = new List<FileSystem>().ToArray();
 
             var filter = new RegionFilterService(user);
 
             foreach (var city in filter.GetCitys())
             {
-                this.SubCitys.Add(city.Name);
+                this.SubCitys.Add(city);
             }
 
             foreach (var region in filter.GetRegions())
             {
-                this.SubRegions.Add(region.Name);
+                this.SubRegions.Add(region);
             }
 
             var obj = UserSystem.GetById(this.Id);

@@ -44,7 +44,7 @@
 }
 
 <p style="font-size: 14px;">
-    <span style="font-weight: bold;">Написать сообщние для:</span> @Model.To.FullName
+    Написать сообщние для: <span style="font-weight: bold;">@Html.ActionLink(Model.To.FullName, "Card", "Account", new { @user = Model.To.Login}, null) </span> 
 </p>
 
 @using (@Html.BeginForm("Write", "Card", FormMethod.Post))

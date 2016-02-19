@@ -1,11 +1,12 @@
 ﻿namespace MyTend.Controllers
 {
     using MyTend.Services.File;
+    using MyTender.Security;
     using System;
     using System.IO;
     using System.Web.Mvc;
 
-    public class FileController : Controller
+    public class FileController : BaseController
     {
         [OutputCache(Duration = 10)]
         public ActionResult Get(int? id)

@@ -26,9 +26,24 @@ namespace MyTend.Models
             this.TendersFilter = new TenderFilterService(Auth.User);
 
             var regionFiltered = this.RegionFilter.GetTenders();
-            var tenders = this.TendersFilter.GetByListTenders(regionFiltered);
+            var tenders = this.TendersFilter.GetByListTenders(regionFiltered)
+                .Where(x => x.IsActive)
+                .ToList();
 
-            this.Tenders = tenders;
+            var tenderResult = new List<Tender>();
+
+            tenders.ForEach(x =>
+            {
+                var exist = TenderMessage.FindAll()
+                    .Any(y => y.User.Id == x.Id);
+
+                if (!exist)
+                {
+                    tenderResult.Add(x);
+                }
+            });
+
+            this.Tenders = tenderResult;
         }
     }
 }

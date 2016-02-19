@@ -27,7 +27,7 @@
 
         public List<TenderTheme> ListThemes { get; set; }
 
-        public string ThemeId { get; set; }
+        public int ThemeId { get; set; }
 
         public int TitleId { get; set; }
 
@@ -76,6 +76,25 @@
             {
                 this.Errors = tender.Errors;
             }
+
+            var theme = TenderTheme.FindAll()
+                .FirstOrDefault(x => x.Id == this.ThemeId);
+
+            if (theme == null)
+            {
+                throw new Exception("Не известный тендер.");
+            }
+
+            var listSubThemes = TenderTheme.FindAll()
+                .Where(x => x.Theme == theme.Theme)
+                .OrderBy(x => x.NomberInList)
+                .ToList();
+
+            this.Theme = theme;
+
+            this.ListThemes = listSubThemes;
+            //this.IconTheme = theme.ImageName;
+            this.ListCountrys = RegionService.CountryAll();
 
             return isValid;
         }

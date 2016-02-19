@@ -27,7 +27,6 @@ namespace MyTend
                 //TODO: подправить под DenyAuthenticatedAccess
                 configuration.For<AccountController>(ac => ac.Registration()).Ignore();
                 //configuration.For<AccountController>(ac => ac.Registration()).DenyAuthenticatedAccess();
-                configuration.For<AccountController>(ac => ac.About()).Ignore();
                 configuration.For<AccountController>(ac => ac.Login(string.Empty, string.Empty)).Ignore();
                 configuration.For<AccountController>(ac => ac.Card(string.Empty, string.Empty)).Ignore();
                 configuration.For<PayController>(ac => ac.Payresult(null)).Ignore();
@@ -38,6 +37,7 @@ namespace MyTend
 
                 configuration.For<TenderController>(ac => ac.Index()).Ignore();
                 configuration.For<TenderController>(ac => ac.Create(0)).Ignore();
+                configuration.For<TenderController>(ac => ac.Map()).Ignore();
             });
 
             filters.Add(new HandleErrorAttribute());

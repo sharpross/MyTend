@@ -1,0 +1,37 @@
+﻿@model Dictionary<string, List<MyTend.Entites.TenderTheme>>
+
+@{
+    ViewBag.Title = "Карта торгов";
+}
+
+<h2>Карта торгов</h2>
+
+@foreach (var item in Model)
+{
+    var aa = item.Value.First();
+    
+    <div class="row">
+        <div class="col-lg-12">
+            <h4>
+                @Html.ActionLink(item.Key, "Create", "Tender", new { @id = aa.Id }, new { @style = "color: #245071;" })
+            </h4>
+
+            @foreach (var sub in item.Value)
+            {
+                <div>
+                    @if (sub.IsTitle)
+                    {
+                        <div style="color: rgb(204, 0, 1); font-weight: bold;">
+                            @sub.Title
+                        </div>
+                    }
+                    else
+                    {
+                        @sub.Title
+                    }
+                </div> 
+            }
+        </div>
+    </div> 
+}
+

@@ -19,10 +19,13 @@ namespace MyTend.Services.Common
 
         public void MakePay()
         {
+            var isFirst = !PayInfo.FindAll()
+                .Any(x => x.User.Id == this.User.Id);
+
             var newPay = new PayInfo()
             {
                 PayDay = DateTime.Now,
-                PayEnd = DateTime.Now.AddMonths(1),
+                PayEnd = isFirst ? DateTime.Now.AddMonths(2) : DateTime.Now.AddMonths(1),
                 Sum = Constants._SUB_SUM,
                 User = this.User
             };
@@ -65,6 +68,20 @@ namespace MyTend.Services.Common
                 .Any();
 
             return has;
+        }
+
+        public string PayEnd()
+        {
+            var end = string.Empty;
+
+            if (this.HasPay())
+            {
+                var date = this.GetDatePayEnd();
+
+                end = date.Value.ToString("dd.MM.yyyy");
+            }
+
+            return end;
         }
     }
 }

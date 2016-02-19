@@ -22,7 +22,6 @@ namespace MyTend
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                 //"~/Scripts/bootstrap.js",
                 "~/Scripts/respond.js",
-
                 "~/Content/theme/assets/bootstrap/js/bootstrap.min.js",
                 "~/Content/theme/js/html5shiv.js",
                 "~/Content/theme/js/jquery.cookie.js",
@@ -48,13 +47,17 @@ namespace MyTend
                 "~/Content/theme/assets/easy-pie-chart/jquery.easypiechart.js",
                 "~/Content/theme/assets/easy-pie-chart/jquery.easypiechart.js",
                 "~/Content/theme/assets/waypoints/waypoints.min.js",
-                "~/Content/theme/assets/sticky/jquery.sticky.js"
+                "~/Content/theme/assets/sticky/jquery.sticky.js",
+                //"~/Scripts/spin.min.js",
+                "~/Scripts/kamati.js"
                 ));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/theme/assets/bootstrap/css/bootstrap.min.css",
+                      "~/Content/font-awesome.min.css",
                       "~/Content/theme/css/global-style.css",
                       "~/Content/theme/assets/fancybox/jquery.fancybox.css",
+                      //"~/Content/ladda.min.css",
                       "~/Content/site.css"
                       ));
 

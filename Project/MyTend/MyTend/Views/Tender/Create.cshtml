@@ -1,7 +1,7 @@
 ﻿@model MyTend.Models.CreateTenderModel
 
 @{
-    ViewBag.Title = "Новая заявка";
+    ViewBag.Title = "Новая заявка: " + Model.Theme.Theme;
 }
 
 @using (Html.BeginForm("Create", "Tender", FormMethod.Post, new { enctype = "multipart/form-data" }))
@@ -33,7 +33,6 @@
         <div class="form-group">
             <label for="SubTheme2" class="control-label col-md-4"></label>
             <div class="col-md-4">
-                @Html.ActionLink("Инструкция заполнеиния заявок", "Instruction", "Docs", null, new { @style = "text-decoration: underline;" })
                 <input name="ThemeId" value="@Model.Theme.Id" hidden />
             </div>
         </div>
@@ -54,7 +53,7 @@
                     {
                         if (item.IsTitle)
                         {
-                            <option disabled="disabled" style="background-color: #E0E0E; color: black;">@item.Title</option>
+                            <option disabled="disabled" style="color: #c30000; font-weight: bold;">@item.Title</option>
                         }
                         else
                         {
@@ -90,7 +89,7 @@
             <label for="SubTheme2" class="control-label col-md-4">Регион исполнения заявки:</label>
             <div class="col-md-4">
                 <select class="form-control" name="RegionId" id="RegionSelect" required>
-                    <option disabled selected>Выберите регион:</option>
+                    <option disabled selected>Выберите регион</option>
                 </select>
             </div>
         </div>
@@ -99,7 +98,7 @@
             <label for="SubTheme2" class="control-label col-md-4">Город исполнения заявки:</label>
             <div class="col-md-4">
                 <select class="form-control" name="CityId" required>
-                    <option disabled selected>Выберите город:</option>
+                    <option disabled selected>Выберите город</option>
                 </select>
             </div>
         </div>
@@ -107,19 +106,19 @@
         <div class="form-group">
             <label for="Title" class="control-label col-md-4">Название торгов:</label>
             <div class="col-md-8">
-                <input type="text" required class="form-control" placeholder="" name="Title" value="@Model.Title" />
+                <input type="text" required class="form-control" placeholder="" name="Title" maxlength="100" value="@Model.Title" />
             </div>
         </div>
 
         <div class="form-group">
             <label for="Message" class="control-label col-md-4">Текст заявки:</label>
             <div class="col-md-8">
-                <textarea class="form-control" required rows="7" name="Message" placeholder="Максимально подробно опишите детали и условия вашей заявки"></textarea>
+                <textarea class="form-control" required rows="7" maxlength="8000" name="Message" placeholder="Максимально подробно опишите детали и условия вашей заявки"></textarea>
             </div>
         </div>
 
         <div class="form-group">
-            <label for="Cost" class="control-label col-md-4">Препологаемый бюджет (&#8381;)</label>
+            <label for="Cost" class="control-label col-md-4">Препологаемый бюджет</label>
             <div class="col-md-5">
                 <input type="number" min="0" step="1" class="form-control" name="Cost" placeholder="Средняя цена" value="@Model.Cost" />
             </div>
@@ -171,9 +170,12 @@
                 </select>
             </div>
         </div>
+        <div style="padding: 20px 0px 20px 0px; text-align: center;">
+            Нажатие кнопки «Добавить торг» означает согласие с <a href="~/Docs/Instruction">Инструкцией заполнения заявок</a>.
+        </div>
         <div class="form-group">
             <div class="col-md-12" style="text-align: center;">
-                <button type="submit" class="btn btn-two" style="width: 30%">Добавить</button>
+                <button type="submit" class="btn btn-custom-red" style="width: 30%">Добавить торг</button>
             </div>
         </div>
     </div>

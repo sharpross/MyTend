@@ -96,5 +96,10 @@
         {
             return View();
         }
+
+        public ActionResult Torgs()
+        {
+            return View();
+        }
     }
 }

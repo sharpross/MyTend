@@ -12,32 +12,67 @@
 <div class="row">
     <div class="col-md-12" style="font-size: 14px;">
         <p>
-            <span style="font-weight: bold;">Заказчик/покупатель:</span><br />
-            @Html.ActionLink(Model.User.FullName, "Card", "Account", new { @user = Model.User.Login }, new { @style = "font-size: 20px; color: #245071;" })
+            <span style="font-weight: normal; color: gray;">Заказчик/покупатель:</span><br />
+
+            @if (Model.Winner != null && ViewBag.UserLogin == Model.Winner.Login)
+            {
+                <span style="color: rgb(204, 0, 1); font-weight: bold">
+                    @Html.ActionLink(Model.User.FullName, "Card", "Account", new { @user = Model.User.Login }, null)
+                </span>
+            }
+            else
+            {
+                <span style="color: rgb(204, 0, 1); font-weight: bold">@Model.User.FullName</span>
+                <span style="font-size: 10px; color: gray; padding-top: -15px;">
+                    (Ссылка на визитку будет доступна только победителю торга.)
+                </span>
+            }
         </p>
         <p>
-            <span style="font-weight: bold;">Тема заявки:</span><br />
+            <span style="font-weight: normal; color: gray;">Тема заявки:</span><br />
             @Model.Theme.Theme
         </p>
         <p style="word-wrap: break-word;">
-            <span style="font-weight: bold;">Категория заявки:</span><br />
+            <span style="font-weight: normal; color: gray;">Категория заявки:</span><br />
             @Model.Theme.Title
         </p>
         <p>
-            <span style="font-weight: bold;">Регион/Город исполнения заявки:</span><br />
-            @Model.Region.Name / @Model.City.Name
+            <span style="font-weight: normal; color: gray;">Регион/Город исполнения заявки:</span><br />
+            @if (Model.Region.IsMillion == false)
+            {
+                <span>
+                    @Model.Region.Country.Name / @Model.Region.Name / @Model.City.Name
+                </span>
+            }
+            else
+            {
+                <span>
+                    @Model.Region.Country.Name / @Model.Region.Name
+                </span>
+            }
         </p>
         <p>
-            <span style="font-weight: bold;">Название торгов:</span><br />
+            <span style="font-weight: normal; color: gray;">Название торгов:</span><br />
             @Model.Title
         </p>
         <p style="word-wrap: break-word;">
-            <span style="font-weight: bold;">Текст заявки:</span><br />
-            @Html.Raw(Model.Message)
+            <span style="font-weight: normal; color: gray;">Текст заявки:</span><br />
+            @Html.Raw(Model.Message.Replace("\n", "<br />"))
         </p>
         <p>
-            <span style="font-weight: bold;">Планируемый бюджет:</span><br />
-            @Html.Raw(Model.Cost.ToString("0.00") + " руб.")
+            <span style="font-weight: normal; color: gray;">Планируемый бюджет:</span><br />
+            <span style="color: hsl(100, 95%, 28%); font-weight: bold;">
+                @if (Model.Cost.ToString() == "0")
+                {
+                    <sapn>
+                        @Html.Raw(Model.Cost.ToString("0.00") + " руб.") (договорная)
+                    </sapn>
+                }
+                else
+                {
+                    @Html.Raw(Model.Cost.ToString("0.00") + " руб.")
+                }
+            </span>
         </p>
     </div>
 </div>
@@ -63,20 +98,33 @@
 {
     if (Model.Winner != null)
     {
-        <div style="color: red; text-align: center">
-            Торг закрыт! Победителем выбран: <strong>@Html.ActionLink(Model.Winner.FullName, "Card", "Account", new { @user = Model.Winner.Login }, new { @style = "color: red" })</strong>
+        <style>
+            .w_b {
+                padding: 20px;
+            }
+        </style>
+
+        <div class="row">
+            <div class="col-lg-12 bg-success">
+                <div class="w_b">
+                    <div style="text-align: center">
+                        Торг закрыт! Победителем торга выбран: <strong>@Html.ActionLink(Model.Winner.FullName, "Card", "Account", new { @user = Model.Winner.Login }, new { @style = "color: red" })</strong>
+                    </div>
+                    <div style="text-align: center;">
+                        Торг перенесён в "Завершенные торги"
+                    </div>
+                </div>
+            </div>
         </div>
-        <div style="color: red; text-align: center;">
-            Торг перенесён в @Html.ActionLink("Завершенные торги", "Closed")
-        </div>
+
     }
     else
     {
-        <div style="color: red; text-align: center">
+        <div style="text-align: center">
             Время публикации торга истекло, победитель не выбран.
         </div>
-        <div style="color: red; text-align: center;">
-            Торг перенесён в меню @Html.ActionLink("Завершенные торги", "Closed")
+        <div style="text-align: center;">
+            Торг перенесён в меню "Завершенные торги"
         </div>
     }
 }
@@ -87,32 +135,37 @@
 {
     <div style="padding-top: 15px;"></div>
     <div class="row" style="border: 0px solid #d8dfe6; border-style: solid;">
-        <div class="col-md-12" style="text-align: center; font-weight: bold; color: red;">
-            Обратите внимание:
+        <div class="col-md-12" style="text-align: left; font-weight: ; color: #000000;">
+            <strong> Сайт не является организатором сделки</strong>, Покупателем, Продавцом, посредником, агентом или представителем какого-либо Пользователя и/или иным заинтересованным лицом в отношении предлагаемой/заключаемой между Пользователями сделки. Все совершаемые благодаря размещению информации на Сайте сделки между Пользователями заключаются и исполняются без прямого или косвенного участия Сайта.
         </div>
-        @if (Model.User.Login == ViewBag.UserLogin)
+
+        @if (Model.IsActive)
         {
-            <div class="col-md-12" style="text-align: left;">
-                <ul>
-                    <li>Не торопитесь выбирать победителя торга. Дождитесь максимальное количество предложений. Каждое будет выгодно отличаться от предыдущего.</li>
-                    <li>Не забывайте писать на "доске предложений" свои вопросы, уточнения или детали, которые должны знать продвцы услуг предлагая вам свои условия.</li>
-                    <li>Выбрав  победителя свяжитесь с ним по телефону. Назначте встречу для возможного заключения сделки на условиях которые Вас устроили.</li>
-                    <li>Отправленне предложение невозможно отредактировать/изменить. Вы можете написать новое предложение с другими условиями.</li>
-                </ul>
-            </div>
+            if (Model.User.Login == ViewBag.UserLogin)
+            {
+                <div class="col-md-12" style="text-align: left;">
+                    <ul>
+                        <strong>Уважаемые покупатели услуг:</strong>
+                        <li>Не торопитесь с выбором победителя торга. Дождитесь максимальное количество предложений. Каждое будет выгодно отличаться от предыдущего.</li>
+                        <li>Не забывайте писать на "доске предложений" свои вопросы, уточнения или детали, которые должны знать продвцы услуг предлагая вам свои условия.</li>
+                        <li><strong>Выбрав  победителя свяжитесь с ним по телефону</strong>. Назначте встречу для возможного заключения сделки на условиях которые Вас устроили.</li>
+                    </ul>
+                </div>
+            }
+            else
+            {
+
+                <div class="col-md-12" style="text-align: left;">
+                    <ul>
+                        <strong>Уважаемые продавцы услуг:</strong>
+                        <li> Внимательно изучив условия заявки от покупателя услуги, а также предложения конкурентов, <strong>сделайте более выгодное предложение</strong>.</li>
+                        <li>  Следите за ходом торга и меняйте свои условия для покупателя на более выгодные, извучив предложения конкурентов.</li>
+                        <li>Отправленное предложение невозможно отредактировать/изменить. Вы можете написать новое предложение с другими условиями.</li>
+                    </ul>
+                </div>
+            }
         }
-        else
-        {
 
-            <div class="col-md-12" style="text-align: left;">
-                <li> Внимательно изучив условия заявки от покупателя услуги а так же предложения конкурентов - <strong>сделайте более выгодное предложение</strong>.</li>
-
-                <li>  Следите за ходом торга и меняйте свои условия для покупателя на более выгодные, извучив предложения конкурентов.</li>
-            </div>
-        }
-        <div>
-
-        </div>
     </div>
     <br />
     if (Model.Messages.Count == 0)
@@ -126,7 +179,7 @@
     else
     {
         <div class="row">
-            <div class="col-md-12" style="font-size: 14px; color: white; background-color: red; text-align: center;">
+            <div class="col-md-12" style="font-size: 14px; color: white; background-color: rgb(204, 0, 1); text-align: center;">
                 <strong>Доска предложений</strong>
             </div>
         </div>
@@ -136,89 +189,86 @@
         msgNum++;
 
         <div class="row" style="border: 1px solid #d8dfe6; border-bottom: 0px; border-style: solid;">
-            <div class="col-md-3" style="background-color: #f0f2f7">
+            <div class="col-md-3">
                 <div style="width: 100%; text-align: left;">
-                    <p>
-                        <div style="color: blue; width:100%; text-align: center; font-size: 16px;">
-                            <strong>
-                                @Html.ActionLink(message.User.FullName, "Card", "Account", new { @user = message.User.Login }, new { @style = "color: #245071" })
-                            </strong>
-                        </div>
-                    </p>
+
                     @if (message.User.Avatar != null)
                     {
-                        <p><img src='/Image/Get?id=@message.User.Avatar.Id' style="width: 100%; height: 100%;  padding-top: 6px;" /></p>
+                        <p>
+                            <a href="~/Account/Card?user=@message.User.Login">
+                                <img src='/Image/Get?id=@message.User.Avatar.Id' style="width: 100%; height: 100%;  padding-top: 6px;" />
+                            </a>
+                        </p>
                     }
                     else
                     {
                         <p><img src='/Image/Get?id=0' style="width: 100%; height: 100%;  padding-top: 6px;" /></p>
                     }
-
-                    <p>
-                        <div style="color: #a0a3b9;">
-                            Я из города:
-                        </div>
-                        <strong>
-                            @message.User.City.Name
-                        </strong>
-                        <div style="color: #a0a3b9;">
-                            Я занимаюсь/работаю:
-                        </div>
-                        <strong>
-                            @message.User.AboutShort
-                        </strong>
-                    </p>
                 </div>
             </div>
             <div class="col-md-9">
                 <div style="padding-top: 5px;">
-                    <div style="color:gray; text-align: left;">
-                        Предложение №@msgNum
+                    <div style="color: blue; width:100%; text-align: left; font-size: 16px;">
+                        <strong>
+                            @Html.ActionLink(message.User.FullName.ToUpper(), "Card", "Account", new { @user = message.User.Login }, new { @style = "color: rgb(204, 0, 1); text-decoration: none;" })
+                        </strong>
                     </div>
+                    <div style="color: blue; width:100%; text-align: left; font-size: 14px;">
+                        @if (message.User.AboutShort != null && !string.IsNullOrEmpty(message.User.AboutShort))
+                        {
+                            <strong>
+                                @Html.ActionLink(message.User.AboutShort, "Card", "Account", new { @user = message.User.Login }, new { @style = "color: gray; text-decoration: none;" })
+                            </strong>
+                        }
+                    </div>
+                    <div style="color: blue; width:100%; text-align: left; font-size: 14px;">
+                        <strong>
+                            @Html.ActionLink(string.Format("{0}, {1}, {2}", message.User.City.Region.Country.Name, message.User.City.Region.Name, message.User.City.Name), "Card", "Account", new { @user = message.User.Login }, new { @style = "color: black; text-decoration: none;" })
+                        </strong>
+                    </div>
+
+                    <div style="color:gray; text-align: left; padding-top: 10px; padding-bottom: 10px;">
+                        Предлагает Вам:
+                    </div>
+
                     <div style="word-wrap: break-word;">
                         @message.Message
                     </div>
                     <div style="color:gray; text-align: right;">
-                        (@message.Date.ToString("dd.MM.yyyy hh:mm:ss"))
+                        (@message.Date.ToString("dd.MM.yyyy HH:mm:ss"))
                     </div>
                 </div>
             </div>
         </div>
         <div class="row" style="border: 1px solid #d8dfe6; border-top: 0px; border-bottom: 0px; background-color: #f0f2f7; font-weight: bold;">
             <div class="col-md-12" style="text-align: right">
-
-                @if (message.User.Login != ViewBag.UserLogin)
-                {
-                    <span>
-                        <a href="#" id="login" class="btn" style="text-decoration: underline; color: #245071">Пожаловаться</a>
-                    </span>
-                    <span style="padding-left: 20px;">
-                        @Html.ActionLink("Написать сообщение", "Write", "Card", new { @toUser = message.User.Login }, new { @style = "color: #245071" })
-                    </span>
-                    <span style="padding-left: 20px;">
-                        <a href="#">Добавить в визитницу</a>
-                    </span>
-                }
-
-                @if (Model.Winner == null)
-                {
-                    if (message.User.Login != ViewBag.UserLogin && Model.User.Login == ViewBag.UserLogin)
+                <div style="padding-top: 10px; padding-bottom: 10px;">
+                    @if (message.User.Login != ViewBag.UserLogin)
                     {
-                        <span style="padding-left: 40px;">
-                            @Html.ActionLink("Выбрать победителем", "SelectWinner", "Tender", new { @tenderId = Model.Id, @userId = message.User.Id }, new { @style = "color: red" })
+                        <span>
+
                         </span>
                     }
-                }
-                else
-                {
-                    if (message.User.Id == Model.Winner.Id)
-                    {
-                        <span style="padding-left: 40px;">
-                            @Html.ActionLink("Победитель торга", "Card", "Account", new { @user = message.User.Login }, new { @style = "color: red" })
-                        </span>
-                    }
-                }
 
+                    @if (Model.Winner == null)
+                    {
+                        if (message.User.Login != ViewBag.UserLogin && Model.User.Login == ViewBag.UserLogin)
+                        {
+                            <span style="padding-left: 40px;">
+                                @Html.ActionLink("Выбрать победителем", "SelectWinner", "Tender", new { @tenderId = Model.Id, @userId = message.User.Id }, new { @style = "", @class = "btn btn-custom-red" })
+                            </span>
+                        }
+                    }
+                    else
+                    {
+                        if (message.User.Id == Model.Winner.Id)
+                        {
+                            <span style="padding-left: 40px;">
+                                @Html.ActionLink("Победитель торга", "Card", "Account", new { @user = message.User.Login }, new { @style = "color: red" })
+                            </span>
+                        }
+                    }
+                </div>
             </div>
         </div>
     }
@@ -235,14 +285,15 @@
             <div class="form-horizontal">
                 <div class="form-group">
                     <div class="col-md-12">
-                        <textarea class="form-control" rows="5" name="Message" placeholder="Максимально подробно опишите условия вашего предложения, указав приемущества перед конкурентами."></textarea>
+                        <textarea class="form-control" rows="5" name="Message" placeholder="Если Вы продавец: максимально подробно опишите условия вашего предложения, указав преимущества перед конкурентами.
+Если Вы покупатель: уточните детали Вашей  заявки или задайте вопрос продавцам."></textarea>
                     </div>
                 </div>
             </div>
 
             <div class="form-group">
                 <div class="" style="text-align: center;">
-                    <button type="button" class="btn btn-two" onclick="addTenderMessage()">Отправить предложение / сообщение</button>
+                    <button type="button" class="btn btn-custom-red" onclick="addTenderMessage()">Отправить предложение / сообщение</button>
                 </div>
             </div>
         }

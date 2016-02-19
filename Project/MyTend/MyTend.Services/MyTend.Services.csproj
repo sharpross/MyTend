@@ -71,6 +71,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Common\AddABC.cs" />
+    <Compile Include="EmailService\AttachFile.cs" />
+    <Compile Include="EmailService\EmailService.cs" />
+    <Compile Include="EmailService\EmailTemplates.cs" />
+    <Compile Include="EmailService\SendEmailData.cs" />
+    <Compile Include="EmailService\SmtpParams.cs" />
     <Compile Include="File\FileControllerService.cs" />
     <Compile Include="File\FileInfo.cs" />
     <Compile Include="File\FileService.cs" />
@@ -87,9 +92,7 @@
     <Compile Include="TenderService.cs" />
     <Compile Include="UserMessagesService.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="EmailService\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\MyTend.Data\MyTend.Data.csproj">
       <Project>{dfe574fd-1293-47d0-87a8-dad8ebb4ff4c}</Project>
