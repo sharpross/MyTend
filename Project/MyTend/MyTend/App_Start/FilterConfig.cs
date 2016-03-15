@@ -19,6 +19,7 @@ namespace MyTend
                 configuration.ForAllControllers().DenyAnonymousAccess();
 
                 configuration.For<ImageController>().AllowAny();
+                configuration.For<FileController>().AllowAny();
                 configuration.For<HomeController>().AllowAny();
                 configuration.For<DocsController>().AllowAny();
                 configuration.For<RegionController>().AllowAny();

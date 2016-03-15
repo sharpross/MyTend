@@ -154,7 +154,7 @@
 
                 }
 
-                RedirectToAction("Index", "Home");
+                //RedirectToAction("Index", "Home");
             }
 
             if (model.Errors.Count > 0)
@@ -162,7 +162,7 @@
                 return View(model);
             }
 
-            return RedirectToAction("Profile");
+            return RedirectToAction("Welcom");
         }
 
         [AllowAnonymous]
@@ -204,6 +204,11 @@
             {
                 throw new Exception(e.Message);
             }
+        }
+
+        public ActionResult Welcom()
+        {
+            return View();
         }
 
         [BanResource]

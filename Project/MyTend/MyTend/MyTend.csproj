@@ -51,6 +51,10 @@
     <Reference Include="Castle.Core">
       <HintPath>..\packages\Castle.Core.2.5.1\lib\NET35\Castle.Core.dll</HintPath>
     </Reference>
+    <Reference Include="FluentEmail, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\fluent-email.1.5\lib\net40\FluentEmail.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="FluentScheduler, Version=3.1.45.0, Culture=neutral, PublicKeyToken=b76503528a14ebd1, processorArchitecture=MSIL">
       <HintPath>..\packages\FluentScheduler.3.1.45\lib\net40\FluentScheduler.dll</HintPath>
       <Private>True</Private>
@@ -61,7 +65,9 @@
     <Reference Include="Iesi.Collections">
       <HintPath>..\packages\Iesi.Collections.1.0.1\lib\Iesi.Collections.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.CSharp">
+      <Private>True</Private>
+    </Reference>
     <Reference Include="NHibernate">
       <HintPath>..\packages\NHibernate.3.0.0.4000\lib\NHibernate.dll</HintPath>
     </Reference>
@@ -75,34 +81,76 @@
       <HintPath>..\packages\Npgsql.3.0.3\lib\net45\Npgsql.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="RazorEngine, Version=3.2.0.0, Culture=neutral, PublicKeyToken=9ee697374c7e744a, processorArchitecture=MSIL">
+      <HintPath>..\packages\RazorEngine.3.2.0\lib\net40\RazorEngine.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Remotion.Data.Linq">
       <HintPath>..\packages\NHibernate.3.0.0.4000\lib\Remotion.Data.Linq.dll</HintPath>
     </Reference>
-    <Reference Include="System" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Web.DynamicData" />
-    <Reference Include="System.Web.Entity" />
-    <Reference Include="System.Web.ApplicationServices" />
-    <Reference Include="System.ComponentModel.DataAnnotations" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Web" />
-    <Reference Include="System.Web.Extensions" />
-    <Reference Include="System.Web.Abstractions" />
-    <Reference Include="System.Web.Routing" />
-    <Reference Include="System.Xml" />
-    <Reference Include="System.Configuration" />
-    <Reference Include="System.Web.Services" />
-    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.DynamicData">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Entity">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.ApplicationServices">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Core">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Extensions">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Abstractions">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Routing">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Configuration">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Services">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.EnterpriseServices">
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
     </Reference>
     <Reference Include="System.Net.Http">
+      <Private>True</Private>
     </Reference>
     <Reference Include="System.Net.Http.WebRequest">
+      <Private>True</Private>
     </Reference>
     <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
@@ -196,36 +244,36 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\common\md5.js" />
     <Content Include="Content\common\md5.min.js" />
+    <Content Include="Content\email\create.html" />
+    <Content Include="Content\email\winner.html" />
+    <Content Include="Content\email\addComent.html" />
+    <Content Include="Content\email\getTender.html" />
+    <Content Include="Content\email\registrationm.html" />
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
-    <Content Include="Content\images\ahtung.png" />
     <Content Include="Content\images\cardBackground.png" />
-    <Content Include="Content\images\info-mini.png" />
-    <Content Include="Content\images\logoMini.png" />
-    <Content Include="Content\images\ok.jpg" />
-    <Content Include="Content\images\image_not_found.png" />
-    <Content Include="Content\images\inf1.png" />
-    <Content Include="Content\images\inf2.png" />
-    <Content Include="Content\images\inf3.png" />
-    <Content Include="Content\images\inf4.png" />
-    <Content Include="Content\images\kats\1.png" />
-    <Content Include="Content\images\kats\10.png" />
-    <Content Include="Content\images\kats\11.png" />
-    <Content Include="Content\images\kats\12.png" />
-    <Content Include="Content\images\kats\13.png" />
-    <Content Include="Content\images\kats\14.png" />
-    <Content Include="Content\images\kats\2.png" />
-    <Content Include="Content\images\kats\3.png" />
-    <Content Include="Content\images\kats\4.png" />
-    <Content Include="Content\images\kats\5.png" />
-    <Content Include="Content\images\kats\6.png" />
-    <Content Include="Content\images\kats\7.png" />
-    <Content Include="Content\images\kats\8.png" />
-    <Content Include="Content\images\kats\9.png" />
-    <Content Include="Content\images\logo.jpg" />
+    <Content Include="Content\images\image_not_found.svg" />
+    <Content Include="Content\images\inf1.svg" />
+    <Content Include="Content\images\inf2.svg" />
+    <Content Include="Content\images\inf3.svg" />
+    <Content Include="Content\images\inf4.svg" />
+    <Content Include="Content\images\info-mini.svg" />
+    <Content Include="Content\images\kats\1.svg" />
+    <Content Include="Content\images\kats\10.svg" />
+    <Content Include="Content\images\kats\2.svg" />
+    <Content Include="Content\images\kats\3.svg" />
+    <Content Include="Content\images\kats\4.svg" />
+    <Content Include="Content\images\kats\5.svg" />
+    <Content Include="Content\images\kats\6.svg" />
+    <Content Include="Content\images\kats\7.svg" />
+    <Content Include="Content\images\kats\9.svg" />
+    <Content Include="Content\images\logo.svg" />
+    <Content Include="Content\images\OnlyForSub.svg" />
+    <Content Include="Content\images\pay.svg" />
     <Content Include="Content\images\robokassa.png" />
+    <Content Include="Content\images\Success.svg" />
+    <Content Include="Content\images\welcom.svg" />
     <Content Include="Content\images\winner.png" />
-    <Content Include="Content\images\znakov.png" />
     <Content Include="Content\ladda.min.css" />
     <Content Include="Content\theme\assets\animate\animate.css" />
     <Content Include="Content\theme\assets\animate\animate.min.css" />
@@ -807,6 +855,7 @@
     <Content Include="Views\Error\Error.cshtml" />
     <Content Include="Views\Error\AccessDenied.cshtml" />
     <Content Include="Views\Tender\Map.cshtml" />
+    <Content Include="Views\Account\Welcom.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

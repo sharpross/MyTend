@@ -18,6 +18,6 @@
 
         public const double _MAX_FILE_SIZE = 3670016;
 
-        public const int _SUB_SUM = 1000;
+        public const int _SUB_SUM = 5;
     }
 }

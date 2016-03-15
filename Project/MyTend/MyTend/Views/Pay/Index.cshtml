@@ -4,7 +4,11 @@
     ViewBag.Title = "Стать продавцом";
 }
 
-<h2>Стать продавцом</h2>
+<div class="form-group" style="text-align: left">
+                            <img src="@Url.Content("~/Content/images/pay.svg")" height="190">
+                            </div>
+							
+
 
 <div class="row">
     <div class="col-lg-12">
@@ -22,7 +26,7 @@
         </div>
         <ol>
             <li>
-                Оплата торгового взноса производится денежными средствами на основании @Html.ActionLink("Договора оказания платных услуг", "Aferta", "Docs", null, new { @style = "color: #316e99;" }), по безналичному расчету на территории РФ и странах ближнего зарубежья, любым удобным и доступным пользователю способом, который предлагает интернет сервис  <a href="http://www.robokassa.ru" target="_blank">ROBOKASSA</a> по отношению к сайту <a href="http://my-tend.com/" target="_blank">Я ПРЕДЛАГАЮ</a>.
+                Оплата торгового взноса производится денежными средствами на основании @Html.ActionLink("Договора оферты", "Jferta", "Docs", null, new { @style = "color: #316e99;" }), по безналичному расчету на территории РФ и странах ближнего зарубежья, любым удобным и доступным пользователю способом, который предлагает интернет сервис  <a href="http://www.robokassa.ru" target="_blank">ROBOKASSA</a> по отношению к сайту <a href="http://my-tend.com/" target="_blank">Www.My-Tend.Com</a>.
             </li>
             <li>
                 После оплаты вы можете проверить статус своей подписки в личном кабинете на странице «Оплата».
@@ -36,14 +40,14 @@
         <p>
             Перед проведением оплаты торгового взноса рекомендуем проверить подписки по оказанию услуг и городов.
         </p>
-        <div style="color: #1e7315; font-weight: bold;"> Право на участие в торгах предоставляется на условиях полной предоплаты торгового взноса в размере 1000 рублей за 1 календарный месяц.</div>
-        </p>
-        <p>
+
+        </ol>
+               <p>
             <div class="text-center">
                 @if (this.ViewBag.HasPay == false)
                 {
                     <input type="checkbox" id="agree" />
-                    @Html.ActionLink("Я ознакомился и принял условия договора платных услуг", "Oferta", "Docs", null, new { @style = "color: ##245071;" })
+                    @Html.ActionLink("Я ознакомился и принял условия договора оферты", "Oferta", "Docs", null, new { @style = "color: #008cc3;" })
                     <div class="text-center">
                         @Html.Raw(ViewBag.PayScript)
                     </div>

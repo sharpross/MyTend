@@ -45,6 +45,10 @@
     <Reference Include="Castle.Core">
       <HintPath>..\packages\Castle.Core.2.5.1\lib\NET35\Castle.Core.dll</HintPath>
     </Reference>
+    <Reference Include="FluentEmail, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\fluent-email.1.5\lib\net40\FluentEmail.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Iesi.Collections">
       <HintPath>..\packages\Iesi.Collections.1.0.1\lib\Iesi.Collections.dll</HintPath>
     </Reference>
@@ -57,12 +61,20 @@
     <Reference Include="NHibernate.Search">
       <HintPath>..\packages\Castle.Activerecord.3.0.0.1\lib\Net40\NHibernate.Search.dll</HintPath>
     </Reference>
+    <Reference Include="RazorEngine, Version=3.2.0.0, Culture=neutral, PublicKeyToken=9ee697374c7e744a, processorArchitecture=MSIL">
+      <HintPath>..\packages\RazorEngine.3.2.0\lib\net40\RazorEngine.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Remotion.Data.Linq">
       <HintPath>..\packages\NHibernate.3.0.0.4000\lib\Remotion.Data.Linq.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Web.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.2.0.20715.0\lib\net40\System.Web.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -71,6 +83,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Common\AddABC.cs" />
+    <Compile Include="Common\Utils.cs" />
     <Compile Include="EmailService\AttachFile.cs" />
     <Compile Include="EmailService\EmailService.cs" />
     <Compile Include="EmailService\EmailTemplates.cs" />
@@ -86,6 +99,7 @@
     <Compile Include="IMigration.cs" />
     <Compile Include="Migrations\Regions\RegionMigration.cs" />
     <Compile Include="Migrations\Tender\TenderThemesMigration.cs" />
+    <Compile Include="Migrations\Tender\TenderThemesMigration2.cs" />
     <Compile Include="Migrations\User\UserMigration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Common\RegionService.cs" />

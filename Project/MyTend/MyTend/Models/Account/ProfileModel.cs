@@ -110,7 +110,10 @@
 
             foreach (var theme in themes)
             {
-                result.Add(theme.Key, theme.ToList());
+                var temp = theme
+                    .OrderBy(x => x.NomberInList)
+                    .ToList();
+                result.Add(theme.Key, temp);
             }
 
             return result;

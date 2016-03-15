@@ -1,8 +1,10 @@
 ﻿namespace MyTender.Security
 {
+    using FluentSecurity;
     using MyTend.Entites;
     using MyTend.Services;
     using MyTend.Services.Common;
+    using System;
     using System.Web.Mvc;
 
     [ErrorAtr]
@@ -57,10 +59,14 @@
             }
             catch
             {
-
+                
             }
             finally
             {
+                if (filterContext.Exception is PolicyViolationException)
+                {
+                    filterContext.Result = new RedirectResult("~/Account/Registration");
+                }
                 if (filterContext.Exception is HttpNotFoundResult)
                 {
                     filterContext.Result = new RedirectResult("~/Error/NotFound");

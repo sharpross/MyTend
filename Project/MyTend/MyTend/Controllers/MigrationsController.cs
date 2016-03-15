@@ -22,7 +22,7 @@
                 var migration = new RegionMigration();
                 migration.Migrate();
 
-                var migration2 = new TenderThemesMigration();
+                var migration2 = new TenderThemesMigration2();
                 migration2.Migrate();
 
                 var migration3 = new UserMigration();

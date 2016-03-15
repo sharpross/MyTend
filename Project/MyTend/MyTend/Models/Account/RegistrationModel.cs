@@ -42,6 +42,7 @@
                 Email = this.Login.ToLower(),
                 Login = this.Login,
                 FullName = this.FullName,
+                Phone = this.Phone,
                 Password = MD5Helper.GetMD5String(this.Password),
                 City = City.FindAllByProperty("Name", this.CityId).FirstOrDefault(),
                 Region = Region.FindAllByProperty("Name", this.RegionId).FirstOrDefault()

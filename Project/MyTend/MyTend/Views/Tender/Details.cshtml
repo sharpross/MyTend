@@ -192,39 +192,114 @@
             <div class="col-md-3">
                 <div style="width: 100%; text-align: left;">
 
-                    @if (message.User.Avatar != null)
+                    @if (Model.Winner != null)
                     {
-                        <p>
-                            <a href="~/Account/Card?user=@message.User.Login">
-                                <img src='/Image/Get?id=@message.User.Avatar.Id' style="width: 100%; height: 100%;  padding-top: 6px;" />
-                            </a>
-                        </p>
+                        if (Model.Winner.Login == ViewBag.UserLogin)
+                        {
+                            <p>
+                                <a href="~/Account/Card?user=@message.User.Login">
+                                    <img src='/Image/Get?id=@message.User.Avatar.Id' style="width: 100%; height: 100%;  padding-top: 6px;" />
+                                </a>
+                            </p>
+                        }
+                        else
+                        {
+                             <p>
+                                 <img src='/Image/Get?id=@message.User.Avatar.Id' style="width: 100%; height: 100%;  padding-top: 6px;" />
+                             </p>
+                        }
                     }
                     else
                     {
-                        <p><img src='/Image/Get?id=0' style="width: 100%; height: 100%;  padding-top: 6px;" /></p>
+                        if (message.User.Avatar != null)
+                        {
+                            <p>
+                                <img src='/Image/Get?id=@message.User.Avatar.Id' style="width: 100%; height: 100%;  padding-top: 6px;" />
+                            </p>
+                        }
+                        else
+                        {
+                            <p><img src='/Image/Get?id=0' style="width: 100%; height: 100%;  padding-top: 6px;" /></p>
+                        }
                     }
                 </div>
             </div>
             <div class="col-md-9">
                 <div style="padding-top: 5px;">
                     <div style="color: blue; width:100%; text-align: left; font-size: 16px;">
-                        <strong>
-                            @Html.ActionLink(message.User.FullName.ToUpper(), "Card", "Account", new { @user = message.User.Login }, new { @style = "color: rgb(204, 0, 1); text-decoration: none;" })
-                        </strong>
-                    </div>
-                    <div style="color: blue; width:100%; text-align: left; font-size: 14px;">
-                        @if (message.User.AboutShort != null && !string.IsNullOrEmpty(message.User.AboutShort))
+                        @if (Model.Winner != null)
                         {
-                            <strong>
-                                @Html.ActionLink(message.User.AboutShort, "Card", "Account", new { @user = message.User.Login }, new { @style = "color: gray; text-decoration: none;" })
+                            if (Model.Winner.Login == ViewBag.UserLogin)
+                            {
+                                <strong>
+                                    @Html.ActionLink(message.User.FullName.ToUpper(), "Card", "Account", new { @user = message.User.Login }, new { @style = "color: rgb(204, 0, 1); text-decoration: none;" })
+                                </strong>
+                            }
+                            else
+                            {
+                                <strong style="color: rgb(204, 0, 1); text-decoration: none;">
+                                    @message.User.FullName.ToUpper()
+                                </strong>
+                            }
+                        }
+                        else
+                        {
+                            <strong style="color: rgb(204, 0, 1); text-decoration: none;">
+                                @message.User.FullName.ToUpper()
                             </strong>
                         }
                     </div>
                     <div style="color: blue; width:100%; text-align: left; font-size: 14px;">
-                        <strong>
-                            @Html.ActionLink(string.Format("{0}, {1}, {2}", message.User.City.Region.Country.Name, message.User.City.Region.Name, message.User.City.Name), "Card", "Account", new { @user = message.User.Login }, new { @style = "color: black; text-decoration: none;" })
-                        </strong>
+                        @if (Model.Winner != null)
+                        {
+                            if (Model.Winner.Login == ViewBag.UserLogin)
+                            {
+                                <strong>
+                                    @Html.ActionLink(message.User.AboutShort, "Card", "Account", new { @user = message.User.Login }, new { @style = "color: gray; text-decoration: none;" })
+                                </strong>
+                            }
+                            else
+                            {
+                                <div style="color: gray; text-decoration: none;">
+                                    @if (message.User.AboutShort != null && !string.IsNullOrEmpty(message.User.AboutShort))
+                                    {
+                                        @message.User.AboutShort
+                                    }
+                                </div>
+                            }
+                        }
+                        else
+                        {
+                            <div style="color: gray; text-decoration: none;">
+                                @if (message.User.AboutShort != null && !string.IsNullOrEmpty(message.User.AboutShort))
+                                {
+                                    @message.User.AboutShort
+                                }
+                            </div>
+                        }
+                    </div>
+                    <div style="color: blue; width:100%; text-align: left; font-size: 14px;">
+                        @if (Model.Winner != null)
+                        {
+                            if (Model.Winner.Login == ViewBag.UserLogin)
+                            {
+                                <strong>
+                                    @Html.ActionLink(string.Format("{0}, {1}, {2}", message.User.City.Region.Country.Name, message.User.City.Region.Name, message.User.City.Name), "Card", "Account", new { @user = message.User.Login }, new { @style = "color: black; text-decoration: none;" })
+                                </strong>
+                            }
+                            else
+                            {
+                                <strong style="color: black; text-decoration: none;">
+                                    @string.Format("{0}, {1}, {2}", message.User.City.Region.Country.Name, message.User.City.Region.Name, message.User.City.Name)
+                                </strong>
+                            }
+                        }
+                        else
+                        {
+                            <strong style="color: black; text-decoration: none;">
+                                @string.Format("{0}, {1}, {2}", message.User.City.Region.Country.Name, message.User.City.Region.Name, message.User.City.Name)
+                            </strong> 
+                        }
                     </div>
 
                     <div style="color:gray; text-align: left; padding-top: 10px; padding-bottom: 10px;">
@@ -293,7 +368,7 @@
 
             <div class="form-group">
                 <div class="" style="text-align: center;">
-                    <button type="button" class="btn btn-custom-red" onclick="addTenderMessage()">Отправить предложение / сообщение</button>
+                    <button id="addMessage" type="button" class="btn btn-custom-red" onclick="addTenderMessage()">Отправить предложение / сообщение</button>
                 </div>
             </div>
         }

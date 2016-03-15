@@ -88,7 +88,7 @@
                         {
                             <div class="card-block">
                                 <div class="card-title">Сайт:</div>
-                                <div class="card-table-content"><a href="@Model.Site" target="_blank">@Model.Site.ToLower().Replace("http://", string.Empty).Replace("https://", string.Empty)</a></div>
+                                <div class="card-table-content"><a href="@Model.Site">@Model.Site.ToLower().Replace("http://", string.Empty).Replace("https://", string.Empty)</a></div>
                             </div>
                         }
                         @if (!string.IsNullOrEmpty(Model.Skype))
@@ -102,7 +102,7 @@
                         {
                             <div class="card-block">
                                 <div class="card-title">ВКонтакте:</div>
-                                <div class="card-table-content"><a href="@Model.VKontakte">@Model.VKontakte.ToLower().Replace("http://", string.Empty).Replace("https://", string.Empty)</a></div>
+                                <div class="card-table-content"><a target="_blank" href="@Model.VKontakte">@Model.VKontakte.ToLower().Replace("http://", string.Empty).Replace("https://", string.Empty)</a></div>
                             </div>
                         }
                         @if (!string.IsNullOrEmpty(Model.Instagram))

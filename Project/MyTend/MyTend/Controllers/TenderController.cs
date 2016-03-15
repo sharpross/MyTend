@@ -3,6 +3,7 @@
     using MyTend.Attributes;
     using MyTend.Entites;
     using MyTend.Models;
+    using MyTend.Services.EmailService;
     using MyTender.Core;
     using MyTender.Security;
     using System;
@@ -68,6 +69,14 @@
             {
                 model.Save();
 
+                try
+                {
+                    var service = new EmailService();
+                    service.CreateTender(model.Id.ToString(), model.Title);
+                }
+                catch
+                { }
+
                 return RedirectToAction("My");
             }
 
@@ -127,6 +136,14 @@
             {
                 var model = new CloseTenderModel(userId, tenderId);
                 model.Close();
+
+                try
+                {
+                    var service = new EmailService();
+                    service.Winner(tenderId.ToString(), model.Winner.Login, model.Tender.Title);
+                }
+                catch
+                { }
             }
             catch(Exception ex)
             {

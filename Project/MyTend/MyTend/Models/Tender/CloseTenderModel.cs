@@ -10,9 +10,9 @@ namespace MyTend.Models
 {
     public class CloseTenderModel
     {
-        private Tender Tender { get; set; }
+        public Tender Tender { get; set; }
 
-        private UserSystem Winner { get; set; }
+        public UserSystem Winner { get; set; }
 
         private AuthService Auth { get; set; }
 

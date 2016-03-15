@@ -21,7 +21,7 @@ namespace MyTend.Models
 
         public ListTendersModel()
         {
-            this.Auth = new AuthService();
+            /*this.Auth = new AuthService();
             this.RegionFilter = new RegionFilterService(Auth.User);
             this.TendersFilter = new TenderFilterService(Auth.User);
 
@@ -41,9 +41,11 @@ namespace MyTend.Models
                 {
                     tenderResult.Add(x);
                 }
-            });
+            });*/
 
-            this.Tenders = tenderResult;
+            var tenders = new TenderService().GetActive();
+
+            this.Tenders = tenders;
         }
     }
 }

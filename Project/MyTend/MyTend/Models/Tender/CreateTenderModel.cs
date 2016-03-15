@@ -106,6 +106,8 @@
             obj.Create();
 
             this.SaveFiles(obj);
+
+            this.Id = obj.Id;
         }
 
         private void SaveFiles(Tender tender)

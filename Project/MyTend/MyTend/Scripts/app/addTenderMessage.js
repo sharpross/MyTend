@@ -1,7 +1,11 @@
 ﻿function addTenderMessage() {
-    var userId = $('input[name=UserId]').val(),
+    var btn = $('button[id=addMessage]'),
+        userId = $('input[name=UserId]').val(),
         temderId = $('input[name=TenderId]').val(),
         msg = $('textarea[name=Message]').val();
+
+    var ani = new kamati.animation.dots(btn);
+    ani.start();
 
     $.ajax({
         type: 'POST',
@@ -15,6 +19,7 @@
         },
         success: function (data) {
             if (data.Success) {
+                ani.stop();
                 window.location.reload();
             } else {
                 
