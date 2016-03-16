@@ -104,7 +104,11 @@
         </div>
 
         <div class="form-group">
+<<<<<<< Updated upstream
             <label for="Title" class="control-label col-md-4">Название заявки:</label>
+=======
+            <label for="Title" class="control-label col-md-4">Название заявки/торгов:</label>
+>>>>>>> Stashed changes
             <div class="col-md-8">
                 <input type="text" required class="form-control" placeholder="" name="Title" maxlength="100" value="@Model.Title" />
             </div>
@@ -113,26 +117,42 @@
         <div class="form-group">
             <label for="Message" class="control-label col-md-4">Текст заявки:</label>
             <div class="col-md-8">
+<<<<<<< Updated upstream
                 <textarea class="form-control" required rows="7" maxlength="8000" name="Message" placeholder="Опишите подробно, что  Вам требуется. Укажите число меропрития, количество приглашённых гостей и прочие необходимые нюансы. "></textarea>
+=======
+                <textarea class="form-control" required rows="7" maxlength="8000" name="Message" placeholder="Максимально подробно опишите детали и условия вашей заявки, укажите дату, место проведения события, количество гостей и прочие условия, которые необходимо учитывать для того что бы сделать Вам выгодное предложение."></textarea>
+>>>>>>> Stashed changes
             </div>
         </div>
 
         <div class="form-group">
+<<<<<<< Updated upstream
             <label for="Cost" class="control-label col-md-4">Предполагаемый бюджет</label>
+=======
+            <label for="Cost" class="control-label col-md-4">Планируемый бюджет</label>
+>>>>>>> Stashed changes
             <div class="col-md-5">
                 <input type="number" min="0" step="1" class="form-control" name="Cost" placeholder="Средняя цена" value="@Model.Cost" />
             </div>
         </div>
 
         <div class="form-group">
+<<<<<<< Updated upstream
             <label for="ListFiles" class="control-label col-md-4">Фото ( при необходимости)</label>
+=======
+            <label for="ListFiles" class="control-label col-md-4">По необходимости, можно прикрепить до 4 фото (до 2 мегабайт)</label>
+>>>>>>> Stashed changes
             <div class="col-md-5">
                 <input type="file" accept="image/*" multiple class="form-control" name="ListFiles" value="" />
             </div>
         </div>
 
         <div class="form-group">
+<<<<<<< Updated upstream
             <label for="SubTheme2" class="control-label col-md-4">Сколько времени Вы будете рассматривать предложения?</label>
+=======
+            <label for="SubTheme2" class="control-label col-md-4">Какое время, Вы планируете рассматривать предложения от исполнителей услуг?</label>
+>>>>>>> Stashed changes
             <div class="col-md-4">
                 <select class="form-control" name="ActiveTime">
                     @if (Model.ActiveTime == "3 дня")
@@ -159,7 +179,7 @@
                     {
                         <option>14 дней</option>
                     }
-                    @if (Model.ActiveTime == "21 дней")
+                    @if (Model.ActiveTime == "21 день")
                     {
                         <option selected="selected">21 день</option>
                     }
@@ -171,11 +191,19 @@
             </div>
         </div>
         <div style="padding: 20px 0px 20px 0px; text-align: center;">
+<<<<<<< Updated upstream
             Нажатие кнопки «Разместить заявку» означает согласие с <a href="~/Docs/Instruction">Инструкцией заполнения заявок</a>.
         </div>
         <div class="form-group">
             <div class="col-md-12" style="text-align: center;">
                 <button type="submit" class="btn btn-custom-red" style="width: 30%">Разместить заявку</button>
+=======
+            Нажатие кнопки «Отправить заявку исполнителям» означает согласие с <a href="~/Docs/Instruction">Инструкцией заполнения заявок</a>.
+        </div>
+        <div class="form-group">
+            <div class="col-md-12" style="text-align: center;">
+                <button type="submit" class="btn btn-custom-red" style="width: 30%">Отправить заявку исполнителям</button>
+>>>>>>> Stashed changes
             </div>
         </div>
     </div>
