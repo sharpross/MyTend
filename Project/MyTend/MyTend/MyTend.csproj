@@ -252,7 +252,8 @@
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\images\cardBackground.png" />
-    <Content Include="Content\images\image_not_found.svg" />
+    <Content Include="Content\images\fun24.png" />
+    <Content Include="Content\images\image_not_found.png" />
     <Content Include="Content\images\inf1.svg" />
     <Content Include="Content\images\inf2.svg" />
     <Content Include="Content\images\inf3.svg" />
@@ -266,6 +267,7 @@
     <Content Include="Content\images\kats\5.svg" />
     <Content Include="Content\images\kats\6.svg" />
     <Content Include="Content\images\kats\7.svg" />
+    <Content Include="Content\images\kats\8.svg" />
     <Content Include="Content\images\kats\9.svg" />
     <Content Include="Content\images\logo.svg" />
     <Content Include="Content\images\OnlyForSub.svg" />

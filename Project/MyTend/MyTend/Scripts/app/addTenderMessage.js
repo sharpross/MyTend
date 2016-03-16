@@ -4,7 +4,7 @@
         temderId = $('input[name=TenderId]').val(),
         msg = $('textarea[name=Message]').val();
 
-    var ani = new kamati.animation.dots(btn);
+    var ani = new kamati.animation.dots(btn[0]);
     ani.start();
 
     $.ajax({

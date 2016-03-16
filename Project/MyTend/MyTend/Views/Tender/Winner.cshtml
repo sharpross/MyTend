@@ -1,0 +1,91 @@
+﻿@model MyTend.Models.WinnerTenderModel
+
+@{
+    ViewBag.Title = "Мои победы в торгах";
+}
+
+<h2>Мои победы в торгах</h2>
+<h4>Предложения, в которых вас выбрали победителем. Теперь вам доступна ссылка на визитку покупателя. Свяжитесь с ним удобным для вас способом (телефон, скайп, электронная почта и др.)</h4>
+
+<div class="tabs">
+    <ul class="nav nav-tabs nav-justified">
+        <li class="active"><a href="#tab5-1" data-toggle="tab" style="text-decoration: none;"><strong></strong></a></li>
+    </ul>
+    <div class="tab-content">
+        <div class="tab-pane active" id="tab5-1">
+            @foreach (var item in Model.Tenders)
+            {
+                <div class="row">
+                    <div class="col-lg-1">
+                        <div>
+                            <a href="~/Tender/Details?id=@item.Id">
+                                <img src="~/Content/images/kats/@item.Theme.ImageName" width="50" height="40" />
+                            </a>
+                        </div>
+                        <div>
+                            @if (item.Winner != null && item.Winner.Login == ViewBag.UserLogin)
+                            {
+                                <a href="~/Tender/Details?id=@item.Id">
+                                    <img src="~/Content/images/winner.png" width="50" height="60" />
+                                </a>
+                            }
+                        </div>
+                    </div>
+                    <div class="col-lg-11">
+                        <table style="width: 100%">
+                            <tr>
+                                <td width="20%" style="text-align: right;">
+                                    <strong>Название торгов:</strong>
+                                </td>
+                                <td style="padding-left: 10px;">
+                                    @item.Title
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="20%" style="text-align: right;">
+                                    <strong>Тема/категория:</strong>
+                                </td>
+                                <td style="padding-left: 10px;">
+                                    @item.Theme.Theme: @item.Theme.Title
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="20%" style="text-align: right;">
+                                    <strong>Регион/Город:</strong>
+                                </td>
+                                <td style="padding-left: 10px;">
+                                    @item.City.Name
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="20%" style="text-align: right;">
+                                    <strong>Бюджет:</strong>
+                                </td>
+                                <td style="padding-left: 10px;">
+                                    @item.Cost.ToString("0.00") руб.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="20%" style="text-align: right;">
+                                    <strong>Период торга:</strong>
+                                </td>
+                                <td style="padding-left: 10px;">
+                                    @string.Format("C " + item.CreatedDateTime.ToString("dd.MM.yyyy") + " до " + item.DateEnd.ToString("dd.MM.yyyy"))
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="20%" style="text-align: right;"></td>
+                                <td style="padding-left: 10px;">
+                                    @Html.ActionLink("Подробнее...", "Details", "Tender", new { id = item.Id }, null)
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div class="rowWhite">
+
+                </div>
+            }
+        </div>
+    </div>
+</div>
