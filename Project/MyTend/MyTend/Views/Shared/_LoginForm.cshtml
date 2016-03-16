@@ -44,11 +44,23 @@
         <p><strong>@Html.ActionLink(loginName, "Card", "Account", new { user = ViewBag.UserLogin }, new { @style = "color: #245071" })</strong></p>
         @if (this.ViewBag.PayEnd != null)
         {
-            <div style="font-size: 10px;">
-                Вы продавец до: @if (this.ViewBag.PayEnd is string)
+            <div style="font-size: 12px;">
+                @if (this.ViewBag.PayEnd is string)
                 {
                     <div>
-                        @this.ViewBag.PayEnd.ToString()
+                        @if (!string.IsNullOrEmpty(this.ViewBag.PayEnd.ToString()))
+                        {
+                            <div>
+                                Вы продавец до: @this.ViewBag.PayEnd.ToString()
+                            </div>
+                        }
+                        else
+                        {
+                            <div>
+                                Вы заказчик
+                            </div>
+                        }
+                        
                     </div>
                 }
                 else

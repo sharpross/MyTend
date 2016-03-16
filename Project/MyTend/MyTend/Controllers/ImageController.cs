@@ -30,7 +30,7 @@
             {
             }
 
-            var dir = Server.MapPath("/Content/images/image_not_found.png");
+            var dir = Server.MapPath("/Content/images/image_not_found.svg");
             var path = Path.Combine(dir);
 
             return base.File(path, "image/png");
