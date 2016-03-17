@@ -269,7 +269,6 @@
     <Content Include="Content\images\kats\7.svg" />
     <Content Include="Content\images\kats\8.svg" />
     <Content Include="Content\images\kats\9.svg" />
-    <Content Include="Content\images\logo.svg" />
     <Content Include="Content\images\OnlyForSub.svg" />
     <Content Include="Content\images\pay.svg" />
     <Content Include="Content\images\robokassa.png" />
