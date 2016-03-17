@@ -4,7 +4,7 @@
     ViewBag.Title = "Заявки от заказчиков/покупателей";
 }
 
-<h2>Заявки от заказчиков</h2>
+<h2>Заявки от заказчиков/покупателей</h2>
 <h4>Список заявок от заказчиков/покупателей, по вашей подписке (вы продавец услуги)  </h4>
 
 <div class="tabs">
@@ -68,7 +68,7 @@
                                 <tr>
                                     <td width="20%" style="text-align: right;"></td>
                                     <td style="padding-left: 10px;">
-                                        @Html.ActionLink("Подробнее...", "Details", "Tender", new { id = item.Id }, null)
+                                        @Html.ActionLink("Посмотреть подробнее...", "Details", "Tender", new { id = item.Id }, null)
                                     </td>
                                 </tr>
                             </table>
