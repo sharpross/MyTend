@@ -264,7 +264,6 @@
     <Content Include="Content\images\kats\2.svg" />
     <Content Include="Content\images\kats\3.svg" />
     <Content Include="Content\images\kats\4.svg" />
-    <Content Include="Content\images\kats\5.svg" />
     <Content Include="Content\images\kats\6.svg" />
     <Content Include="Content\images\kats\7.svg" />
     <Content Include="Content\images\kats\8.svg" />
@@ -796,6 +795,9 @@
     <Content Include="Scripts\spin.min.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="sitemap.xml" />
+    <Content Include="Views\Tender\Create.cshtml">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -826,7 +828,6 @@
     <Content Include="Views\Home\Thanks.cshtml" />
     <Content Include="Views\Home\Support.cshtml" />
     <Content Include="Views\Tender\Index.cshtml" />
-    <Content Include="Views\Tender\Create.cshtml" />
     <Content Include="Views\Tender\My.cshtml" />
     <Content Include="Views\Tender\Details.cshtml" />
     <Content Include="Views\Tender\List.cshtml" />
