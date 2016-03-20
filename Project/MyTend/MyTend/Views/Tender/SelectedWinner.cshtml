@@ -1,0 +1,18 @@
+﻿@model MyTend.Entites.Tender
+
+@{
+    ViewBag.Title = "Победитель определён";
+}
+
+<p>
+    Заявка @Html.ActionLink(Model.Title, "Details", "Tender", new { id = Model.Id }) закрыта и переходит в @Html.ActionLink("Мои заявки", "My", "Tender")/Завершённые торги.
+</p>
+<p>
+    Вы выбрали победителя: @Html.ActionLink(Model.Winner.FullName, "Card", "Account", new { user = Model.Winner.Login })
+</p>
+<p>
+    Свяжитесь с @Html.ActionLink(Model.Winner.FullName, "Card", "Account", new { user = Model.Winner.Login }) используя контакты в его визитке.
+</p>
+<p>
+    <strong>Спасибо что использовали наш сервис!</strong>
+</p>

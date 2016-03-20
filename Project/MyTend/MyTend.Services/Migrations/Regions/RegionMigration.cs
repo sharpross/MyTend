@@ -3171,7 +3171,7 @@ namespace MyTend.Services.Migrations.Regions
             listRu82.Add(new City() { Name = "Яр-Сале", Region = yamnenao });
             this.Create(listRu82);
 
-            var abhaz = new Country() { Name = "Абхазия" };
+            /*var abhaz = new Country() { Name = "Абхазия" };
             abhaz.Create();
 
             var gaga = new Region() { Country = abhaz, Name = "Гагрский район", NomberSort = 0, IsMillion = false };
@@ -3339,7 +3339,7 @@ namespace MyTend.Services.Migrations.Regions
             listRu89.Add(new City() { Name = "Царча", Region =tkuarchel});
             listRu89.Add(new City() { Name = "Чхуартал", Region =tkuarchel});
   
-            this.Create(listRu89);
+            this.Create(listRu89);*/
 
 
 
@@ -3368,7 +3368,7 @@ namespace MyTend.Services.Migrations.Regions
             listRu86listRu86.Add(new City() { Name = "Пинск", Region = brat });
             listRu86listRu86.Add(new City() { Name = "Пружаны", Region = brat });
             listRu86listRu86.Add(new City() { Name = "Столин", Region = brat });
-            this.Create(listRu86);
+            this.Create(listRu86listRu86);
 
             var vitebsk = new Region() { Country = belorus, Name = "Витебская область", NomberSort = 0, IsMillion = true };
             vitebsk.Create();
@@ -3431,7 +3431,7 @@ namespace MyTend.Services.Migrations.Regions
 
             var grodno = new Region() { Country = belorus, Name = "Гродненская область", NomberSort = 0, IsMillion = true };
             grodno.Create();
-            listRu89 = new List<City>();
+            var listRu89 = new List<City>();
 
             listRu89.Add(new City() { Name = "Берёзовка", Region = grodno });
             listRu89.Add(new City() { Name = "Берестовица", Region = grodno });
@@ -3513,7 +3513,7 @@ namespace MyTend.Services.Migrations.Regions
             listRu91.Add(new City() { Name = "Шклов", Region = mogilev });
             this.Create(listRu91);
 
-            var kaz = new Country() { Name = "Казахстан" };
+            /*var kaz = new Country() { Name = "Казахстан" };
             kaz.Create();
 
             var astana = new Region() { Country = kaz, Name = "Астана", NomberSort = 0, IsMillion = true };
@@ -3700,7 +3700,7 @@ namespace MyTend.Services.Migrations.Regions
            listRu110.Add(new City() { Name = "Шардара", Region = ukazobl});
 		   listRu110.Add(new City() { Name = "Шыкмент", Region = ukazobl});
 
-           this.Create(listRu110);
+           this.Create(listRu110);*/
 
 
                  	

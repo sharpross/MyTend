@@ -13,6 +13,30 @@
 
     public class TenderController : BaseController
     {
+        private string tempString = string.Empty;
+
+        protected override void OnActionExecuted(ActionExecutedContext filterContext)
+        {
+            if (this.Auth.User != null)
+            {
+                var active = 0;
+                var winner = 0;
+
+                var model = new ListTendersModel();
+
+                active = model.Tenders.Count;
+
+                var model2 = new WinnerTenderModel();
+                model2.Load();
+                winner = model2.Tenders.Count;
+
+                ViewBag.ActiveCount = active;
+                ViewBag.WinnerCount = winner;
+            }
+
+            base.OnActionExecuted(filterContext);
+        }
+
         /// <summary>
         /// Выбор создания тендера
         /// </summary>
@@ -69,6 +93,8 @@
             {
                 model.Save();
 
+                this.tempString = model.Title;
+
                 try
                 {
                     var service = new EmailService();
@@ -77,10 +103,17 @@
                 catch
                 { }
 
-                return RedirectToAction("My");
+                return RedirectToAction("Created", new { id = model.Id });
             }
 
             return View(model);
+        }
+
+        public ActionResult Created(int id)
+        {
+            var tender = new TenderService().GetTender(id);
+
+            return View(tender);
         }
 
         /// <summary>
@@ -128,6 +161,13 @@
             var model = new TenderDetailsModel(this.Auth, id);
 
             return View(model);
+        }
+
+        public ActionResult SelectedWinner(int id)
+        {
+            var tender = new TenderService().GetTender(id);
+
+            return View(tender);
         }
 
         public ActionResult SelectWinner(int userId, int tenderId)

@@ -1,9 +1,10 @@
-﻿namespace MyTender.Security
+﻿namespace MyTend.Controllers
 {
     using FluentSecurity;
     using MyTend.Entites;
     using MyTend.Services;
     using MyTend.Services.Common;
+    using MyTender.Security;
     using System;
     using System.Web.Mvc;
 
@@ -104,6 +105,12 @@
                 this.ViewBag.IsSubTenders = themesFilter.HasSubs();
                 this.ViewBag.HasPay = payService.HasPay();
                 this.ViewBag.PayEnd = payService.PayEnd();
+
+                var active = new MyTend.Models.TenderService().GetActive().Count;
+                var winner = new MyTend.Models.TenderService().GetWinner().Count;
+
+                ViewBag.ActiveCount = active;
+                ViewBag.WinnerCount = winner;
             }
 
             base.OnActionExecuting(filterContext);

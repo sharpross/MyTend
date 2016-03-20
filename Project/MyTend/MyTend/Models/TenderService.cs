@@ -24,6 +24,11 @@ namespace MyTend.Models
             this.TendersFilter = new TenderFilterService(Auth.User);
         }
 
+        public Tender GetTender(int id)
+        {
+            return Tender.GetById(id);
+        }
+
         /// <summary>
         /// Все мои тендеры
         /// </summary>
