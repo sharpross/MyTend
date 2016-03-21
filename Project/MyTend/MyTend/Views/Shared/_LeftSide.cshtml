@@ -20,10 +20,10 @@
 
         if (ViewBag.ActiveTendersCount == 0)
         {
-            
+
             var count = ViewBag.ActiveCount != 0 ? string.Format("<strong>{0}</strong>", ViewBag.ActiveCount) : string.Empty;
             var activeTitle = string.Format("Заявки от клиентов {0}", count);
-            
+
             <p>
                 @Html.ActionLink((string)activeTitle, "Active", "Tender", null, new { @style = "color: #000000;" })
             </p>
@@ -39,8 +39,8 @@
         </p>
         <p>
             @{
-                var count2 = ViewBag.WinnerCount != 0 ? string.Format("<strong>{0}</strong>", ViewBag.WinnerCount) : string.Empty;
-                var winnerTitle = string.Format("Мои победы в торгах {0}", count2);
+        var count2 = ViewBag.WinnerCount != 0 ? string.Format("<strong>{0}</strong>", ViewBag.WinnerCount) : string.Empty;
+        var winnerTitle = string.Format("Мои победы в торгах {0}", count2);
             }
             @Html.ActionLink((string)winnerTitle, "Winner", "Tender", null, new { @style = "color: #000000;" })
         </p>
@@ -53,3 +53,7 @@
 
 
 </div>
+<div style="padding-top: 10px;"></div>
+<a href="http://banketkazan.ru/" target="_blank">
+    <img src="~/Content/images/nartsiss.svg" style="width: 100%" />
+</a>
