@@ -254,6 +254,7 @@
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\images\cardBackground.png" />
     <Content Include="Content\images\fun24.png" />
+    <Content Include="Content\images\hitoboi.png" />
     <Content Include="Content\images\image_not_found.png" />
     <Content Include="Content\images\inf1.svg" />
     <Content Include="Content\images\inf2.svg" />
@@ -270,8 +271,6 @@
     <Content Include="Content\images\kats\8.svg" />
     <Content Include="Content\images\kats\9.svg" />
     <Content Include="Content\images\logo.svg" />
-    <Content Include="Content\images\OGCard.png" />
-    <Content Include="Content\images\ogHomeIndex.png" />
     <Content Include="Content\images\OnlyForSub.svg" />
     <Content Include="Content\images\pay.svg" />
     <Content Include="Content\images\robokassa.png" />
@@ -782,6 +781,8 @@
     <Content Include="fonts\FontAwesome.otf" />
     <Content Include="Content\images\kats\5.svg" />
     <Content Include="Content\images\nartsiss.svg" />
+    <Content Include="Content\images\image_not_found.svg" />
+    <Content Include="Content\images\BRISTOL.svg" />
     <None Include="Properties\PublishProfiles\1.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
