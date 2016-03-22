@@ -8,21 +8,21 @@
     @if (ViewBag.IsAuth == true)
     {
         <p>
-            @Html.ActionLink("Моя визитка", "Card", "Account", new { user = ViewBag.UserLogin }, new { @style = "color: #000000" })
+            @Html.ActionLink("Моя Визитка", "Card", "Account", new { user = ViewBag.UserLogin }, new { @style = "color: #000000" })
             @Html.ActionLink(" ред.", "Profile", "Account", null, new { @style = "color: gray; font-size: 10px;" })
         </p>
 
-        <p>@Html.ActionLink("Новая заявка", "Index", "Tender", null, new { @style = "color: #000000;" })</p>
+        <p>@Html.ActionLink("Новая Заявка", "Index", "Tender", null, new { @style = "color: #000000;" })</p>
 
         <p>
-            @Html.ActionLink("Мои заявки - я ищу", "My", "Tender", null, new { @style = "color: #000000;" })
+            @Html.ActionLink("Мои Заявки - я ищу", "My", "Tender", null, new { @style = "color: #000000;" })
         </p>
 
         if (ViewBag.ActiveTendersCount == 0)
         {
 
             var count = ViewBag.ActiveCount != 0 ? string.Format("<strong>{0}</strong>", ViewBag.ActiveCount) : string.Empty;
-            var activeTitle = string.Format("Заявки от клиентов {0}", count);
+            var activeTitle = string.Format("Заявки От Клиентов {0}", count);
 
             <p>
                 @Html.ActionLink((string)activeTitle, "Active", "Tender", null, new { @style = "color: #000000;" })
@@ -30,17 +30,17 @@
         }
         else
         {
-            var value = (string)(string.Format("Заявки от клиентов ({0})", ViewBag.ActiveTendersCount).ToString());
+            var value = (string)(string.Format("Заявки От Клиентов ({0})", ViewBag.ActiveTendersCount).ToString());
 
             <p>@Html.ActionLink(value, "Active", "Tender", null, new { @style = "color: #000000;" })</p>
         }
         <p>
-            @Html.ActionLink("Мои предложения заказчикам - я предлагаю", "List", "Tender", null, new { @style = "color: #000000;" })
+            @Html.ActionLink("Мои Предложения Заказчикам", "List", "Tender", null, new { @style = "color: #000000;" })
         </p>
         <p>
             @{
         var count2 = ViewBag.WinnerCount != 0 ? string.Format("<strong>{0}</strong>", ViewBag.WinnerCount) : string.Empty;
-        var winnerTitle = string.Format("Мои победы в торгах {0}", count2);
+        var winnerTitle = string.Format("Мои Победы В Торгах {0}", count2);
             }
             @Html.ActionLink((string)winnerTitle, "Winner", "Tender", null, new { @style = "color: #000000;" })
         </p>
@@ -48,7 +48,7 @@
     }
     else
     {
-        <p>@Html.ActionLink("Как это работает", "AboutWork", "Docs", null, new { @style = "color: #000000;" })</p>
+        <p>@Html.ActionLink("Как Это Работает", "AboutWork", "Docs", null, new { @style = "color: #000000;" })</p>
     }
 
 
