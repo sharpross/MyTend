@@ -1,7 +1,6 @@
 ﻿@model MyTend.Models.ListThemeTenderModel
-
 @{
-    ViewBag.Title = "Сайт, где исполнитель Event услуг, соревнуется за праздник заказчика ";
+    ViewBag.Title = "My-Tend -cайт, где исполнители Event-слуг, соревнуются  за праздник заказчика";
     var max = Model.Themes.Count() - 1;
     var i = 0;
     var itemI = 0;
@@ -14,21 +13,10 @@
     </div>
 </div>
 <br />
-<div class="row">
-    <div class="col-lg-3">
-        <img src="~/Content/images/info-mini1.svg" height="35" />
-    </div>
-    <div class="col-lg-3">
-        <img src="~/Content/images/info-mini2.svg" height="35" />
-    </div>
-    <div class="col-lg-3">
-        <img src="~/Content/images/info-mini3.svg" height="35" />
-    </div>
-    <div class="col-lg-3">
-        <img src="~/Content/images/info-mini4.svg" height="35" />
-    </div>
-</div>
-
+<div style="padding-top: 10px;"></div>
+<a href="https://vk.com/hitoboi" target="_blank">
+    <img src="~/Content/images/info-mini.svg" style="width: 100%" />
+</a>
 <div class="tenderRow" style="padding-top:40px">
 
     @foreach (var item in Model.Themes)
@@ -51,7 +39,8 @@
 
         if (i == 2 || itemI == max)
         {
-            @:</div>
+            @:
+        </div>
         }
 
         if (i == 2)
@@ -66,3 +55,7 @@
         itemI++;
     }
 </div>
+<div style="padding-top: 10px;"></div>
+<a href="https://vk.com/hitoboi" target="_blank">
+    <img src="~/Content/images/hitoboi.png" style="width: 100%" />
+</a>
