@@ -30,7 +30,7 @@
         }
         else
         {
-            var value = (string)(string.Format("Заявки От Клиентов ({0})", ViewBag.ActiveTendersCount).ToString());
+            var value = (string)(string.Format("Заявки От Заказчиков ({0})", ViewBag.ActiveTendersCount).ToString());
 
             <p>@Html.ActionLink(value, "Active", "Tender", null, new { @style = "color: #000000;" })</p>
         }

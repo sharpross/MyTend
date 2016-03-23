@@ -1,7 +1,7 @@
 ﻿@model MyTend.Models.RegistrationModel
 
 @{
-    ViewBag.Title = "Регистрация";
+    ViewBag.Title = "Пройдите регистрацию";
 }
 
 @using (Html.BeginForm(Html.BeginForm("Registration", "Account", FormMethod.Post, new { enctype = "multipart/form-data" })))
@@ -12,7 +12,7 @@
         <div class="col-lg-12">
             <ul class="list-group">
                 <li class="list-group-item list-group-item-success">
-                    Заполняя данную регистрационную форму и нажимая кнопку «Зарегистрироваться», вы автоматически становитесь Покупателем. Если вы хотите стать Продавцом, вам необходимо после регистрации заполнить все остальные вкладки «Визитки» и перейти в раздел меню «Стать продавцом».
+                    Заполняя данную регистрационную форму и нажимая кнопку «Зарегистрироваться», вы автоматически становитесь Заказчиком/Покупателем. Если вы хотите стать Продавцом, вам необходимо после регистрации заполнить все остальные вкладки «Визитки» и перейти в раздел меню «Стать продавцом».
                 </li>
             </ul>
         </div>
@@ -72,16 +72,16 @@
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="form-group">
-                                    <label for="Name">Ваше имя или название компании. которую Вы представляете</label>
-                                    <input type="text" class="form-control" name="FullName" placeholder="Иванов Иван Иванович/ООО Иванов и партнеры" value="@Model.FullName" required>
+                                    <label for="Name">Ваше имя, псевдоним, название банкетного зала, название компании</label>
+                                    <input type="text" class="form-control" name="FullName" placeholder="Иванов Иван/dj.Антон/Банкетный Зал «У Палыча»" value="@Model.FullName" required>
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="form-group">
-                                    <label for="Name">Коротко: кем Вы работаете, чем занимаетесь? (80 символов)</label>
-                                    <input type="text" class="form-control" name="AboutShort" placeholder="Риэлтор/тамада/юрист/домохозяйка" value="@Model.AboutShort">
+                                    <label for="Name">Кем Вы работаете, чем занимаетесь? (80 символов)</label>
+                                    <input type="text" class="form-control" name="AboutShort" placeholder="Ведущий/DJ/организация торжеств/банкетов/дирректор завода/домохозяйка" value="@Model.AboutShort">
                                 </div>
                             </div>
                         </div>
