@@ -15,14 +15,14 @@
         <p>@Html.ActionLink("Новая Заявка", "Index", "Tender", null, new { @style = "color: #000000;" })</p>
 
         <p>
-            @Html.ActionLink("Мои Заявки - я ищу", "My", "Tender", null, new { @style = "color: #000000;" })
+            @Html.ActionLink("Мои Заявки - Я ищу", "My", "Tender", null, new { @style = "color: #000000;" })
         </p>
 
         if (ViewBag.ActiveTendersCount == 0)
         {
 
             var count = ViewBag.ActiveCount != 0 ? string.Format("<strong>{0}</strong>", ViewBag.ActiveCount) : string.Empty;
-            var activeTitle = string.Format("Заявки От Клиентов {0}", count);
+            var activeTitle = string.Format("Заявки От Заказчиков {0}", count);
 
             <p>
                 @Html.ActionLink((string)activeTitle, "Active", "Tender", null, new { @style = "color: #000000;" })
@@ -40,11 +40,11 @@
         <p>
             @{
         var count2 = ViewBag.WinnerCount != 0 ? string.Format("<strong>{0}</strong>", ViewBag.WinnerCount) : string.Empty;
-        var winnerTitle = string.Format("Мои Победы В Торгах {0}", count2);
+        var winnerTitle = string.Format("Мои Победы В Заявках/Торгах {0}", count2);
             }
             @Html.ActionLink((string)winnerTitle, "Winner", "Tender", null, new { @style = "color: #000000;" })
         </p>
-        <p>@Html.ActionLink("Стать продавцом услуг/Доступ к заявкам", "Index", "Pay", null, new { @style = "color: #000000" })</p>
+        <p>@Html.ActionLink("Доступ К Заявкам от Заказчиков", "Index", "Pay", null, new { @style = "color: #000000" })</p>
     }
     else
     {
@@ -55,5 +55,8 @@
 </div>
 <div style="padding-top: 10px;"></div>
 <a href="http://banketkazan.ru/" target="_blank">
-    <img src="~/Content/images/nartsiss.svg" style="width: 100%" />
+    <img src="~/Content/images/nartsiss.gif" style="width: 100%" />
 </a>
+<span>
+    @Html.ActionLink("Рекламодателям", "support", "Home", null, new { @class = "f_m_a" })
+</span>

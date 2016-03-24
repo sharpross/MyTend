@@ -1,13 +1,13 @@
 ﻿@using MyTend.Entites
 
 @{
-    ViewBag.Title = "Доступ к заявкам";
+    ViewBag.Title = "Стать продавцом";
 }
 
 <div class="form-group" style="text-align: left">
-                            <img src="@Url.Content("~/Content/images/pay.svg")" height="190">
-                            </div>
-							
+    <img src="@Url.Content("~/Content/images/pay.svg")" height="140">
+</div>
+
 
 
 <div class="row">
@@ -18,7 +18,7 @@
                 @:Доступ к участию в торгах и получению заявок не оплачен/закрыт
             }
         </p>
-        <div style="color: #65267a; font-weight: bold;">Информация по оплате торгового взноса:</div>
+        <div style="color: #008cc3; font-weight: bold;">Информация по оплате торгового взноса:</div>
         <div>
             <a href="robokassa.ru" title="robokassa.ru" target="_blank">
                 <img src="@Url.Content("~/Content/images/robokassa.png")" height="15">
@@ -29,11 +29,7 @@
                 Оплата торгового взноса производится денежными средствами на основании @Html.ActionLink("Договора оферты", "Jferta", "Docs", null, new { @style = "color: #316e99;" }), по безналичному расчету на территории РФ и странах ближнего зарубежья, любым удобным и доступным пользователю способом, который предлагает интернет сервис  <a href="http://www.robokassa.ru" target="_blank">ROBOKASSA</a> по отношению к сайту <a href="http://my-tend.com/" target="_blank">Www.My-Tend.Com</a>.
             </li>
             <li>
-                После оплаты вы можете проверить статус своей подписки в личном кабинете на странице «Оплата».
-            </li>
-
-            <li>
-                При каких-либо ошибках во время оплаты, Вы можете написать в @Html.ActionLink("Службу поддержки", "Support", "Home", null, new { @style = "color: #316e99;" }).
+                При каких-либо ошибках во время оплаты, Вы можете написать в @Html.ActionLink("Администрации сайта", "Support", "Home", null, new { @style = "color: #316e99;" }).
             </li>
         </ol>
         <div style="color: #bb071c; font-weight: bold;">Внимание важно: </div>
@@ -42,7 +38,7 @@
         </p>
 
         </ol>
-               <p>
+        <p>
             <div class="text-center">
                 @if (this.ViewBag.HasPay == false)
                 {
