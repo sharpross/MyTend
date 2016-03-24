@@ -40,7 +40,7 @@
         <p>
             @{
         var count2 = ViewBag.WinnerCount != 0 ? string.Format("<strong>{0}</strong>", ViewBag.WinnerCount) : string.Empty;
-        var winnerTitle = string.Format("Мои Победы В Заявках/Торгах {0}", count2);
+        var winnerTitle = string.Format("Мои Победы В Торгах {0}", count2);
             }
             @Html.ActionLink((string)winnerTitle, "Winner", "Tender", null, new { @style = "color: #000000;" })
         </p>
