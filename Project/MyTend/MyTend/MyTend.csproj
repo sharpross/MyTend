@@ -781,6 +781,9 @@
     <Content Include="fonts\fontawesome-webfont.eot" />
     <Content Include="fonts\FontAwesome.otf" />
     <Content Include="Content\images\kats\5.svg" />
+    <Content Include="Content\fonts\HelveticaNeueCyr-Bold.otf" />
+    <Content Include="Content\fonts\HelveticaNeueCyr-Light.otf" />
+    <Content Include="Content\fonts\HelveticaNeueCyr-Thin.otf" />
     <None Include="Properties\PublishProfiles\1.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />

@@ -61,6 +61,26 @@
             return View(model);
         }
 
+        public ActionResult Hide(int id)
+        {
+            var exist = TenderHide
+                .FindAll()
+                .Where(x => x.User.Id == this.Auth.User.Id)
+                .FirstOrDefault(x => x.Tender.Id == id);
+
+            if (exist == null)
+            {
+                var hiden = new TenderHide()
+                {
+                    User = this.Auth.User,
+                    Tender = Tender.GetById(id)
+                };
+
+                hiden.Save();
+            }
+
+            return JsonSuccess();
+        }
 
         /// <summary>
         /// Создать тенедер

@@ -29,6 +29,22 @@ namespace MyTend.Models
             return Tender.GetById(id);
         }
 
+        private List<Tender> Filtering(List<Tender> tenders)
+        {
+            var result = new List<Tender>();
+
+            tenders.ForEach(x => {
+                var exist = TenderHide.FindAll().FirstOrDefault(y => y.Tender.Id == x.Id);
+
+                if (exist != null)
+                {
+                    result.Add(x);
+                }
+            });
+
+            return result;
+        }
+
         /// <summary>
         /// Все мои тендеры
         /// </summary>
@@ -47,6 +63,9 @@ namespace MyTend.Models
             tenders.Open = all.Where(x => x.IsActive == true)
                 .ToList();
 
+            tenders.Close = this.Filtering(tenders.Close);
+            tenders.Open = this.Filtering(tenders.Open);
+
             return tenders;
         }
 
@@ -59,7 +78,7 @@ namespace MyTend.Models
             var tenders = new OpenCloseTenders();
 
             var all = TenderMessage.FindAll()
-                .Where(x => x.User.Id != this.Auth.User.Id)
+                .Where(x => x.User.Id == this.Auth.User.Id)
                 .Select(x => x.Tender)
                 .OrderBy(x => x.CreatedDateTime)
                 .ToList();
@@ -68,6 +87,9 @@ namespace MyTend.Models
                 .ToList();
             tenders.Open = all.Where(x => x.IsActive == true)
                 .ToList();
+
+            tenders.Close = this.Filtering(tenders.Close);
+            tenders.Open = this.Filtering(tenders.Open);
 
             return tenders;
         }
@@ -83,6 +105,8 @@ namespace MyTend.Models
                 .Where(x => x.Winner != null && x.Winner.Id == this.Auth.User.Id)
                 .OrderBy(x => x.CreatedDateTime)
                 .ToList();
+
+            all = this.Filtering(all);
 
             return all;
         }
@@ -103,13 +127,15 @@ namespace MyTend.Models
             tenders.ForEach(x =>
             {
                 var exist = TenderMessage.FindAll()
-                    .Any(y => y.User.Id == x.Id);
+                    .Any(y => x.Id == y.Tender.Id);
 
                 if (!exist)
                 {
                     tenderResult.Add(x);
                 }
             });
+
+            tenderResult = this.Filtering(tenderResult);
 
             return tenderResult;
         }

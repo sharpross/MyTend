@@ -94,6 +94,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="TenderFilter\TenderFilter.cs" />
+    <Compile Include="TenderHide\TenderHide.cs" />
     <Compile Include="TenderMessage\TenderMessage.cs">
       <SubType>Code</SubType>
     </Compile>

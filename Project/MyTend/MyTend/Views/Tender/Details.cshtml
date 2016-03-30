@@ -144,8 +144,8 @@
             if (Model.User.Login == ViewBag.UserLogin)
             {
                 <div class="col-md-12" style="text-align: left;">
+                    <strong>Уважаемые заказчики услуг:</strong>
                     <ul>
-                        <strong>Уважаемые заказчики услуг:</strong>
                         <li>Не торопитесь с выбором победителя торга. Дождитесь максимальное количество предложений. Каждое будет выгодно отличаться от предыдущего.</li>
                         <li>Не забывайте писать на "доске предложений" свои вопросы, уточнения или детали, которые должны знать исполнители услуг, предлагая вам свои условия.</li>
                         <li><strong>Выбрав  победителя свяжитесь с ним по телефону</strong>. Назначте встречу для возможного заключения сделки на условиях которые Вас устроили.</li>
@@ -307,7 +307,7 @@
                     </div>
 
                     <div style="word-wrap: break-word;">
-                        @message.Message
+                        @message.Message.Replace("\n", "<br />")
                     </div>
                     <div style="color:gray; text-align: right;">
                         (@message.Date.ToString("dd.MM.yyyy HH:mm:ss"))

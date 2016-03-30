@@ -18,10 +18,10 @@
             @Html.ActionLink("Мои Заявки - Я ищу", "My", "Tender", null, new { @style = "color: #000000;" })
         </p>
 
-        if (ViewBag.ActiveTendersCount == 0)
+        if (ViewBag.ActiveCount == 0)
         {
 
-            var count = ViewBag.ActiveCount != 0 ? string.Format("<strong>{0}</strong>", ViewBag.ActiveCount) : string.Empty;
+            var count = ViewBag.ActiveCount != 0 ? string.Format("{0}", ViewBag.ActiveCount) : string.Empty;
             var activeTitle = string.Format("Заявки От Заказчиков {0}", count);
 
             <p>
@@ -30,7 +30,7 @@
         }
         else
         {
-            var value = (string)(string.Format("Заявки От Заказчиков ({0})", ViewBag.ActiveTendersCount).ToString());
+            var value = (string)(string.Format("Заявки От Заказчиков ({0})", ViewBag.ActiveCount).ToString());
 
             <p>@Html.ActionLink(value, "Active", "Tender", null, new { @style = "color: #000000;" })</p>
         }
