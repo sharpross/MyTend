@@ -1,10 +1,13 @@
 ﻿@model MyTend.Models.ListThemeTenderModel
 @{
-    ViewBag.Title = "My-Tend - тендер по исполнению услуг на Вашей свадьбе, дне рождения, корпоративе";
+    ViewBag.Title = "My-Tend cайт, где исполнители Event-слуг, соревнуются  за праздник заказчика";
     var max = Model.Themes.Count() - 1;
     var i = 0;
     var itemI = 0;
 }
+<a href="http://www.mazan-masters.com" target="_blank">
+    <img src="~/Content/images/MAZAN.png" style="width: 100%" />
+</a>
 <div>
     <div class="row">
         <div class="col-lg-12 text-center">
@@ -37,7 +40,8 @@
 
         if (i == 2 || itemI == max)
         {
-            @:</div>
+            @:
+        </div>
         }
 
         if (i == 2)
