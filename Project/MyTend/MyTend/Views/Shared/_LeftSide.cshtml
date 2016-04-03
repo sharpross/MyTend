@@ -12,12 +12,6 @@
             @Html.ActionLink(" ред.", "Profile", "Account", null, new { @style = "color: gray; font-size: 10px;" })
         </p>
 
-        <p>@Html.ActionLink("Новая Заявка", "Index", "Tender", null, new { @style = "color: #000000;" })</p>
-
-        <p>
-            @Html.ActionLink("Мои Заявки - Я ищу", "My", "Tender", null, new { @style = "color: #000000;" })
-        </p>
-
         if (ViewBag.ActiveCount == 0)
         {
 
@@ -50,9 +44,10 @@
     {
         <p>@Html.ActionLink("Как Это Работает", "AboutWork", "Docs", null, new { @style = "color: #000000;" })</p>
     }
-
-
 </div>
+
+<hr />
+
 <div style="padding-top: 10px;"></div>
 <a href="http://banketkazan.ru/" target="_blank">
     <img src="~/Content/images/nartsiss.gif" style="width: 100%" />

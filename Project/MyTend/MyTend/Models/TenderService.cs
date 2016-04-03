@@ -34,9 +34,11 @@ namespace MyTend.Models
             var result = new List<Tender>();
 
             tenders.ForEach(x => {
-                var exist = TenderHide.FindAll().FirstOrDefault(y => y.Tender.Id == x.Id);
+                var exist = TenderHide
+                    .FindAll()
+                    .FirstOrDefault(y => y.User.Id == x.User.Id && y.Tender.Id == x.Id);
 
-                if (exist != null)
+                if (exist == null)
                 {
                     result.Add(x);
                 }

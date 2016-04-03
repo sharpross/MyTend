@@ -76,23 +76,20 @@ namespace MyTend.Controllers
             return RedirectToAction("Fail");
         }*/
 
-        public ActionResult Success(RobokassaConfirmationRequest confirmationRequest)
+        [HttpGet]
+        public string Result(RobokassaConfirmationRequest confirmationRequest)
         {
-            this.ViewBag.NoIndexing = true;
-
-            ViewBag.Email = this.Request.Url.ToString();
-
             try
             {
 
                 if (confirmationRequest.IsQueryValid(RobokassaQueryType.SuccessURL))
                 {
-                    var userId = int.Parse(confirmationRequest.Shp_item);//GetPrm("Email");
+                    var userId = int.Parse(confirmationRequest.Shp_item);
 
                     var dateBegin = DateTime.Now;
                     var dateEnd = DateTime.Now.AddMonths(1);
 
-                    var user = UserSystem.GetById(userId); //(int.Parse(userId));
+                    var user = UserSystem.GetById(userId); 
 
                     if (user != null)
                     {
@@ -101,13 +98,21 @@ namespace MyTend.Controllers
                         payService.MakePay();
                     }
 
-                    return View(); // content for user
+                    return "OK"; 
                 }
             }
-            catch (Exception) { }
+            catch (Exception) 
+            {
+                return "False";
+            }
 
-            return RedirectToAction("Fail");
-            
+            return "False";
+        }
+
+        public ActionResult Success(RobokassaConfirmationRequest confirmationRequest)
+        {
+            this.ViewBag.NoIndexing = true;
+
             return View();
         }
 
@@ -116,36 +121,6 @@ namespace MyTend.Controllers
             this.ViewBag.NoIndexing = true;
 
             return View();
-        }
-
-        public ActionResult Payresult(RobokassaConfirmationRequest confirmationRequest)
-        {
-            this.ViewBag.NoIndexing = true;
-
-            try
-            {
-                if (confirmationRequest.IsQueryValid(RobokassaQueryType.SuccessURL))
-                {
-                    var userId = int.Parse(confirmationRequest.Shp_item);//GetPrm("Email");
-
-                    var dateBegin = DateTime.Now;
-                    var dateEnd = DateTime.Now.AddMonths(1);
-
-                    var user = UserSystem.GetById(userId); //(int.Parse(userId));
-
-                    if (user != null)
-                    {
-                        var payService = new PayService(user);
-
-                        payService.MakePay();
-                    }
-
-                    return View(); // content for user
-                }
-            }
-            catch (Exception) { }
-
-            return RedirectToAction("Fail");
         }
 
         private bool IsValid()

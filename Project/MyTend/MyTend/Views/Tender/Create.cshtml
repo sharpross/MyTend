@@ -38,7 +38,7 @@
         </div>
         <div class="form-group">
             <label for="TitleString" class="control-label col-md-4">Выберите категорию заявки:</label>
-            <div class="col-md-8">
+            <div class="col-md-4">
                 <select class="form-control" name="TitleId" required>
                     @if (string.IsNullOrEmpty(Model.Theme.Title))
                     {
@@ -119,7 +119,7 @@
 
         <div class="form-group">
             <label for="Cost" class="control-label col-md-4">Планируемый бюджет</label>
-            <div class="col-md-5">
+            <div class="col-md-2">
                 <input type="number" min="0" step="1" class="form-control" name="Cost" placeholder="Средняя цена" value="@Model.Cost" />
             </div>
         </div>
@@ -133,7 +133,7 @@
 
         <div class="form-group">
             <label for="SubTheme2" class="control-label col-md-4">Какое время, Вы планируете рассматривать предложения от исполнителей услуг?</label>
-            <div class="col-md-4">
+            <div class="col-md-2">
                 <select class="form-control" name="ActiveTime">
                     @if (Model.ActiveTime == "3 дня")
                     {

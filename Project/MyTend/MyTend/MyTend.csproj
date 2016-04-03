@@ -899,10 +899,6 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\BetterRobokassa-master\BetterRobokassa-master\RomanPushkin.BetterRobokassa\RomanPushkin.BetterRobokassa.csproj">
-      <Project>{ea6e2524-ffb3-4019-9975-cea866b4c240}</Project>
-      <Name>RomanPushkin.BetterRobokassa</Name>
-    </ProjectReference>
     <ProjectReference Include="..\MyTend.Data\MyTend.Data.csproj">
       <Project>{dfe574fd-1293-47d0-87a8-dad8ebb4ff4c}</Project>
       <Name>MyTend.Data</Name>
@@ -926,6 +922,10 @@
     <ProjectReference Include="..\MyTender.Security\MyTender.Security.csproj">
       <Project>{debbd8b9-34e7-401c-aa0b-d735ade12bce}</Project>
       <Name>MyTender.Security</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\GitHub\Mytend\RomanPushkin.BetterRobokassa\RomanPushkin.BetterRobokassa.csproj">
+      <Project>{ea6e2524-ffb3-4019-9975-cea866b4c240}</Project>
+      <Name>RomanPushkin.BetterRobokassa</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
