@@ -273,6 +273,7 @@
     <Content Include="Content\images\kats\9.svg" />
     <Content Include="Content\images\logo.svg" />
     <Content Include="Content\images\mazan.png" />
+    <Content Include="Content\images\mazanDance.png" />
     <Content Include="Content\images\nartsiss.gif" />
     <Content Include="Content\images\OnlyForSub.svg" />
     <Content Include="Content\images\pay.svg" />
