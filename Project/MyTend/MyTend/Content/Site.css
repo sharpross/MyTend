@@ -1,7 +1,7 @@
 ﻿body {
     font-family: forH6 !important;
-    font-size: 14px;
-    line-height: 20px;
+    font-size: 13px;
+    line-height: 22.4px;
     font-weight: 400;
 }
 
@@ -329,7 +329,7 @@ div.tabs ul.nav-tabs li.active a.tabBlue {
     background-image: -o-linear-gradient(top, #37afb4, #37afb4) !important; 
     background-image: linear-gradient(#37afb4, #37afb4) !important; 
     color: #fff !important; 
-    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.29) !important; 
+    text-shadow: 0 -0px 0 rgba(0, 0, 0, 0.29) !important; 
     -webkit-font-smoothing: antialiased !important;
     text-decoration: none !important;
 }
@@ -414,7 +414,7 @@ section.slice {
 
 /*Цвет центрального блока*/
 .central-color {
-    background-color: white;
+    background-color: #EEE9E9;
 }
 
 /*Цвет левого блока*/
@@ -428,7 +428,7 @@ section.slice {
 }
 
 header {
-    background-color: wheat;
+    background-color: #323131;
 }
 
 .header-btn {
