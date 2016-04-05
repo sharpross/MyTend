@@ -293,7 +293,7 @@ div.tabs ul.nav-tabs li.active a {
 }
 
 div.tabs div.tab-content {
-    background-color: #f0f2f7 !important;
+    background-color: #ffffff !important;
 }
 
 div.tabs ul.nav-tabs li.active a.tabBlue {
@@ -414,7 +414,7 @@ section.slice {
 
 /*Цвет центрального блока*/
 .central-color {
-    background-color: #EEE9E9;
+    background-color: #f2f2f2;
 }
 
 /*Цвет левого блока*/
