@@ -1,24 +1,23 @@
 ﻿@model MyTend.Models.ListThemeTenderModel
 @{
-    ViewBag.Title = "My-Tend cайт, где исполнители Event-услуг, соревнуются  за праздник заказчика";
+    ViewBag.Title = "My-Tend аукцион событий, где исполнители Event-услуг, соревнуются  за праздник заказчика";
     var max = Model.Themes.Count() - 1;
     var i = 0;
     var itemI = 0;
 }
-<a href="http://www.mazan-masters.com/#!blank/cwni" target="_blank">
-    <img src="~/Content/images/MAZAN.png" style="width: 100%" />
-</a>
-<div>
-    <div class="row">
-        <div class="col-lg-12 text-center">
-            @Html.ActionLink("Инструкция заполнения заявок", "Instruction", "Docs")
-        </div>
-    </div>
+<div style="text-align: center;">
+    <a href="http://www.mazan-masters.com" target="_blank">
+        <img src="~/Content/images/MAZAN.png" style="width: 80%" />
+    </a>
 </div>
 <br />
+
 <div style="padding-top: 10px;"></div>
 <img src="~/Content/images/info-mini.svg" style="width: 100%" />
-<div class="tenderRow" style="padding-top:40px">
+<div class="tenderRow" style="padding-top:10px">
+    <div class="form-group" style="text-align: center">
+        <h1><div style="color: #02a6c9;">Выберите нужную Вам услугу</h1>
+    </div>
 
     @foreach (var item in Model.Themes)
     {
@@ -40,7 +39,8 @@
 
         if (i == 2 || itemI == max)
         {
-            @:</div>
+            @:
+        </div>
         }
 
         if (i == 2)
@@ -56,6 +56,8 @@
     }
 </div>
 <div style="padding-top: 10px;"></div>
-<a href="https://vk.com/hitoboi" target="_blank">
-    <img src="~/Content/images/hitoboi.png" style="width: 100%" />
-</a>
+<div style="text-align: center;">
+    <a href="https://vk.com/hitoboi" target="_blank">
+        <img src="~/Content/images/hitoboi.png" style="width: 70%" />
+    </a>
+</div>
