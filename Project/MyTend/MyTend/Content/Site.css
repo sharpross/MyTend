@@ -34,7 +34,7 @@ a.btn.btn-two {
 
 .widget a {
     text-decoration: none !important;
-    color: #ffffff !important;
+    color: #02a6c9 !important;
 }
 
 form a {
@@ -321,7 +321,7 @@ div.tabs ul.nav-tabs li.active a.tabBlue {
 .btn-custom-aqua {
     background-color:#22a8ce !important; 
     background-repeat: repeat-x !important; 
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#55c11e", endColorstr="#308b03") !important; 
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#3aa30b", endColorstr="#308b03") !important; 
     background-image: -khtml-gradient(linear, left top, left bottom, from(#22a8ce), to(#308b03)) !important; 
     background-image: -moz-linear-gradient(top, #22a8ce, #308b03) !important; 
     background-image: -ms-linear-gradient(top, #22a8ce, #308b03) !important; 
@@ -336,16 +336,16 @@ div.tabs ul.nav-tabs li.active a.tabBlue {
 }
 
 .btn-custom-green {
-    background-color: hsl(100, 95%, 28%) !important; 
+    background-color: #3aa30b !important; 
     background-repeat: repeat-x !important; 
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#55c11e", endColorstr="#308b03") !important; 
-    background-image: -khtml-gradient(linear, left top, left bottom, from(#55c11e), to(#308b03)) !important; 
-    background-image: -moz-linear-gradient(top, #55c11e, #308b03) !important; 
-    background-image: -ms-linear-gradient(top, #55c11e, #308b03) !important; 
-    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #55c11e), color-stop(100%, #308b03)) !important; 
-    background-image: -webkit-linear-gradient(top, #55c11e, #308b03) !important; 
-    background-image: -o-linear-gradient(top, #55c11e, #308b03) !important; 
-    background-image: linear-gradient(#55c11e, #55c11e) !important; 
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#3aa30b", endColorstr="#308b03") !important; 
+    background-image: -khtml-gradient(linear, left top, left bottom, from(#3aa30b), to(#308b03)) !important; 
+    background-image: -moz-linear-gradient(top, #3aa30b, #308b03) !important; 
+    background-image: -ms-linear-gradient(top, #3aa30b, #308b03) !important; 
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #3aa30b), color-stop(100%, #308b03)) !important; 
+    background-image: -webkit-linear-gradient(top, #3aa30b, #308b03) !important; 
+    background-image: -o-linear-gradient(top, #3aa30b, #308b03) !important; 
+    background-image: linear-gradient(#3aa30b, #008715) !important; 
     color: #fff !important; 
     text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.29) !important; 
     -webkit-font-smoothing: antialiased !important;
@@ -420,7 +420,7 @@ section.slice {
 
 /*Цвет левого блока*/
 .left-color {
-    background-color: #323131;
+    background-color: #ffffff;
 }
 
 /*Цвет правого блока*/

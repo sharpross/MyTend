@@ -8,6 +8,7 @@
     @if (ViewBag.IsAuth == true)
     {
         <p>
+
             @Html.ActionLink("Моя Визитка", "Card", "Account", new { user = ViewBag.UserLogin }, new { @style = "color: #000000" })
             @Html.ActionLink(" ред.", "Profile", "Account", null, new { @style = "color: gray; font-size: 10px;" })
         </p>
@@ -45,13 +46,7 @@
         <p>@Html.ActionLink("Как Это Работает", "AboutWork", "Docs", null, new { @style = "color: #000000;" })</p>
     }
 </div>
-
-<hr />
-
-<div style="padding-top: 10px;"></div>
-<a href="http://banketkazan.ru/" target="_blank">
-    <img src="~/Content/images/nartsiss.gif" style="width: 100%" />
+<a href="https://vk.com/miamidanceband" target="_blank">
+    <img src="~/Content/images/miamidance.png" style="width: 100%" />
 </a>
-<span>
-    @Html.ActionLink("Рекламодателям", "support", "Home", null, new { @class = "f_m_a" })
-</span>
+
