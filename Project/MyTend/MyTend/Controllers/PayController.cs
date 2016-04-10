@@ -43,39 +43,6 @@ namespace MyTend.Controllers
 
         }
 
-        /*public ActionResult Result(RobokassaConfirmationRequest confirmationRequest)
-        {
-            this.ViewBag.NoIndexing = true;
-
-            ViewBag.Email = this.Request.Url.ToString();
-
-            try
-            {
-
-                if (confirmationRequest.IsQueryValid(RobokassaQueryType.SuccessURL))
-                {
-                    var userId = int.Parse(confirmationRequest.Shp_item);//GetPrm("Email");
-
-                    var dateBegin = DateTime.Now;
-                    var dateEnd = DateTime.Now.AddMonths(1);
-
-                    var user = UserSystem.GetById(userId); //(int.Parse(userId));
-
-                    if (user != null)
-                    {
-                        var payService = new PayService(user);
-
-                        payService.MakePay();
-                    }
-
-                    return View(); // content for user
-                }
-            }
-            catch (Exception) { }
-
-            return RedirectToAction("Fail");
-        }*/
-
         [HttpGet]
         public string Result(RobokassaConfirmationRequest confirmationRequest)
         {
@@ -97,7 +64,7 @@ namespace MyTend.Controllers
 
                         payService.MakePay();
                     }
-
+                    this.Response.Write("OK");
                     return "OK"; 
                 }
             }
