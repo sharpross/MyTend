@@ -7,6 +7,9 @@
 @using (Html.BeginForm("Create", "Tender", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
+    <a href="http://www.mazan-masters.com/#!-/co97" target="_blank">
+        <img src="~/Content/images/MAZANdance.png" style="width: 100%" />
+    </a>
     <div class="form-group" style="text-align: center">
         <h1><div style="color: #02a6c9;">Заполните заявку, указав исполнителям все подробности вашего предстоящего события</h1>
     </div>
@@ -17,7 +20,7 @@
             </div>
             <div class="col-md-8">
                 <br /><br />
-                <h4>Новая заявка - @Model.Theme.Theme</h4>
+                <h2>Новая заявка - @Model.Theme.Theme</h2>
             </div>
         </div>
         <hr />
@@ -181,8 +184,5 @@
             </div>
         </div>
     </div>
-    <a href="http://www.mazan-masters.com/#!-/co97" target="_blank">
-        <img src="~/Content/images/MAZANdance.png" style="width: 100%" />
-    </a>
 }
 <script src="~/Scripts/app/selectRegions.js"></script>
