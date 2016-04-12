@@ -285,6 +285,7 @@
     <Content Include="Content\images\shekotov.png" />
     <Content Include="Content\images\Success.svg" />
     <Content Include="Content\images\tenderStop.jpg" />
+    <Content Include="Content\images\tort.png" />
     <Content Include="Content\images\welcom.svg" />
     <Content Include="Content\images\winner.png" />
     <Content Include="Content\images\zagriev.png" />
@@ -797,6 +798,7 @@
     <Content Include="Content\images\AboutWork.svg" />
     <Content Include="Content\images\VED.svg" />
     <Content Include="Content\images\logobanner.svg" />
+    <Content Include="Content\images\LOGINFORM.svg" />
     <None Include="Properties\PublishProfiles\1.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
