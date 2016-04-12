@@ -24,12 +24,12 @@ a.btn.btn-two {
 
 .wp-theme-1 a {
     text-decoration: underline;
-    color: #008cc3;;
+    color: #0099cc;;
 }
 
 .wp-theme-1 a:hover {
     text-decoration: underline !important;
-    color: #008cc3;;
+    color: #0099cc;;
 }
 
 .widget a {
@@ -159,7 +159,7 @@ div.tabs ul.nav-tabs a:last-child, div.tabs ul.nav-tabs a:last-child:hover {
 
 @font-face {
     font-family: forH2;
-    src: url(fonts/HelveticaNeue.otf) format("opentype");
+    src: url(fonts/HelveticaNeueCyr-Thin.otf ) format("opentype");
 }
 
 @font-face {
@@ -179,7 +179,7 @@ div.tabs ul.nav-tabs a:last-child, div.tabs ul.nav-tabs a:last-child:hover {
 
 @font-face {
     font-family: forH6;
-    src: url(fonts/HelveticaNeueCyr-Light.otf) format("opentype");
+    src: url(fonts/HelveticaNeueCyr-Thin.otf) format("opentype");
 }
 
 .wp-theme-1 h1 {
@@ -190,9 +190,23 @@ div.tabs ul.nav-tabs a:last-child, div.tabs ul.nav-tabs a:last-child:hover {
     font-family: forH2 !important;
 }
 
-.wp-theme1 h3 {
+.wp-theme-1 h3 {
     font-family: forH3 !important;
 }
+
+.wp-theme-1 h4 {
+    font-family: forH4 !important;
+}
+
+.wp-theme-1 h5 {
+    font-family: forH5 !important;
+}
+
+.wp-theme-1 h6 {
+    font-family: Arial, Helvetica, sans-serif !important;
+}
+
+
 .font_black {
     color: black;
 }
@@ -420,7 +434,7 @@ section.slice {
 
 /*Цвет левого блока*/
 .left-color {
-    background-color: #ffffff;
+    background-color: #f4f8f9;
 }
 
 /*Цвет правого блока*/
@@ -442,4 +456,21 @@ header {
 
 .full-size {
     width: 100%;
+}
+
+.abw-head {
+    background-color: #414141;
+    color: #00ccff;
+    padding: 5px;
+    text-transform: uppercase;
+}
+
+.abw-text {
+    background-color: #e7e7e7;
+    padding: 5px;
+}
+
+.menu-left {
+    font-weight: bold;
+    padding-left: 10px;
 }

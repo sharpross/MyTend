@@ -1,55 +1,38 @@
 ﻿<header>
     <div style="width: 100%; border-bottom: 0px solid #f0eded; padding-top: 10px;">
-        <div class="container">
+        <div class="">
             <div class="row">
-                <div class="col-md-2"></div>
-                <div class="col-md-8">
+                <div class="col-md-3"></div>
+                <div class="col-md-5">
                     <div style="text-align: center;">
                         <a href="~/Home/Index" title="MY-TEND.COM" style="text-decoration: none;">
-                            <img src="@Url.Content("~/Content/images/logo.svg")" height="130
-							">
+                            <img src="@Url.Content("~/Content/images/logo.svg")" height="130">
                         </a>
                         <br />
                         <div style="text-align: center;">
-                            <h5> <div style="color: #02a6c9;"> <strong>Сайт, где Исполнитель Event услуг соревнуется за праздник Заказчика</strong></h5>
-
+                            <h6 style="color: #02a6c9;"><strong>Сайт, где Исполнитель Event услуг соревнуется за праздник Заказчика</strong></h6>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-2">
                     @RenderPage("_LoginForm.cshtml")
                 </div>
+                <div class="col-md-2">
+                    @if (ViewBag.IsAuth == true)
+                    {
+                        <div class="row">
+                            <div class="col-lg-2"></div>
+                            <div class="col-lg-8">
+                                <a href="~/Tender/Index" class="btn btn-custom-red header-btn full-size"><strong>Оставьте заявку <br>испонителям</strong></a>
+                                <br />
+                                <br />
+                                <a href="~/Tender/My" class="btn btn-custom-aqua header-btn full-size"><strong>Проверить предложения <br>от исполнителей</strong></a>
+                            </div>
+                            <div class="col-lg-2"></div>
+                        </div>
+                    }
+                </div>
             </div>
         </div>
     </div>
 </header>
-
-<div style="width: 100%; background-color: #ffffff;">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-2"></div>
-            <div class="col-md-8">
-                @if (ViewBag.IsAuth == true)
-                {
-                    <div class="row">
-                        <div class="col-lg-4">
-
-                        </div>
-                        <div class="col-lg-4">
-                            <a href="~/Tender/Index" class="btn btn-custom-red header-btn full-size"><strong>Оставьте заявку <br>испонителям</strong></a>
-                        </div>
-                        <div class="col-lg-4">
-                            <a href="~/Tender/My" class="btn btn-custom-aqua header-btn full-size"><strong>Проверить предложения <br>от исполнителей</strong></a>
-                        </div>
-                        <div class="col-lg-4">
-
-                        </div>
-                    </div>
-                }
-            </div>
-            <div class="col-md-2">
-
-            </div>
-        </div>
-    </div>
-</div>

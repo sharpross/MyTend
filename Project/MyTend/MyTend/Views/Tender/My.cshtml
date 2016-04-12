@@ -5,8 +5,9 @@
 }
 
 <h1><div style="color: #23b0ce;">Ваши заявки исполнителям Event-услуг</h1>
-<h2><div style="color: #000000;">В этом меню Вы можете видеть список ваших заявок и проверять наличие предложений от иполнителей услуг (вы заказчик услуги)</h2>
-
+<hr />
+<h3><div style="color: #000000;">В этом меню Вы можете видеть список ваших заявок и проверять наличие предложений от иполнителей услуг (вы заказчик услуги)</h3>
+<hr />
 <div class="tabs">
     <ul class="nav nav-tabs nav-justified">
         <li class="active"><a href="#tab5-1" data-toggle="tab" style="text-decoration: none;"><strong>Идет выбор исполнителя заявки</strong></a></li>
@@ -139,6 +140,12 @@
                                 <td width="20%" style="text-align: right;"></td>
                                 <td style="padding-left: 10px;">
                                     @Html.ActionLink("Подробнее...", "Details", "Tender", new { id = item.Id }, null)
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="20%" style="text-align: right;"></td>
+                                <td style="padding-left: 10px; text-align: right;">
+                                    <a href="#" style="color: red;" onclick="hideTender(@item.Id)"><span class="fa fa-trash"></span> Удалить</a>
                                 </td>
                             </tr>
                         </table>
