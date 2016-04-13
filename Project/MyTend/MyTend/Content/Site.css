@@ -481,3 +481,7 @@ header {
 .left-side-counter {
     color: #CC7921;
 }
+
+.head-backgound {
+    background: url(images/bek.png) 100% 100% no-repeat;
+}

@@ -1,32 +1,40 @@
 ﻿<header>
-    <div style="width: 100%; border-bottom: 0px solid #f0eded; padding-top: 10px;">
+    <div style="border-bottom: 0px solid #f0eded;">
         <div class="">
             <div class="row">
-                <div class="col-md-3"></div>
-                <div class="col-md-5">
-                    <div style="text-align: center;">
-                        <a href="~/Home/Index" title="MY-TEND.COM" style="text-decoration: none;">
-                            <img src="@Url.Content("~/Content/images/logo.svg")" height="130">
-                        </a>
-                        <br />
-                        <div style="text-align: center;">
-                            <h6 style="color: #02a6c9;"><strong>Сайт, где Исполнитель Event услуг соревнуется за праздник Заказчика</strong></h6>
+                <div class="col-md-2"></div>
+                <div class="col-md-8 head-backgound">
+                    <div class="row">
+                        <div class="col-md-3">
+
+                        </div>
+                        <div class="col-md-6">
+                            <div style="text-align: center;">
+                                <a href="~/Home/Index" title="MY-TEND.COM" style="text-decoration: none;">
+                                    <img src="@Url.Content("~/Content/images/logo.svg")" height="130">
+                                </a>
+                                <br />
+                                <div style="text-align: center;">
+                                    <h6 style="color: #02a6c9;"><strong>Сайт, где Исполнитель Event услуг соревнуется за праздник Заказчика</strong></h6>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            @RenderPage("_LoginForm.cshtml")
                         </div>
                     </div>
-                </div>
-                <div class="col-md-2">
-                    @RenderPage("_LoginForm.cshtml")
+
                 </div>
                 <div class="col-md-2">
                     <div class="row">
                         <div class="col-lg-1"></div>
-                        <div class="col-lg-8">
-                            <a href="~/Tender/Index" class="btn btn-custom-red header-btn full-size"><strong>Оставьте <br>заявку </strong></a>
+                        <div class="col-lg-8" style="text-align: center;">
+                            <a href="~/Tender/Index" class="btn btn-custom-red header-btn" style="width: 200px;"><strong>Оставьте заявку </strong></a>
                             @if (ViewBag.IsAuth == true)
                             {
                                 <br />
                                 <br />
-                                <a href="~/Tender/My" class="btn btn-custom-aqua header-btn full-size"><strong>Проверить<br>предложения</strong></a>
+                                <a href="~/Tender/My" class="btn btn-custom-aqua header-btn" style="width: 200px;"><strong>Проверить предложения</strong></a>
                             }
                         </div>
                         <div class="col-lg-1"></div>
