@@ -799,6 +799,9 @@
     <Content Include="Content\images\VED.svg" />
     <Content Include="Content\images\logobanner.svg" />
     <Content Include="Content\images\LOGINFORM.svg" />
+    <Content Include="Content\fonts\proximanova-bold.otf" />
+    <Content Include="Content\fonts\CODE Bold.otf" />
+    <Content Include="Content\fonts\CODE Light.otf" />
     <None Include="Properties\PublishProfiles\1.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />

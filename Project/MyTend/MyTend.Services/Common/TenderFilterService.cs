@@ -57,10 +57,10 @@
         /// <param name="filtres"></param>
         public void SaveFiltres(List<int> filtres)
         {
+            this.ClearAllFiltres();
+
             if (filtres != null)
             {
-                this.ClearAllFiltres();
-
                 foreach (var id in filtres)
                 {
                     var theme = TenderTheme.GetById(id);

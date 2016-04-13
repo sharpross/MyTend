@@ -38,15 +38,14 @@
                     <a href="~/Tender/Create?id=@item.Id"><img src="~/Content/images/kats/@item.ImageName" class="tenderImg" width="150" height="120" /></a>
                 </p>
                 <p>
-                    <h4>@Html.ActionLink(item.Theme, "Create", "Tender", new { @id = item.Id }, new { @style = "color: #245071;", @class = "no_line" })</h4>
+                    <h4>@Html.ActionLink(item.Theme, "Create", "Tender", new { @id = item.Id }, new { @style = "color: #02a6c9;", @class = "no_line" })</h4>
                 </p>
             </div>
         </div>
 
         if (i == 2 || itemI == max)
         {
-            @:
-        </div>
+            @:</div>
         }
 
         if (i == 2)

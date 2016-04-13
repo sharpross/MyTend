@@ -17,7 +17,7 @@
             {
                 foreach (var item in Model.Tenders)
                 {
-                    <div class="row">
+                    <div class="row" id="tenderrow-@item.Id">
                         <div class="col-lg-1">
                             <a href="~/Tender/Details?id=@item.Id">
                                 <img src="~/Content/images/kats/@item.Theme.ImageName" width="70" height="60" />

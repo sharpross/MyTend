@@ -1,4 +1,4 @@
-﻿
+﻿ 
 <style>
     div .menu-space {
         padding-bottom: 10px;
@@ -8,43 +8,75 @@
     @if (ViewBag.IsAuth == true)
     {
         <p>
-        </p>
-        <hr />
-        <div style="font-style: italic">Mеню Исполнителя:</div>
-        <p>
             <i class="icon-briefcase"></i>
 
             @Html.ActionLink("Моя Визитка", "Card", "Account", new { user = ViewBag.UserLogin }, new { @style = "color: #000000" })
             @Html.ActionLink(" ред.", "Profile", "Account", null, new { @style = "color: gray; font-size: 10px;" })
         </p>
 
-        if (ViewBag.ActiveCount == 0)
-        {
+        <p>
+            <a href="~/Tender/Active">
+                Заявки От Заказчиков
+                @if (ViewBag.ActiveCount > 0)
+                {
+                    @: <span class="left-side-counter">+@ViewBag.ActiveCount</span>
+                }
+            </a>
 
-            var count = ViewBag.ActiveCount != 0 ? string.Format("{0}", ViewBag.ActiveCount) : string.Empty;
-            var activeTitle = string.Format("Заявки От Заказчиков {0}", count);
-
-            <p>
-                @Html.ActionLink((string)activeTitle, "Active", "Tender", null, new { @style = "color: #000000;" })
-            </p>
-        }
-        else
-        {
-            var value = (string)(string.Format("Заявки От Заказчиков ({0})", ViewBag.ActiveCount).ToString());
-
-            <p>@Html.ActionLink(value, "Active", "Tender", null, new { @style = "color: #000000;" })</p>
-        }
+        </p>
         <p>
             @Html.ActionLink("Мои Предложения Заказчикам", "List", "Tender", null, new { @style = "color: #000000;" })
         </p>
         <p>
-            @{
-        var count2 = ViewBag.WinnerCount != 0 ? string.Format("<strong>{0}</strong>", ViewBag.WinnerCount) : string.Empty;
-        var winnerTitle = string.Format("Мои Победы В Торгах {0}", count2);
-            }
-            @Html.ActionLink((string)winnerTitle, "Winner", "Tender", null, new { @style = "color: #000000;" })
+            <a href="~/Tender/Winner">
+                Мои Победы В Торгах
+                @if (ViewBag.WinnerCount > 0)
+                {
+                    @: <span class="left-side-counter">+@ViewBag.WinnerCount</span>
+                }
+            </a>
         </p>
         <p>@Html.ActionLink("Доступ К Заявкам от Заказчиков", "Index", "Pay", null, new { @style = "color: #000000" })</p>
+
+    <div style="font-size: 12px;" >
+        @if (this.ViewBag.PayEnd != null)
+        {
+            if (this.ViewBag.PayEnd is string)
+            {
+                <div>
+                    @if (!string.IsNullOrEmpty(this.ViewBag.PayEnd.ToString()))
+                    {
+                        <div class="alert alert-success">
+                            Вы исполнитель усуг до: @this.ViewBag.PayEnd.ToString()
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="alert alert-info">
+                            Доступ к заявкам не оплачен
+                        </div>
+                    }
+
+                </div>
+            }
+            else
+            {
+                if (this.ViewBag.PayEnd != null)
+                {
+                    <div class="alert alert-success">
+                        Вы исполнитель усуг до: @this.ViewBag.PayEnd.ToString("dd.MM.yyyy")
+                    </div>
+                }
+            }
+        }
+        else
+        {
+            <div style="font-size: 12px;" class="alert alert-info">
+                Доступ к заявкам не оплачен
+            </div>
+        }
+    </div>
+
         <hr />
     }
     else
@@ -54,8 +86,8 @@
     }
 </div>
 <div class="form-group" style="text-align: center">
-    <div style="font-style: italic">Реклама</div>
+    <div style="font-style: italic; text-align: center;">Реклама</div>
     <a href="https://vk.com/miamidanceband" target="_blank">
-        <img src="~/Content/images/miamidance.png" style="width: 90%" />
+        <img src="~/Content/images/miamidance.png" style="width: 70%" />
     </a>
 </div>

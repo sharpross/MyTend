@@ -1,21 +1,23 @@
 ﻿@model MyTend.Entites.Tender
-
 @{
     ViewBag.Title = "Победитель заявки/торга, определён";
 }
+
 <div class="form-group" style="text-align: center">
     <img src="@Url.Content("~/Content/images/tenderStop.jpg")" height="190">
 </div>
+
 <h2>Победитель аукционного торга, определён!</h2>
-        <p>
-            Заявка @Html.ActionLink(Model.Title, "Details", "Tender", new { id = Model.Id }) закрыта и переходит в @Html.ActionLink("Мои заявки", "My", "Tender")/Завершённые торги.
-        </p>
-        <p>
-            Вы выбрали победителем: @Html.ActionLink(Model.Winner.FullName, "Card", "Account", new { user = Model.Winner.Login })
-        </p>
-        <p>
-            Свяжитесь с @Html.ActionLink(Model.Winner.FullName, "Card", "Account", new { user = Model.Winner.Login }) используя контакты в его визитке.
-        </p>
-        <p>
-            <strong>Спасибо, что используете наш сервис!</strong>
-        </p>
+
+<p>
+    Заявка <a href="~/Tender/Details?id=@Model.Id">@Model.Title</a> закрыта и переходит в @Html.ActionLink("Мои заявки", "My", "Tender")/Завершённые торги.
+</p>
+<p>
+    Вы выбрали победителем: @Html.ActionLink(Model.Winner.FullName, "Card", "Account", new { user = Model.Winner.Login }, null)
+</p>
+<p>
+    Свяжитесь с @Html.ActionLink(Model.Winner.FullName, "Card", "Account", new { user = Model.Winner.Login }, null) используя контакты в его визитке.
+</p>
+<p>
+    <strong>Спасибо, что используете наш сервис!</strong>
+</p>

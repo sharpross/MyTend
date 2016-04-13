@@ -18,19 +18,20 @@
                     @RenderPage("_LoginForm.cshtml")
                 </div>
                 <div class="col-md-2">
-                    @if (ViewBag.IsAuth == true)
-                    {
-                        <div class="row">
-                            <div class="col-lg-2"></div>
-                            <div class="col-lg-8">
-                                <a href="~/Tender/Index" class="btn btn-custom-red header-btn full-size"><strong>Оставьте заявку <br>испонителям</strong></a>
+                    <div class="row">
+                        <div class="col-lg-1"></div>
+                        <div class="col-lg-8">
+                            <a href="~/Tender/Index" class="btn btn-custom-red header-btn full-size"><strong>Оставьте <br>заявку </strong></a>
+                            @if (ViewBag.IsAuth == true)
+                            {
                                 <br />
                                 <br />
-                                <a href="~/Tender/My" class="btn btn-custom-aqua header-btn full-size"><strong>Проверить предложения <br>от исполнителей</strong></a>
-                            </div>
-                            <div class="col-lg-2"></div>
+                                <a href="~/Tender/My" class="btn btn-custom-aqua header-btn full-size"><strong>Проверить<br>предложения</strong></a>
+                            }
                         </div>
-                    }
+                        <div class="col-lg-1"></div>
+                    </div>
+                    
                 </div>
             </div>
         </div>

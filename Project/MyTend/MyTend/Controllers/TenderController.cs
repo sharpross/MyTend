@@ -210,7 +210,7 @@
                 return JsonFailur(ex.Message);
             }
 
-            return RedirectToAction("Details", new { @id = tenderId});
+            return RedirectToAction("SelectedWinner", new { @id = tenderId });
         }
 
         public ActionResult CancelTender(int id)

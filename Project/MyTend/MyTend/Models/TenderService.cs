@@ -33,10 +33,13 @@ namespace MyTend.Models
         {
             var result = new List<Tender>();
 
+            var filtresByUser = TenderHide.FindAll()
+                .Where(x => x.User.Id == this.Auth.User.Id)
+                .ToList();
+            
             tenders.ForEach(x => {
-                var exist = TenderHide
-                    .FindAll()
-                    .FirstOrDefault(y => y.User.Id == x.User.Id && y.Tender.Id == x.Id);
+                var exist = filtresByUser
+                    .FirstOrDefault(f => f.Tender.Id == x.Id);
 
                 if (exist == null)
                 {
@@ -123,6 +126,13 @@ namespace MyTend.Models
             var tenders = this.TendersFilter.GetByListTenders(regionFiltered)
                 .Where(x => x.IsActive)
                 .ToList();
+
+            if (this.Auth != null && this.Auth.User != null)
+            {
+                tenders = tenders
+                .Where(x => x.User.Id != this.Auth.User.Id)
+                .ToList();
+            }
 
             var tenderResult = new List<Tender>();
 

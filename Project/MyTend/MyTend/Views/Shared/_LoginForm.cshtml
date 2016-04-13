@@ -1,8 +1,8 @@
 ﻿@if (ViewBag.IsAuth == false)
 {
     <div style="text-align: center;">
-        <p><a href="#" id="login" class="btn" style="text-decoration: underline;">Войти</a></p>
-        <p><a href="~/Account/Registration" id="login" class="btn" style="text-decoration: underline;">Зарегистрируйтесь</a></p>
+        <p><a href="#" id="login" class="btn" style="text-decoration: underline; color: white;">Войти</a></p>
+        <p><a href="~/Account/Registration" id="login" class="btn" style="text-decoration: underline; color: white;">Зарегистрируйтесь</a></p>
     </div>
 
     <div id="loginForm" class="modal">
@@ -11,7 +11,7 @@
                 <div class="modal-body">
                     <form name="LoginForm" action="/Account/Login" method="post">
                         <div class="form-group" style="text-align: center">
-                            <img src="@Url.Content("~/Content/images/logo.svg")" height="65">
+                            <img src="@Url.Content("~/Content/images/logobanner.svg")" height="65">
                             <div>
                                 <strong>Сайт, где исполнитель Event услуг соревнуется за праздник заказчика</strong>
                             </div>
@@ -41,46 +41,9 @@
     string loginName = ViewBag.UserLogin.ToString();
 
     <div style="text-align: center;">
-        <p><strong>@Html.ActionLink(loginName, "Card", "Account", new { user = ViewBag.UserLogin }, new { @style = "color: #245071" })</strong></p>
-        @if (this.ViewBag.PayEnd != null)
-        {
-            <div style="font-size: 12px;">
-                @if (this.ViewBag.PayEnd is string)
-                {
-                    <div>
-                        @if (!string.IsNullOrEmpty(this.ViewBag.PayEnd.ToString()))
-                        {
-                            <div>
-                                Вы исполнитель усуг до: @this.ViewBag.PayEnd.ToString()
-                            </div>
-                        }
-                        else
-                        {
-                            <div>
-                                Вы заказчик услуг
-                            </div>
-                        }
-                        
-                    </div>
-                }
-                else
-                {
-                    if (this.ViewBag.PayEnd != null)
-                    {
-                        <div>
-                            @this.ViewBag.PayEnd.ToString("dd.MM.yyyy")
-                        </div>
-                    }
-                }
-            </div>
-        }
-        else
-        {
-            <div style="font-size: 10px;">
-                Вы заказчик услуг
-            </div>
-        }
-        <p><strong><a name="LogoutButton" style="color: #245071;">Выход</a></strong></p>
+        <p><strong>@Html.ActionLink(loginName, "Card", "Account", new { user = ViewBag.UserLogin }, new { @style = "color: white" })</strong></p>
+        
+        <p><strong><a name="LogoutButton" style="color: white;">Выход</a></strong></p>
     </div>
 }
 <script src="~/Scripts/app/login.js"></script>
