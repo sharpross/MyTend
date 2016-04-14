@@ -42,7 +42,7 @@
         <li class=""><a href="#tab5-1" data-toggle="tab" style="text-decoration: none;">Визитка</a></li>
         <li class=""><a href="#tab5-2" data-toggle="tab" style="text-decoration: none;">Портфолио</a></li>
         <li class=""><a href="#tab5-3" data-toggle="tab" style="text-decoration: none;">Об услуге</a></li>
-        <li class=""><a href="#tab5-4" data-toggle="tab" style="text-decoration: none;">Категории заявкок/торгов</a></li>
+        <li class=""><a href="#tab5-4" data-toggle="tab" style="text-decoration: none;">Категории/темы заявкок</a></li>
         <li class=""><a href="#tab5-5" data-toggle="tab" style="text-decoration: none;">Регионы и города</a></li>
     </ul>
 
@@ -239,7 +239,7 @@
         <!-- Портфолио -->
         <div class="tab-pane" id="tab5-2">
             <div style="padding-bottom: 20px;">
-                Разместите несколько фотографий с вашей работой. Наглядность вашей деятельности увеличит шанс на успех среди заказчиков.
+                <h3>  Разместите несколько фотографий с вашей работой. Наглядность вашей деятельности увеличит шанс на успех среди заказчиков.</h3>
             </div>
             @using (Html.BeginForm("UpdateProfiles", "Account", FormMethod.Post, new { enctype = "multipart/form-data" }))
             {
@@ -302,10 +302,10 @@
         <!-- Об услуге -->
         <div class="tab-pane" id="tab5-3">
             <div style="padding-bottom: 20px;">
-                В данном поле опишите как можно подробнее об услуге, которую Вы оказываете. Информация в данном разделе не должна нарушать законы РФ, должна быть правдивой и соответствовать правилам добросовестной конкуренции.
+                <h3> В данном разделе опишите  об услуге, которую Вы оказываете. </h3>
+                <h3> Максимальная  длина текста, до 10.000 символов.</h3>
+                Информация в данном разделе не должна нарушать законы РФ, должна быть правдивой и соответствовать правилам добросовестной конкуренции.
                 <div style="color: #cc0001  ; font-weight: bold;">Утверждения рекламного характера, а также прилагательных в превосходной степени «самый», «полный», «дешевый», «лучший», «единственный» и им подобных, не допускается.</div>
-                <div style="color: #000000  ; font-weight: bold;">Максимальная  длина текста, до 10.000 символов.</div>
-                После внесенных изменений, перед тем как покинуть вкладку нажмите кнопку<strong> «Сохранить»</strong>.
             </div>
             <div class="row">
                 <form method="post" action="UpdateProfile">
@@ -349,10 +349,8 @@
 
         <!-- Тендеры -->
         <div class="tab-pane" id="tab5-4">
-            <div style="padding-bottom: 20px;">
-                Уважаемые исполнители услуг!
-            </div>
-            Выберите услуги, заявки на которые Вы  желаете получать от заказчиков.
+            <h3> Что бы получать заявки только на услуги которые Вы оказываете, укажите их системе.</h3>
+
             <div style="padding-bottom: 20px;">
                 Темы показаны, по примеру запроса от лица заказчика.  У Вас есть возможность подписаться на <strong>10</strong> тем.
                 После внесенных изменений, перед тем как покинуть вкладку нажмите кнопку<strong> «Подписаться»</strong>.
@@ -386,7 +384,7 @@
                                                     }
                                                     else
                                                     {
-                                                        <div style="font-weight: bold; color: #ce0e0e">
+                                                        <div style="font-weight: bold; color: #950f81">
                                                             @title.Title
                                                         </div>
                                                     }
