@@ -13,7 +13,7 @@
                     @:Оплатите доступ к заявкам!
             }
         </h1>
-        <h2>Информация по оплате торгового взноса:</h2>
+        <h2>Информация по оплате а:</h2>
         <div>
             <a href="robokassa.ru" title="robokassa.ru" target="_blank">
                 <img src="@Url.Content("~/Content/images/robokassa.png")" height="15">
@@ -46,7 +46,7 @@
                 else
                 {
                     <div style="text-align: center; color: green">
-                        <strong>У вас уже оплачена подписка до @this.ViewBag.PayEnd.ToString("dd.MM.yyyy")</strong>
+                        <strong>Доступ к заявкам и право участия в аукционных-торгах уже оплачены до: @this.ViewBag.PayEnd.ToString("dd.MM.yyyy")</strong>
                     </div>
                 }
 
@@ -55,7 +55,7 @@
     </div>
     <div>
         <p>
-            История подписок:
+            История оплаты:
         </p>
         @if (ViewBag.PayHistory.Count > 0)
         {
@@ -68,7 +68,7 @@
         }
         else
         {
-            @:Вы ещё не оплачивали подписку
+            @:Вы ещё не оплачивали доступ к зявкам и участие в аукционных торгах.
         }
     </div>
 </div>

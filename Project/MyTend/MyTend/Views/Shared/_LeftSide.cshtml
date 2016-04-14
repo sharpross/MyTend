@@ -1,4 +1,4 @@
-﻿ 
+﻿
 <style>
     div .menu-space {
         padding-bottom: 10px;
@@ -38,44 +38,44 @@
         </p>
         <p>@Html.ActionLink("Доступ К Заявкам от Заказчиков", "Index", "Pay", null, new { @style = "color: #000000" })</p>
 
-    <div style="font-size: 12px;" >
-        @if (this.ViewBag.PayEnd != null)
-        {
-            if (this.ViewBag.PayEnd is string)
+        <div style="font-size: 12px;">
+            @if (this.ViewBag.PayEnd != null)
             {
-                <div>
-                    @if (!string.IsNullOrEmpty(this.ViewBag.PayEnd.ToString()))
+                if (this.ViewBag.PayEnd is string)
+                {
+                    <div>
+                        @if (!string.IsNullOrEmpty(this.ViewBag.PayEnd.ToString()))
+                        {
+                            <div class="alert alert-success">
+                                Доступ к заявкам и право участия в аукционных-торгах оплачаны до: @this.ViewBag.PayEnd.ToString()
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="alert alert-info">
+                                Доступ к заявкам не оплачен/Вы в статусе  заказчика услуг.
+                            </div>
+                        }
+
+                    </div>
+                }
+                else
+                {
+                    if (this.ViewBag.PayEnd != null)
                     {
                         <div class="alert alert-success">
-                            Вы исполнитель усуг до: @this.ViewBag.PayEnd.ToString()
+                            Вы исполнитель усуг до: @this.ViewBag.PayEnd.ToString("dd.MM.yyyy")
                         </div>
                     }
-                    else
-                    {
-                        <div class="alert alert-info">
-                            Доступ к заявкам не оплачен
-                        </div>
-                    }
-
-                </div>
+                }
             }
             else
             {
-                if (this.ViewBag.PayEnd != null)
-                {
-                    <div class="alert alert-success">
-                        Вы исполнитель усуг до: @this.ViewBag.PayEnd.ToString("dd.MM.yyyy")
-                    </div>
-                }
+                <div style="font-size: 12px;" class="alert alert-info">
+                    Доступ к заявкам не оплачен
+                </div>
             }
-        }
-        else
-        {
-            <div style="font-size: 12px;" class="alert alert-info">
-                Доступ к заявкам не оплачен
-            </div>
-        }
-    </div>
+        </div>
 
         <hr />
     }

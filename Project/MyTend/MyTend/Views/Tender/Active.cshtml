@@ -4,9 +4,9 @@
     ViewBag.Title = "Заявки от заказчиков/покупателей";
 }
 
-<h2>Заявки от заказчиков/покупателей</h2>
-<h4>Список заявок от заказчиков/покупателей, по условиям вашей подписки (Вы исполнитель/продавец услуги)  </h4>
+<h1>Заявки от заказчиков/покупателей по условиям Вашей подписки</h1>
 
+<h4>Ознакомьтесь с полным текстом заявки.Если Вы сделаете предложение, заявка переходит в меню «Мои Предложения Заказчикам» где Вы можете следить за ходом аукционного-торга</h4>
 <div class="tabs">
     <ul class="nav nav-tabs nav-justified">
         <li class="active"><a href="#tab5-2" class="tabBlue" data-toggle="tab"></a></li>
@@ -74,7 +74,7 @@
                                 <tr>
                                     <td width="20%" style="text-align: right;"></td>
                                     <td style="padding-left: 10px; text-align: right;">
-                                        <a href="#" style="color: red;" onclick="hideTender(@item.Id)"><span class="fa fa-trash"></span> Удалить</a>
+                                        <a href="#" style="color: red;" onclick="hideTender(@item.Id)"><span class="fa fa-trash"></span> Удалить/Отказаться от участия</a>
                                     </td>
                                 </tr>
                             </table>
@@ -89,9 +89,9 @@
             {
                 <div>
                     Заявок пока не поступало, рекомендуем проверить позже.
-                </div> 
+                </div>
             }
-            
+
         </div>
     </div>
 </div>

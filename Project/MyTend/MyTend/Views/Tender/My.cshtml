@@ -66,7 +66,7 @@
                             <tr>
                                 <td width="20%" style="text-align: right;"></td>
                                 <td style="padding-left: 10px;">
-                                    @Html.ActionLink("Посмотреть подробнее...", "Details", "Tender", new { id = item.Id }, null)
+                                    @Html.ActionLink("Посмотреть/проверить предложения от исполнителей", "Details", "Tender", new { id = item.Id }, null)
                                 </td>
                             </tr>
                             <tr>
@@ -143,7 +143,7 @@
                             <tr>
                                 <td width="20%" style="text-align: right;"></td>
                                 <td style="padding-left: 10px; text-align: right;">
-                                    <a href="#" style="color: red;" onclick="hideTender(@item.Id)"><span class="fa fa-trash"></span> Удалить из списка</a>
+                                    <a href="#" style="color: red;" onclick="hideTender(@item.Id)"><span class="fa fa-trash"></span> Удалить/Очистить список</a>
                                 </td>
                             </tr>
                         </table>
