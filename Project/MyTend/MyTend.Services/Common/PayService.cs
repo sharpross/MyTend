@@ -17,8 +17,10 @@ namespace MyTend.Services.Common
             this.User = user;
         }
 
-        public void MakePay()
+        public int PrepareAccount()
         {
+            var account = Utils.GenerateInt();
+
             var isFirst = !PayInfo.FindAll()
                 .Any(x => x.User.Id == this.User.Id);
 
@@ -27,10 +29,29 @@ namespace MyTend.Services.Common
                 PayDay = DateTime.Now,
                 PayEnd = isFirst ? DateTime.Now.AddMonths(2) : DateTime.Now.AddMonths(1),
                 Sum = Constants._SUB_SUM,
-                User = this.User
+                User = this.User,
+                Account = account
             };
 
-            newPay.Save();
+            newPay.Create();
+
+            return account;
+        }
+
+        public void MakePay(int account)
+        {
+            var payinfo = PayInfo.FindAll()
+                .FirstOrDefault(x => x.Account == account);
+
+            if (payinfo != null && payinfo.IsPayed == false)
+            {
+                payinfo.IsPayed = true;
+                payinfo.Save();
+            }
+            else
+            {
+                throw new Exception("Счёт платежа не найден.");
+            }
         }
 
         public List<PayInfo> GetHistory()
@@ -38,6 +59,7 @@ namespace MyTend.Services.Common
             var pays = PayInfo
                 .FindAll()
                 .Where(x => x.User.Id == this.User.Id)
+                .Where(x => x.IsPayed)
                 .ToList();
 
             return pays;
@@ -50,6 +72,7 @@ namespace MyTend.Services.Common
                 var has = PayInfo
                     .FindAll()
                     .Where(x => x.User.Id == this.User.Id)
+                    .Where(x => x.IsPayed)
                     .OrderBy(x => x.PayEnd)
                     .First();
 
@@ -65,6 +88,7 @@ namespace MyTend.Services.Common
                 .FindAll()
                 .Where(x => x.User.Id == this.User.Id)
                 .Where(x => DateTime.Now <= x.PayEnd)
+                .Where(x => x.IsPayed)
                 .Any();
 
             return has;

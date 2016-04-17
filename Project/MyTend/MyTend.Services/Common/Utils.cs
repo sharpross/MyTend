@@ -24,5 +24,11 @@ namespace MyTend.Services.Common
             return finalString;
         }
 
+        public static int GenerateInt()
+        {
+            Random r = new Random();
+
+            return r.Next(1, int.MaxValue - 1);
+        }
     }
 }

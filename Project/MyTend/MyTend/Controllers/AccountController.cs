@@ -146,15 +146,13 @@
 
                 try
                 { 
-                    var emailService = new EmailService();
-                    emailService.Registration(model.Login, model.Password, model.Login);
+                    var emailService = new EmailService(model.Login);
+                    emailService.Registration(model.FullName, model.Login, model.Password);
                 }
                 catch
                 {
 
                 }
-
-                //RedirectToAction("Index", "Home");
             }
 
             if (model.Errors.Count > 0)

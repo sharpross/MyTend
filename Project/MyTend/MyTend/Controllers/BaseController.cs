@@ -46,7 +46,10 @@
                 Level = MyTend.Entites.Enums.LogLevel.Error,
                 Message = filterContext.Exception.Message,
                 Stack = filterContext.Exception.StackTrace,
-                UserName = user
+                UserName = user,
+                Addr = this.Request.ServerVariables["REMOTE_ADDR"],
+                Agent = this.Request.ServerVariables["HTTP_USER_AGENT"],
+                Query = this.Request.ServerVariables["QUERY_STRING"]
             };
 
             logRec.Save();

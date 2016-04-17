@@ -1,1 +1,99 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="450" height="360" viewBox="0 0 450 360" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd"><defs><style>.str1{stroke:#4d4d4d;stroke-width:3.99921}.str4{stroke:#c75204}.str4,.str2{stroke-width:3.99921}.str2{stroke:#e35d04}.str5{stroke:#bd4d02;stroke-width:4.00039}.str0{stroke:#000;stroke-width:4.99961}.str6{stroke:#000;stroke-width:2.3622}.str3{stroke:#333}.str3,.str7{stroke-width:2.3622}.str7{stroke:#fff}.fil1{fill:none}.fil6{fill:#c4c5c5}.fil9,.fil2{fill:#000}.fil3{fill:#1a1a1a}.fil4{fill:#333}.fil5{fill:#4d4d4d}.fil11{fill:#666}.fil0{fill:#900}.fil7{fill:#bd0006}.fil8{fill:#cc0007}.fil10{fill:#CCC}.fil12{fill:#CFC}</style></defs><g id="Слой_x0020_1"><path class="fil0" d="M40 288h370l38 72H-2z"/><ellipse class="fil1 str0" cx="219" cy="65" rx="63" ry="52"/><path class="fil2 str1" d="M352 1h94.282v215.23H352z"/><circle class="fil3 str2" cx="400" cy="163" r="36"/><circle class="fil4 str3" cx="400" cy="163" r="14"/><circle class="fil3 str4" cx="400" cy="82" r="36"/><circle class="fil4 str3" cx="401" cy="82" r="14"/><path class="fil3 str5" d="M363 10h73.807v28.57H363z"/><ellipse class="fil4 str6" cx="400" cy="25" rx="9" ry="8"/><path class="fil4" d="M353-1l-35 25v178l33 17z"/><path class="fil5" d="M352 208h94.282v8.68H352z"/><path class="fil2 str1" d="M5 2h92.366v210.933H5z"/><circle class="fil3 str2" cx="51" cy="161" r="35"/><circle class="fil4 str3" cx="50" cy="160" r="14"/><circle class="fil3 str4" cx="51" cy="81" r="35"/><circle class="fil4 str3" cx="50" cy="81" r="14"/><path class="fil3 str5" d="M15 10h72.307v28H15z"/><ellipse class="fil4 str6" cx="51" cy="25" rx="8" ry="7"/><path class="fil4" d="M98-1l33 25v175l-33 15z"/><path class="fil5" d="M6 204h92.366v8.506H6z"/><path class="fil6" d="M217 16c32 0 58 26 58 58 0 31-26 57-58 57s-57-26-57-57c0-32 25-58 57-58z"/><path class="fil2" d="M226 131h-13l-6-11h25l-6 11z"/><path class="fil4" d="M219 16c36-1 62 38 58 63 0 3-1 29-1 25-1-16-67-62-75-75-4 4-32 24-38 26 8-24 30-39 56-39z"/><path class="fil0" d="M167 145h18v15l28-8h12l28 8v-15h19l5 81-110-6z"/><path class="fil7" d="M153 145h18l49 65 49-65h18c13-1 23 10 23 22v117H131V167c0-12 10-23 22-22z"/><path class="fil8" d="M311 264v45H132v-45zM310 211v42H131v-42zM177 152l31 42h-77v-27c0-6 2-11 5-15h41zm55 42l32-42h40c4 4 6 9 6 15v27h-78z"/><path class="fil5" d="M224 280H55L6 359h207z"/><ellipse class="fil2 str6" cx="103" cy="316" rx="77" ry="37"/><ellipse class="fil0 str6" cx="103" cy="311" rx="30" ry="16"/><circle class="fil9 str6" cx="103" cy="309" r="2"/><path class="fil10" d="M198 285h20.16v19.153H198z"/><path class="fil10" d="M212 285h-80v5h80z"/><ellipse class="fil11 str6" cx="205" cy="315" rx="7" ry="4"/><ellipse class="fil11 str6" cx="200" cy="330" rx="8" ry="4"/><ellipse class="fil11 str6" cx="193" cy="347" rx="11" ry="5"/><path class="fil1 str6" d="M123 283h11.09v10.08H123z"/><path class="fil5 str6" d="M116 282h21.506v6.108H116z"/><path class="fil1" d="M204 280h239.525v83.91H204z"/><path class="fil5" d="M233 284l158-4 45 79-209-1z"/><ellipse class="fil2 str6" cx="347" cy="316" rx="71" ry="37"/><ellipse class="fil0 str6" cx="346" cy="311" rx="28" ry="16"/><circle class="fil9 str6" cx="346" cy="309" r="2"/><path class="fil10" d="M240 285h18.655v19.153H240z"/><path class="fil10" d="M246 285h74v5h-74z"/><ellipse class="fil11 str6" cx="252" cy="315" rx="6" ry="4"/><ellipse class="fil11 str6" cx="257" cy="330" rx="7" ry="4"/><ellipse class="fil11 str6" cx="263" cy="347" rx="10" ry="5"/><path class="fil1 str6" d="M317 283h10.26v10.08H317z"/><path class="fil5 str6" d="M314 282h19.9v6.108H314z"/><path class="fil4" d="M146 54h10.766v39.925H146z"/><path class="fil0" d="M148 54h2.098v39.925H148z"/><path class="fil2 str6" d="M156 53h6.675v41.705H156z"/><path class="fil4" d="M282 54h11.078v39.925H282z"/><path class="fil0" d="M289 54h2.158v39.925H289z"/><path class="fil2 str6" d="M275 53h6.868v41.705H275z"/><ellipse class="fil12 str7" cx="379" cy="73"/><ellipse class="fil12 str7" cx="379" cy="90"/><ellipse class="fil12 str7" cx="378" cy="171"/><ellipse class="fil12 str7" cx="378" cy="152"/><ellipse class="fil12 str7" cx="70" cy="152"/><ellipse class="fil12 str7" cx="70" cy="165"/><ellipse class="fil12 str7" cx="68" cy="72"/><ellipse class="fil12 str7" cx="68" cy="87"/></g></svg>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Creator: CorelDRAW X7 -->
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="118.533mm" height="94.8266mm" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+viewBox="0 0 11853 9483"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs>
+  <style type="text/css">
+   <![CDATA[
+    .str1 {stroke:#4D4D4D;stroke-width:105.81}
+    .str4 {stroke:#C75204;stroke-width:105.81}
+    .str2 {stroke:#E35D04;stroke-width:105.81}
+    .str5 {stroke:#BD4D02;stroke-width:105.84}
+    .str6 {stroke:black;stroke-width:62.5}
+    .str3 {stroke:#333333;stroke-width:62.5}
+    .str7 {stroke:white;stroke-width:62.5}
+    .str0 {stroke:black;stroke-width:132.28}
+    .fil1 {fill:none}
+    .fil6 {fill:#FCD5A6}
+    .fil2 {fill:black}
+    .fil3 {fill:#1A1A1A}
+    .fil4 {fill:#333333}
+    .fil5 {fill:#4D4D4D}
+    .fil10 {fill:#666666}
+    .fil0 {fill:#990000}
+    .fil7 {fill:#BD0006}
+    .fil8 {fill:#CC0007}
+    .fil9 {fill:#CCCCCC}
+    .fil11 {fill:#CCFFCC}
+   ]]>
+  </style>
+ </defs>
+ <g id="Слой_x0020_1">
+  <metadata id="CorelCorpID_0Corel-Layer"/>
+  <polygon class="fil0" points="980,7638 10770,7638 11775,9543 -131,9543 "/>
+  <ellipse class="fil1 str0" cx="5716" cy="1738" rx="1667" ry="1376"/>
+  <polygon class="fil2 str1" points="9235,45 11730,45 11730,5739 9235,5739 "/>
+  <circle class="fil3 str2" cx="10505" cy="4331" r="952"/>
+  <circle class="fil4 str3" cx="10505" cy="4331" r="370"/>
+  <circle class="fil3 str4" cx="10505" cy="2188" r="952"/>
+  <circle class="fil4 str3" cx="10532" cy="2188" r="370"/>
+  <polygon class="fil3 str5" points="9526,283 11479,283 11479,1039 9526,1039 "/>
+  <ellipse class="fil4 str6" cx="10505" cy="680" rx="238" ry="212"/>
+  <polygon class="fil4" points="9262,-8 8336,653 8336,5363 9209,5812 "/>
+  <polygon class="fil5" points="9235,5521 11730,5521 11730,5751 9235,5751 "/>
+  <polygon class="fil2 str1" points="54,71 2498,71 2498,5652 54,5652 "/>
+  <circle class="fil3 str2" cx="1271" cy="4278" r="926"/>
+  <circle class="fil4 str3" cx="1245" cy="4251" r="370"/>
+  <circle class="fil3 str4" cx="1271" cy="2161" r="926"/>
+  <circle class="fil4 str3" cx="1245" cy="2161" r="370"/>
+  <polygon class="fil3 str5" points="319,283 2232,283 2232,1023 319,1023 "/>
+  <ellipse class="fil4 str6" cx="1271" cy="680" rx="212" ry="185"/>
+  <polygon class="fil4" points="2515,-8 3388,653 3388,5283 2515,5680 "/>
+  <polygon class="fil5" points="81,5416 2524,5416 2524,5641 81,5641 "/>
+  <path class="fil6" d="M5663 441c847,0 1535,688 1535,1535 0,820 -688,1508 -1535,1508 -846,0 -1508,-688 -1508,-1508 0,-847 662,-1535 1508,-1535z"/>
+  <polygon class="fil2" points="5901,3484 5557,3484 5399,3193 6060,3193 "/>
+  <path class="fil4" d="M5716 441c953,-26 1641,1006 1535,1667 0,80 -27,768 -27,662 -26,-424 -1772,-1641 -1984,-1985 -106,106 -847,635 -1005,688 211,-635 793,-1032 1481,-1032l0 0z"/>
+  <polygon class="fil0" points="4340,3855 4817,3855 4817,4251 5557,4040 5875,4040 6616,4251 6616,3855 7119,3855 7251,5998 4340,5839 "/>
+  <path class="fil7" d="M3970 3855l476 0 1297 1719 1296 -1719 476 0c344,-27 609,264 609,582l0 3095 -4736 0 0 -3095c0,-318 264,-609 582,-582z"/>
+  <path class="fil8" d="M8150 7003l0 1191 -4736 0 0 -1191 4736 0zm-26 -1402l0 1111 -4736 0 0 -1111 4736 0zm-3519 -1561l820 1111 -2037 0 0 -714c0,-159 53,-291 132,-397l1085 0zm1455 1111l847 -1111 1058 0c106,106 159,238 159,397l0 714 -2064 0z"/>
+  <polygon class="fil5" points="5849,7426 1377,7426 81,9517 5557,9517 "/>
+  <ellipse class="fil2 str6" cx="2647" cy="8379" rx="2037" ry="979"/>
+  <ellipse class="fil0 str6" cx="2647" cy="8247" rx="794" ry="423"/>
+  <circle class="fil2 str6" cx="2647" cy="8194" r="53"/>
+  <polygon class="fil9" points="5161,7559 5694,7559 5694,8065 5161,8065 "/>
+  <polygon class="fil9" points="5531,7559 3414,7559 3414,7691 5531,7691 "/>
+  <ellipse class="fil10 str6" cx="5346" cy="8352" rx="185" ry="106"/>
+  <ellipse class="fil10 str6" cx="5214" cy="8749" rx="212" ry="106"/>
+  <ellipse class="fil10 str6" cx="5028" cy="9199" rx="291" ry="132"/>
+  <polygon class="fil1 str6" points="3176,7506 3470,7506 3470,7772 3176,7772 "/>
+  <polygon class="fil5 str6" points="2991,7479 3560,7479 3560,7641 2991,7641 "/>
+  <polygon class="fil1" points="5319,7426 11657,7426 11657,9647 5319,9647 "/>
+  <polygon class="fil5" points="6087,7532 10267,7426 11458,9517 5928,9490 "/>
+  <ellipse class="fil2 str6" cx="9103" cy="8379" rx="1879" ry="979"/>
+  <ellipse class="fil0 str6" cx="9076" cy="8247" rx="741" ry="423"/>
+  <circle class="fil2 str6" cx="9076" cy="8194" r="53"/>
+  <polygon class="fil9" points="6272,7559 6765,7559 6765,8065 6272,8065 "/>
+  <polygon class="fil9" points="6431,7559 8389,7559 8389,7691 6431,7691 "/>
+  <ellipse class="fil10 str6" cx="6589" cy="8352" rx="159" ry="106"/>
+  <ellipse class="fil10 str6" cx="6722" cy="8749" rx="185" ry="106"/>
+  <ellipse class="fil10 str6" cx="6880" cy="9199" rx="265" ry="132"/>
+  <polygon class="fil1 str6" points="8309,7506 8581,7506 8581,7772 8309,7772 "/>
+  <polygon class="fil5 str6" points="8230,7479 8756,7479 8756,7641 8230,7641 "/>
+  <polygon class="fil4" points="3785,1447 4070,1447 4070,2503 3785,2503 "/>
+  <polygon class="fil0" points="3838,1447 3893,1447 3893,2503 3838,2503 "/>
+  <polygon class="fil2 str6" points="4049,1420 4226,1420 4226,2524 4049,2524 "/>
+  <polygon class="fil4" points="7383,1447 7676,1447 7676,2503 7383,2503 "/>
+  <polygon class="fil0" points="7568,1447 7625,1447 7625,2503 7568,2503 "/>
+  <polygon class="fil2 str6" points="7198,1420 7380,1420 7380,2524 7198,2524 "/>
+  <ellipse class="fil11 str7" cx="9950" cy="1950"/>
+  <ellipse class="fil11 str7" cx="9950" cy="2399"/>
+  <ellipse class="fil11 str7" cx="9923" cy="4542"/>
+  <ellipse class="fil11 str7" cx="9923" cy="4040"/>
+  <ellipse class="fil11 str7" cx="1774" cy="4040"/>
+  <ellipse class="fil11 str7" cx="1774" cy="4384"/>
+  <ellipse class="fil11 str7" cx="1721" cy="1923"/>
+  <ellipse class="fil11 str7" cx="1721" cy="2320"/>
+ </g>
+</svg>

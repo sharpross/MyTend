@@ -1,5 +1,6 @@
 ﻿using MyTend.Entites;
 using MyTend.Services.Common;
+using MyTend.Services.EmailService;
 using MyTender.Core;
 using MyTender.Security;
 using RomanPushkin.BetterRobokassa;
@@ -30,59 +31,37 @@ namespace MyTend.Controllers
 
         private string GetPayString()
         {
+            var payService = new PayService(this.Auth.User);
+
             var priceRub = Constants._SUB_SUM;
-            var orderId = 0;
+            var orderId = payService.PrepareAccount();
             var customerEmail = this.Auth.User.Login;
 
             string redirectUrl =
                 string.Format("<a id=\"gopay\" class=\"btn btn-custom-green\" href=\"{0}\" disabled >Оплатить</a>",
                 Robokassa.GetRedirectUrl(priceRub, orderId, customerEmail, this.Auth.User.Id.ToString()));
-                
-
+            
             return redirectUrl;
 
         }
 
-        /*public ActionResult Result(RobokassaConfirmationRequest confirmationRequest)
-        {
-            this.ViewBag.NoIndexing = true;
-
-            ViewBag.Email = this.Request.Url.ToString();
-
-            try
-            {
-
-                if (confirmationRequest.IsQueryValid(RobokassaQueryType.SuccessURL))
-                {
-                    var userId = int.Parse(confirmationRequest.Shp_item);//GetPrm("Email");
-
-                    var dateBegin = DateTime.Now;
-                    var dateEnd = DateTime.Now.AddMonths(1);
-
-                    var user = UserSystem.GetById(userId); //(int.Parse(userId));
-
-                    if (user != null)
-                    {
-                        var payService = new PayService(user);
-
-                        payService.MakePay();
-                    }
-
-                    return View(); // content for user
-                }
-            }
-            catch (Exception) { }
-
-            return RedirectToAction("Fail");
-        }*/
-
         [HttpGet]
         public string Result(RobokassaConfirmationRequest confirmationRequest)
         {
+            var log = new Log()
+            {
+                Context = "Pay",
+                Level = Entites.Enums.LogLevel.Critical,
+                Message = this.Request.RawUrl,
+                UserName = "System"
+            };
+
+            log.Create();
+
             try
             {
 
-                if (confirmationRequest.IsQueryValid(RobokassaQueryType.SuccessURL))
+                if (confirmationRequest.IsQueryValid(RobokassaQueryType.ResultURL))
                 {
                     var userId = int.Parse(confirmationRequest.Shp_item);
 
@@ -94,8 +73,15 @@ namespace MyTend.Controllers
                     if (user != null)
                     {
                         var payService = new PayService(user);
+                        payService.MakePay(confirmationRequest.InvId);
 
-                        payService.MakePay();
+                        try
+                        {
+                            var service = new EmailService(this.Auth.User.Email);
+                            service.MakePay(this.Auth.User.Login, this.Auth.User.FullName, DateTime.Now.ToString(), Constants._SUB_SUM.ToString());
+                        }
+                        catch
+                        { }
                     }
 
                     return "OK"; 

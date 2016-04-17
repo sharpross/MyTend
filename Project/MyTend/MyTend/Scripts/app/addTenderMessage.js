@@ -19,7 +19,7 @@
         },
         success: function (data) {
             if (data.Success) {
-                ani.stop();
+                //ani.stop();
                 window.location.reload();
             } else {
                 

@@ -76,6 +76,11 @@
 
         public void SetWinner(UserSystem user)
         {
+            if (this.Winner != null)
+            {
+                throw new Exception("Победитель уже выбран");
+            }
+
             this.Winner = user;
             this.IsActive = false;
             this.Update();

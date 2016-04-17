@@ -4,6 +4,7 @@
     using MyTend.Entites;
     using System;
     using System.Collections.Generic;
+    using System.Configuration;
     using System.Linq;
     using System.Net;
     using System.Net.Mail;
@@ -14,28 +15,37 @@
     {
         private EmailTemplates Templates { get; set; }
 
-        public EmailService()
+        private string _from { get; set; }
+        private string _email { get; set; }
+
+        public EmailService(string email)
         {
             this.Templates = new EmailTemplates();
+            this._from = ConfigurationManager.AppSettings["EmailServiceFrom"];
+            this._email = email;
         }
 
         public SmtpClient GetClient()
         {
-            var smtpClient = new SmtpClient("smtp.yandex.ru", 587);
-            smtpClient.Credentials = new NetworkCredential("rt.sharpross", "dbdfkmlb4");
-            smtpClient.EnableSsl = true;
+            var smtpClient = new SmtpClient(
+                ConfigurationManager.AppSettings["EmailServiceHost"],
+                int.Parse(ConfigurationManager.AppSettings["EmailServicePort"]));
+            smtpClient.Credentials = new NetworkCredential(
+                ConfigurationManager.AppSettings["EmailServiceName"], 
+                ConfigurationManager.AppSettings["EmailServicePassword"]);
+            smtpClient.EnableSsl = ConfigurationManager.AppSettings["EmailServiceSsl"] == "true" ? true : false;
 
             return smtpClient;
         }
 
-        public void Registration(string userName, string password, string email)
+        public void Registration(string name, string login, string password)
         {
             try
             {
-                Email.From("rt.sharpross@yandex.ru")
-                .To(userName)
+                Email.From(this._from)
+                .To(this._email)
                 .Subject("Спасибо за регистрацию")
-                .UsingCultureTemplateFromFile("~\\Content\\email\\registrationm.html", new { Login = userName, Password = password })
+                .UsingCultureTemplateFromFile("~\\Content\\email\\registration.html", new { Login = login, Password = password, Name = name })
                 .UsingClient(this.GetClient())
                 .Send();
             }
@@ -54,14 +64,40 @@
             }
         }
 
-        public void Winner(string tenderId, string login, string tenderTitle)
+        public void Winner(string tenderId, string name, string tenderTitle)
         {
             try
             {
-                Email.From("rt.sharpross@yandex.ru")
-                .To(login)
-                .Subject("Вы победитель торга")
-                .UsingCultureTemplateFromFile("~\\Content\\email\\winner.html", new { TenderId = tenderId, Title = tenderTitle })
+                Email.From(this._from)
+                .To(this._email)
+                .Subject("Вы победитель аукционного-торга")
+                .UsingCultureTemplateFromFile("~\\Content\\email\\winner.html", new { TenderId = tenderId, Title = tenderTitle, Name = name })
+                .UsingClient(this.GetClient())
+                .Send();
+            }
+            catch (Exception e)
+            {
+                var logRec = new Log()
+                {
+                    Context = "registration",
+                    Level = MyTend.Entites.Enums.LogLevel.Info,
+                    Message = e.Message,
+                    Stack = e.StackTrace,
+                    UserName = null
+                };
+
+                logRec.Save();
+            }
+        }
+        
+        public void AddComment(string tenderId, string name, string tenderTitle)
+        {
+            try
+            {
+                Email.From(this._from)
+                .To(this._email)
+                .Subject("Новый коментарий в аукционном-торге:" + tenderTitle)
+                .UsingCultureTemplateFromFile("~\\Content\\email\\addComent.html", new { TenderId = tenderId, Title = tenderTitle, Name = name })
                 .UsingClient(this.GetClient())
                 .Send();
             }
@@ -84,10 +120,36 @@
         {
             try
             {
-                Email.From("rt.sharpross@yandex.ru")
-                .To("Mytend2016@gmail.com")
+                Email.From(this._from)
+                .To(ConfigurationManager.AppSettings["TenderEmail"])
                 .Subject("Создан торг")
                 .UsingCultureTemplateFromFile("~\\Content\\email\\create.html", new { TenderId = tenderId, Title = title })
+                .UsingClient(this.GetClient())
+                .Send();
+            }
+            catch (Exception e)
+            {
+                var logRec = new Log()
+                {
+                    Context = "registration",
+                    Level = MyTend.Entites.Enums.LogLevel.Info,
+                    Message = e.Message,
+                    Stack = e.StackTrace,
+                    UserName = null
+                };
+
+                logRec.Save();
+            }
+        }
+
+        public void MakePay(string login, string name, string time, string sum)
+        {
+            try
+            {
+                Email.From(this._from)
+                .To(ConfigurationManager.AppSettings["ManyEmail"])
+                .Subject("Создан торг")
+                .UsingCultureTemplateFromFile("~\\Content\\email\\makepay.html", new { Login = login, Fullname = name, Date = time, Sum = sum })
                 .UsingClient(this.GetClient())
                 .Send();
             }

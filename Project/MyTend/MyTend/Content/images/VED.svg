@@ -1,191 +1,71 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <!-- Creator: CorelDRAW X7 -->
-<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="90.7602mm" height="79.58mm" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
-viewBox="0 0 9076 7958"
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="118.533mm" height="94.8266mm" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+viewBox="0 0 11853 9483"
  xmlns:xlink="http://www.w3.org/1999/xlink">
  <defs>
   <style type="text/css">
    <![CDATA[
     .str0 {stroke:#E6E6E6;stroke-width:62.5}
-    .str1 {stroke:black;stroke-width:20}
-    .str3 {stroke:#4D4D4D;stroke-width:42.33}
     .str2 {stroke:#4D4D4D;stroke-width:42.33}
+    .str1 {stroke:black;stroke-width:20}
     .fil1 {fill:none}
-    .fil4 {fill:#C5C6C6}
-    .fil5 {fill:#5B5B5B}
-    .fil13 {fill:black}
+    .fil4 {fill:#FCD5A6}
     .fil7 {fill:black}
     .fil2 {fill:#00CCFF}
     .fil6 {fill:#1A1A1A}
-    .fil16 {fill:#1A1A1A}
-    .fil12 {fill:#333333}
-    .fil17 {fill:#660066}
-    .fil11 {fill:#666666}
+    .fil11 {fill:#333333}
+    .fil5 {fill:#5B5B5B}
+    .fil13 {fill:#660066}
     .fil8 {fill:#666666}
     .fil10 {fill:#990000}
     .fil0 {fill:#E6E6E6}
-    .fil18 {fill:red}
     .fil9 {fill:red}
-    .fil14 {fill:white}
     .fil3 {fill:white}
-    .fil15 {fill:#4D4D4D;fill-rule:nonzero}
+    .fil12 {fill:#4D4D4D;fill-rule:nonzero}
    ]]>
   </style>
-   <clipPath id="id0">
-    <rect x="5320" y="4167" width="50.41" height="11.63"/>
-   </clipPath>
-   <clipPath id="id1">
-    <rect x="5329" y="4157" width="50.41" height="11.64"/>
-   </clipPath>
-   <clipPath id="id2">
-    <path d="M5338 4160l0 -13 42 0 0 13 -42 0z"/>
-   </clipPath>
-   <clipPath id="id3">
-    <rect x="5339" y="4138" width="50.41" height="11.63"/>
-   </clipPath>
-   <clipPath id="id4">
-    <rect x="5349" y="4128" width="50.41" height="11.63"/>
-   </clipPath>
-   <clipPath id="id5">
-    <rect x="5358" y="4118" width="50.41" height="11.63"/>
-   </clipPath>
-   <clipPath id="id6">
-    <path d="M5367 4121l0 -13 42 0 0 13 -42 0z"/>
-   </clipPath>
-   <clipPath id="id7">
-    <rect x="5368" y="4099" width="50.41" height="11.63"/>
-   </clipPath>
-   <clipPath id="id8">
-    <path d="M3907 4201l0 -13 52 0 0 13 -52 0z"/>
-   </clipPath>
-   <clipPath id="id9">
-    <rect x="5378" y="4089" width="50.4" height="11.64"/>
-   </clipPath>
-   <clipPath id="id10">
-    <path d="M5387 4092l0 -13 41 0 0 13 -41 0z"/>
-   </clipPath>
-   <clipPath id="id11">
-    <rect x="5397" y="4070" width="31.02" height="11.63"/>
-   </clipPath>
-   <clipPath id="id12">
-    <path d="M3907 4172l0 -13 32 0 0 13 -32 0z"/>
-   </clipPath>
-   <clipPath id="id13">
-    <path d="M5396 4072l0 -12 23 0 0 12 -23 0z"/>
-   </clipPath>
-   <clipPath id="id14">
-    <rect x="5397" y="4050" width="11.64" height="11.63"/>
-   </clipPath>
-   <clipPath id="id15">
-    <path d="M5387 4053l0 -23 12 0 0 23 -12 0z"/>
-   </clipPath>
-   <clipPath id="id16">
-    <rect x="5378" y="4021" width="11.63" height="11.63"/>
-   </clipPath>
-   <clipPath id="id17">
-    <path d="M5246 4252l0 -13 -56 0 0 13 56 0z"/>
-   </clipPath>
-   <clipPath id="id18">
-    <path d="M5246 4242l0 -22 -45 0 0 22 45 0z"/>
-   </clipPath>
  </defs>
  <g id="Слой_x0020_1">
   <metadata id="CorelCorpID_0Corel-Layer"/>
-  <polygon class="fil0" points="4740,365 5746,3248 9000,3222 6354,4995 7386,7852 4740,6080 2094,7852 3100,4995 454,3222 3735,3248 "/>
-  <rect class="fil0" x="7889" y="4413" width="87.6099" height="2257.96"/>
-  <polygon class="fil0" points="7598,4016 8339,4571 8233,4730 7465,4227 "/>
-  <rect class="fil0" transform="matrix(0.376103 0.229381 -0.229381 0.376103 7756.76 4116.74)" width="300" height="727"/>
-  <path class="fil1 str0" d="M8286 4651c53,-27 106,185 132,291 53,79 -265,582 -212,952 0,53 -79,794 0,794"/>
-  <polygon class="fil2" points="4486,195 5492,3079 8746,3053 6100,4825 7132,7683 4486,5910 1840,7683 2846,4825 200,3053 3481,3079 "/>
-  <polygon class="fil3" points="4000,3665 5089,3665 5387,3883 5387,6001 3728,6001 3728,3824 "/>
-  <path class="fil4" d="M4581 1912c533,0 964,431 964,964 0,532 -431,963 -964,963 -532,0 -963,-431 -963,-963 0,-533 431,-964 963,-964z"/>
-  <path class="fil5" d="M4581 1912c435,0 803,288 923,684 17,193 -986,-96 -1231,-473 -51,67 -506,428 -607,449 128,-384 489,-660 915,-660z"/>
-  <g style="clip-path:url(#id0)">
-   <image x="5320" y="4167" width="50.4093" height="11.6329" xlink:href="VEDUSHIY_Images\VEDUSHIY_ImgID1.png"/>
+  <polygon class="fil0" points="6415,288 7649,3825 11641,3793 8395,5968 9661,9474 6415,7300 3169,9474 4403,5968 1157,3793 5182,3825 "/>
+  <rect class="fil0" x="10278" y="5254" width="107" height="2770"/>
+  <polygon class="fil0" points="9921,4767 10830,5448 10700,5643 9758,5026 "/>
+  <rect class="fil0" transform="matrix(0.461429 0.281421 -0.281421 0.461429 10116.1 4890.96)" width="300" height="727"/>
+  <path class="fil1 str0" d="M10765 5546c65,-33 130,227 162,357 65,97 -325,714 -260,1168 0,65 -97,975 0,975"/>
+  <polygon class="fil2" points="6103,80 7338,3618 11330,3586 8083,5760 9350,9266 6103,7091 2857,9266 4091,5760 845,3586 4870,3618 "/>
+  <polygon class="fil3" points="5507,4337 6843,4337 7209,4604 7209,7203 5173,7203 5173,4532 "/>
+  <path class="fil4" d="M6220 2186c654,0 1183,529 1183,1183 0,652 -529,1181 -1183,1181 -653,0 -1182,-529 -1182,-1181 0,-654 529,-1183 1182,-1183z"/>
+  <path class="fil5" d="M6220 2186c534,0 985,353 1132,839 21,237 -1209,-118 -1510,-580 -63,82 -621,525 -745,551 157,-471 600,-810 1123,-810z"/>
+  <path class="fil6" d="M4826 4783l367 10 1023 2476 991 -2466 5 -9 -1 -2 0 0 379 -9c253,-6 459,214 459,475l0 2502 -3682 0 0 -2502c0,-261 206,-481 459,-475z"/>
+  <ellipse class="fil7 str1" cx="6200" cy="6519" rx="32" ry="36"/>
+  <rect class="fil8" x="7215" y="6507" width="602.589" height="79.3048"/>
+  <polygon class="fil3" points="7677,6313 7533,6159 7215,6507 7803,6507 "/>
+  <polygon class="fil9" points="6193,4913 5570,4645 5630,5302 6158,5018 "/>
+  <polygon class="fil9" points="6140,4899 6772,4677 6740,5318 6107,4989 "/>
+  <rect class="fil10" x="6092" y="4824" width="178" height="248"/>
+  <rect class="fil8" x="8643" y="5277" width="95.1437" height="2452.22"/>
+  <polygon class="fil11" points="8616,4858 9408,5454 9305,5620 8460,5079 "/>
+  <ellipse class="fil7 str1" cx="8334" cy="4821" rx="276" ry="283"/>
+  <rect class="fil6" transform="matrix(1.27643 0.778484 -0.778484 1.27643 8786.96 4955.59)" width="96.03" height="232.65"/>
+  <path class="fil1 str1" d="M9361 5538c61,-17 108,206 154,302 51,101 -297,646 -245,1035 10,73 -84,871 -6,887"/>
+  <rect class="fil11" x="8595" y="6667" width="206" height="545"/>
+  <polygon class="fil3 str2" points="4654,5231 5209,4485 5867,6465 5673,6295 "/>
+  <polygon class="fil3 str2" points="5035,5937 5495,5453 6109,7128 5901,6909 "/>
+  <ellipse class="fil7 str1" cx="6168" cy="5631" rx="34" ry="36"/>
+  <path class="fil10" d="M6109 4824l157 0c10,0 18,5 18,12l0 130c0,7 -8,12 -18,12l-157 0c-9,0 -17,-5 -17,-12l0 -130c0,-7 8,-12 17,-12z"/>
+  <g id="_785732096">
+   <polygon class="fil3" points="7805,5192 7207,4517 6545,6489 6739,6303 "/>
+   <path id="_1" class="fil12" d="M7188 4534l-5 -25 44 -9 598 675 -38 34 -599 -675zm-5 -25l15 -42 29 33 -44 9zm-614 1988l-6 10 -43 -27 663 -1971 49 17 -663 1971zm-6 10l-76 74 33 -101 43 27zm157 -223l37 37 0 1 -194 185 -35 -37 192 -186zm37 37l0 1 0 0 0 -1zm1030 -1148l38 2 0 35 -1068 1111 -37 -36 1067 -1112zm38 2l16 18 -16 17 0 -35z"/>
   </g>
-  <g style="clip-path:url(#id1)">
-   <image x="5329" y="4157" width="50.4093" height="11.6329" xlink:href="VEDUSHIY_Images\VEDUSHIY_ImgID2.png"/>
+  <g id="_785705408">
+   <polygon class="fil3" points="7420,6007 6901,5464 6307,7141 6476,6994 "/>
+   <path id="_1_0" class="fil12" d="M6882 5481l-6 -25 43 -10 520 542 -38 36 -519 -543zm-6 -25l15 -41 28 31 -43 10zm-545 1694l-7 11 -42 -28 594 -1677 49 17 -594 1677zm-7 11l-75 66 33 -94 42 28zm135 -186l36 36 -2 3 -169 147 -34 -39 169 -147zm36 36l-2 2 0 1 2 -3zm906 -1023l38 0 0 36 -944 987 -37 -35 943 -988zm38 0l18 19 -18 17 0 -36z"/>
   </g>
-  <g style="clip-path:url(#id2)">
-   <image x="5337" y="4147" width="42.654" height="11.6329" xlink:href="VEDUSHIY_Images\VEDUSHIY_ImgID3.png"/>
-  </g>
-  <g style="clip-path:url(#id3)">
-   <image x="5339" y="4138" width="50.4093" height="11.6329" xlink:href="VEDUSHIY_Images\VEDUSHIY_ImgID4.png"/>
-  </g>
-  <g style="clip-path:url(#id4)">
-   <image x="5349" y="4128" width="50.4093" height="11.6329" xlink:href="VEDUSHIY_Images\VEDUSHIY_ImgID5.png"/>
-  </g>
-  <g style="clip-path:url(#id5)">
-   <image x="5358" y="4118" width="50.4093" height="11.6329" xlink:href="VEDUSHIY_Images\VEDUSHIY_ImgID6.png"/>
-  </g>
-  <g style="clip-path:url(#id6)">
-   <image x="5368" y="4109" width="42.654" height="11.6329" xlink:href="VEDUSHIY_Images\VEDUSHIY_ImgID7.png"/>
-  </g>
-  <g style="clip-path:url(#id7)">
-   <image x="5368" y="4099" width="50.4093" height="11.6329" xlink:href="VEDUSHIY_Images\VEDUSHIY_ImgID8.png"/>
-  </g>
-  <g style="clip-path:url(#id8)">
-   <image x="3909" y="4189" width="50.4093" height="11.6329" xlink:href="VEDUSHIY_Images\VEDUSHIY_ImgID9.png"/>
-  </g>
-  <g style="clip-path:url(#id9)">
-   <image x="5378" y="4089" width="50.4093" height="11.6329" xlink:href="VEDUSHIY_Images\VEDUSHIY_ImgID10.png"/>
-  </g>
-  <g style="clip-path:url(#id10)">
-   <image x="5387" y="4079" width="42.654" height="11.6329" xlink:href="VEDUSHIY_Images\VEDUSHIY_ImgID11.png"/>
-  </g>
-  <g style="clip-path:url(#id11)">
-   <image x="5397" y="4070" width="31.0211" height="11.6329" xlink:href="VEDUSHIY_Images\VEDUSHIY_ImgID12.png"/>
-  </g>
-  <g style="clip-path:url(#id12)">
-   <image x="3909" y="4159" width="31.0211" height="11.6329" xlink:href="VEDUSHIY_Images\VEDUSHIY_ImgID13.png"/>
-  </g>
-  <g style="clip-path:url(#id13)">
-   <image x="5395" y="4060" width="23.2658" height="11.6329" xlink:href="VEDUSHIY_Images\VEDUSHIY_ImgID14.png"/>
-  </g>
-  <g style="clip-path:url(#id14)">
-   <image x="5397" y="4050" width="11.6329" height="11.6329" xlink:href="VEDUSHIY_Images\VEDUSHIY_ImgID15.png"/>
-  </g>
-  <g style="clip-path:url(#id15)">
-   <image x="5387" y="4029" width="11.6329" height="23.2658" xlink:href="VEDUSHIY_Images\VEDUSHIY_ImgID16.png"/>
-  </g>
-  <g style="clip-path:url(#id16)">
-   <image x="5378" y="4021" width="11.6329" height="11.6329" xlink:href="VEDUSHIY_Images\VEDUSHIY_ImgID17.png"/>
-  </g>
-  <path class="fil6" d="M3445 4029l299 8 834 2018 808 -2010 4 -7 -1 -2 0 0 309 -7c206,-5 374,174 374,387l0 2039 -3001 0 0 -2039c0,-213 168,-392 374,-387z"/>
-  <ellipse class="fil7 str1" cx="4565" cy="5444" rx="26" ry="29"/>
-  <rect class="fil8" x="5392" y="5434" width="491.164" height="64.6377"/>
-  <polygon class="fil3" points="5769,5276 5651,5150 5392,5434 5871,5434 "/>
-  <polygon class="fil9" points="4559,4135 4051,3916 4100,4452 4531,4220 "/>
-  <polygon class="fil9" points="4516,4123 5031,3942 5005,4465 4489,4197 "/>
-  <rect class="fil10" x="4477" y="4062" width="145" height="202"/>
-  <rect class="fil11" x="6556" y="4431" width="77.553" height="1998.76"/>
-  <polygon class="fil12" points="6534,4090 7180,4576 7096,4711 6407,4270 "/>
-  <ellipse class="fil13 str1" cx="6304" cy="4060" rx="225" ry="231"/>
-  <rect class="fil6" transform="matrix(1.0404 0.634529 -0.634529 1.0404 6673.42 4169.42)" width="96.03" height="232.65"/>
-  <path class="fil1 str1" d="M7141 4644c50,-14 88,168 126,246 41,83 -242,527 -200,844 8,59 -68,710 -5,723"/>
-  <rect class="fil12" x="6517" y="5564" width="168" height="444"/>
-  <polygon class="fil14 str2" points="3305,4394 3757,3786 4293,5400 4135,5261 "/>
-  <polygon class="fil14 str3" points="3615,4969 3990,4575 4491,5940 4321,5762 "/>
-  <g style="clip-path:url(#id17)">
-   <image transform="matrix(-1.6402 -0 -0 1.52663 5243.98 4239.89)" x="0" y="0" width="33.02" height="7.62" xlink:href="VEDUSHIY_Images\VEDUSHIY_ImgID18.png"/>
-  </g>
-  <g style="clip-path:url(#id18)">
-   <image transform="matrix(-1.6402 -0 -0 1.52663 5246.07 4218.57)" x="0" y="0" width="27.94" height="15.24" xlink:href="VEDUSHIY_Images\VEDUSHIY_ImgID19.png"/>
-  </g>
-  <ellipse class="fil7 str1" cx="4539" cy="4720" rx="28" ry="29"/>
-  <rect class="fil10" x="4477" y="4062" width="156" height="126" rx="14" ry="10"/>
-  <g>
-   <polygon class="fil14" points="5873,4362 5386,3812 4846,5419 5004,5268 "/>
-   <path id="1" class="fil15" d="M5370 3826l-4 -21 36 -7 487 550 -31 28 -488 -550zm-4 -21l12 -34 24 27 -36 7zm-500 1621l-5 8 -35 -22 540 -1607 40 14 -540 1607zm-5 8l-62 60 27 -82 35 22zm128 -182l30 30 0 1 -158 151 -29 -30 157 -152zm30 30l0 1 0 0 0 -1zm839 -935l31 1 0 29 -870 905 -30 -29 869 -906zm31 1l13 15 -13 14 0 -29z"/>
-  </g>
-  <g>
-   <polygon class="fil14" points="5559,5026 5136,4584 4652,5951 4790,5831 "/>
-   <path id="1" class="fil15" d="M5121 4598l-5 -21 35 -8 424 442 -31 29 -423 -442zm-5 -21l12 -33 23 25 -35 8zm-444 1381l-6 9 -34 -23 484 -1367 40 14 -484 1367zm-6 9l-61 54 27 -77 34 23zm110 -152l29 30 -1 2 -138 120 -28 -32 138 -120zm29 30l-1 1 0 1 1 -2zm739 -834l31 0 0 29 -770 805 -30 -29 769 -805zm31 0l14 15 -14 14 0 -29z"/>
-  </g>
-  <polygon class="fil16" points="3163,4160 3324,5189 2526,5747 2124,5346 "/>
-  <polygon class="fil17" points="1509,4905 2587,4905 2911,6455 1830,6445 "/>
-  <polygon class="fil18" points="2401,5626 2298,5731 2369,5875 2235,5796 2133,5902 2153,5748 2019,5670 2165,5654 2185,5500 2255,5643 "/>
-  <rect class="fil4" x="1592" y="5848" width="297" height="427" rx="114" ry="114"/>
+  <polygon class="fil6" points="4480,4944 4678,6206 3699,6891 3205,6399 "/>
+  <polygon class="fil13" points="2451,5858 3773,5858 4171,7760 2845,7747 "/>
+  <polygon class="fil9" points="3545,6743 3419,6871 3506,7048 3342,6951 3216,7081 3241,6892 3077,6797 3256,6777 3280,6588 3366,6763 "/>
+  <path class="fil4" d="M2693 7015l84 0c77,0 140,63 140,140l0 244c0,77 -63,140 -140,140l-84 0c-78,0 -140,-63 -140,-140l0 -244c0,-77 62,-140 140,-140z"/>
  </g>
 </svg>

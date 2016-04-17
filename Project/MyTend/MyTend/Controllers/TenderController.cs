@@ -106,7 +106,7 @@
         {
             if (this.Auth.User == null)
             {
-                return RedirectToAction("About", "Account");
+                return RedirectToAction("Registration", "Account");
             }
 
             if (model.IsValid())
@@ -117,7 +117,7 @@
 
                 try
                 {
-                    var service = new EmailService();
+                    var service = new EmailService(model.User.Email);
                     service.CreateTender(model.Id.ToString(), model.Title);
                 }
                 catch
@@ -199,8 +199,8 @@
 
                 try
                 {
-                    var service = new EmailService();
-                    service.Winner(tenderId.ToString(), model.Winner.Login, model.Tender.Title);
+                    var service = new EmailService(this.Auth.User.Email);
+                    service.Winner(tenderId.ToString(), model.Winner.FullName, model.Tender.Title);
                 }
                 catch
                 { }
@@ -228,6 +228,9 @@
             if (model.IsValid())
             {
                 model.Save();
+
+                var service = new EmailService(this.Auth.User.Email);
+                service.AddComment(model.TenderId.ToString(), model.User.FullName, model.Tender.Title);
 
                 return JsonSuccess();
             }

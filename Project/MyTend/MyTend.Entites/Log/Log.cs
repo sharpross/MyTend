@@ -20,5 +20,14 @@
 
         [Property]
         public string UserName { get; set; }
+
+        [Property]
+        public string Agent { get; set; }
+
+        [Property]
+        public string Addr { get; set; }
+
+        [Property]
+        public string Query { get; set; }
     }
 }

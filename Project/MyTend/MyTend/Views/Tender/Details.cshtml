@@ -156,10 +156,10 @@
             {
 
                 <div class="col-md-12" style="text-align: left;">
+                    <strong>Уважаемые исполнители услуг:</strong>
                     <ul>
-                        <strong>Уважаемые исполнители услуг:</strong>
-                        <li> Внимательно изучив условия заявки от покупателя услуги, а также предложения конкурентов, <strong>сделайте более выгодное предложение</strong>.</li>
-                        <li>  Следите за ходом торга и меняйте свои условия для покупателя на более выгодные, извучив предложения конкурентов.</li>
+                        <li>Внимательно изучив условия заявки от покупателя услуги, а также предложения конкурентов, <strong>сделайте более выгодное предложение</strong>.</li>
+                        <li>Следите за ходом торга и меняйте свои условия для покупателя на более выгодные, извучив предложения конкурентов.</li>
                         <li>Отправленное предложение невозможно отредактировать/изменить. Вы можете написать новое предложение с другими условиями.</li>
                     </ul>
                 </div>
@@ -170,11 +170,14 @@
     <br />
     if (Model.Messages.Count == 0)
     {
-        <div class="row">
-            <div class="col-md-12" style="text-align: center; font-weight: bold;">
-                Предложений пока нет, рекоменуем проверить позже!
+        if (Model.User.Login == this.ViewBag.UserLogin)
+        {
+            <div class="row">
+                <div class="col-md-12" style="text-align: center; font-weight: bold;">
+                    Предложений пока нет, рекоменуем проверить позже!
+                </div>
             </div>
-        </div>
+        }
     }
     else
     {
@@ -294,7 +297,7 @@
                     </div>
 
                     <div style="word-wrap: break-word;">
-                        @message.Message.Replace("\n", "<br />")
+                        @Html.Raw(message.Message.Replace("\n", "<br />"))
                     </div>
                     <div style="color:gray; text-align: right;">
                         (@message.Date.ToString("dd.MM.yyyy HH:mm:ss"))

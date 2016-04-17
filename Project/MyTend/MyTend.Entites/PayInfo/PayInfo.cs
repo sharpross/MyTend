@@ -18,5 +18,11 @@
 
         [Property]
         public DateTime PayEnd { get; set; }
+
+        [Property]
+        public int Account { get; set; }
+
+        [Property]
+        public bool IsPayed { get; set; }
     }
 }

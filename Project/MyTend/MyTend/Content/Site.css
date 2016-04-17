@@ -477,11 +477,11 @@ header {
     padding-left: 10px;
 }
 
-/*Цыет подсказки счётчика слева*/
+/*Цвет подсказки счётчика слева*/
 .left-side-counter {
     color: #CC7921;
 }
 
 .head-backgound {
-    background: url(images/bek.png) 100% 100% no-repeat;
+    background: url(images/backgound_head.png) 100% 100% no-repeat;
 }
