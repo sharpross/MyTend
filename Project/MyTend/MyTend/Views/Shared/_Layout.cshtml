@@ -34,29 +34,22 @@
     <title>@ViewBag.Title</title>
 </head>
 <body>
-    <div class="wrapper">
         @RenderPage("_Head.cshtml")
-        <section class="slice bg-3">
-            <div class="w-section inverse shop">
-                <div>
-                    <div class="row">
-                        <div class="col-md-2">
-                            @RenderPage("_LeftSide.cshtml")
-                        </div>
-                        <div class="col-md-8 central-color">
-                            @RenderBody()
-                        </div>
-                        <div class="col-md-2 right-color">
-                            @RenderPage("_RigthSide.cshtml")
-                        </div>
-                    </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-2">
+                    @RenderPage("_LeftSide.cshtml")
+                </div>
+                <div class="col-md-8 central-color">
+                    @RenderBody()
+                </div>
+                <div class="col-md-2 right-color">
+                    @RenderPage("_RigthSide.cshtml")
                 </div>
             </div>
-        </section>
+        </div>
 
         @RenderPage("_Footer.cshtml")
-
-    </div>
 
     <div id="masonryWr"></div>
     <script src="~/Scripts/app/common.js"></script>
