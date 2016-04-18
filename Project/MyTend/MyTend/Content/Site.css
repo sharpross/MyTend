@@ -449,7 +449,8 @@ header {
 }
 
 .header-btn {
-
+    max-width: 200px; 
+    margin-bottom: 10px;
     font-weight: bold;
     position: relative;
     left: 5px;
