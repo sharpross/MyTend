@@ -49,6 +49,8 @@
                 throw new Exception("Тендер не найден");
             }
 
+            this.Tender = tender;
+
             var tenderMessage = new TenderMessage() 
             {
                 User = this.Auth.User,

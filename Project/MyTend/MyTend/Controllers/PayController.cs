@@ -48,15 +48,24 @@ namespace MyTend.Controllers
         [HttpGet]
         public string Result(RobokassaConfirmationRequest confirmationRequest)
         {
-            var log = new Log()
+            try
             {
-                Context = "Pay",
-                Level = Entites.Enums.LogLevel.Critical,
-                Message = this.Request.RawUrl,
-                UserName = "System"
-            };
+                var log = new Log()
+                {
+                    Context = "Pay",
+                    Level = Entites.Enums.LogLevel.Critical,
+                    Message = this.Request.RawUrl,
+                    UserName = this.Auth.User != null ? this.Auth.User.Login : "System",
+                    Addr = this.Request.ServerVariables["REMOTE_ADDR"],
+                    Agent = this.Request.ServerVariables["HTTP_USER_AGENT"],
+                    Query = this.Request.ServerVariables["QUERY_STRING"]
+                };
 
-            log.Create();
+                log.Create();
+            }
+            catch (Exception ex)
+            {
+            }
 
             try
             {

@@ -111,7 +111,9 @@
 
             if (model.IsValid())
             {
-                model.Save();
+                var isSub = this.ViewBag.HasPay;
+
+                model.Save(isSub);
 
                 this.tempString = model.Title;
 
@@ -225,15 +227,28 @@
         [BanResource]
         public ActionResult AddComment(TenderMessageModel model)
         {
-            if (model.IsValid())
+            try
             {
-                model.Save();
+                if (model.IsValid())
+                {
+                    model.Save();
 
-                var service = new EmailService(this.Auth.User.Email);
-                service.AddComment(model.TenderId.ToString(), model.User.FullName, model.Tender.Title);
+                    try
+                    {
+                        if (model.User.Id != this.Auth.User.Id)
+                        {
+                            var service = new EmailService(this.Auth.User.Email);
+                            service.AddComment(model.TenderId.ToString(), model.Tender.User.FullName, model.Tender.Title);
+                        }
+                    }
+                    catch
+                    { }
 
-                return JsonSuccess();
+                    return JsonSuccess();
+                }
             }
+            catch
+            { }
 
             return JsonFailur(model);
         }

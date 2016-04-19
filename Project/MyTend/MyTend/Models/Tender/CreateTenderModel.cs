@@ -6,6 +6,7 @@
     using MyTender.Security;
     using System;
     using System.Collections.Generic;
+    using System.Configuration;
     using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
@@ -38,6 +39,8 @@
         public List<Country> ListCountrys { get; set; }
 
         public HttpPostedFileBase[] ListFiles { get; set; }
+
+        private bool IsSub { get; set; }
 
         public CreateTenderModel()
         {
@@ -77,6 +80,24 @@
                 this.Errors = tender.Errors;
             }
 
+            var count = this.GetCountTendersToday(tender.User);
+            var maxCount = 0;
+
+            if (this.IsSub)
+            {
+                maxCount = int.Parse(ConfigurationManager.AppSettings["MaxTendersSub"]);
+            }
+            else
+            {
+                maxCount = int.Parse(ConfigurationManager.AppSettings["MaxTenders"]);
+            }
+
+            if (count >= maxCount)
+            {
+                this.Errors.Add("Превышен лимит создания торгов за день");
+                isValid = false;
+            }
+
             var theme = TenderTheme.FindAll()
                 .FirstOrDefault(x => x.Id == this.ThemeId);
 
@@ -99,8 +120,23 @@
             return isValid;
         }
 
-        public void Save()
+        private int GetCountTendersToday(UserSystem user)
         {
+            var begin = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
+            var end = begin.AddHours(23).AddMinutes(59).AddSeconds(59);
+
+            var count = Tender.FindAll()
+                .Where(x => x.User.Id == user.Id)
+                .Where(x => x.CreatedDateTime >= begin && x.CreatedDateTime <= end)
+                .Count();
+
+            return count;
+        }
+
+        public void Save(bool isSub)
+        {
+            this.IsSub = isSub;
+
             var obj = this.GetObj();
 
             obj.Create();

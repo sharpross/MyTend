@@ -60,7 +60,7 @@ namespace MyTend.Models
 
             var all = Tender.FindAll()
                 .Where(x => x.User.Id == this.Auth.User.Id)
-                .OrderBy(x => x.CreatedDateTime)
+                .OrderByDescending(x => x.CreatedDateTime)
                 .ToList();
 
             tenders.Close = all.Where(x => x.IsActive == false)
@@ -84,8 +84,9 @@ namespace MyTend.Models
 
             var all = TenderMessage.FindAll()
                 .Where(x => x.User.Id == this.Auth.User.Id)
-                .Select(x => x.Tender)
-                .OrderBy(x => x.CreatedDateTime)
+                .GroupBy(x => x.Tender)
+                .Select(x => x.Key)
+                .OrderByDescending(x => x.CreatedDateTime)
                 .ToList();
 
             tenders.Close = all.Where(x => x.IsActive == false)
@@ -108,7 +109,7 @@ namespace MyTend.Models
             var all = Tender.FindAll()
                 .Where(x => x.User.Id != this.Auth.User.Id)
                 .Where(x => x.Winner != null && x.Winner.Id == this.Auth.User.Id)
-                .OrderBy(x => x.CreatedDateTime)
+                .OrderByDescending(x => x.CreatedDateTime)
                 .ToList();
 
             all = this.Filtering(all);
@@ -125,6 +126,7 @@ namespace MyTend.Models
             var regionFiltered = this.RegionFilter.GetTenders();
             var tenders = this.TendersFilter.GetByListTenders(regionFiltered)
                 .Where(x => x.IsActive)
+                .OrderByDescending(x => x.CreatedDateTime)
                 .ToList();
 
             if (this.Auth != null && this.Auth.User != null)

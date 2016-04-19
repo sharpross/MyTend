@@ -24,6 +24,7 @@ namespace MyTend
                 "~/Scripts/respond.js",
                 "~/Content/theme/assets/bootstrap/js/bootstrap.min.js",
                 "~/Content/theme/js/html5shiv.js",
+                "~/Scripts/jquery.validate.min.js",
                 "~/Content/theme/js/jquery.cookie.js",
                 "~/Content/theme/js/jquery.easing.js",
                 "~/Content/theme/js/jquery.mousewheel-3.0.6.pack.js",

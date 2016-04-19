@@ -1,4 +1,5 @@
-﻿$(document).ready(function () {
+﻿
+$(document).ready(function () {
     var loginBtn = $('button[name=LoginButton]');
     var logoutBtn = $('a[name=LogoutButton]');
 
@@ -47,3 +48,4 @@
         });
     }
 });
+

@@ -53,7 +53,7 @@
             {
                 var logRec = new Log()
                 {
-                    Context = "registration",
+                    Context = "Registration",
                     Level = MyTend.Entites.Enums.LogLevel.Info,
                     Message = e.Message,
                     Stack = e.StackTrace,
@@ -79,7 +79,7 @@
             {
                 var logRec = new Log()
                 {
-                    Context = "registration",
+                    Context = "Winner",
                     Level = MyTend.Entites.Enums.LogLevel.Info,
                     Message = e.Message,
                     Stack = e.StackTrace,
@@ -97,7 +97,7 @@
                 Email.From(this._from)
                 .To(this._email)
                 .Subject("Новый коментарий в аукционном-торге:" + tenderTitle)
-                .UsingCultureTemplateFromFile("~\\Content\\email\\addComent.html", new { TenderId = tenderId, Title = tenderTitle, Name = name })
+                .UsingCultureTemplateFromFile("~\\Content\\email\\getresponce.html", new { TenderId = tenderId, Title = tenderTitle, Name = name })
                 .UsingClient(this.GetClient())
                 .Send();
             }
@@ -105,7 +105,7 @@
             {
                 var logRec = new Log()
                 {
-                    Context = "registration",
+                    Context = "AddComment",
                     Level = MyTend.Entites.Enums.LogLevel.Info,
                     Message = e.Message,
                     Stack = e.StackTrace,
@@ -131,7 +131,7 @@
             {
                 var logRec = new Log()
                 {
-                    Context = "registration",
+                    Context = "CreateTender",
                     Level = MyTend.Entites.Enums.LogLevel.Info,
                     Message = e.Message,
                     Stack = e.StackTrace,
@@ -148,7 +148,7 @@
             {
                 Email.From(this._from)
                 .To(ConfigurationManager.AppSettings["ManyEmail"])
-                .Subject("Создан торг")
+                .Subject("Произведена оплата")
                 .UsingCultureTemplateFromFile("~\\Content\\email\\makepay.html", new { Login = login, Fullname = name, Date = time, Sum = sum })
                 .UsingClient(this.GetClient())
                 .Send();
@@ -157,7 +157,7 @@
             {
                 var logRec = new Log()
                 {
-                    Context = "registration",
+                    Context = "MakePay",
                     Level = MyTend.Entites.Enums.LogLevel.Info,
                     Message = e.Message,
                     Stack = e.StackTrace,

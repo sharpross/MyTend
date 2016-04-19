@@ -11,7 +11,7 @@
         <img src="~/Content/images/MAZANdance.png" style="width: 100%" />
     </a>
     <div class="form-group" style="text-align: center">
-        <h1><div style="color: #02a6c9;">Заполните заявку, указав исполнителям все подробности вашего предстоящего события</h1>
+        <h1 style="color: #02a6c9;">Заполните заявку, указав исполнителям все подробности вашего предстоящего события</h1>
     </div>
     <div class="form-horizontal">
         <div class="row">
@@ -186,3 +186,21 @@
     </div>
 }
 <script src="~/Scripts/app/selectRegions.js"></script>
+<script>
+    blockBtns();
+
+    function blockBtns() {
+        var els = $('button[type=submit]');
+        els.on('click', function (e) {
+            $('form').validate({
+                invalidHandler: function (event, validator) {
+                    $("label.error").remove();
+                },
+                submitHandler: function (form) {
+                    $('button[type=submit]').attr('disabled','disabled');
+                    form.submit();
+                }
+            });
+        });
+    }
+</script>

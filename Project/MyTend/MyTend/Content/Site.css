@@ -484,5 +484,6 @@ header {
 }
 
 .head-backgound {
-    background: url(images/backgound_head.png) 100% 100% no-repeat;
+    background: url(images/backgound_head.png) no-repeat;
+    background-size: 100% 100%;
 }
