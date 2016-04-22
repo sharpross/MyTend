@@ -94,7 +94,7 @@
 
             if (count >= maxCount)
             {
-                this.Errors.Add("Превышен лимит создания торгов за день");
+                this.Errors.Add(string.Format(ConfigurationManager.AppSettings["MaxTenderMessage"], maxCount));
                 isValid = false;
             }
 

@@ -6,6 +6,7 @@ using MyTender.Security;
 using RomanPushkin.BetterRobokassa;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Globalization;
 using System.Linq;
 using System.Security.Cryptography;
@@ -33,7 +34,7 @@ namespace MyTend.Controllers
         {
             var payService = new PayService(this.Auth.User);
 
-            var priceRub = Constants._SUB_SUM;
+            var priceRub = int.Parse(ConfigurationManager.AppSettings["PayValue"]);
             var orderId = payService.PrepareAccount();
             var customerEmail = this.Auth.User.Login;
 

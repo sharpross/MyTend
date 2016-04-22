@@ -3,18 +3,21 @@
     div .menu-space {
         padding-bottom: 10px;
     }
+    .pad5 {
+        padding-right: 5px;
+    }
 </style>
 <div class="widget menu-left left-color">
     @if (ViewBag.IsAuth == true)
     {
         <p>
             <i class="icon-briefcase"></i>
-
             @Html.ActionLink("Моя Визитка", "Card", "Account", new { user = ViewBag.UserLogin }, new { @style = "color: #000000" })
             @Html.ActionLink(" ред.", "Profile", "Account", null, new { @style = "color: gray; font-size: 10px;" })
         </p>
 
         <p>
+            
             <a href="~/Tender/Active">
                 Заявки От Заказчиков
                 @if (ViewBag.ActiveCount > 0)
@@ -36,7 +39,10 @@
                 }
             </a>
         </p>
-        <p>@Html.ActionLink("Доступ К Заявкам от Заказчиков", "Index", "Pay", null, new { @style = "color: #000000" })</p>
+        
+        <p>
+            @Html.ActionLink("Доступ К Заявкам от Заказчиков", "Index", "Pay", null, new { @style = "color: #000000" })
+        </p>
 
         <div style="font-size: 12px;">
             @if (this.ViewBag.PayEnd != null)
@@ -81,7 +87,9 @@
     }
     else
     {
-        <p>@Html.ActionLink("Как Это Работает", "AboutWork", "Docs", null, new { @style = "color: #000000;" })</p>
+        <p>
+            @Html.ActionLink("Как Это Работает", "AboutWork", "Docs", null, new { @style = "color: #000000;" })
+        </p>
         <hr />
     }
 </div>

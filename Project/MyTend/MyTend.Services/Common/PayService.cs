@@ -2,6 +2,7 @@
 using MyTender.Core;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,10 +25,13 @@ namespace MyTend.Services.Common
             var isFirst = !PayInfo.FindAll()
                 .Any(x => x.User.Id == this.User.Id);
 
+            var periodFirst = int.Parse(ConfigurationManager.AppSettings["PayMonthsFirst"]);
+            var periodSecond = int.Parse(ConfigurationManager.AppSettings["PayMonths"]);
+
             var newPay = new PayInfo()
             {
                 PayDay = DateTime.Now,
-                PayEnd = isFirst ? DateTime.Now.AddMonths(2) : DateTime.Now.AddMonths(1),
+                PayEnd = isFirst ? DateTime.Now.AddMonths(periodSecond) : DateTime.Now.AddMonths(periodFirst),
                 Sum = Constants._SUB_SUM,
                 User = this.User,
                 Account = account

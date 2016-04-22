@@ -258,7 +258,6 @@
     <Content Include="Content\images\backgound_head.png" />
     <Content Include="Content\images\bek.png" />
     <Content Include="Content\images\bristol.png" />
-    <Content Include="Content\images\cardBackground.png" />
     <Content Include="Content\images\fail.jpg" />
     <Content Include="Content\images\hitoboi.png" />
     <Content Include="Content\images\image_not_found.png" />

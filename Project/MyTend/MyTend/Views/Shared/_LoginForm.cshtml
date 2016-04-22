@@ -41,7 +41,7 @@
     string loginName = ViewBag.UserLogin.ToString();
 
     <div style="text-align: center;">
-        <p><strong>@Html.ActionLink(loginName, "Card", "Account", new { user = ViewBag.UserLogin }, new { @style = "color: white" })</strong></p>
+        <p style="padding-top: 10px;"><strong>@Html.ActionLink(loginName, "Card", "Account", new { user = ViewBag.UserLogin }, new { @style = "color: white" })</strong></p>
         
         <p><strong><a name="LogoutButton" style="color: white;">Выход</a></strong></p>
     </div>
