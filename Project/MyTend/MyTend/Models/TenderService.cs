@@ -1,6 +1,7 @@
 ﻿using MyTend.Entites;
 using MyTend.Services.Common;
 using MyTender.Security;
+using NHibernate.Criterion;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,8 +34,8 @@ namespace MyTend.Models
         {
             var result = new List<Tender>();
 
-            var filtresByUser = TenderHide.FindAll()
-                .Where(x => x.User.Id == this.Auth.User.Id)
+            var filtresByUser = TenderHide.FindAll(Expression.Eq("User", this.Auth.User))
+                //.Where(x => x.User.Id == this.Auth.User.Id)
                 .ToList();
             
             tenders.ForEach(x => {
@@ -58,8 +59,8 @@ namespace MyTend.Models
         {
             var tenders = new OpenCloseTenders();
 
-            var all = Tender.FindAll()
-                .Where(x => x.User.Id == this.Auth.User.Id)
+            var all = Tender.FindAll(Expression.Eq("User", this.Auth.User))
+                //.Where(x => x.User.Id == this.Auth.User.Id)
                 .OrderByDescending(x => x.CreatedDateTime)
                 .ToList();
 
@@ -82,8 +83,8 @@ namespace MyTend.Models
         {
             var tenders = new OpenCloseTenders();
 
-            var all = TenderMessage.FindAll()
-                .Where(x => x.User.Id == this.Auth.User.Id)
+            var all = TenderMessage.FindAll(Expression.Eq("User", this.Auth.User))
+                //.Where(x => x.User.Id == this.Auth.User.Id)
                 .GroupBy(x => x.Tender)
                 .Select(x => x.Key)
                 .OrderByDescending(x => x.CreatedDateTime)
@@ -106,8 +107,8 @@ namespace MyTend.Models
         /// <returns></returns>
         public List<Tender> GetWinner()
         {
-            var all = Tender.FindAll()
-                .Where(x => x.User.Id != this.Auth.User.Id)
+            var all = Tender.FindAll(Expression.Eq("User", this.Auth.User))
+                //.Where(x => x.User.Id != this.Auth.User.Id)
                 .Where(x => x.Winner != null && x.Winner.Id == this.Auth.User.Id)
                 .OrderByDescending(x => x.CreatedDateTime)
                 .ToList();
@@ -140,8 +141,8 @@ namespace MyTend.Models
 
             tenders.ForEach(x =>
             {
-                var exist = TenderMessage.FindAll()
-                    .Any(y => x.Id == y.Tender.Id);
+                var exist = TenderMessage.FindAll(Expression.Eq("Tender", x))
+                    .Any();
 
                 if (!exist)
                 {

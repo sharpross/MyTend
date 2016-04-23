@@ -3,6 +3,7 @@
     using MyTend.Entites;
     using MyTend.Entites.Enums;
     using MyTender.Core;
+    using NHibernate.Criterion;
     using System;
     using System.Collections.Generic;
     using System.Linq;
@@ -26,8 +27,7 @@
 
         public bool HasSubs()
         {
-            return RegionFilter.FindAll()
-                .Where(x => x.User.Id == user.Id)
+            return RegionFilter.FindAll(Expression.Eq("User", user))
                 .Any();
         }
 
@@ -37,8 +37,7 @@
         /// <param name="city">город</param>
         public void Remove(City city)
         {
-            var record = RegionFilter.FindAll()
-                .Where(x => x.User == user)
+            var record = RegionFilter.FindAll(Expression.Eq("User", user))
                 .FirstOrDefault(x => x.City == city);
 
             if (record != null)
@@ -54,8 +53,7 @@
         /// <param name="regions"></param>
         public void Save(List<string> citys, List<string> regions)
         {
-            var allFilters = RegionFilter.FindAll()
-               .Where(x => x.User.Id == user.Id)
+            var allFilters = RegionFilter.FindAll(Expression.Eq("User", user))
                .ToList();
 
             foreach (var filter in allFilters)
@@ -92,8 +90,7 @@
         /// <param name="region">регион</param>
         public void Remove(Region region)
         {
-            var record = RegionFilter.FindAll()
-                .Where(x => x.User == user)
+            var record = RegionFilter.FindAll(Expression.Eq("User", user))
                 .FirstOrDefault(x => x.Region.Id == region.Id);
 
             if (record != null)
@@ -197,8 +194,7 @@
 
             foreach (var region in regions)
             {
-                var tendersByRegion = Tender.FindAll()
-                    .Where(x => x.Region.Id == region.Id);
+                var tendersByRegion = Tender.FindAll(Expression.Eq("Region", region));
 
                 tenders.AddRange(tendersByRegion);
             }
@@ -218,8 +214,7 @@
 
             foreach (var city in citys)
             {
-                var tendersByRegion = Tender.FindAll()
-                    .Where(x => x.City.Id == city.Id)
+                var tendersByRegion = Tender.FindAll(Expression.Eq("City", city))
                     .Where(x => x.Winner == null);
 
                 tenders.AddRange(tendersByRegion);
@@ -236,8 +231,8 @@
         {
             var regions = new List<Region>();
 
-            var records = RegionFilter.FindAll()
-                .Where(x => x.User.Id == this.user.Id && x.Type == SubRegionType.Region );
+            var records = RegionFilter.FindAll(Expression.Eq("User", user))
+                .Where(x => x.Type == SubRegionType.Region );
 
             foreach (var record in records)
             {
@@ -255,8 +250,8 @@
         {
             var citys = new List<City>();
 
-            var records = RegionFilter.FindAll()
-                .Where(x => x.User.Id == this.user.Id && x.Type == SubRegionType.City);
+            var records = RegionFilter.FindAll(Expression.Eq("User", user))
+                .Where(x => x.Type == SubRegionType.City);
 
             foreach (var record in records)
             {

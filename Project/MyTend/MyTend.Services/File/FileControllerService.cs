@@ -156,7 +156,7 @@ namespace MyTend.Services.File
 
         public List<FileSystem> Get(UserSystem user, bool notAvatar = false)
         {
-            var file = FileSystem.FindAll();
+            //var file = FileSystem.FindAll();
                 
 
             var service = new FileService();

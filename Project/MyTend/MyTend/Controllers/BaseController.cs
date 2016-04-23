@@ -104,8 +104,6 @@
                 this.ViewBag.UserLogin = this.Auth.User.Login;
                 this.ViewBag.UserEmail = this.Auth.User.Email;
                 this.ViewBag.UserName = this.Auth.User.FullName;
-                this.ViewBag.IsSubRegions = regionFilter.HasSubs();
-                this.ViewBag.IsSubTenders = themesFilter.HasSubs();
                 this.ViewBag.HasPay = payService.HasPay();
                 this.ViewBag.PayEnd = payService.PayEnd();
 

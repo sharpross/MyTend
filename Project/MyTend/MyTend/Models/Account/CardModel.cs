@@ -1,5 +1,7 @@
-﻿using MyTend.Entites;
+﻿
+using MyTend.Entites;
 using MyTend.Services.File;
+using NHibernate.Criterion;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,8 +21,8 @@ namespace MyTend.Models
 
         private void Load(string login)
         {
-            var user = UserSystem.FindAll()
-                .FirstOrDefault(x => x.Login == login);
+            var user = UserSystem.FindFirst(Expression.Eq("Login", login));
+                //.FirstOrDefault(x => x.Login == login);
 
             if (user == null)
             {

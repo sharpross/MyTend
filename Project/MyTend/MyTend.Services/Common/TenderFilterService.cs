@@ -1,6 +1,7 @@
 ﻿namespace MyTend.Services.Common
 {
     using MyTend.Entites;
+    using NHibernate.Criterion;
     using System;
     using System.Collections.Generic;
     using System.Linq;
@@ -44,8 +45,8 @@
         public List<TenderFilter> GetListSubs()
         {
             var filtres = TenderFilter
-                .FindAll()
-                .Where(x => x.User.Id == this.User.Id)
+                .FindAll(Expression.Eq("User", this.User))
+                //.Where(x => x.User.Id == this.User.Id)
                 .ToList();
 
             return filtres;
@@ -85,8 +86,8 @@
         private bool Exist(TenderFilter filter)
         {
             var exist = TenderFilter
-                .FindAll()
-                .Where(x => x.User.Id == this.User.Id)
+                .FindAll(Expression.Eq("User", this.User))
+                //.Where(x => x.User.Id == this.User.Id)
                 .Where(x => x.Theme.Id == filter.Id)
                 .Any();
 
@@ -96,8 +97,8 @@
         private void ClearAllFiltres()
         {
             var filtres = TenderFilter
-                .FindAll()
-                .Where(x => x.User.Id == this.User.Id);
+                .FindAll(Expression.Eq("User", this.User));
+                //.Where(x => x.User.Id == this.User.Id);
 
             foreach (var filter in filtres)
             {
@@ -110,8 +111,8 @@
         public bool HasSubs()
         {
             var exist = TenderFilter
-                .FindAll()
-                .Where(x => x.User.Id == this.User.Id)
+                .FindAll(Expression.Eq("User", this.User))
+                //.Where(x => x.User.Id == this.User.Id)
                 .Any();
 
             return exist;

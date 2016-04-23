@@ -1,5 +1,6 @@
 ﻿using MyTend.Entites;
 using MyTender.Core;
+using NHibernate.Criterion;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -22,7 +23,7 @@ namespace MyTend.Services.Common
         {
             var account = Utils.GenerateInt();
 
-            var isFirst = !PayInfo.FindAll()
+            var isFirst = !PayInfo.FindAll(Expression.Eq("User", this.User))
                 .Any(x => x.User.Id == this.User.Id);
 
             var periodFirst = int.Parse(ConfigurationManager.AppSettings["PayMonthsFirst"]);
@@ -44,7 +45,7 @@ namespace MyTend.Services.Common
 
         public void MakePay(int account)
         {
-            var payinfo = PayInfo.FindAll()
+            var payinfo = PayInfo.FindAll(Expression.Eq("Account", account))
                 .FirstOrDefault(x => x.Account == account);
 
             if (payinfo != null && payinfo.IsPayed == false)
@@ -61,8 +62,7 @@ namespace MyTend.Services.Common
         public List<PayInfo> GetHistory()
         {
             var pays = PayInfo
-                .FindAll()
-                .Where(x => x.User.Id == this.User.Id)
+                .FindAll(Expression.Eq("User", this.User))
                 .Where(x => x.IsPayed)
                 .ToList();
 
@@ -74,8 +74,7 @@ namespace MyTend.Services.Common
             if (this.HasPay())
             {
                 var has = PayInfo
-                    .FindAll()
-                    .Where(x => x.User.Id == this.User.Id)
+                    .FindAll(Expression.Eq("User", this.User))
                     .Where(x => x.IsPayed)
                     .OrderBy(x => x.PayEnd)
                     .First();
@@ -89,8 +88,7 @@ namespace MyTend.Services.Common
         public bool HasPay()
         {
             var has = PayInfo
-                .FindAll()
-                .Where(x => x.User.Id == this.User.Id)
+                .FindAll(Expression.Eq("User", this.User))
                 .Where(x => DateTime.Now <= x.PayEnd)
                 .Where(x => x.IsPayed)
                 .Any();

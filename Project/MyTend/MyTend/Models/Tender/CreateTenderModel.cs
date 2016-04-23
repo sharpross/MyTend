@@ -4,6 +4,7 @@
     using MyTend.Services;
     using MyTend.Services.File;
     using MyTender.Security;
+    using NHibernate.Criterion;
     using System;
     using System.Collections.Generic;
     using System.Configuration;
@@ -57,8 +58,8 @@
                 throw new Exception("Не известный тендер.");
             }
 
-            var listSubThemes = TenderTheme.FindAll()
-                .Where(x => x.Theme == theme.Theme)
+            var listSubThemes = TenderTheme.FindAll(Expression.Eq("Theme", theme.Theme))
+                //.Where(x => x.Theme == theme.Theme)
                 .OrderBy(x => x.NomberInList)
                 .ToList();
 
@@ -106,8 +107,8 @@
                 throw new Exception("Не известный тендер.");
             }
 
-            var listSubThemes = TenderTheme.FindAll()
-                .Where(x => x.Theme == theme.Theme)
+            var listSubThemes = TenderTheme.FindAll(Expression.Eq("Theme", theme.Theme))
+                //.Where(x => x.Theme == theme.Theme)
                 .OrderBy(x => x.NomberInList)
                 .ToList();
 
@@ -125,8 +126,8 @@
             var begin = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
             var end = begin.AddHours(23).AddMinutes(59).AddSeconds(59);
 
-            var count = Tender.FindAll()
-                .Where(x => x.User.Id == user.Id)
+            var count = Tender.FindAll(Expression.Eq("User", user))
+                //.Where(x => x.User.Id == user.Id)
                 .Where(x => x.CreatedDateTime >= begin && x.CreatedDateTime <= end)
                 .Count();
 
@@ -207,15 +208,15 @@
 
             newTender.Theme = theme;
 
-            var region = Region.FindAll()
-                .FirstOrDefault(x => x.Name == this.RegionId);
+            var region = Region.FindFirst(Expression.Eq("Name", this.RegionId));
+                //.FirstOrDefault(x => x.Name == this.RegionId);
 
             if (region == null)
             {
                 //throw new Exception("Не известный региион");
             }
 
-            var city = City.FindAll()
+            var city = City.FindAll(Expression.Eq("Name", this.CityId))
                 .FirstOrDefault(x => x.Name == this.CityId && 
                     x.Region.Id == region.Id);
 

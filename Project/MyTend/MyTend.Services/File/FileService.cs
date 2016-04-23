@@ -4,6 +4,7 @@
     using MyTend.Entites.Enums;
     using MyTend.Entites.FileStorageInfo;
     using MyTender.Core;
+    using NHibernate.Criterion;
     using System;
     using System.Collections.Generic;
     using System.IO;
@@ -37,8 +38,8 @@
             try
             {
                 files = FileStorageInfo
-                    .FindAll()
-                    .Where(x => x.Tender != null && x.Tender.Id == tender.Id)
+                    .FindAll(Expression.Eq("Tender", tender))
+                    //.Where(x => x.Tender != null && x.Tender.Id == tender.Id)
                     .Select(x => x.File)
                     .ToList();
             }
@@ -111,8 +112,8 @@
             if (notAvatar)
             {
                 files = FileStorageInfo
-                    .FindAll()
-                    .Where(x => x.User != null && x.User.Id == user.Id)
+                    .FindAll(Expression.Eq("User", user))
+                    //.Where(x => x.User != null && x.User.Id == user.Id)
                     .Where(x => x.IsAvatar == false)
                     .Select(x => x.File)
                     .ToList();
@@ -122,8 +123,8 @@
                 if (user.Avatar != null)
                 {
                     files = FileStorageInfo
-                        .FindAll()
-                        .Where(x => x.User != null && x.User.Id == user.Id)
+                        .FindAll(Expression.Eq("User", user))
+                        //.Where(x => x.User != null && x.User.Id == user.Id)
                         .Where(x => x.IsAvatar == true)
                         .Select(x => x.File)
                         .ToList();
@@ -231,13 +232,13 @@
             switch (storeType)
             {
                 case StoreType.User:
-                    data = FileStorageInfo.FindAll()
-                        .Where(x => x.User != null && x.User.Id == user.Id)
+                    data = FileStorageInfo.FindAll(Expression.Eq("User", user))
+                        //.Where(x => x.User != null && x.User.Id == user.Id)
                         .ToList();
                     break;
                 case StoreType.Tender:
-                    data = FileStorageInfo.FindAll()
-                        .Where(x => x.Tender.Id == tender.Id)
+                    data = FileStorageInfo.FindAll(Expression.Eq("Tender", tender))
+                        //.Where(x => x.Tender.Id == tender.Id)
                         .ToList();
                     break;
             }
