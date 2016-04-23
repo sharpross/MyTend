@@ -200,7 +200,7 @@ div.tabs ul.nav-tabs a:last-child, div.tabs ul.nav-tabs a:last-child:hover {
 }
 
 .wp-theme-1 h5 {
-    font-family: forH5 !important;
+    font-family: Arial, sans-serif !important;
 }
 
 .wp-theme-1 h6 {
@@ -445,11 +445,12 @@ section.slice {
 }
 
 header {
-    background-color: #323131;
+    background-color: #1b1b1b;
 }
 
 .header-btn {
-
+    max-width: 200px; 
+    margin-bottom: 10px;
     font-weight: bold;
     position: relative;
     left: 5px;
@@ -462,7 +463,7 @@ header {
 
 .abw-head {
     background-color: #414141;
-    color: #00ccff;
+    color: #f38214;
     padding: 5px;
     text-transform: uppercase;
 }
@@ -483,5 +484,6 @@ header {
 }
 
 .head-backgound {
-    background: url(images/backgound_head.png) 100% 100% no-repeat;
+    background: url(images/backgound_head.png) no-repeat;
+    background-size: 100% 100%;
 }
