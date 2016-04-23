@@ -196,7 +196,495 @@ div.tabs ul.nav-tabs a:last-child, div.tabs ul.nav-tabs a:last-child:hover {
 }
 
 .wp-theme-1 h4 {
-    font-family: forH4 !important;
+    font-family: Arial, sans-serif !important;
+}
+
+.wp-theme-1 h5 {
+    font-family: Arial, sans-serif !important;
+}
+
+.wp-theme-1 h6 {
+    font-family: Arial, Helvetica, sans-serif !important;
+}
+
+
+.font_black {
+    color: black;
+}
+
+label {
+    color: black;
+}
+
+h1, h2, h3 {
+    color: black;
+}
+.table-striped > tbody > tr:nth-child(odd) > td, .table-striped > tbody > tr:nth-child(odd) > th {
+    color: black;
+}
+
+.table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td {
+    color: black;
+}
+
+.jqte_tool.jqte_tool_1 .jqte_tool_label {
+    height: 23px;
+}
+
+.city-block {
+    max-width: 300px;
+    text-align: center;
+}
+
+.like-link {
+    cursor: pointer;
+}
+
+.city-title {
+    margin-top: 5px;
+}
+
+.card-title {
+    color: #B3B1B1;
+}
+
+.card-table {
+    width: 100%;
+    text-align: left;
+    color: black;
+    font-size: 12px;
+}
+
+.card-table-content {
+    font-size: 18px;
+}
+
+.card-block {
+    padding-bottom: 0px;
+}
+
+input[type="file"] {
+    background-color: transparent;
+    border: 0 none; 
+    display: block;
+}
+
+.wp-theme-1 .lw .bg-3 {
+    color: black !important;
+}
+
+div.tabs ul.nav-tabs a:last-child, div.tabs ul.nav-tabs a:last-child:hover {
+    font-size: 13px;
+}
+
+.aw-block {
+    padding-bottom: 20px;
+}
+
+.aw-title {
+    text-align: center;
+    font-weight: bold;
+    padding-bottom: 20px;
+}
+
+.aw-cont img {
+    width: 100%;
+}
+
+.aw-text {
+    text-align: center;
+}
+
+div.tabs ul.nav-tabs a {
+    background: #34475a none repeat scroll 0 0 !important;
+}
+
+div.tabs ul.nav-tabs a:hover {
+    background: #ce0e0e none repeat scroll 0 0 !important;
+}
+
+div.tabs ul.nav-tabs li.active a {
+    background: #ce0e0e none repeat scroll 0 0 !important;
+}
+
+div.tabs div.tab-content {
+    background-color: #ebf0f4 !important;
+}
+
+/*Цвет вкладки*/
+div.tabs ul.nav-tabs li.active a.tabBlue {
+    background: #01b9fd !important;
+}
+
+.btn-custom-red {
+  background-color: #a5369e !important;
+  background-repeat: repeat-x !important;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#a5369e", endColorstr="#a5369e") !important;
+  background-image: -khtml-gradient(linear, left top, left bottom, from(#a5369e), to(#a5369e)) !important;
+  background-image: -moz-linear-gradient(top, #a5369e, #a5369e) !important;
+  background-image: -ms-linear-gradient(top, #a5369e, #a5369e) !important;
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #a5369e), color-stop(100%, #a5369e)) !important;
+  background-image: -webkit-linear-gradient(top, #a5369e, #a5369e) !important;
+  background-image: -o-linear-gradient(top, #a5369e, #a5369e) !important;
+  background-image: linear-gradient(#a5369e, #83297e) !important;
+  color: #fff !important;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.33) !important;
+  -webkit-font-smoothing: antialiased !important;
+  text-decoration: none !important;
+}
+
+
+.btn-custom-aqua {
+    background-color:#22a8ce !important; 
+    background-repeat: repeat-x !important; 
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#3aa30b", endColorstr="#308b03") !important; 
+    background-image: -khtml-gradient(linear, left top, left bottom, from(#22a8ce), to(#308b03)) !important; 
+    background-image: -moz-linear-gradient(top, #22a8ce, #308b03) !important; 
+    background-image: -ms-linear-gradient(top, #22a8ce, #308b03) !important; 
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #22a8ce), color-stop(100%, #308b03)) !important; 
+    background-image: -webkit-linear-gradient(top, #22a8ce,#22a8ce) !important; 
+    background-image: -o-linear-gradient(top, #148eb1, #22a8ce) !important; 
+    background-image: linear-gradient(#22a8ce, #148eb1) !important; 
+    color: #fff !important; 
+    text-shadow: 0 -0px 0 rgba(0, 0, 0, 0.29) !important; 
+    -webkit-font-smoothing: antialiased !important;
+    text-decoration: none !important;
+}
+
+.btn-custom-green {
+    background-color: #3aa30b !important; 
+    background-repeat: repeat-x !important; 
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#3aa30b", endColorstr="#308b03") !important; 
+    background-image: -khtml-gradient(linear, left top, left bottom, from(#3aa30b), to(#308b03)) !important; 
+    background-image: -moz-linear-gradient(top, #3aa30b, #308b03) !important; 
+    background-image: -ms-linear-gradient(top, #3aa30b, #308b03) !important; 
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #3aa30b), color-stop(100%, #308b03)) !important; 
+    background-image: -webkit-linear-gradient(top, #3aa30b, #308b03) !important; 
+    background-image: -o-linear-gradient(top, #3aa30b, #308b03) !important; 
+    background-image: linear-gradient(#3aa30b, #008715) !important; 
+    color: #fff !important; 
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.29) !important; 
+    -webkit-font-smoothing: antialiased !important;
+    text-decoration: none !important;
+}
+
+.cardBackground {
+    background-position: 0% 100%;
+    background-image: url("/Content/images/cardBackground.png");
+    background-repeat: no-repeat;
+}
+
+.errorBox {
+    padding-top: 20px;
+}
+
+.rowWhite {
+    border: 1px solid white;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.panel-group .panel-heading:after {
+    content: ""
+}
+
+.footer_box {
+    padding-bottom: 0px;
+}
+
+.f_m_t {
+    border-bottom: 4px solid #CE0000;
+    text-align: center;
+}
+
+.f_m_b {
+    color: black;
+    padding-right: 10px;
+}
+
+.f_m {
+    color: white !important;
+    background-color: #262626;
+}
+
+    .f_m a {
+        color: white;
+        text-decoration: none;
+    }
+
+        .f_m a:hover {
+            color: white;
+            text-decoration: none;
+        }
+
+.f_m_a {
+    padding-right: 10px;
+}
+
+.no_line {
+    text-decoration: none !important;
+}
+
+section.slice {
+    padding: 10px 0;
+}
+
+/*Цвет центрального блока*/
+.central-color {
+    background-color: #ffffff;
+}
+
+/*Цвет левого блока*/
+.left-color {
+    background-color: #f4f8f9;
+}
+
+/*Цвет правого блока*/
+.right-color {
+    background-color: #ffffff;
+}
+
+header {
+    background-color: #1b1b1b;
+}
+
+.header-btn {
+    max-width: 200px; 
+    margin-bottom: 10px;
+    font-weight: bold;
+    position: relative;
+    left: 5px;
+    top: 5px;
+}
+
+.full-size {
+    width: 100%;
+}
+
+.abw-head {
+    background-color: #414141;
+    color: #f38214;
+    padding: 5px;
+    text-transform: uppercase;
+}
+
+.abw-text {
+    background-color: #e7e7e7;
+    padding: 5px;
+}
+
+.menu-left {
+    font-weight: bold;
+    padding-left: 10px;
+}
+
+/*Цвет подсказки счётчика слева*/
+.left-side-counter {
+    color: #CC7921;
+}
+
+.head-backgound {
+    background: url(images/backgound_head.png) no-repeat;
+    background-size: 100% 100%;
+} {
+    font-family: forH6 !important;
+    font-size: 13px;
+    line-height: 22.4px;
+    font-weight: 400;
+}
+
+hr {
+    height: 2px;
+    color: red;
+}
+
+a.btn.btn-two {
+    color: white;
+}
+
+.wp-theme-1 a .btn-two {
+    color: white;
+}
+
+.wp-theme-1 a:hover .btn-two {
+    color: white;
+}
+
+.wp-theme-1 a {
+    text-decoration: underline;
+    color: #0099cc;;
+}
+
+.wp-theme-1 a:hover {
+    text-decoration: underline !important;
+    color: #0099cc;;
+}
+
+.widget a {
+    text-decoration: none !important;
+    color: #02a6c9 !important;
+}
+
+form a {
+    text-decoration: underline;
+    color: #02a6c9;
+}
+
+header .navbar-brand img {
+    position: relative;
+    top: -6px;
+    height: 60px;
+}
+
+.col-center {
+    float: none !important;
+    margin: 0 auto !important;
+}
+
+.footer_bottom {
+    padding-bottom: 10px;
+}
+
+.footer_top {
+    width: 100%;
+    height: 100px;
+}
+
+.footer_bottom {
+    width: 100%;
+    height: 100px;
+}
+
+.breadcrumb {
+    background-color: white;
+}
+
+.top_logo {
+    width: 500px;
+    height: 120px;
+    background-image: url(../../images/top_logo.jpg);
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.vert_20 {
+    padding: 20px;
+}
+
+.need_help {
+    margin-top: 50px;
+    width: 80px;
+    text-align: center;
+}
+.need_help_img {
+    width: 80px;
+    height: 70px;
+}
+.need_help a {
+    color: grey;
+    text-decoration: none;
+
+    background-image: url("../../images/need_help_std.png");
+    background-repeat: no-repeat;
+}
+.need_help a :hover {
+    background-image: url("../../images/need_help_act.png");
+}
+
+.desc_block .title {
+    height: 120px;
+}
+.desc_block .title img {
+    width: 100px;
+    height: 100px;
+    position: relative;
+    left: 100px;
+}
+.desc_block .title_text {
+    position: relative;
+    font-size: 18px;
+    text-transform: uppercase;
+    left: 220px;
+    top: -80px;
+}
+.desc_block .title_desc {
+    position: relative;
+    font-size: 14px;
+    text-transform: uppercase;
+    left: 220px;
+    top: -80px;
+}
+.desc_block .desc_text {
+    text-align: justify;
+}
+
+.card-table td {
+    padding: 10px 5px 10px 5px;
+}
+.card-td-title {
+    vertical-align: top; 
+    text-align: right; 
+    padding-right: 5px; 
+    font-weight: bold;
+}
+.card-adding {
+    padding-top: 10px;
+}
+
+div.tabs ul.nav-tabs a:last-child, div.tabs ul.nav-tabs a:last-child:hover {
+    border-radius: 0px 0px 0px 0px
+}
+
+.card-row {
+    border: 1px 1px 1px 1px;
+    border-color: #D8D8D8;
+}
+
+@font-face {
+    font-family: forH1;
+    src: url("fonts/HelveticaNeueCyr-Light.otf") format("opentype");
+}
+
+@font-face {
+    font-family: forH2;
+    src: url("fonts/HelveticaNeueCyr-Light.otf") format("opentype");
+}
+
+@font-face {
+    font-family: forH3;
+    src: url("fonts/HelveticaNeueCyr-Thin.otf") format("opentype");
+}
+
+@font-face {
+    font-family: forH4;
+    src: url(fonts/HelveticaNeueCyr-Thin.otf) format("opentype");
+}
+
+@font-face {
+    font-family: forH5;
+    src: url(fonts/HelveticaNeueCyr-Thin.otf) format("opentype");
+}
+
+@font-face {
+    font-family: forH6;
+    src: url(fonts/HelveticaNeueCyr-Light.otf) format("opentype");
+}
+
+.wp-theme-1 h1 {
+    font-family: Arial, Helvetica, sans-serif !important;
+    font-weight: bold;
+}
+
+.wp-theme-1 h2 {
+    font-family: forH2 !important;
+}
+
+.wp-theme-1 h3 {
+    font-family: forH3 !important;
+}
+
+.wp-theme-1 h4 {
+    font-family: Arial, sans-serif !important;
 }
 
 .wp-theme-1 h5 {
