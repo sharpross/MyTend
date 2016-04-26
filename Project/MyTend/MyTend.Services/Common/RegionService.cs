@@ -60,8 +60,9 @@ namespace MyTend.Services
             try
             {
                 var all = Region
-                    .FindAllByProperty("Country", id)
-                    //.Where(x => x.Country.Id == id)
+                    //.FindAllByProperty("Country", id)
+                    .FindAll()
+                    .Where(x => x.Country.Id == id)
                     .OrderBy(x => x.Name)
                     .OrderByDescending(x => x.IsMillion);
 
@@ -78,8 +79,10 @@ namespace MyTend.Services
         {
             var result = new List<City>();
 
-            var all = City.FindAllByProperty("Region", id)
-                //.Where(x => x.Region.Id == id)
+            var all = City
+                //.FindAllByProperty("Region", id)
+                .FindAll()
+                .Where(x => x.Region.Id == id)
                 .OrderBy(x => x.Name);
 
             result.AddRange(all);
@@ -93,8 +96,8 @@ namespace MyTend.Services
 
             try
             {
-                var all = City.FindAllByProperty("Region", id)
-                    //.Where(x => x.Region.Id == id)
+                var all = City.FindAll() //FindAllByProperty("Region", id)
+                    .Where(x => x.Region.Id == id)
                     .OrderBy(x => x.Name)
                     .ToList();
 

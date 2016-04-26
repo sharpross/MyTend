@@ -111,19 +111,19 @@
         <div class="form-group">
             <label for="Title" class="control-label col-md-4">Придумайте название заявки:</label>
             <div class="col-md-8">
-                <input type="text" required class="form-control" placeholder="" name="Title" maxlength="100" value="@Model.Title" />
+                <input type="text" required class="form-control" placeholder="Тема аукциона-торга" name="Title" maxlength="100" value="@Model.Title" />
             </div>
         </div>
 
         <div class="form-group">
-            <label for="Message" class="control-label col-md-4">Текст заявки:</label>
+            <label for="Message" class="control-label col-md-4">Текст заявки/условия конкурса:</label>
             <div class="col-md-8">
-                <textarea class="form-control" required rows="7" maxlength="8000" name="Message" placeholder="Максимально подробно опишите детали и условия вашей заявки, укажите дату, место проведения события, количество гостей и прочие условия, которые необходимо учесть исполнителям, перед тем, как сделать Вам выгодное предложение."></textarea>
+                <textarea class="form-control" required rows="7" maxlength="10000" name="Message" placeholder="Максимально подробно опишите детали и условия вашей заявки, укажите дату, место проведения события, количество гостей и прочие условия, которые необходимо учесть исполнителям, перед тем, как сделать Вам выгодное предложение."></textarea>
             </div>
         </div>
 
         <div class="form-group">
-            <label for="Cost" class="control-label col-md-4">Планируемый бюджет</label>
+            <label for="Cost" class="control-label col-md-4">На какую сумму Вы ориентируетесь?</label>
             <div class="col-md-2">
                 <input type="number" min="0" step="1" class="form-control" name="Cost" placeholder="Средняя цена" value="@Model.Cost" />
             </div>

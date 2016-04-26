@@ -7,92 +7,60 @@
         padding-right: 5px;
     }
 </style>
-<div class="widget menu-left left-color">
-    @if (ViewBag.IsAuth == true)
-    {
-        <p>
-            <i class="icon-briefcase"></i>
-            @Html.ActionLink("Моя Визитка", "Card", "Account", new { user = ViewBag.UserLogin }, new { @style = "color: #000000" })
-            @Html.ActionLink(" ред.", "Profile", "Account", null, new { @style = "color: gray; font-size: 10px;" })
-        </p>
-
-        <p>
-            
-            <a href="~/Tender/Active">
-                Заявки От Заказчиков
-                @if (ViewBag.ActiveCount > 0)
-                {
-                    @: <span class="left-side-counter">+@ViewBag.ActiveCount</span>
-                }
-            </a>
-
-        </p>
-        <p>
-            @Html.ActionLink("Мои Предложения Заказчикам", "List", "Tender", null, new { @style = "color: #000000;" })
-        </p>
-        <p>
-            <a href="~/Tender/Winner">
-                Победы В Аукционных-торгах
-                @if (ViewBag.WinnerCount > 0)
-                {
-                    @: <span class="left-side-counter">+@ViewBag.WinnerCount</span>
-                }
-            </a>
-        </p>
-        
-        <p>
-            @Html.ActionLink("Доступ К Заявкам от Заказчиков", "Index", "Pay", null, new { @style = "color: #000000" })
-        </p>
-
-        <div style="font-size: 12px;">
-            @if (this.ViewBag.PayEnd != null)
+<aside class="sidebar">
+    <nav class="sidebar-nav">
+        <ul class="metismenu" id="menu">
+            @if (ViewBag.IsAuth == true)
             {
-                if (this.ViewBag.PayEnd is string)
-                {
-                    <div>
-                        @if (!string.IsNullOrEmpty(this.ViewBag.PayEnd.ToString()))
-                        {
-                            <div class="alert alert-success">
-                                Доступ к заявкам и право участия в аукционных-торгах оплачены до: @this.ViewBag.PayEnd.ToString()
-                            </div>
-                        }
-                        else
-                        {
-                            <div class="alert alert-info">
-                                Доступ к заявкам не оплачен/Вы в статусе  заказчика услуг.
-                            </div>
-                        }
-
-                    </div>
-                }
-                else
-                {
-                    if (this.ViewBag.PayEnd != null)
-                    {
-                        <div class="alert alert-success">
-                            Доступ к заявкам и право участия в аукционных-торгах оплачены до: @this.ViewBag.PayEnd.ToString()
-                        </div>
-                    }
-                }
+                <li class="active">
+                    <a href="~/account/card?user=@ViewBag.UserLogin" aria-expanded="false">
+                        <span class="sidebar-nav-item-icon fa fa-newspaper-o fa-lg"></span>
+                        <span class="sidebar-nav-item">Моя Визитка</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="~/tender/active" aria-expanded="false">
+                        <span class="sidebar-nav-item-icon fa fa-user-plus fa-lg"></span>
+                        <span class="sidebar-nav-item">Заявки от заказчиков</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="~/tender/my" aria-expanded="false">
+                        <span class="sidebar-nav-item-icon fa fa-user-plus fa-lg"></span>
+                        <span class="sidebar-nav-item">Мои предложения заказчикам</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="~/tender/winner" aria-expanded="false">
+                        <span class="sidebar-nav-item-icon fa fa-cart-arrow-down fa-lg"></span>
+                        <span class="sidebar-nav-item">Победы в аукционных-торгах</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="~/pay/index" aria-expanded="false">
+                        <span class="sidebar-nav-item-icon fa fa-money fa-lg"></span>
+                        <span class="sidebar-nav-item">Доступ к заявкам от заказчиков</span>
+                    </a>
+                </li>
             }
             else
             {
-                <div style="font-size: 12px;" class="alert alert-info">
-                    Доступ к заявкам не оплачен
-                </div>
+                <li class="active">
+                    <a href="~/docs/AboutWork" aria-expanded="false">
+                        <span class="sidebar-nav-item-icon fa fa-money fa-lg"></span>
+                        <span class="sidebar-nav-item">Как это работает</span>
+                    </a>
+                </li>
             }
-        </div>
-
-        <hr />
-    }
-    else
-    {
-        <p>
-            @Html.ActionLink("Как Это Работает", "AboutWork", "Docs", null, new { @style = "color: #000000;" })
-        </p>
-        <hr />
-    }
-</div>
+            
+        </ul>
+    </nav>
+</aside>
+<script>
+    $(function () {
+        $('#menu').metisMenu();
+    });
+</script>
 
 <div class="form-group" style="text-align: center">
     <div style="font-style: italic; text-align: center;">Реклама</div>

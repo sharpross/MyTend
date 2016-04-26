@@ -229,17 +229,12 @@
         /// <returns>Список подписанных регионов</returns>
         public List<Region> GetRegions()
         {
-            var regions = new List<Region>();
-
             var records = RegionFilter.FindAll(Expression.Eq("User", user))
-                .Where(x => x.Type == SubRegionType.Region );
+                .Where(x => x.Type == SubRegionType.Region )
+                .Select(x => x.Region)
+                .ToList();
 
-            foreach (var record in records)
-            {
-                regions.Add(record.Region);
-            }
-
-            return regions;
+            return records;
         }
 
         /// <summary>
@@ -248,17 +243,12 @@
         /// <returns>Список подписанных городов</returns>
         public List<City> GetCitys()
         {
-            var citys = new List<City>();
-
             var records = RegionFilter.FindAll(Expression.Eq("User", user))
-                .Where(x => x.Type == SubRegionType.City);
+                .Where(x => x.Type == SubRegionType.City)
+                .Select(x => x.City)
+                .ToList();
 
-            foreach (var record in records)
-            {
-                citys.Add(record.City);
-            }
-
-            return citys;
+            return records;
         }
     }
 }

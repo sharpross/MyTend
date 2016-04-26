@@ -1,4 +1,4 @@
-﻿ {
+﻿ body {
     font-family: forH6 !important;
     font-size: 13px;
     line-height: 22.4px;
@@ -23,8 +23,13 @@ a.btn.btn-two {
 }
 
 .wp-theme-1 a {
-    text-decoration: underline;
-    color: #0099cc;;
+    text-decoration: none;
+    color: #0099cc;
+}
+
+.wp-theme-1 a:hover {
+    text-decoration: none;
+    color: #0099cc;
 }
 
 .wp-theme-1 a:hover {
@@ -154,12 +159,12 @@ div.tabs ul.nav-tabs a:last-child, div.tabs ul.nav-tabs a:last-child:hover {
 
 @font-face {
     font-family: forH1;
-    src: url("fonts/HelveticaNeueCyr-Light.otf") format("opentype");
+    src: url("fonts/HelveticaNeueCyr-Medium.otf") format("opentype");
 }
 
 @font-face {
     font-family: forH2;
-    src: url("fonts/HelveticaNeueCyr-Light.otf") format("opentype");
+    src: url("fonts/HelveticaNeueCyr-Medium.otf") format("opentype");
 }
 
 @font-face {
@@ -196,11 +201,11 @@ div.tabs ul.nav-tabs a:last-child, div.tabs ul.nav-tabs a:last-child:hover {
 }
 
 .wp-theme-1 h4 {
-    font-family: forH4 !important;
+    font-family: Arial, sans-serif !important;
 }
 
 .wp-theme-1 h5 {
-    font-family: forH5 !important;
+    font-family: Arial, sans-serif !important;
 }
 
 .wp-theme-1 h6 {
@@ -431,7 +436,7 @@ section.slice {
 
 /*Цвет центрального блока*/
 .central-color {
-    background-color: #ffffff;
+    background-color: #f9f7f3;
 }
 
 /*Цвет левого блока*/
@@ -445,7 +450,7 @@ section.slice {
 }
 
 header {
-    background-color: #323131;
+    background-color: #1b1b1b;
 }
 
 .header-btn {
@@ -462,14 +467,14 @@ header {
 }
 
 .abw-head {
-    background-color: #414141;
-    color: #f38214;
+    background-color: #3f4042;
+    color: #fc9550;
     padding: 5px;
     text-transform: uppercase;
 }
 
 .abw-text {
-    background-color: #e7e7e7;
+    background-color: #e2e2e2;
     padding: 5px;
 }
 
@@ -487,3 +492,66 @@ header {
     background: url(images/backgound_head.png) no-repeat;
     background-size: 100% 100%;
 }
+
+/*metiMenu*/
+.sidebar {
+  display: block;
+  float: left;
+  width: 100%;
+  background: #333;
+}
+.content {
+  display: block;
+  overflow: hidden;
+  width: auto;
+}
+.sidebar-nav {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+  background-image: -webkit-linear-gradient(left, color-stop(#333333 10px), color-stop(#222222 10px));
+  background-image: linear-gradient(to right, #333333 10px, #222222 10px);
+  background-repeat: repeat-x;
+  filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#ff333333', endColorstr='#ff222222', GradientType=1);
+}
+.sidebar-nav ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.sidebar-nav a, .sidebar-nav a:hover, .sidebar-nav a:focus, .sidebar-nav a:active {
+  outline: none;
+  text-decoration: none;
+}
+.sidebar-nav ul li, .sidebar-nav ul a {
+  display: block;
+  text-decoration: none;
+}
+.sidebar-nav ul a {
+  padding: 10px 20px;
+  text-decoration: none;
+  color: #aaa;
+  border-top: 1px solid rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.05) inset;
+  text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.5);
+}
+.sidebar-nav ul a:hover, .sidebar-nav ul a:focus, .sidebar-nav ul a:active {
+  color: #fff;
+  text-decoration: none;
+}
+.sidebar-nav ul ul a {
+  padding: 10px 30px;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+.sidebar-nav ul ul a:hover, .sidebar-nav ul ul a:focus, .sidebar-nav ul ul a:active {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+.sidebar-nav-item {
+  padding-left: 5px;
+}
+.sidebar-nav-item-icon {
+  padding-right: 5px;
+}
+#rtlh3 small {
+    transform: rotateY(180deg);
+    display: inline-block;
+}
+/*metiMenu end*/
