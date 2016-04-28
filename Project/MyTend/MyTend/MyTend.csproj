@@ -258,6 +258,7 @@
     <Content Include="Content\images\backgound_head.png" />
     <Content Include="Content\images\bek.png" />
     <Content Include="Content\images\bristol.png" />
+    <Content Include="Content\images\cardBackground.png" />
     <Content Include="Content\images\fail.jpg" />
     <Content Include="Content\images\hitoboi.png" />
     <Content Include="Content\images\image_not_found.png" />
@@ -275,6 +276,7 @@
     <Content Include="Content\images\kats\7.svg" />
     <Content Include="Content\images\kats\8.svg" />
     <Content Include="Content\images\kats\9.svg" />
+    <Content Include="Content\images\kirkina.png" />
     <Content Include="Content\images\logo.svg" />
     <Content Include="Content\images\mazan.png" />
     <Content Include="Content\images\mazanDance.png" />
