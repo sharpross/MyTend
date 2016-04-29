@@ -6,7 +6,7 @@
 }
 <div class="row" style="border: 0px; border-bottom: 0px; border-color: #D8D8D8; border-style: solid;">
     <div class="col-md-12" style="text-align: center;">
-        <h2>Заявка на предоставление услуг</h2>
+        <h2>Заявка/конкурс, на предоставление услуги</h2>
     </div>
 </div>
 <div class="row">
@@ -24,7 +24,7 @@
             {
                 <span style="color: rgb(204, 0, 1); font-weight: bold">@Model.User.FullName</span>
                 <span style="font-size: 10px; color: gray; padding-top: -15px;">
-                    (Ссылка на визитку будет доступна только победителю торга.)
+                    (Ссылка на визитку будет доступна только победителю аукционного-торга/конкурса)
                 </span>
             }
         </p>
@@ -37,7 +37,7 @@
             @Model.Theme.Title
         </p>
         <p>
-            <span style="font-weight: normal; color: gray;">Регион/Город исполнения заявки:</span><br />
+            <span style="font-weight: normal; color: gray;">Регион/Город исполнения заказа:</span><br />
             @if (Model.Region.IsMillion == false)
             {
                 <span>
@@ -52,7 +52,7 @@
             }
         </p>
         <p>
-            <span style="font-weight: normal; color: gray;">Название торгов:</span><br />
+            <span style="font-weight: normal; color: gray;">Название заявки/конкурса:</span><br />
             @Model.Title
         </p>
         <p style="word-wrap: break-word;">
@@ -108,7 +108,7 @@
             <div class="col-lg-12 bg-success">
                 <div class="w_b">
                     <div style="text-align: center">
-                        Торг закрыт! Победителем торга выбран: <strong>@Html.ActionLink(Model.Winner.FullName, "Card", "Account", new { @user = Model.Winner.Login }, new { @style = "color: red" })</strong>
+                        Аукционный-торг закрыт! Победителем конкурса выбран: <strong>@Html.ActionLink(Model.Winner.FullName, "Card", "Account", new { @user = Model.Winner.Login }, new { @style = "color: red" })</strong>
                     </div>
                     <div style="text-align: center;">
                         Торг перенесён в "Завершенные торги"
@@ -121,7 +121,7 @@
     else
     {
         <div style="text-align: center">
-            Время публикации торга истекло, победитель не выбран.
+            Время публикации аукционного-торга истекло, победитель не выбран.
         </div>
         <div style="text-align: center;">
             Торг перенесён в меню "Завершенные торги"
@@ -174,7 +174,7 @@
         {
             <div class="row">
                 <div class="col-md-12" style="text-align: center; font-weight: bold;">
-                    Предложений пока нет, рекоменуем проверить позже!
+                    Предложений от исполнителей пока нет, рекомендуем проверить позже!
                 </div>
             </div>
         }
@@ -288,7 +288,7 @@
                         {
                             <strong style="color: black; text-decoration: none;">
                                 @string.Format("{0}, {1}, {2}", message.User.City.Region.Country.Name, message.User.City.Region.Name, message.User.City.Name)
-                            </strong> 
+                            </strong>
                         }
                     </div>
 
