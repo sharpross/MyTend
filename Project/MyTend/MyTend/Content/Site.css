@@ -305,11 +305,11 @@ div.tabs ul.nav-tabs a {
 }
 
 div.tabs ul.nav-tabs a:hover {
-    background: #ce0e0e none repeat scroll 0 0 !important;
+    background: #b18a12 none repeat scroll 0 0 !important;
 }
 
 div.tabs ul.nav-tabs li.active a {
-    background: #ce0e0e none repeat scroll 0 0 !important;
+    background: #b18a12 none repeat scroll 0 0 !important;
 }
 
 div.tabs div.tab-content {
@@ -436,7 +436,7 @@ section.slice {
 
 /*Цвет центрального блока*/
 .central-color {
-    background-color: #f7f7f7;
+    background-color: #ffffff;
 }
 
 /*Цвет левого блока*/
@@ -450,7 +450,7 @@ section.slice {
 }
 
 header {
-    background-color: #1b1b1b;
+    background-color: #222222;
 }
 
 .header-btn {
@@ -467,8 +467,8 @@ header {
 }
 
 .abw-head {
-    background-color: #3f4042;
-    color: #fc9550;
+    background-color: #222222;
+    color: #c8b877;
     padding: 5px;
     text-transform: uppercase;
 }
