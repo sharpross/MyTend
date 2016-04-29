@@ -7,20 +7,28 @@
 @using (Html.BeginForm("Create", "Tender", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
+    <div style="font-style: italic">Реклама</div>
     <a href="http://www.mazan-masters.com/#!-/co97" target="_blank">
         <img src="~/Content/images/MAZANdance.png" style="width: 100%" />
     </a>
     <div class="form-group" style="text-align: center">
-        <h1 style="color: #02a6c9;">Заполните заявку, указав исполнителям все подробности вашего предстоящего события</h1>
+        <h2 style="color: #000000;">Заполните заявку, указав исполнителям все подробности вашего предстоящего события</h2>
+    </div>
+    <div>
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                @Html.ActionLink("Инструкция заполнения заявок", "Instruction", "Docs")
+            </div>
+        </div>
     </div>
     <div class="form-horizontal">
         <div class="row">
             <div class="col-md-4" style="text-align: center">
-                <img src="~/Content/images/kats/@Model.Theme.ImageName" width="140" height="120" />
+                <img src="~/Content/images/kats/@Model.Theme.ImageName" width="150" height="120" />
             </div>
             <div class="col-md-8">
                 <br /><br />
-                <h2>Новая заявка - @Model.Theme.Theme</h2>
+                <h3 style="color: #6b777e;">Новая заяка - @Model.Theme.Theme</h3>
             </div>
         </div>
         <hr />
@@ -111,7 +119,7 @@
         <div class="form-group">
             <label for="Title" class="control-label col-md-4">Придумайте название заявки:</label>
             <div class="col-md-8">
-                <input type="text" required class="form-control" placeholder="Тема аукциона-торга" name="Title" maxlength="100" value="@Model.Title" />
+                <input type="text" required class="form-control" placeholder="Например: Ищу ведущего/банкетный зал/DJ на юбилей 3 сентября" name="Title" maxlength="100" value="@Model.Title" />
             </div>
         </div>
 
@@ -197,7 +205,7 @@
                     $("label.error").remove();
                 },
                 submitHandler: function (form) {
-                    $('button[type=submit]').attr('disabled','disabled');
+                    $('button[type=submit]').attr('disabled', 'disabled');
                     form.submit();
                 }
             });
