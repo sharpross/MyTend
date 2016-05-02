@@ -97,6 +97,11 @@
             return View();
         }
 
+        public ActionResult AboutWork2()
+        {
+            return View();
+        }
+
         public ActionResult Torgs()
         {
             return View();

@@ -1,5 +1,5 @@
 ﻿ body {
-    font-family: forH6 !important;
+    font-family: Arial, Helvetica, sans-serif !important;
     font-size: 13px;
     line-height: 22.4px;
     font-weight: 400;
@@ -189,7 +189,6 @@ div.tabs ul.nav-tabs a:last-child, div.tabs ul.nav-tabs a:last-child:hover {
 
 .wp-theme-1 h1 {
     font-family:Helvetica, sans-serif !important;
-    font-weight: bold;
 }
 
 .wp-theme-1 h2 {

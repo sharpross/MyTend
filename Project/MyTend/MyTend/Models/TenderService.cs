@@ -107,7 +107,7 @@ namespace MyTend.Models
         /// <returns></returns>
         public List<Tender> GetWinner()
         {
-            var all = Tender.FindAll(Expression.Eq("User", this.Auth.User))
+            var all = Tender.FindAll(Expression.Not(Expression.Eq("User", this.Auth.User)))
                 //.Where(x => x.User.Id != this.Auth.User.Id)
                 .Where(x => x.Winner != null && x.Winner.Id == this.Auth.User.Id)
                 .OrderByDescending(x => x.CreatedDateTime)

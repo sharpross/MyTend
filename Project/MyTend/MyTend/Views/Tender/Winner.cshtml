@@ -13,83 +13,98 @@
     </ul>
     <div class="tab-content">
         <div class="tab-pane active" id="tab5-1">
-            @foreach (var item in Model.Tenders)
+            @if (Model.Tenders.Count > 0)
             {
-                <div class="row" id="tenderrow-@item.Id">
-                    <div class="col-lg-1">
-                        <div>
-                            <a href="~/Tender/Details?id=@item.Id">
-                                <img src="~/Content/images/kats/@item.Theme.ImageName" width="60" height="50" />
-                            </a>
-                        </div>
-                        <div>
-                            @if (item.Winner != null && item.Winner.Login == ViewBag.UserLogin)
-                            {
+                foreach (var item in Model.Tenders)
+                {
+                    <div class="row" id="tenderrow-@item.Id">
+                        <div class="col-lg-1">
+                            <div>
                                 <a href="~/Tender/Details?id=@item.Id">
-                                    <img src="~/Content/images/winner.png" width="50" height="60" />
+                                    <img src="~/Content/images/kats/@item.Theme.ImageName" width="60" height="50" />
                                 </a>
-                            }
+                            </div>
+                            <div>
+                                @if (item.Winner != null && item.Winner.Login == ViewBag.UserLogin)
+                                {
+                                    <a href="~/Tender/Details?id=@item.Id">
+                                        <img src="~/Content/images/winner.png" width="50" height="60" />
+                                    </a>
+                                }
+                            </div>
+                        </div>
+                        <div class="col-lg-11">
+                            <table style="width: 100%">
+                                <tr>
+                                    <td width="20%" style="text-align: right;">
+                                        <strong>Название торгов:</strong>
+                                    </td>
+                                    <td style="padding-left: 10px;">
+                                        @item.Title
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td width="20%" style="text-align: right;">
+                                        <strong>Тема/категория:</strong>
+                                    </td>
+                                    <td style="padding-left: 10px;">
+                                        @item.Theme.Theme: @item.Theme.Title
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td width="20%" style="text-align: right;">
+                                        <strong>Регион/Город:</strong>
+                                    </td>
+                                    <td style="padding-left: 10px;">
+                                        @item.City.Name
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td width="20%" style="text-align: right;">
+                                        <strong>Бюджет:</strong>
+                                    </td>
+                                    <td style="padding-left: 10px;">
+                                        @item.Cost.ToString("0.00") руб.
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td width="20%" style="text-align: right;">
+                                        <strong>Период торга:</strong>
+                                    </td>
+                                    <td style="padding-left: 10px;">
+                                        @string.Format("C " + item.CreatedDateTime.ToString("dd.MM.yyyy") + " до " + item.DateEnd.ToString("dd.MM.yyyy"))
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td width="20%" style="text-align: right;"></td>
+                                    <td style="padding-left: 10px;">
+                                        @Html.ActionLink("Посмотреть подробнее...", "Details", "Tender", new { id = item.Id }, null)
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td width="20%" style="text-align: right;"></td>
+                                    <td style="padding-left: 10px; text-align: right;">
+                                        <a href="#" style="color: red;" onclick="hideTender(@item.Id)"><span class="fa fa-trash"></span> Удалить/очистить список</a>
+                                    </td>
+                                </tr>
+                            </table>
                         </div>
                     </div>
-                    <div class="col-lg-11">
-                        <table style="width: 100%">
-                            <tr>
-                                <td width="20%" style="text-align: right;">
-                                    <strong>Название торгов:</strong>
-                                </td>
-                                <td style="padding-left: 10px;">
-                                    @item.Title
-                                </td>
-                            </tr>
-                            <tr>
-                                <td width="20%" style="text-align: right;">
-                                    <strong>Тема/категория:</strong>
-                                </td>
-                                <td style="padding-left: 10px;">
-                                    @item.Theme.Theme: @item.Theme.Title
-                                </td>
-                            </tr>
-                            <tr>
-                                <td width="20%" style="text-align: right;">
-                                    <strong>Регион/Город:</strong>
-                                </td>
-                                <td style="padding-left: 10px;">
-                                    @item.City.Name
-                                </td>
-                            </tr>
-                            <tr>
-                                <td width="20%" style="text-align: right;">
-                                    <strong>Бюджет:</strong>
-                                </td>
-                                <td style="padding-left: 10px;">
-                                    @item.Cost.ToString("0.00") руб.
-                                </td>
-                            </tr>
-                            <tr>
-                                <td width="20%" style="text-align: right;">
-                                    <strong>Период торга:</strong>
-                                </td>
-                                <td style="padding-left: 10px;">
-                                    @string.Format("C " + item.CreatedDateTime.ToString("dd.MM.yyyy") + " до " + item.DateEnd.ToString("dd.MM.yyyy"))
-                                </td>
-                            </tr>
-                            <tr>
-                                <td width="20%" style="text-align: right;"></td>
-                                <td style="padding-left: 10px;">
-                                    @Html.ActionLink("Посмотреть подробнее...", "Details", "Tender", new { id = item.Id }, null)
-                                </td>
-                            </tr>
-                            <tr>
-                                <td width="20%" style="text-align: right;"></td>
-                                <td style="padding-left: 10px; text-align: right;">
-                                    <a href="#" style="color: red;" onclick="hideTender(@item.Id)"><span class="fa fa-trash"></span> Удалить/очистить список</a>
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
-                </div>
-                <div class="rowWhite">
+                    <div class="rowWhite">
 
+                    </div>
+                }
+            }
+            else
+            {
+                <div>
+                    Заявок пока не поступало, рекомендуем проверить позже.
+                </div>
+                <div>
+                    В случае поступления заявок, Робот-Тендер оповестит и пригласит Вас ознакомиться с заявками, по электронной почте с 9-00 до 11-00 по Мск.
+                </div>
+                <div>
+                    Так же рекомендуем проверять наличие новых заявок самостоятельно, в этом пункте меню.
                 </div>
             }
         </div>
