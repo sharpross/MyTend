@@ -4,7 +4,7 @@
     ViewBag.Title = "Пройдите регистрацию";
 }
 
-@using (Html.BeginForm(Html.BeginForm("Registration", "Account", FormMethod.Post, new { enctype = "multipart/form-data" })))
+@using (Html.BeginForm("Registration", "Account", FormMethod.Post, new { enctype = "multipart/form-data", @id = "reg" }))
 {
     @Html.AntiForgeryToken()
 
@@ -139,7 +139,7 @@
                             </div>
                         </div>
                         <div class="row">
-                            <button type="submit" class="btn btn-custom-red">Зарегистрироваться</button>
+                            <button type="submit" class="btn btn-custom-red" id="sub">Зарегистрироваться</button>
                         </div>
                     </div>
                 </div>
@@ -148,3 +148,10 @@
     </div>
 }
 <script src="~/Scripts/app/selectRegions.js"></script>
+<script>
+    var btn = $('button#sub');
+    btn.on('click', function () {
+        btn.attr('disabled', true);
+        $('form#reg').submit();
+    });
+</script>

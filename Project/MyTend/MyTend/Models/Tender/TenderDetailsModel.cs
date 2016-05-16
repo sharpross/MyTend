@@ -43,7 +43,16 @@ namespace MyTend.Models
         {
             var tender = Tender.GetById(id);
 
-            this.Tenders.Add(tender);
+            if (tender.User.Id != this.Auth.User.Id)
+            {
+                var tenderByFilter = this.TendersFilter.GetByListTenders(this.RegionFilter.GetTenders());
+
+                this.Tenders.AddRange(tenderByFilter);
+            }
+            else
+            {
+                this.Tenders.Add(tender);
+            }
         }
 
         private void Load(int id)

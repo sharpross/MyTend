@@ -15,31 +15,34 @@
             {
                 <li class="active">
                     <a href="~/account/card?user=@ViewBag.UserLogin" aria-expanded="false">
-                        <span class="sidebar-nav-item-icon fa fa-newspaper-o fa-lg"></span>
                         <span class="sidebar-nav-item">Моя Визитка</span>
                     </a>
                 </li>
                 <li>
                     <a href="~/tender/active" aria-expanded="false">
-                        <span class="sidebar-nav-item-icon fa fa-user-plus fa-lg"></span>
                         <span class="sidebar-nav-item">Заявки от Заказчиков</span>
+                        @if (this.ViewBag.ActiveCount > 0)
+                        {
+                            <span class="label label-warning">+ @this.ViewBag.ActiveCount</span>
+                        }
                     </a>
                 </li>
                 <li>
                     <a href="~/tender/list" aria-expanded="false">
-                        <span class="sidebar-nav-item-icon fa fa-user-plus fa-lg"></span>
                         <span class="sidebar-nav-item">Мои Предложения Заказчикам</span>
                     </a>
                 </li>
                 <li>
                     <a href="~/tender/winner" aria-expanded="false">
-                        <span class="sidebar-nav-item-icon fa fa-cart-arrow-down fa-lg"></span>
                         <span class="sidebar-nav-item">Победы в Аукционных-Торгах</span>
+                        @if (this.ViewBag.WinnerCount > 0)
+                        {
+                            <span class="label label-warning">+ @this.ViewBag.WinnerCount</span>
+                        }
                     </a>
                 </li>
                 <li>
                     <a href="~/pay/index" aria-expanded="false">
-                        <span class="sidebar-nav-item-icon fa fa-money fa-lg"></span>
                         <span class="sidebar-nav-item">Оплата Доступа к Заявкам и Участию в Аукционах</span>
                     </a>
                 </li>
@@ -48,7 +51,6 @@
             {
                 <li class="active">
                     <a href="~/docs/AboutWork" aria-expanded="false">
-                        <span class="sidebar-nav-item-icon fa fa-money fa-lg"></span>
                         <span class="sidebar-nav-item">Как это работает</span>
                     </a>
                 </li>
@@ -66,12 +68,18 @@
 <div class="form-group" style="text-align: center">
     <div style="font-style: italic; text-align: center;">Реклама</div>
     <a href="#" target="_blank">
-        <img src="~/Content/images/avtograph.gif" style="width: 70%" />
+        <img src="~/Content/images/avtograph.gif" style="width: 100%" />
     </a>
 </div>
 <div class="form-group" style="text-align: center">
     <div style="font-style: italic; text-align: center;">Реклама</div>
-    <a href="https://vk.com/miamidanceband" target="_blank">
-        <img src="~/Content/images/aneks_dlya_sajta.jpg" style="width: 70%" />
+    <a href="http://vk.com/club31784007" target="_blank">
+        <img src="~/Content/images/kuranov.png" style="width: 100%" />
+    </a>
+</div>
+<div class="form-group" style="text-align: center">
+    <div style="font-style: italic; text-align: center;">Реклама</div>
+    <a href="https://vk.com/kn_tour_kazan" target="_blank">
+        <img src="~/Content/images/aneks_dlya_sajta.jpg" style="width: 100%" />
     </a>
 </div>

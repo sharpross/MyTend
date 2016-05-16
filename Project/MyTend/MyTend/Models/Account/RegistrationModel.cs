@@ -36,6 +36,15 @@
 
         public bool TryRegistry()
         {
+            if (this.Login == null)
+            {
+                this.Login = string.Empty;
+            }
+            if (this.Password == null)
+            {
+                this.Password = string.Empty;
+            }
+
             var obj = new UserSystem() 
             {
                 AboutShort = this.AboutShort,

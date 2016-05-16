@@ -17,22 +17,6 @@
 
         protected override void OnActionExecuted(ActionExecutedContext filterContext)
         {
-            if (this.Auth.User != null)
-            {
-                var active = 0;
-                var winner = 0;
-
-                var model = new ListTendersModel();
-
-                active = model.Tenders.Count;
-
-                var model2 = new WinnerTenderModel();
-                model2.Load();
-                winner = model2.Tenders.Count;
-
-                ViewBag.ActiveCount = active;
-                ViewBag.WinnerCount = winner;
-            }
 
             base.OnActionExecuted(filterContext);
         }
@@ -119,7 +103,7 @@
 
                 try
                 {
-                    var service = new EmailService(model.User.Email);
+                    var service = new EmailService(this.Auth.User.Email);
                     service.CreateTender(model.Id.ToString(), model.Title);
                 }
                 catch
@@ -201,7 +185,7 @@
 
                 try
                 {
-                    var service = new EmailService(this.Auth.User.Email);
+                    var service = new EmailService(model.Winner.Email);
                     service.Winner(tenderId.ToString(), model.Winner.FullName, model.Tender.Title);
                 }
                 catch
@@ -235,7 +219,7 @@
 
                     try
                     {
-                        if (model.User.Id != this.Auth.User.Id)
+                        if (model.Tender.User.Id != this.Auth.User.Id)
                         {
                             var service = new EmailService(this.Auth.User.Email);
                             service.AddComment(model.TenderId.ToString(), model.Tender.User.FullName, model.Tender.Title);

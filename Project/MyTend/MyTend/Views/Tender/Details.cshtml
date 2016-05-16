@@ -24,7 +24,7 @@
             {
                 <span style="color: rgb(204, 0, 1); font-weight: bold">@Model.User.FullName</span>
                 <span style="font-size: 10px; color: gray; padding-top: -15px;">
-                    (Ссылка на визитку будет доступна только победителю аукционного-торга/конкурса)
+                    (Ссылка на визитку будет доступна только победителю аукционного-конкурса/торга)
                 </span>
             }
         </p>
@@ -108,10 +108,10 @@
             <div class="col-lg-12 bg-success">
                 <div class="w_b">
                     <div style="text-align: center">
-                        Аукционный-торг закрыт! Победителем конкурса выбран: <strong>@Html.ActionLink(Model.Winner.FullName, "Card", "Account", new { @user = Model.Winner.Login }, new { @style = "color: red" })</strong>
+                        Аукционный-торг закрыт! Победителем конкурса/торга выбран: <strong>@Html.ActionLink(Model.Winner.FullName, "Card", "Account", new { @user = Model.Winner.Login }, new { @style = "color: red" })</strong>
                     </div>
                     <div style="text-align: center;">
-                        Торг перенесён в "Завершенные торги"
+                        Торг перенесён в "Завершенные торги (архив)"
                     </div>
                 </div>
             </div>
@@ -135,7 +135,7 @@
 {
     <div style="padding-top: 15px;"></div>
     <div class="row" style="border: 0px solid #d8dfe6; border-style: solid;">
-        <div class="col-md-12" style="text-align: left; font-weight: ; color: #000000;">
+        <div class="col-md-12" style="text-align: left; font-weight: ; color: #279624;">
             <strong> Сайт не является организатором сделки</strong>, Покупателем, Продавцом, посредником, агентом или представителем какого-либо Пользователя и/или иным заинтересованным лицом в отношении предлагаемой/заключаемой между Пользователями сделки. Все совершаемые благодаря размещению информации на Сайте сделки между Пользователями заключаются и исполняются без прямого или косвенного участия Сайта.
         </div>
 
@@ -146,7 +146,7 @@
                 <div class="col-md-12" style="text-align: left;">
                     <strong>Уважаемые заказчики услуг:</strong>
                     <ul>
-                        <li>Не торопитесь с выбором победителя торга. Дождитесь максимальное количество предложений. Каждое будет выгодно отличаться от предыдущего.</li>
+                        <li>Не торопитесь с выбором победителя торга. Дождитесь максимальное количество предложений. Каждое из них будет выгодно отличаться.</li>
                         <li>Не забывайте писать на "доске предложений" свои вопросы, уточнения или детали, которые должны знать исполнители услуг, предлагая вам свои условия.</li>
                         <li><strong>Выбрав  победителя свяжитесь с ним по телефону</strong>. Назначте встречу для возможного заключения сделки на условиях которые Вас устроили.</li>
                     </ul>
@@ -182,7 +182,7 @@
     else
     {
         <div class="row">
-            <div class="col-md-12" style="font-size: 14px; color: white; background-color: rgb(204, 0, 1); text-align: center;">
+            <div class="col-md-12" style="font-size: 14px; color: white; background-color: #944295; text-align: center;">
                 <strong>Доска предложений</strong>
             </div>
         </div>
@@ -320,7 +320,7 @@
                         if (message.User.Login != ViewBag.UserLogin && Model.User.Login == ViewBag.UserLogin)
                         {
                             <span style="padding-left: 40px;">
-                                @Html.ActionLink("Выбрать победителем", "SelectWinner", "Tender", new { @tenderId = Model.Id, @userId = message.User.Id }, new { @style = "", @class = "btn btn-custom-red" })
+                                @Html.ActionLink("Выбрать победителем", "SelectWinner", "Tender", new { @tenderId = Model.Id, @userId = message.User.Id }, new { @style = "", @class = "makeSub btn btn-custom-red" })
                             </span>
                         }
                     }
@@ -351,7 +351,7 @@
                 <div class="form-group">
                     <div class="col-md-12">
                         <textarea class="form-control" rows="5" name="Message" placeholder="Если Вы, желаете сделать предожение заказчику: максимально подробно опишите условия вашего предложения, указав преимущества перед конкурентами.
-Если Вы заказчик: уточните детали Вашей  заявки или задайте вопрос исполнителям." maxlength="1000"></textarea>
+Если Вы заказчик: уточните детали Вашей  заявки или задайте вопрос исполнителям, если он у Вас имеется." maxlength="1000"></textarea>
                     </div>
                 </div>
             </div>
@@ -367,3 +367,9 @@
 }
 
 @Html.Partial("_ReportTenderMessage")
+
+<script>
+    $('a.makeSub').mouseup(function () {
+        $('a.makeSub').attr('disabled', true);
+    });
+</script>

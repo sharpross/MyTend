@@ -42,7 +42,7 @@
         <li class=""><a href="#tab5-1" data-toggle="tab" style="text-decoration: none;">Визитка</a></li>
         <li class=""><a href="#tab5-2" data-toggle="tab" style="text-decoration: none;">Портфолио</a></li>
         <li class=""><a href="#tab5-3" data-toggle="tab" style="text-decoration: none;">Об услуге</a></li>
-        <li class=""><a href="#tab5-4" data-toggle="tab" style="text-decoration: none;">Категории/темы заявкок</a></li>
+        <li class=""><a href="#tab5-4" data-toggle="tab" style="text-decoration: none;">Какие услуги Вы оказываете?</a></li>
         <li class=""><a href="#tab5-5" data-toggle="tab" style="text-decoration: none;">Регионы и города</a></li>
     </ul>
 
@@ -91,7 +91,7 @@
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="form-group">
-                                <label for="Name">Пароль (смена пароля)</label>
+                                <label for="Name">Пароль (только если необходимо сменить пароль)</label>
                                 <input type="password" min="5" class="form-control" name="Password" placeholder="Пароль" value="@Model.Password">
                             </div>
                         </div>
@@ -160,7 +160,7 @@
                         <div class="col-lg-10">
                             <div class="form-group">
                                 <label for="Name">ВКонтакте (рекомендовано по желанию)</label>
-                                <input type="url" class="form-control" name="VKontakte" placeholder="Ваша страничка в ВКонтакте" maxlength="30" value="@Model.VKontakte">
+                                <input type="url" class="form-control" name="VKontakte" placeholder="Ваша страничка в ВКонтакте" maxlength="40" value="@Model.VKontakte">
                             </div>
                         </div>
                     </div>
@@ -168,7 +168,7 @@
                         <div class="col-lg-10">
                             <div class="form-group">
                                 <label for="Name">Instagram (рекомендовано по желанию)</label>
-                                <input type="url" class="form-control" name="Instagram" placeholder="Ваша страничка в Instagram" maxlength="30" value="@Model.Instagram">
+                                <input type="url" class="form-control" name="Instagram" placeholder="Укажите всю ссылку Instagram целиком" maxlength="50" value="@Model.Instagram">
                             </div>
                         </div>
                     </div>
@@ -521,7 +521,7 @@
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="form-group">
-                                <label for="SubTheme2" class="control-label col-md-12">Чтобы подписаться только на регион: Выберите страну, регион, нажмите «Добавить регион»</label>
+                                <label for="SubTheme2" class="control-label col-md-12">Чтобы подписаться сразу на целый регион: Выберите страну, регион, нажмите «Добавить регион»</label>
                                 <div class="col-md-12">
                                     <select class="form-control" name="Region" id="subRegionSelect" required>
                                         <option disabled selected>Выберите регион</option>
@@ -553,7 +553,7 @@
 
                         <div class="col-lg-6">
                             <div class="form-group">
-                                <label for="SubTheme2" class="control-label col-md-12">Чтобы подписаться на город: Выберите страну, регион, город, нажмите «Добавить город»</label>
+                                <label for="SubTheme2" class="control-label col-md-12">Чтобы подписаться на отдельные города: Выберите страну, регион, город, нажмите «Добавить город»</label>
                                 <div class="col-md-12">
                                     <select class="form-control" name="City" id="subCitySelect" required>
                                         <option disabled selected>Выберите город</option>

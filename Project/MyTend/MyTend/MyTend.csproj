@@ -20,6 +20,7 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -262,8 +263,10 @@
     <Content Include="Content\images\fail.jpg" />
     <Content Include="Content\images\hitoboi.png" />
     <Content Include="Content\images\image_not_found.png" />
-    <Content Include="Content\images\inf2.svg" />
-    <Content Include="Content\images\inf3.svg" />
+    <Content Include="Content\images\inf-2-1.svg" />
+    <Content Include="Content\images\inf-2-2.svg" />
+    <Content Include="Content\images\inf-2-3.svg" />
+    <Content Include="Content\images\inf-2-4.svg" />
     <Content Include="Content\images\inf4.svg" />
     <Content Include="Content\images\info-mini.svg" />
     <Content Include="Content\images\kats\1.svg" />
@@ -275,7 +278,6 @@
     <Content Include="Content\images\kats\7.svg" />
     <Content Include="Content\images\kats\8.svg" />
     <Content Include="Content\images\kats\9.svg" />
-    <Content Include="Content\images\kirkina.png" />
     <Content Include="Content\images\logo.svg" />
     <Content Include="Content\images\mazan.png" />
     <Content Include="Content\images\mazanDance.png" />
@@ -598,7 +600,6 @@
     <Content Include="Content\theme\js\modernizr.custom.js" />
     <Content Include="Content\theme\js\respond.min.js" />
     <Content Include="Content\theme\js\_notes\dwsync.xml" />
-    <Content Include="Content\images\inf1.svg" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
