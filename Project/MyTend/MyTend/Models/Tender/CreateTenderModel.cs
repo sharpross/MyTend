@@ -184,7 +184,7 @@
                 case "14 дней":
                     newTender.DateEnd = DateTime.Now.AddDays(14);
                     break;
-                case "21 дней":
+                case "21 день":
                     newTender.DateEnd = DateTime.Now.AddDays(21);
                     break;
             }

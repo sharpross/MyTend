@@ -90,14 +90,14 @@
             }
         }
         
-        public void AddComment(string tenderId, string name, string tenderTitle)
+        public void AddComment(string to,string tenderId, string name, string tenderTitle)
         {
             try
             {
                 Email.From(this._from)
                 .To(this._email)
                 .Subject("Новый коментарий в аукционном-торге:" + tenderTitle)
-                .UsingCultureTemplateFromFile("~\\Content\\email\\getresponce.html", new { TenderId = tenderId, Title = tenderTitle, Name = name })
+                .UsingCultureTemplateFromFile("~\\Content\\email\\getresponce.html", new {To = to, TenderId = tenderId, Title = tenderTitle, Name = name })
                 .UsingClient(this.GetClient())
                 .Send();
             }

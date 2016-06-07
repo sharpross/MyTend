@@ -222,7 +222,7 @@
                         if (model.Tender.User.Id != this.Auth.User.Id)
                         {
                             var service = new EmailService(this.Auth.User.Email);
-                            service.AddComment(model.TenderId.ToString(), model.Tender.User.FullName, model.Tender.Title);
+                            service.AddComment(this.Auth.User.FullName, model.TenderId.ToString(), model.Tender.User.FullName, model.Tender.Title);
                         }
                     }
                     catch

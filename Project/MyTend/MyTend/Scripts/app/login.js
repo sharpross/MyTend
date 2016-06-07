@@ -14,7 +14,10 @@ $(document).ready(function () {
             $.ajax({
                 type: 'POST',
                 url: '/Account/Login',
-                data: $('form[name=LoginForm]').serialize(),
+                data: {
+                    login: login,
+                    password: password
+                },
                 success: function (data) {
                     ani.stop();
                     if (data.Success) {
