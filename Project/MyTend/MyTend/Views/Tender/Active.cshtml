@@ -10,6 +10,14 @@
     Ознакомьтесь с полным текстом заявки (условия конкурса).</br>
     Если Вы откликнитесь  предложением для заказчика, заявка перейдет в меню «Мои Предложения Заказчикам» где Вы сможете следить за ходом аукционного-торга.
 </h5>
+<ol>
+    <li><strong>Оформить/изменить подписку</strong> на получение приглашений к участию, учитывая Ваши услуги можно - <a href="http://my-tend.com/Account/Profile?tab=tab5-4" target="_blank"><strong>ТУТ</strong></a>.
+    </li>
+    <li>Обязательно следует<strong> уточнить регионы/города</strong>, в которых вы готовы их оказывать - <a href="http://my-tend.com/Account/Profile?tab=tab5-5" target="_blank"><strong>ТУТ</strong></a>.
+    </li>
+	<li>После оформления подписки, Вам будут приходить приглашения принять участие в аукционах, исходя из выбранных видов деятельности и городов. 
+    </li>
+	</ol>
 <div class="tabs">
     <ul class="nav nav-tabs nav-justified">
         <li class="active"><a href="#tab5-2" class="tabBlue" data-toggle="tab"></a></li>
@@ -57,12 +65,19 @@
                                         <strong>Бюджет:</strong>
                                     </td>
                                     <td style="padding-left: 10px;">
-                                        @item.Cost.ToString("0.00") руб.
+                                        @if (item.Cost == 0)
+                                        {
+                                            @:<div>Договорная</div>
+                                        }
+                                        else
+                                        {
+                                            @:<div>@item.Cost.ToString("0.00") руб.</div>
+                                        }
                                     </td>
                                 </tr>
                                 <tr>
                                     <td width="20%" style="text-align: right;">
-                                        <strong>Период торга:</strong>
+                                        <strong>Период рассмотрения предложений:</strong>
                                     </td>
                                     <td style="padding-left: 10px;">
                                         @string.Format("C " + item.CreatedDateTime.ToString("dd.MM.yyyy") + " до " + item.DateEnd.ToString("dd.MM.yyyy"))

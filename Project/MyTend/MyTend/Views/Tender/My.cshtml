@@ -52,7 +52,14 @@
                                     <strong>Бюджет:</strong>
                                 </td>
                                 <td style="padding-left: 10px;">
-                                    @item.Cost.ToString("0.00") руб.
+                                    @if (item.Cost == 0)
+                                    {
+                                        @:<div>Договорная</div>
+                                        }
+                                    else
+                                    {
+                                        @:<div>@item.Cost.ToString("0.00") руб.</div>
+                                        }
                                 </td>
                             </tr>
                             <tr>
@@ -123,7 +130,14 @@
                                     <strong>Бюджет:</strong>
                                 </td>
                                 <td style="padding-left: 10px;">
-                                    @item.Cost.ToString("0.00") руб.
+                                    @if (item.Cost == 0)
+                                    {
+                                        @:<div>Договорная</div>
+                                        }
+                                    else
+                                    {
+                                        @:<div>@item.Cost.ToString("0.00") руб.</div>
+                                        }
                                 </td>
                             </tr>
                             <tr>

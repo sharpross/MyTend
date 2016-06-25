@@ -23,7 +23,7 @@
                 <div class="col-md-12" style="text-align: right;">
                     @if (Model.Login == ViewBag.UserLogin)
                     {
-                        @Html.ActionLink("Редактировать визитку", "Profile", "Account", new { @tab = "tab5-1" }, null)
+                        @Html.ActionLink("Редактировать, заполнить визитку / подписаться на заявки", "Profile", "Account", new { @tab = "tab5-1" }, null)
                     }
                 </div>
             </div>
@@ -45,7 +45,7 @@
                 <div class="col-md-8">
                     <div class="card-table">
 
-                        <h1 style="font-weight; color: #d92431">
+                        <h1 style="font-weight; color: #89158a">
                             @Model.FullName.ToUpper()
                         </h1>
 
@@ -124,7 +124,7 @@
                 @if (Model.Login == ViewBag.UserLogin)
                 {
                     <div style="text-align: right">
-                        @Html.ActionLink("Редактировать визитку", "Profile", "Account", new { @tab = "tab5-3" }, null)
+                        @Html.ActionLink("Редактировать, заполнить визитку / подписаться на заявки", "Profile", "Account", new { @tab = "tab5-3" }, null)
                     </div>
                 }
                 <div style="padding-bottom: 50px;">
@@ -150,7 +150,7 @@
                     @if (Model.Login == ViewBag.UserLogin)
                     {
                         <div style="padding-bottom: 50px;">
-                            @Html.ActionLink("Редактировать визитку", "Profile", "Account", new { @tab = "tab5-2" }, null)
+                            @Html.ActionLink("Редактировать портфолио / подписаться на заявки", "Profile", "Account", new { @tab = "tab5-2" }, null)
                         </div>
                     }
                 </div>
@@ -174,7 +174,7 @@
                 @if (Model.Login == ViewBag.UserLogin)
                 {
                     <div style="padding-bottom: 50px;">
-                        @Html.ActionLink("Редактировать визитку", "Profile", "Account", null, new { @tab = "tab5-2" })
+                        @Html.ActionLink("Редактировать", "Profile", "Account", null, new { @tab = "tab5-2" })
                     </div>
                 }
             </div>
@@ -196,3 +196,5 @@
 <script type="text/javascript">
     VK.Widgets.Like("vk_like", { type: "button" });
 </script>
+
+<script src="~/Scripts/app/openTab.js"></script>

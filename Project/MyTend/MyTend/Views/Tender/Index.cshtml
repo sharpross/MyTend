@@ -8,7 +8,7 @@
 <div style="text-align: center;">
     <a href="http://bristolcafe.ru" target="_blank">
         <div style="font-style: italic">Реклама</div>
-        <img src="~/Content/images/bristol.png" style="width: 100%" />
+        <img src="~/Content/images/bristol.png" style="width: 85%" />
     </a>
 </div>
 
@@ -17,7 +17,7 @@
 
 <div class="tenderRow" style="padding-top:10px">
     <div class="form-group" style="text-align: center">
-        <h2><div style="color: #222222;">Устройте  конкурс на право исполнения услуги:</h2>
+        <h2><div style="color: #222222;">Устройте тендер по поиску исполнителей услуг на Вашем празднике:</h2>
     </div>
 
     @foreach (var item in Model.Themes)
@@ -33,7 +33,7 @@
                     <a href="~/Tender/Create?id=@item.Id"><img src="~/Content/images/kats/@item.ImageName" class="tenderImg" width="150" height="120" /></a>
                 </p>
                 <p>
-                    <h4><strong>@Html.ActionLink(item.Theme, "Create", "Tender", new { @id = item.Id }, new { @style = "color: #02a6c9;", @class = "no_line" })</strong></h4>
+                    <h5><strong>@Html.ActionLink(item.Theme, "Create", "Tender", new { @id = item.Id }, new { @style = "color: #02a6c9;", @class = "no_line" })</strong></h5>
                 </p>
             </div>
         </div>
@@ -54,11 +54,4 @@
 
         itemI++;
     }
-</div>
-<div style="padding-top: 10px;"></div>
-<div style="text-align: center;">
-    <div style="font-style: italic">Реклама</div>
-    <a href="https://vk.com/v_nastena" target="_blank">
-        <img src="~/Content/images/TORT.png" style="width: 100%" />
-    </a>
 </div>

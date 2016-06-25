@@ -16,6 +16,7 @@
                 <li class="active">
                     <a href="~/account/card?user=@ViewBag.UserLogin" aria-expanded="false">
                         <span class="sidebar-nav-item">Моя Визитка</span>
+						@Html.ActionLink(" Rедактировать визитку / подписку на заявки", "Profile", "Account", null, new { @style = "color: gray; font-size: 10px;" })
                     </a>
                 </li>
                 <li>
@@ -51,7 +52,12 @@
             {
                 <li class="active">
                     <a href="~/docs/AboutWork" aria-expanded="false">
-                        <span class="sidebar-nav-item">Как это работает</span>
+                        <span class="sidebar-nav-item">Как Найти Исполнителя / Заказать Услугу?</span>
+                    </a>
+                </li>
+				<li class="active">
+                    <a href="~/docs/AboutWork2" aria-expanded="false">
+                        <span class="sidebar-nav-item">Как Продать Услугу / Найти Заказчика?</span>
                     </a>
                 </li>
             }
@@ -67,19 +73,19 @@
 
 <div class="form-group" style="text-align: center">
     <div style="font-style: italic; text-align: center;">Реклама</div>
-    <a href="#" target="_blank">
-        <img src="~/Content/images/avtograph.gif" style="width: 100%" />
+    <a href="https://my-tend.com/account/card?user=ilonasharnir@yandex.ru" target="_blank">
+        <img src="~/Content/images/avtograph.gif" style="width: 70%" />
+    </a>
+</div>
+<div class="form-group" style="text-align: center">
+    <div style="font-style: italic; text-align: center;">Реклама</div>
+    <a href="https://vk.com/alexdjguitar" target="_blank">
+        <img src="~/Content/images/kuzmin.png" style="width: 70%" />
     </a>
 </div>
 <div class="form-group" style="text-align: center">
     <div style="font-style: italic; text-align: center;">Реклама</div>
     <a href="http://vk.com/club31784007" target="_blank">
-        <img src="~/Content/images/kuranov.png" style="width: 100%" />
-    </a>
-</div>
-<div class="form-group" style="text-align: center">
-    <div style="font-style: italic; text-align: center;">Реклама</div>
-    <a href="https://vk.com/kn_tour_kazan" target="_blank">
-        <img src="~/Content/images/aneks_dlya_sajta.jpg" style="width: 100%" />
+        <img src="~/Content/images/kuranov.png" style="width: 70%" />
     </a>
 </div>

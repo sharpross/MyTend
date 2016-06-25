@@ -64,7 +64,14 @@
                                         <strong>Бюджет:</strong>
                                     </td>
                                     <td style="padding-left: 10px;">
-                                        @item.Cost.ToString("0.00") руб.
+                                        @if (item.Cost == 0)
+                                        {
+                                            @:<div>Договорная</div>
+                                        }
+                                        else
+                                        {
+                                            @:<div>@item.Cost.ToString("0.00") руб.</div>
+                                        }
                                     </td>
                                 </tr>
                                 <tr>
@@ -72,7 +79,7 @@
                                         <strong>Период торга:</strong>
                                     </td>
                                     <td style="padding-left: 10px;">
-                                        @string.Format("C " + item.CreatedDateTime.ToString("dd.MM.yyyy") + " до " + item.DateEnd.ToString("dd.MM.yyyy"))
+                                        @Html.ActionLink(item.Winner.FullName, "Card", "Account", new { @user = item.Winner.Login }, new { @style = "color: red" })
                                     </td>
                                 </tr>
                                 <tr>
