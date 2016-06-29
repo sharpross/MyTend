@@ -45,18 +45,18 @@
                 <div class="col-md-8">
                     <div class="card-table">
 
-                        <h1 style="font-weight; color: #89158a">
+                        <h2 style="font-weight; color: #f40404">
                             @Model.FullName.ToUpper()
-                        </h1>
-
+                        </h2>
+						
                         @if (!string.IsNullOrEmpty(Model.AboutShort))
                         {
                             <div class="card-block">
-                                <div class="card-table-content" style="word-wrap: break-word; color: #7f7e7e; font-size: 20px;">
+                                <div class="card-table-content" style="word-wrap: break-word; color: #849ea9; font-size: 20px;">
                                     @Model.AboutShort
                                 </div>
                             </div>
-                        }
+							                         }
                         <br />
                         @if (Model.City != null)
                         {
@@ -67,13 +67,13 @@
                         @if (!string.IsNullOrEmpty(Model.Phone))
                         {
                             <div class="card-block">
-                                <div class="card-table-content">@Model.Phone</div>
+                                <div class="card-table-content"><img src="~/Content/images/mailicon.png" /></a></div>
                             </div>
                         }
                         @if (!string.IsNullOrEmpty(Model.Phone2))
                         {
                             <div class="card-block">
-                                <div class="card-table-content">@Model.Phone2</div>
+                                <div class="card-table-content"><img src="~/Content/images/mailicon.png" /></a></div>
                             </div>
                         }
                         <br />
@@ -81,7 +81,7 @@
                         {
                             <div class="card-block">
                                 <div class="card-title">E-mail:</div>
-                                <div class="card-table-content"><a href="mailto:@Model.Email">@Model.Email</a></div>
+                                <div class="card-table-content"><a href="mailto:@Model.Email"><img src="~/Content/images/mailicon.png" /></a></div>
                             </div>
                         }
                         @if (!string.IsNullOrEmpty(Model.Site))
@@ -95,7 +95,7 @@
                         {
                             <div class="card-block">
                                 <div class="card-title">Skype:</div>
-                                <div class="card-table-content"><a href="callto:@Model.Skype">@Model.Skype</a></div>
+                                <div class="card-table-content"><a href="callto:@Model.Skype"><img src="~/Content/images/skypeIcon.png" /></a></a></div>
                             </div>
                         }
                         @if (!string.IsNullOrEmpty(Model.VKontakte))
@@ -182,7 +182,7 @@
                 Не заполнено
             </div>
         }
-    </div>
+		    </div>
 </div>
 <!-- Put this script tag to the <head> of your page -->
 <script type="text/javascript" src="//vk.com/js/api/openapi.js?121"></script>

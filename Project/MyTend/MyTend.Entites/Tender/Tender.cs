@@ -48,6 +48,12 @@
         public decimal Cost { get; set; }
 
         /// <summary>
+        /// Приблизительная стоимость
+        /// </summary>
+        [Property]
+        public decimal CountGuests { get; set; }
+
+        /// <summary>
         /// Заголовок тендера
         /// </summary>
         [ValidateNonEmpty("Укажите заголовок тендера")]

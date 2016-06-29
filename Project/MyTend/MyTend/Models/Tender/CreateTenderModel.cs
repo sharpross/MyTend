@@ -171,6 +171,7 @@
                 Theme = this.Theme,
                 Title = this.Title,
                 User = this.User,
+                CountGuests = this.CountGuests
             };
 
             switch (this.ActiveTime)

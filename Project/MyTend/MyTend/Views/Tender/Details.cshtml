@@ -6,34 +6,34 @@
 }
 <div class="row" style="border: 0px; border-bottom: 0px; border-color: #D8D8D8; border-style: solid;">
     <div class="col-md-12" style="text-align: center;">
-        <h2>Заявка/конкурс, на предоставление услуги</h2>
+        <h3><div style="color: #333333;">Заявка/конкурс, на право предоставления услуги</div></h3>
     </div>
 </div>
 <div class="row">
     <div class="col-md-12" style="font-size: 14px;">
         <p>
-            <span style="font-weight: normal; color: #d87f29;">Заказчик/покупатель:</span><br />
+            <span style="font-weight: normal; color: #a3b2bd;">Заказчик / покупатель:</span><br /><h4>
 
-            @if (Model.Winner != null && ViewBag.UserLogin == Model.Winner.Login)
+                @if (Model.Winner != null && ViewBag.UserLogin == Model.Winner.Login)
             {
-                <span style="color: rgb(204, 0, 1); font-weight: bold">
-                    @Html.ActionLink(Model.User.FullName, "Card", "Account", new { @user = Model.User.Login }, null)
-                </span>
-            }
-            else
-            {
-                <span style="color: rgb(204, 0, 1); font-weight: bold">@Model.User.FullName</span>
-                <span style="font-size: 10px; color: gray; padding-top: -15px;">
-                    (Ссылка на визитку будет доступна только победителю аукционного-конкурса/торга)
-                </span>
-            }
-        </p>
-               <p>
-            <span style="font-weight: normal; color: #d87f29;">Регион/Город исполнения заказа:</span><br />
+                    <span style="color: rgb(204, 0, 1); font-weight: bold">
+                        @Html.ActionLink(Model.User.FullName, "Card", "Account", new { @user = Model.User.Login }, null)
+                    </span>
+                }
+                else
+                {
+                    <span style="color: #e41919; font-weight: bold">@Model.User.FullName</span>
+                    <span style="font-size: 10px; color: gray; padding-top: -15px;">
+                        (Ссылка на визитку будет доступна только победителю аукционного-конкурса/торга)
+                    </span>
+                }
+            </h4>
+        <p>
+            <span style="font-weight: normal; color: #a3b2bd;">Регион/Город исполнения заказа:</span><br />
             @if (Model.Region.IsMillion == false)
             {
-              <span><strong>
-                    @Model.Region.Country.Name / @Model.Region.Name / @Model.City.Name</strong>
+                <span>
+                    @Model.Region.Country.Name / @Model.Region.Name / @Model.City.Name
                 </span>
             }
             else
@@ -43,21 +43,34 @@
                 </span>
             }
         </p>
+        <hr>
+
+
         <p>
-            <span style="font-weight: normal; color: #d87f29;">Название заявки/конкурса:</span><br /><h4>
-            @Model.Title</h4>
-        </p>
-        <p style="word-wrap: break-word;">
-            <span style="font-weight: normal; color: #d87f29;">Текст заявки:</span><br />
-            @Html.Raw(Model.Message.Replace("\n", "<br />"))
-        </p>
-        <p style="word-wrap: break-word;">
-            <span style="font-weight: normal; color: #d87f29;">Период торга:</span><br />
-            @string.Format("C " + Model.CreatedDateTime.ToString("dd.MM.yyyy") + " до " + Model.DateEnd.ToString("dd.MM.yyyy"))
-        </p>
-        <p>
-            <span style="font-weight: normal; color: #d87f29;">Планируемый бюджет:</span><br />
-            <span style="color: hsl(100, 95%, 28%); font-weight: bold;">
+            <span style="font-weight: normal; color: #a3b2bd;">Название заявки/конкурса:</span><br />
+            <strong><div style="color: #32c1d6;"> @Model.Title</strong>
+    </div>
+    </p>
+    <p style="word-wrap: break-word;">
+        <span style="font-weight: normal; color: #a3b2bd;">Текст заявки:</span><br />
+        @Html.Raw(Model.Message.Replace("\n", "<br />"))
+    </p>
+    <hr>
+    <p style="word-wrap: break-word;">
+        <span style="font-weight: normal; color: #a3b2bd;">Количество гостей:</span><br /><h3>
+            <div style="color: #c15671;">
+                @string.Format("{0} чел.", Model.CountGuests)
+        </h3>
+    </p>
+    <p style="word-wrap: break-word;">
+        <span style="font-weight: normal; color: #a3b2bd;">Период рассмотрения предложений:</span><br /><h3>
+            <div style="color: #c15671;">
+                @string.Format("C " + Model.CreatedDateTime.ToString("dd.MM.yyyy") + " до " + Model.DateEnd.ToString("dd.MM.yyyy"))
+        </h3>
+    </p>
+    <p>
+        <span style="font-weight: normal; color: #a3b2bd;">Планируемый бюджет:</span><br /><h3>
+            <span style="color: #4e9d4a;">
                 @if (Model.Cost.ToString() == "0")
                 {
                     <sapn>
@@ -68,8 +81,10 @@
                 {
                     @Html.Raw(Model.Cost.ToString("0.00") + " руб.")
                 }
-            </span>
-        </p>
+        </h3></span>
+    </p>
+</div>
+        </div>
     </div>
 </div>
 
@@ -131,14 +146,13 @@
 {
     <div style="padding-top: 15px;"></div>
     <div class="row" style="border: 0px solid #d8dfe6; border-style: solid;">
-        <div class="col-md-12" style="text-align: left; font-weight: ; color: #910e5e;">
-            <strong> Сайт не является организатором сделки</strong>, покупателем, продавцом, посредником, агентом или представителем какого-либо Пользователя и/или иным заинтересованным лицом в отношении предлагаемой/заключаемой между Пользователями сделки. <br> Все совершаемые благодаря размещению информации на Сайте сделки между Пользователями заключаются и исполняются без прямого или косвенного участия Сайта.
-        </div>
+        
 
         @if (Model.IsActive)
         {
             if (Model.User.Login == ViewBag.UserLogin)
             {
+			<hr>
                 <div class="col-md-12" style="text-align: left;">
                     <strong>Уважаемые заказчики услуг:</strong>
                     <ul>
@@ -146,18 +160,21 @@
                         <li>Не забывайте писать на "доске предложений" свои вопросы, уточнения или детали, которые должны знать исполнители услуг, предлагая вам свои условия.</li>
                         <li><strong>Выбрав  победителя, свяжитесь с ним по телефону</strong>.<br> Назначте встречу для возможного заключения сделки на условиях которые Вас устроили.</li>
                     </ul>
+					<hr>
                 </div>
             }
             else
             {
 
                 <div class="col-md-12" style="text-align: left;">
+				<hr>
                     <strong>Уважаемые исполнители услуг:</strong>
                     <ul>
                         <li>Внимательно изучив условия заявки от покупателя услуги, а также предложения конкурентов, <strong>сделайте более выгодное предложение</strong>.</li>
                         <li>Следите за ходом аукциона / торга и меняйте свои условия для покупателя на более выгодные, извучив предложения конкурентов.</li>
                         <li>Отправленное предложение невозможно отредактировать/изменить. Вы можете написать новое предложение с другими условиями.</li>
                     </ul>
+					<hr>
                 </div>
             }
         }
@@ -288,7 +305,7 @@
                         }
                     </div>
 
-                    <div style="color:#d87f29; text-align: left; padding-top: 10px; padding-bottom: 10px;">
+                    <div style="color:#a8a8a8; text-align: left; padding-top: 10px; padding-bottom: 10px;">
                         Предлагает Вам:
                     </div>
 
@@ -346,7 +363,7 @@
             <div class="form-horizontal">
                 <div class="form-group">
                     <div class="col-md-12">
-                        <textarea class="form-control" rows="5" name="Message" placeholder="Если Вы, желаете сделать предожение заказчику: максимально подробно опишите условия вашего предложения, указав преимущества перед конкурентами.
+                        <textarea class="form-control" rows="5" name="Message" placeholder="Если Вы, желаете сделать предожение заказчику: максимально подробно опишите условия вашего предложения, указав преимущества перед коллегами-конкурентами.
 Если Вы заказчик: уточните детали Вашей  заявки или задайте вопрос исполнителям, если он у Вас имеется." maxlength="1000"></textarea>
                     </div>
                 </div>

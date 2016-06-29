@@ -7,12 +7,14 @@
 @using (Html.BeginForm("Create", "Tender", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
+<div style="text-align: center;">
     <div style="font-style: italic">Реклама</div>
     <a href="http://www.mazan-masters.com/#!-/co97" target="_blank">
-        <img src="~/Content/images/MAZANdance.png" style="width: 100%" />
+        <img src="~/Content/images/MAZANdance.png" style="width: 85%" />
     </a>
+</div>
     <div class="form-group" style="text-align: center">
-        <h2 style="color: #000000;">Заполните заявку, указав исполнителям все подробности вашего предстоящего события</h2>
+        <h3 style="color: #333333;">Заполните заявку, указав исполнителям все подробности вашего предстоящего события</h3>
     </div>
     <div>
         <div class="row">
@@ -28,11 +30,10 @@
             </div>
             <div class="col-md-8">
                 <br /><br />
-                <h3 style="color: #6b777e;">Новая заяка - @Model.Theme.Theme</h3>
+                <h4 style="color: #8294a8;">Новая заяка - @Model.Theme.Theme</h4>
             </div>
         </div>
-        <hr />
-        @if (Model.Errors.Count > 0)
+                @if (Model.Errors.Count > 0)
         {
             <div class="alert alert-danger" role="alert">
                 @foreach (var item in Model.Errors)
@@ -50,7 +51,7 @@
             </div>
         </div>
         <div class="form-group">
-            <label for="TitleString" class="control-label col-md-4">Какая услуга Вам нужна:</label>
+            <label for="TitleString" class="control-label col-md-4"><div style="color: #ff6933;">Какая услуга Вам нужна?</div></label>
             <div class="col-md-4">
                 <select class="form-control" name="TitleId" required>
                     @if (string.IsNullOrEmpty(Model.Theme.Title))
@@ -66,7 +67,7 @@
                     {
                         if (item.IsTitle)
                         {
-                            <option disabled="disabled" style="color: #c30000; font-weight: bold;">@item.Title</option>
+                            <option disabled="disabled" style="color: #ff6933; font-weight: bold;">@item.Title</option>
                         }
                         else
                         {
@@ -84,9 +85,9 @@
                 </select>
             </div>
         </div>
-
+<hr>
         <div class="form-group">
-            <label for="SubTheme2" class="control-label col-md-4">Страна исполнения заявки:</label>
+            <label for="SubTheme2" class="control-label col-md-4"><div style="color: #31c9e9;">Страна исполнения заявки:</div></label>
             <div class="col-md-4">
                 <select class="form-control" name="CountryId" id="CountrysSelect" required>
                     <option disabled selected>Выберите страну</option>
@@ -99,7 +100,7 @@
         </div>
 
         <div class="form-group">
-            <label for="SubTheme2" class="control-label col-md-4">Регион исполнения заявки:</label>
+            <label for="SubTheme2" class="control-label col-md-4"><div style="color: #31c9e9;">Регион исполнения заявки:</div></label>
             <div class="col-md-4">
                 <select class="form-control" name="RegionId" id="RegionSelect" required>
                     <option disabled selected>Выберите регион</option>
@@ -108,44 +109,50 @@
         </div>
 
         <div class="form-group">
-            <label for="SubTheme2" class="control-label col-md-4">Город исполнения заявки:</label>
+            <label for="SubTheme2" class="control-label col-md-4"><div style="color: #31c9e9;">Город исполнения заявки:</div></label>
             <div class="col-md-4">
                 <select class="form-control" name="CityId" required>
                     <option disabled selected>Выберите город</option>
                 </select>
             </div>
         </div>
-
+<hr>
         <div class="form-group">
-            <label for="Title" class="control-label col-md-4">Придумайте название заявки:</label>
+            <label for="Title" class="control-label col-md-4"><div style="color: #ff6933;">Придумайте название заявки:</div></label>
             <div class="col-md-8">
                 <input type="text" required class="form-control" placeholder="Например: Ищу ведущего/банкетный зал или DJ на юбилей 3 сентября" name="Title" maxlength="100" value="@Model.Title" />
             </div>
         </div>
 
         <div class="form-group">
-            <label for="Message" class="control-label col-md-4">Текст заявки/условия конкурса:</label>
+            <label for="Message" class="control-label col-md-4"><div style="color: #ff6933;">Текст заявки/условия конкурса:</div></label>
             <div class="col-md-8">
                 <textarea class="form-control" required rows="7" maxlength="10000" name="Message" placeholder="Максимально подробно опишите детали и условия вашей заявки, укажите дату, место проведения события, количество гостей и прочие условия, которые необходимо учесть исполнителям, перед тем, как сделать Вам выгодное предложение."></textarea>
             </div>
         </div>
-
+<hr>
         <div class="form-group">
-            <label for="Cost" class="control-label col-md-4">На какую сумму Вы ориентируетесь?</label>
+            <label for="CountGuests" class="control-label col-md-4"><div style="color: #24ac34;">Количество гостей?</div></label>
+            <div class="col-md-2">
+                <input type="number" min="0" step="1" class="form-control" name="CountGuests" placeholder="Количество гостей" value="@Model.CountGuests" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="Cost" class="control-label col-md-4"><div style="color: #24ac34;">На какую сумму Вы ориентируетесь?</div></label>
             <div class="col-md-2">
                 <input type="number" min="0" step="1" class="form-control" name="Cost" placeholder="Средняя цена" value="@Model.Cost" />
             </div>
         </div>
 
         <div class="form-group">
-            <label for="ListFiles" class="control-label col-md-4">Прикрепите 2 фото (если необходимо, до 2Mg)</label>
+            <label for="ListFiles" class="control-label col-md-4"><div style="color: #386a71;">Прикрепите 2 фото (если необходимо, до 2Mg)</div></label>
             <div class="col-md-5">
                 <input type="file" accept="image/*" multiple class="form-control" name="ListFiles" value="" />
             </div>
         </div>
 
         <div class="form-group">
-            <label for="SubTheme2" class="control-label col-md-4">Какое время, Вы планируете рассматривать предложения от исполнителей услуг?</label>
+            <label for="SubTheme2" class="control-label col-md-4"><div style="color: #c15671;">Какое время, Вы планируете рассматривать предложения от исполнителей услуг?</div></label>
             <div class="col-md-2">
                 <select class="form-control" name="ActiveTime">
                     @if (Model.ActiveTime == "3 дня")
