@@ -56,6 +56,7 @@
             this.SubCitys = new List<City>();
             this.SubRegions = new List<Region>();
             this.Portfolios = new List<FileSystem>().ToArray();
+            this.Youtube = user.Youtube;
 
             var filter = new RegionFilterService(user);
 
@@ -154,7 +155,8 @@
                 user.AboutShort = this.AboutShort;
                 user.Instagram = this.Instagram;
                 user.VKontakte = this.VKontakte;
-                
+                user.Youtube = this.Youtube;
+
                 if (user.IsValid())
                 {
                     if (this.AvatarFile != null)

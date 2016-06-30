@@ -67,13 +67,13 @@
                         @if (!string.IsNullOrEmpty(Model.Phone))
                         {
                             <div class="card-block">
-                                <div class="card-table-content"><img src="~/Content/images/mailicon.png" /></a></div>
+                                <div class="card-table-content"><a href="call:@Model.Phone"><img src="~/Content/images/mailicon.png" /></a></div>
                             </div>
                         }
                         @if (!string.IsNullOrEmpty(Model.Phone2))
                         {
                             <div class="card-block">
-                                <div class="card-table-content"><img src="~/Content/images/mailicon.png" /></a></div>
+                                <div class="card-table-content"><a href="call:@Model.Phone"><img src="~/Content/images/mailicon.png" /></a></div>
                             </div>
                         }
                         <br />
@@ -95,7 +95,14 @@
                         {
                             <div class="card-block">
                                 <div class="card-title">Skype:</div>
-                                <div class="card-table-content"><a href="callto:@Model.Skype"><img src="~/Content/images/skypeIcon.png" /></a></a></div>
+                                <div class="card-table-content"><a href="mailto:@Model.Skype"><img src="~/Content/images/mailicon.png" /></a></div>
+                            </div>
+                        }
+                        @if (!string.IsNullOrEmpty(Model.Youtube))
+                        {
+                            <div class="card-block">
+                                <div class="card-title">Youtube:</div>
+                                <div class="card-table-content"><a href="@Model.Youtube">@Model.Youtube.ToLower().Replace("http://", string.Empty).Replace("https://", string.Empty)</a></div>
                             </div>
                         }
                         @if (!string.IsNullOrEmpty(Model.VKontakte))

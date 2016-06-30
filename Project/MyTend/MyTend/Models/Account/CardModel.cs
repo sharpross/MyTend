@@ -47,6 +47,7 @@ namespace MyTend.Models
             this.Site = user.Site;
             this.Skype = user.Skype;
             this.VKontakte = user.VKontakte;
+            this.Youtube = user.Youtube;
 
             this.LoadPortfolios(user);
         }

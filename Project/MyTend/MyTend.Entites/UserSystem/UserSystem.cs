@@ -39,6 +39,9 @@
         public string Facebook { get; set; }
 
         [Property(Length = 255)]
+        public string Youtube { get; set; }
+
+        [Property(Length = 255)]
         public string Site { get; set; }
 
         [Property(Length = 255)]
