@@ -28,7 +28,7 @@ $(document).ready(function () {
                 },
                 error: function (data) {
                     ani.stop();
-                    $('.LoginError').text(data.responseJSON.Data);
+                    $('.LoginError').text("Не верный логин или пароль.");
                 }
             });
         });

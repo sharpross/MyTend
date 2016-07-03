@@ -69,6 +69,7 @@ namespace MyTend.Models
             this.AllowWriteMe = tender.AllowWriteMe;
             this.City = tender.City;
             this.Cost = tender.Cost;
+            this.CountGuests = tender.CountGuests;
             this.CreatedDateTime = tender.CreatedDateTime;
             this.DateEnd = tender.DateEnd;
             this.Message = tender.Message;
