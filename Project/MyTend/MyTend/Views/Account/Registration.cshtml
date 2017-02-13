@@ -4,142 +4,141 @@
     ViewBag.Title = "Пройдите регистрацию";
 }
 
-@using (Html.BeginForm("Registration", "Account", FormMethod.Post, new { enctype = "multipart/form-data", @id = "reg" }))
-{
-    @Html.AntiForgeryToken()
+<div class="row">
+    <div class="col-lg-2"></div>
+    <div class="col-lg-8">
 
-    <div class="row">
-        <div class="col-lg-12">
-            <ul class="list-group">
-                <li class="list-group-item list-group-item-success">
-                    Заполняя данную регистрационную форму и нажимая кнопку «Зарегистрироваться», вы автоматически становитесь Заказчиком/Покупателем.<br>
-					Если вы желаете предлагать услуги и участвовать в аукционах как исполнитель услуг, после регистрации заполните все остальные вкладки «Визитки» и оплатите торговый взнос.
-                </li>
-            </ul>
-        </div>
-    </div>
-    
-    <div class="tabs">
-        <ul class="nav nav-tabs nav-justified">
-            <li class="active"><a href="#tab5-1" data-toggle="tab"><i class="icon-star"></i><strong>Регистрация нового пользователя.<br> Если Вы уже завели учётную запись, нажмите «ВОЙТИ» </strong></a></li>
-        </ul>
-        <div class="tab-content">
-            <div class="tab-pane active" id="tab5-1">
-                @if (Model.Errors.Count > 0)
-                {
-                    <div class="row">
-                        <div class="col-md-12 text-center alert alert-danger" role="alert">
-                            @foreach (var e in Model.Errors)
-                            {
-                                <div>- @e</div>
-                            }
-                        </div>
-                    </div>
-                }
+        @using (Html.BeginForm("Registration", "Account", FormMethod.Post, new { enctype = "multipart/form-data", @id = "reg" }))
+        {
+            @Html.AntiForgeryToken()
 
+            <div style="border: 5px solid #ececec; margin-top: 20px;">
                 <div class="row">
-                    <div class="col-md-4" style="text-align: center;">
-
-                        <img src="~/Image/Get?id=0" width="300" height="300" class="img-thumbnail" id="avatar">
-                        <input type="file" accept="image/*" name="Files" style="padding-top: 10px; padding-bottom: 10px;" />
-
+                    <div class="col-lg-12">
+                        <div class="form-group" style="text-align: center">
+                            <h3><div style="color: #222222">Регистрация</div></h3>
+                        </div>
                     </div>
-                    <div class="col-md-8">
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <div class="form-group">
-                                    <label for="Name">Ваш e-mail (логин)</label>
-                                    <input type="email" class="form-control" name="Login" placeholder="Ведите ваш Е-mail" value="@Model.Login" required>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <div class="form-group">
-                                    <label for="Name">Пароль</label>
-                                    <input type="password" min="5" class="form-control" name="Password" placeholder="Придумайте пароль" value="@Model.Password" required>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <div class="form-group">
-                                    <label for="Name">Повторите пароль</label>
-                                    <input type="password" min="5" class="form-control" name="Password2" placeholder="Повторите пароль" value="@Model.Password" required>
-                                </div>
-                            </div>
-                        </div>
+                </div>
 
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <div class="form-group">
-                                    <label for="Name">Ваше Имя или псевдоним, название банкетного зала, название компании</label>
-                                    <input type="text" class="form-control" name="FullName" placeholder="Иванов Иван/dj.Антон/Банкетный Зал «Эльбрус»" value="@Model.FullName" required>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <div class="form-group">
-                                    <label for="Name">Телефон для связи с заказчиком или исполнителем услуги</label>
-                                    <input type="text" class="form-control" name="Phone" maxlength="20" placeholder="Телефон" value="@Model.Phone">
-                                </div>
-                            </div>
-                        </div>
+                <div class="tabs">
 
-                        <div class="row">
-                            <div class="col-lg-7">
-                                <div class="form-group">
-                                    <label for="Name">Откуда Вы? Выберите страну</label>
-                                    <select class="form-control" name="Country" id="CountrysSelect" required>
-                                        <option disabled selected>Выберите страну</option>
-                                        @foreach (var item in Model.ListCountrys)
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="tab5-1">
+                            @if (Model.Errors.Count > 0)
+                            {
+                                <div class="row">
+                                    <div class="col-md-12 text-center alert alert-danger" role="alert">
+                                        @foreach (var e in Model.Errors)
                                         {
-                                            <option id="@item.Id">@item.Name</option>
+                                            <div>- @e</div>
                                         }
-                                    </select>
+                                    </div>
+                                </div>
+                            }
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
+                                                <label for="Name">Ваш e-mail (логин)</label>
+                                                <input type="email" class="form-control" name="Login" placeholder="Ведите ваш Е-mail" value="@Model.Login" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
+                                                <label for="Name">Пароль</label>
+                                                <input type="password" min="5" class="form-control" name="Password" placeholder="Придумайте пароль" value="@Model.Password" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
+                                                <label for="Name">Повторите пароль</label>
+                                                <input type="password" min="5" class="form-control" name="Password2" placeholder="Повторите пароль" value="@Model.Password" required>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="form-group">
+                                                <label for="Name">Ваше Имя или псевдоним, название банкетного зала, название компании</label>
+                                                <input type="text" class="form-control" name="FullName" placeholder="Иванов Иван/dj.Антон/Банкетный Зал «Эльбрус»" value="@Model.FullName" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="form-group">
+                                                <label for="Name">Телефон для связи с заказчиком или исполнителем услуги</label>
+                                                <input type="text" class="form-control" name="Phone" maxlength="20" placeholder="Телефон" value="@Model.Phone">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-lg-7">
+                                            <div class="form-group">
+                                                <label for="Name">Регион</label>
+                                                <select class="form-control" name="RegionId" id="RegionSelect" required>
+                                                    <option disabled selected>Выберите регион</option>
+                                                    @foreach (var item in Model.ListRegions)
+                                                    {
+                                                        <option id="@item.Id">@item.Name</option>
+                                                    }
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-7">
+                                            <div class="form-group">
+                                                <label for="Name">Город</label>
+                                                <select class="form-control" name="CityId" required>
+                                                    <option disabled selected>Выберите город</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-7">
+                                            <div class="form-group">
+                                                <label for="Name">Выберите фото для автара</label>
+                                                <input type="file" accept="image/*" name="Files" style="padding-top: 10px; padding-bottom: 10px;" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div style="padding-bottom: 20px;">
+                                            <input type="checkbox" name="IsAllowRules" id="IsAllowRules" /> С <a href="~/Docs/Rules" target="_blank">правилами пользования сайтом</a> ознакомлен и согласен.
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div style="padding-bottom: 20px;">
+                                            <input type="checkbox" name="IsAllowPublic" id="IsAllowPublic" /> Я прочитал и принял <a href="~/Docs/PublicData" target="_blank">Соглашение на обработку персональных данных</a>.
+                                        </div>
+                                    </div>
+                                    <div class="row" style="text-align: center;">
+                                        <button type="submit" class="btn btn-custom-red" id="sub"><strong>Зарегистрироваться</strong></button>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-7">
-                                <div class="form-group">
-                                    <label for="Name">Регион</label>
-                                    <select class="form-control" name="RegionId" id="RegionSelect" required>
-                                        <option disabled selected>Выберите регион</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-7">
-                                <div class="form-group">
-                                    <label for="Name">Город</label>
-                                    <select class="form-control" name="CityId" required>
-                                        <option disabled selected>Выберите город</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div style="padding-bottom: 20px;">
-                                <input type="checkbox" name="IsAllowRules" id="IsAllowRules" /> С <a href="~/Docs/Rules" target="_blank">правилами пользования сайтом</a> ознакомлен и согласен.
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div style="padding-bottom: 20px;">
-                                <input type="checkbox" name="IsAllowPublic" id="IsAllowPublic" /> Я прочитал и принял <a href="~/Docs/PublicData" target="_blank">Соглашение на обработку персональных данных</a>.
-                            </div>
-                        </div>
-                        <div class="row">
-                            <button type="submit" class="btn btn-custom-red" id="sub"><strong>Зарегистрироваться</strong></button>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        }
+
     </div>
-}
+    <div class="col-lg-2"></div>
+</div>
+
+
 <script src="~/Scripts/app/selectRegions.js"></script>
 <script>
     var btn = $('button#sub');

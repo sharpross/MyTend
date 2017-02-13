@@ -21,9 +21,13 @@ namespace MyTend.Scheduler.CloseTender
         public void Run()
         {
             var tenders = Tender
-                .FindAll()
-                .Where(x => x.IsActive == true)
-                .Where(x => x.DateEnd <= DateTime.Now);
+                .FindAll();
+
+            if (tenders.Count() > 0)
+            {
+                tenders = tenders.Where(x => x.IsActive == true)
+                    .Where(x => x.DateEnd <= DateTime.Now).ToArray();
+            }
 
             foreach (var tender in tenders)
             {

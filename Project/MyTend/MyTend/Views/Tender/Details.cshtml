@@ -1,36 +1,41 @@
 ﻿@model MyTend.Models.TenderDetailsModel
 
 @{
-    ViewBag.Title = "Торг на право исполнения услуги.";
+    ViewBag.Title = "Конкурс на право исполнения услуги";
     var msgNum = 0;
 }
 <div class="row" style="border: 0px; border-bottom: 0px; border-color: #D8D8D8; border-style: solid;">
-    <div class="col-md-12" style="text-align: center;">
-        <h3><div style="color: #333333;">Заявка/конкурс, на право предоставления услуги</div></h3>
-    </div>
-</div>
-<div class="row">
-    <div class="col-md-12" style="font-size: 14px;">
-        <p>
-            <span style="font-weight: normal; color: #a3b2bd;">Заказчик / покупатель:</span><br /><h4>
+    <div class="col-md-12" style="text-align: left;">
+        <h2><div style="color: #111111;"> @Model.Title </h2>
+	
+		<p>Заказчик 
 
                 @if (Model.Winner != null && ViewBag.UserLogin == Model.Winner.Login)
             {
-                    <span style="color: rgb(204, 0, 1); font-weight: bold">
+                    <span style="color: #307a7fa; font-weight: bold"><span class="glyphicon glyphicon-user"></span> 
                         @Html.ActionLink(Model.User.FullName, "Card", "Account", new { @user = Model.User.Login }, null)
                     </span>
                 }
                 else
                 {
-                    <span style="color: #e41919; font-weight: bold">@Model.User.FullName</span>
-                    <span style="font-size: 10px; color: gray; padding-top: -15px;">
-                        (Ссылка на визитку будет доступна только победителю аукционного-конкурса/торга)
-                    </span>
-                }
-            </h4>
-        <p>
-            <span style="font-weight: normal; color: #a3b2bd;">Регион/Город исполнения заказа:</span><br />
-            @if (Model.Region.IsMillion == false)
+                    <span style="color: #eca62b; font-weight: bold"><span class="glyphicon glyphicon-user"></span> @Model.User.FullName </span>
+
+                    <span style=>
+					 @string.Format("рассматривает предложения с " + Model.CreatedDateTime.ToString("dd.MM.yyyy") + " до " + Model.DateEnd.ToString("dd.MM.yyyy"))
+                     </span>
+					
+					                 }
+           </p>
+		<div style="text-align: center;"><br>
+    
+           <div class="title-line">Детали заявки</div>
+  
+</div>	
+<div class="row">
+    <div class="col-md-12";">
+             <h5><i class="glyphicon glyphicon-globe" style="color: #ac47cd;"></i>
+           
+            Место исполнения:@if (Model.Region.IsMillion == false)
             {
                 <span>
                     @Model.Region.Country.Name / @Model.Region.Name / @Model.City.Name
@@ -42,52 +47,66 @@
                     @Model.Region.Country.Name / @Model.Region.Name
                 </span>
             }
-        </p>
-        <hr>
+        </h5>
+				
+		<h5>
+		<div style="color: #111111 ;"> <i class="glyphicon glyphicon-time" aria-hidden="true" style="color: #ff0000;"></i> Дата и время проведения:<strong>
+                @string.Format("{0}  {1}", Model.EventDay, Model.EventTime)</strong>
+            </div>
+        </h5>
+
+		
+    </div>
+</div>
+		
+    </p>
+     </p>
+    <p style="word-wrap: break-word;">
+       <h5><i class="glyphicon glyphicon-cutlery" style="color: #07a7fa;"></i> Количество гостей <span style="color: #333333;"><strong>
+                @string.Format("{0} чел.", Model.CountGuests)</strong>
+            </span>
+        </h5>
+		    <p>
+       <h5><i class="glyphicon glyphicon-usd" style="color: #90d228;"></i> Запланированный бюджет <strong>
+    <span style="color: #333333;">
+        @if (Model.Cost.ToString() == "0")
+        {
+            <sapn>
+                @Html.Raw(Model.Cost.ToString("0.00") + " руб.") (договорная)
+            </sapn>
+        }
+        else
+        {
+            @Html.Raw(Model.Cost.ToString("0.00") + " руб.")
+        }
+    </span></strong>
+</h5>
+    </p>
+       <div style="text-align: center;"><br>
+    
+           <div class="title-line">Текст заявки</div>
+		    </br>
+  
+</div>
 
 
-        <p>
-            <span style="font-weight: normal; color: #a3b2bd;">Название заявки/конкурса:</span><br />
-            <strong><div style="color: #32c1d6;"> @Model.Title</strong>
+      
+            
     </div>
     </p>
-    <p style="word-wrap: break-word;">
-        <span style="font-weight: normal; color: #a3b2bd;">Текст заявки:</span><br />
+    
+ 		
+		<p style="word-wrap: break-word; font-size: 17px;">
         @Html.Raw(Model.Message.Replace("\n", "<br />"))
     </p>
-    <hr>
-    <p style="word-wrap: break-word;">
-        <span style="font-weight: normal; color: #a3b2bd;">Количество гостей:</span><br /><h3>
-            <div style="color: #c15671;">
-                @string.Format("{0} чел.", Model.CountGuests)
-        </h3>
-    </p>
-    <p style="word-wrap: break-word;">
-        <span style="font-weight: normal; color: #a3b2bd;">Период рассмотрения предложений:</span><br /><h3>
-            <div style="color: #c15671;">
-                @string.Format("C " + Model.CreatedDateTime.ToString("dd.MM.yyyy") + " до " + Model.DateEnd.ToString("dd.MM.yyyy"))
-        </h3>
-    </p>
-    <p>
-        <span style="font-weight: normal; color: #a3b2bd;">Планируемый бюджет:</span><br /><h3>
-            <span style="color: #4e9d4a;">
-                @if (Model.Cost.ToString() == "0")
-                {
-                    <sapn>
-                        @Html.Raw(Model.Cost.ToString("0.00") + " руб.") (договорная)
-                    </sapn>
-                }
-                else
-                {
-                    @Html.Raw(Model.Cost.ToString("0.00") + " руб.")
-                }
-        </h3></span>
-    </p>
+  
+     </p>
 </div>
-        </div>
-    </div>
-</div>
-
+        
+ <div style="text-align: center;"><br>
+    
+           <div class="title-line">Прикрепленные изображения</div>
+		   </div>
 @if (Model.Files != null && Model.Files.Count > 0)
 {
     <div class="row" style="padding-bottom: 10px;">
@@ -152,23 +171,28 @@
         {
             if (Model.User.Login == ViewBag.UserLogin)
             {
-			<hr>
+		 <div style="text-align: center;"><br>
+    
+           <div class="title-line">Участникам конкурсного-торга на заметку!</div>
+		   </div>
                 <div class="col-md-12" style="text-align: left;">
-                    <strong>Уважаемые заказчики услуг:</strong>
+                    
                     <ul>
                         <li>Не торопитесь с выбором победителя торга. Дождитесь максимальное количество предложений. Каждое из них будет выгодно отличаться.</li>
                         <li>Не забывайте писать на "доске предложений" свои вопросы, уточнения или детали, которые должны знать исполнители услуг, предлагая вам свои условия.</li>
                         <li><strong>Выбрав  победителя, свяжитесь с ним по телефону</strong>.<br> Назначте встречу для возможного заключения сделки на условиях которые Вас устроили.</li>
                     </ul>
-					<hr>
-                </div>
+				     </div>
             }
             else
             {
-
+           
                 <div class="col-md-12" style="text-align: left;">
-				<hr>
-                    <strong>Уважаемые исполнители услуг:</strong>
+				
+                    <strong></strong>
+					<div style="font-size: 10px; color: red;">
+					   (Ссылка на визитку будет доступна только победителю конкурса/торга)
+                    </div>
                     <ul>
                         <li>Внимательно изучив условия заявки от покупателя услуги, а также предложения конкурентов, <strong>сделайте более выгодное предложение</strong>.</li>
                         <li>Следите за ходом аукциона / торга и меняйте свои условия для покупателя на более выгодные, извучив предложения конкурентов.</li>
@@ -196,7 +220,7 @@
     {
         <div class="row">
             <div class="col-md-12" style="font-size: 14px; color: white; background-color: #944295; text-align: center;">
-                <strong>Доска предложений</strong>
+                <strong><i class="glyphicon glyphicon-comment" style="color: #ffffff;"></i>  Доска предложений</strong>
             </div>
         </div>
     }

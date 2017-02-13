@@ -73,6 +73,18 @@
         [ValidateNonEmpty("Укажите дату окончания тендера")]
         [Property]
         public DateTime DateEnd { get; set; }
+        
+        /// <summary>
+        /// Дата окончания тендера
+        /// </summary>
+        [Property]
+        public string EventDay { get; set; }
+
+        /// <summary>
+        /// Дата окончания тендера
+        /// </summary>
+        [Property]
+        public string EventTime { get; set; }
 
         /// <summary>
         /// Тендер активен/закрыт

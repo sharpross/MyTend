@@ -255,13 +255,19 @@
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\images\2.svg" />
+    <Content Include="Content\images\ahtung.png" />
     <Content Include="Content\images\aneks_dlya_sajta.jpg" />
     <Content Include="Content\images\avtograph.gif" />
     <Content Include="Content\images\backgound_head.png" />
+    <Content Include="Content\images\backgound_head1.png" />
     <Content Include="Content\images\bek.png" />
+    <Content Include="Content\images\borderblue.png" />
     <Content Include="Content\images\bristol.png" />
+    <Content Include="Content\images\bw.png" />
     <Content Include="Content\images\cardBackground.png" />
+    <Content Include="Content\images\detali.png" />
     <Content Include="Content\images\eror.png" />
+    <Content Include="Content\images\eventobed.png" />
     <Content Include="Content\images\fail.jpg" />
     <Content Include="Content\images\fun24.png" />
     <Content Include="Content\images\hitoboi.png" />
@@ -276,6 +282,8 @@
     <Content Include="Content\images\inf3.svg" />
     <Content Include="Content\images\inf4.svg" />
     <Content Include="Content\images\info-mini.svg" />
+    <Content Include="Content\images\instagaammicon.png" />
+    <Content Include="Content\images\instagammicon.png" />
     <Content Include="Content\images\kats\1.svg" />
     <Content Include="Content\images\kats\10.svg" />
     <Content Include="Content\images\kats\2.svg" />
@@ -292,6 +300,7 @@
     <Content Include="Content\images\logo.svg" />
     <Content Include="Content\images\logo2.png" />
     <Content Include="Content\images\logo2.svg" />
+    <Content Include="Content\images\mailicon.png" />
     <Content Include="Content\images\mazan.png" />
     <Content Include="Content\images\mazanDance.png" />
     <Content Include="Content\images\miamidance.png" />
@@ -299,17 +308,27 @@
     <Content Include="Content\images\OGimage.png" />
     <Content Include="Content\images\OnlyForSub.svg" />
     <Content Include="Content\images\pay.svg" />
+    <Content Include="Content\images\phone.png" />
     <Content Include="Content\images\prev.png" />
+    <Content Include="Content\images\prikimg.png" />
     <Content Include="Content\images\robokassa.png" />
     <Content Include="Content\images\salut.png" />
     <Content Include="Content\images\shekotov.png" />
+    <Content Include="Content\images\siteicon.png" />
+    <Content Include="Content\images\skypeIcon.png" />
     <Content Include="Content\images\Success.svg" />
+    <Content Include="Content\images\telefonicon.png" />
     <Content Include="Content\images\tenderStop.jpg" />
     <Content Include="Content\images\tenderStop.png" />
     <Content Include="Content\images\tort.png" />
+    <Content Include="Content\images\uslovia.png" />
     <Content Include="Content\images\vedushiy .png" />
+    <Content Include="Content\images\viberite uslugu.png" />
+    <Content Include="Content\images\vk.png" />
+    <Content Include="Content\images\vkicon.png" />
     <Content Include="Content\images\welcom.svg" />
     <Content Include="Content\images\winner.png" />
+    <Content Include="Content\images\youtubeicon.png" />
     <Content Include="Content\images\zagriev.png" />
     <Content Include="Content\ladda.min.css" />
     <Content Include="Content\metisMenu.css" />
@@ -918,6 +937,7 @@
     <Content Include="Views\Account\Welcom.cshtml" />
     <Content Include="Views\Tender\SelectedWinner.cshtml" />
     <Content Include="Views\Docs\AboutWork2.cshtml" />
+    <Content Include="Views\Shared\_TopMenu.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

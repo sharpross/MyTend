@@ -1,23 +1,21 @@
 ﻿@model MyTend.Models.ListThemeTenderModel
 @{
-    ViewBag.Title = "My-Tend аукцион событий, где исполнители Event-услуг, соревнуются  за праздник заказчика";
+    ViewBag.Title = "У вас скоро праздничное событие? Не знаете к кому обратиться и где выгодно?Разместите свой заказ на Аукционе событий и выбирайте выгодные предложения!";
     var max = Model.Themes.Count() - 1;
     var i = 0;
     var itemI = 0;
 }
 
 
-
-<div style="text-align: center;">
-    <div style="font-style: italic">Реклама</div>
-    <a href="http://www.mazan-masters.com" target="_blank">
-        <img src="~/Content/images/MAZAN.png" style="width: 85%" />
-    </a>
+<div style="text-align: center;"><br>
+    
+           <div class="title-line">Выберите услуги</div>
+  
 </div>
 
 <div class="tenderRow" style="padding-top:10px">
     <div class="form-group" style="text-align: center">
-        <h3><div style="color: #00aaff;">Выберите нужную услугу и заполните заявку:</h3>
+        
     </div>
 
     @foreach (var item in Model.Themes)
@@ -30,10 +28,10 @@
         <div style="text-align: center">
             <div class="col-md-4">
                 <p>
-                    <a href="~/Tender/Create?id=@item.Id"><img src="~/Content/images/kats/@item.ImageName" class="tenderImg" width="150" height="120" /></a>
+                    <a href="~/Tender/Create?id=@item.Id"><img src="~/Content/images/kats/@item.ImageName" class="tenderImg" width="110" height="80" /></a>
                 </p>
                 <p>
-                    <h5><strong>@Html.ActionLink(item.Theme, "Create", "Tender", new { @id = item.Id }, new { @style = "color: #02a6c9;", @class = "no_line" })</strong></h5>
+                    <h5>@Html.ActionLink(item.Theme, "Create", "Tender", new { @id = item.Id }, new { @style = "color: #07a7fa;", @class = "no_line" })</h5>
                 </p>
             </div>
         </div>

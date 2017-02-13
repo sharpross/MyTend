@@ -11,187 +11,91 @@
 <script>
     var openTabParam = "@ViewBag.OpenTabParam";
 </script>
-<div class="tabs">
-    <ul class="nav nav-tabs nav-justified">
-        <li class="font_black active"><a href="#tab5-1" data-toggle="tab" style="text-decoration: none"><i class="icon-star"></i><strong>Визитка</strong></a></li>
-        <li class="font_black"><a href="#tab5-2" data-toggle="tab" style="text-decoration: none"><strong>Об услуге</strong></a></li>
-        <li class="font_black"><a href="#tab5-3" data-toggle="tab" style="text-decoration: none"><strong>Портфолио</strong></a></li>
-    </ul>
-    <div class="tab-content cardBackground">
-        <div class="tab-pane active" id="tab5-1">
-            <div class="row">
-                <div class="col-md-12" style="text-align: right;">
-                    @if (Model.Login == ViewBag.UserLogin)
-                    {
-                        @Html.ActionLink("Редактировать, заполнить визитку / подписаться на заявки", "Profile", "Account", new { @tab = "tab5-1" }, null)
-                    }
-                </div>
-            </div>
 
-            <div class="row" style="min-height: 350px; padding-bottom: 150px;">
-                <div class="col-md-4 col-sm-12">
-                    <div style="padding-top: 15px;">
-                        @if (Model.Avatar != null)
-                        {
-                            <img src="/Image/Get?id=@Model.Avatar.Id" width="300" height="300" class="img-thumbnail" id="avatar">
-                        }
-                        else
-                        {
-                            <img src="/Image/Get?id=0" width="300" height="300" class="img-thumbnail" id="avatar">
-                        }
-                    </div>
-                </div>
+<h2 style="font-weight; color: #222222">
+    @Model.FullName.ToUpper()
+</h2>
 
-                <div class="col-md-8">
-                    <div class="card-table">
+@if (!string.IsNullOrEmpty(Model.AboutShort))
+{
+    <div class="card-block">
+        <div class="card-table-content" style="word-wrap: break-word; color: #8a8a8a; font-size: 16px;">
+            @Model.AboutShort 
+        </div>
+    </div>
+	  <hr>
 
-                        <h2 style="font-weight; color: #f40404">
-                            @Model.FullName.ToUpper()
-                        </h2>
-						
-                        @if (!string.IsNullOrEmpty(Model.AboutShort))
-                        {
-                            <div class="card-block">
-                                <div class="card-table-content" style="word-wrap: break-word; color: #849ea9; font-size: 20px;">
-                                    @Model.AboutShort
-                                </div>
-                            </div>
-							                         }
-                        <br />
-                        @if (Model.City != null)
-                        {
-                            <div class="card-block">
-                                <div class="card-table-content"><h4>@string.Format("{0}, {1}, {2}", Model.City.Region.Country.Name, Model.City.Region.Name, Model.City.Name)</h4></div>
-                            </div>
-                        }
-                        @if (!string.IsNullOrEmpty(Model.Phone))
-                        {
-                            <div class="card-block">
-                                <div class="card-table-content"><a href="call:@Model.Phone"><img src="~/Content/images/mailicon.png" /></a></div>
-                            </div>
-                        }
-                        @if (!string.IsNullOrEmpty(Model.Phone2))
-                        {
-                            <div class="card-block">
-                                <div class="card-table-content"><a href="call:@Model.Phone"><img src="~/Content/images/mailicon.png" /></a></div>
-                            </div>
-                        }
-                        <br />
-                        @if (!string.IsNullOrEmpty(Model.Email))
-                        {
-                            <div class="card-block">
-                                <div class="card-title">E-mail:</div>
-                                <div class="card-table-content"><a href="mailto:@Model.Email"><img src="~/Content/images/mailicon.png" /></a></div>
-                            </div>
-                        }
-                        @if (!string.IsNullOrEmpty(Model.Site))
-                        {
-                            <div class="card-block">
-                                <div class="card-title">Сайт:</div>
-                                <div class="card-table-content"><a href="@Model.Site">@Model.Site.ToLower().Replace("http://", string.Empty).Replace("https://", string.Empty)</a></div>
-                            </div>
-                        }
-                        @if (!string.IsNullOrEmpty(Model.Skype))
-                        {
-                            <div class="card-block">
-                                <div class="card-title">Skype:</div>
-                                <div class="card-table-content"><a href="mailto:@Model.Skype"><img src="~/Content/images/mailicon.png" /></a></div>
-                            </div>
-                        }
-                        @if (!string.IsNullOrEmpty(Model.Youtube))
-                        {
-                            <div class="card-block">
-                                <div class="card-title">Youtube:</div>
-                                <div class="card-table-content"><a href="@Model.Youtube">@Model.Youtube.ToLower().Replace("http://", string.Empty).Replace("https://", string.Empty)</a></div>
-                            </div>
-                        }
-                        @if (!string.IsNullOrEmpty(Model.VKontakte))
-                        {
-                            <div class="card-block">
-                                <div class="card-title">ВКонтакте:</div>
-                                <div class="card-table-content"><a target="_blank" href="@Model.VKontakte">@Model.VKontakte.ToLower().Replace("http://", string.Empty).Replace("https://", string.Empty)</a></div>
-                            </div>
-                        }
-                        @if (!string.IsNullOrEmpty(Model.Instagram))
-                        {
-                            <div class="card-block">
-                                <div class="card-title">Instagram:</div>
-                                <div class="card-table-content"><a href="@Model.Instagram">@Model.Instagram.ToLower().Replace("http://", string.Empty).Replace("https://", string.Empty)</a></div>
-                            </div>
-                        }
-                        <br />
-                    </div>
-                </div>
-            </div>
+
+}
+
+<div class="row">
+    <div class="col-md-12" style="text-align: right;"><i class=" glyphicon glyphicon-pencil" style="color: #07a7fa;"></i>
+        @if (Model.Login == ViewBag.UserLogin)
+        {
+            @Html.ActionLink("Редактировать", "Profile", "Account", new { @tab = "tab5-1" }, null)
+        }
+    </div>
+</div>
+
+<div class="row" style="min-height: 350px; padding-bottom: 150px;">
+    <div class="col-md-4 col-sm-12">
+        <div style="padding-top: 5px;">
+            @if (Model.Avatar != null)
+            {
+                <img src="/Image/Get?id=@Model.Avatar.Id" width="300" height="300" class="img-thumbnail" id="avatar">
+            }
+            else
+            {
+                <img src="/Image/Get?id=0" width="300" height="300" class="img-thumbnail" id="avatar">
+            }
         </div>
 
-        @if (Model.Portfolio != null)
+        <br />
+        @if (Model.City != null)
         {
-            <div class="tab-pane" id="tab5-2" style="text-align: left;">
-                @if (Model.Login == ViewBag.UserLogin)
-                {
-                    <div style="text-align: right">
-                        @Html.ActionLink("Редактировать, заполнить визитку / подписаться на заявки", "Profile", "Account", new { @tab = "tab5-3" }, null)
-                    </div>
-                }
-                <div style="padding-bottom: 50px;">
-                    @Html.Raw(Model.Portfolio.Replace("\n", "</br>"))
-                </div>
+            <div class="card-block">
+                <div class="card-table-content"><i class="glyphicon glyphicon-globe" style="color: #07a7fa;"></i> @string.Format("{1}, {2}", Model.City.Region.Country.Name, Model.City.Region.Name, Model.City.Name)</div>
             </div>
         }
-        else
-        {
-            <div class="tab-pane" id="tab5-2" style="text-align: right;">
-                @if (Model.Login == ViewBag.UserLogin)
-                {
-                    <div style="padding-bottom: 50px;">
-                        @Html.ActionLink("Редактировать визитку", "Profile", "Account", new { @tab = "tab5-3" }, null)
-                    </div>
-                }
+        @if (!string.IsNullOrEmpty(Model.Phone))
+        {	
+            <div class="card-block">
+                <div class="card-table-content"><h3><i class="glyphicon glyphicon-phone" style="color: #333333;"></i> @Model.Phone</h3></div>
             </div>
         }
-        @if (Model.Portfiles != null && Model.Portfiles.Length > 0)
+        <br />
+        @if (!string.IsNullOrEmpty(Model.Email))
         {
-            <div class="tab-pane" id="tab5-3">
-                <div style="text-align: right;">
-                    @if (Model.Login == ViewBag.UserLogin)
-                    {
-                        <div style="padding-bottom: 50px;">
-                            @Html.ActionLink("Редактировать портфолио / подписаться на заявки", "Profile", "Account", new { @tab = "tab5-2" }, null)
-                        </div>
-                    }
-                </div>
-                <div id="gallery" style="display:none; padding-bottom: 30px;">
-                    @foreach (var file in Model.Portfiles)
-                    {
-                        <img src="~/File/get?id=@file.Id" data-image="/File/get?id=@file.Id" data-description="" style="display:none" />
-                    }
-                </div>
-
-                <script language="javascript">
-                    $(document).ready(function () {
-                        $("#gallery").unitegallery();
-                    });
-                </script>
+            <div class="card-block">
+                <div class="card-table-content"><img src="~/Content/images/mailicon.png" /> <a href="mailto:@Model.Email">@Model.Email</a></div>
             </div>
         }
-        else
+        @if (!string.IsNullOrEmpty(Model.Site))
         {
-            <div class="tab-pane" id="tab5-3" style="text-align: right;">
-                @if (Model.Login == ViewBag.UserLogin)
-                {
-                    <div style="padding-bottom: 50px;">
-                        @Html.ActionLink("Редактировать", "Profile", "Account", null, new { @tab = "tab5-2" })
-                    </div>
-                }
-            </div>
-            <div class="tab-pane" id="tab5-3">
-                Не заполнено
+            <div class="card-block">
+                <div class="card-table-content"><img src="~/Content/images/siteicon.png" /> <a href="@Model.Site">@Model.Site.ToLower().Replace("http://", string.Empty).Replace("https://", string.Empty)</a></div>
             </div>
         }
-		    </div>
-</div>
-<!-- Put this script tag to the <head> of your page -->
+        @if (!string.IsNullOrEmpty(Model.Youtube))
+        {
+            <div class="card-block">
+                <div class="card-table-content"><img src="~/Content/images/Youtubeicon.png" /> <a href="@Model.Youtube">@Model.Youtube.ToLower().Replace("http://", string.Empty).Replace("https://", string.Empty)</a></div>
+            </div>
+        }
+        @if (!string.IsNullOrEmpty(Model.VKontakte))
+        {
+            <div class="card-block">
+                <div class="card-table-content"> <img src="~/Content/images/VKicon.png" /> <a target="_blank" href="@Model.VKontakte">@Model.VKontakte.ToLower().Replace("http://", string.Empty).Replace("https://", string.Empty)</a></div>
+            </div>
+        }
+        @if (!string.IsNullOrEmpty(Model.Instagram))
+        {
+            <div class="card-block">
+                <div class="card-table-content"><img src="~/Content/images/instagammicon.png" /> <a href="@Model.Instagram">@Model.Instagram.ToLower().Replace("http://", string.Empty).Replace("https://", string.Empty)</a></div>
+            </div>
+        }
+        <br />
+			<!-- Put this script tag to the <head> of your page -->
 <script type="text/javascript" src="//vk.com/js/api/openapi.js?121"></script>
 
 <script type="text/javascript">
@@ -205,3 +109,37 @@
 </script>
 
 <script src="~/Scripts/app/openTab.js"></script>
+    </div>
+	
+
+    <div class="col-md-8">
+        <div class="card-table">
+
+            <div style="padding-bottom: 50px;">
+				@if(Model.Portfolio != null)
+				{
+					<div>
+						@Html.Raw(Model.Portfolio.Replace("\n", "</br>"))
+					</div>
+				}
+            </div>
+
+            <div id="gallery" style="display:none; padding-bottom: 10px;">
+                @foreach (var file in Model.Portfiles)
+                {
+                    <img src="~/File/get?id=@file.Id" data-image="/File/get?id=@file.Id" data-description="" style="display:none" />
+                }
+            </div>
+
+            <script language="javascript">
+                    $(document).ready(function () {
+                        $("#gallery").unitegallery();
+                    });
+            </script>
+
+        </div>
+    </div>
+</div>
+
+
+

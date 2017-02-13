@@ -34,16 +34,15 @@
     <title>@ViewBag.Title</title>
 </head>
 <body>
+    @RenderPage("_TopMenu.cshtml")
         @RenderPage("_Head.cshtml")
-        <div class="container-fluid">
+        <div class="container">
             <div class="row clearfix ">
-                <div class="col-md-2" style="margin-left: -15px;">
-                    @RenderPage("_LeftSide.cshtml")
-                </div>
-                <div class="col-md-8 central-color">
+                
+                <div class="col-md-9 central-color">
                     @RenderBody()
                 </div>
-                <div class="col-md-2 right-color">
+                <div class="col-md-3 right-color">
                     @RenderPage("_RigthSide.cshtml")
                 </div>
             </div>

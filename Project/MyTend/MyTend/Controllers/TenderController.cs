@@ -36,7 +36,6 @@
         /// Список тендеров
         /// </summary>
         /// <returns></returns>
-        [OnlySub]
         [BanResource]
         public ActionResult List()
         {

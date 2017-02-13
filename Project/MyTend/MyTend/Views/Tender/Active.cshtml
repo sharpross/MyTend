@@ -38,53 +38,52 @@
                             <table style="width: 100%">
                                 <tr>
                                     <td width="20%" style="text-align: right;">
-                                        <strong>Название заявки/события:</strong>
+                                        <strong></strong>
                                     </td>
                                     <td style="padding-left: 10px;">
-                                        @item.Title
-                                    </td>
-                                </tr>
-                                                                <tr>
-                                    <td width="20%" style="text-align: right;">
-                                        <strong>Регион/Город:</strong>
-                                    </td>
-                                    <td style="padding-left: 10px;">
-                                        @item.City.Name
+                                        <h4> @Html.ActionLink(item.Title, "Details", "Tender", new { id = item.Id }, null) </h4>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td width="20%" style="text-align: right;">
-                                        <strong>Бюджет:</strong>
+                                        <strong></strong>
                                     </td>
                                     <td style="padding-left: 10px;">
                                         @if (item.Cost == 0)
                                         {
-                                            @:<div>Договорная</div>
-                                        }
+                                            @:<div><p style="word-wrap: break-word; font-size: 17px;">Договорная</div>
+                                    }
                                         else
                                         {
-                                            @:<div>@item.Cost.ToString("0.00") руб.</div>
-                                        }
+                                            @:<div><p style="font-size:17px">@item.Cost.ToString("0.00") руб.</p></div>
+                                    }
                                     </td>
                                 </tr>
                                 <tr>
                                     <td width="20%" style="text-align: right;">
-                                        <strong>Период рассмотрения предложений:</strong>
+                                        <strong></strong>
                                     </td>
                                     <td style="padding-left: 10px;">
-                                        @string.Format("C " + item.CreatedDateTime.ToString("dd.MM.yyyy") + " до " + item.DateEnd.ToString("dd.MM.yyyy"))
+                                        <span style="color: #858585;">
+                                            @item.City.Name
+                                        </span>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td width="20%" style="text-align: right;"></td>
+                                    <td width="20%" style="text-align: right;">
+                                        <strong></strong>
+                                    </td>
                                     <td style="padding-left: 10px;">
-                                        @Html.ActionLink("Посмотреть заявку подробнее...", "Details", "Tender", new { id = item.Id }, null)
+                                        <span style="color: #858585;">
+                                            @string.Format("Рассмотрение предложений: c " + item.CreatedDateTime.ToString("dd.MM.yyyy") + " до " + item.DateEnd.ToString("dd.MM.yyyy"))
+                                        </span>
                                     </td>
                                 </tr>
+
                                 <tr>
                                     <td width="20%" style="text-align: right;"></td>
                                     <td style="padding-left: 10px; text-align: right;">
-                                        <a href="#" style="color: red;" onclick="hideTender(@item.Id)"><span class="fa fa-trash"></span> Удалить/Отказаться от участия</a>
+                                        <a href="#" style="color: #eca62b;" onclick="hideTender(@item.Id)"><i class="glyphicon glyphicon-remove" style="color: #eca62b;"></i>Удалить</a>
                                     </td>
                                 </tr>
                             </table>

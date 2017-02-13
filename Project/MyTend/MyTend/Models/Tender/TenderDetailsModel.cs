@@ -80,6 +80,7 @@ namespace MyTend.Models
             this.Winner = tender.Winner;
             this.Messages = this.LoadMessages();
             this.IsActive = tender.IsActive;
+            this.EventDay = tender.EventDay;
 
             this.LoadFiles(tender);
         }

@@ -36,8 +36,10 @@
         //public string IconTheme { get; set; }
 
         public string TenderType { get; set; }
-
+        
         public List<Country> ListCountrys { get; set; }
+
+        public List<Region> ListRegions { get; set; }
 
         public HttpPostedFileBase[] ListFiles { get; set; }
 
@@ -68,6 +70,7 @@
             this.ListThemes = listSubThemes;
             //this.IconTheme = theme.ImageName;
             this.ListCountrys = RegionService.CountryAll();
+            this.ListRegions = RegionService.RegionAll();
         }
 
         public bool IsValid()
@@ -169,6 +172,8 @@
                 Message = this.Message,
                 Region = this.Region,
                 Theme = this.Theme,
+                EventDay = this.EventDay,
+                EventTime = this.EventTime,
                 Title = this.Title,
                 User = this.User,
                 CountGuests = this.CountGuests

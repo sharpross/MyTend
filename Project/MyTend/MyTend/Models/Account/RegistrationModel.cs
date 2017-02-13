@@ -29,9 +29,12 @@
 
         public HttpPostedFileBase[] Files { get; set; }
 
+        public List<Region> ListRegions { get; set; }
+
         public RegistrationModel() : base()
         {
             this.ListCountrys = RegionService.CountryAll();
+            this.ListRegions = RegionService.RegionAll();
         }
 
         public bool TryRegistry()

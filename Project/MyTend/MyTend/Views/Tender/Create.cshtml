@@ -13,26 +13,28 @@
         <img src="~/Content/images/MAZANdance.png" style="width: 85%" />
     </a>
 </div>
+<br />
     <div class="form-group" style="text-align: center">
-        <h3 style="color: #333333;">Заполните заявку, указав исполнителям все подробности вашего предстоящего события</h3>
+        <h4 style="color: #333333;">Заполните заявку, указав исполнителям все подробности вашего предстоящего события</h4>
     </div>
     <div>
         <div class="row">
             <div class="col-lg-12 text-center">
-                @Html.ActionLink("Инструкция заполнения заявок", "Instruction", "Docs")
+               
             </div>
         </div>
     </div>
     <div class="form-horizontal">
         <div class="row">
             <div class="col-md-4" style="text-align: center">
-                <img src="~/Content/images/kats/@Model.Theme.ImageName" width="150" height="120" />
+                <img src="~/Content/images/kats/@Model.Theme.ImageName" width="100" height="90" />
             </div>
             <div class="col-md-8">
                 <br /><br />
-                <h4 style="color: #8294a8;">Новая заяка - @Model.Theme.Theme</h4>
+                <h4 style="color: #07a7fa;">Новая заяка / @Model.Theme.Theme</h4>
             </div>
         </div>
+		
                 @if (Model.Errors.Count > 0)
         {
             <div class="alert alert-danger" role="alert">
@@ -50,8 +52,10 @@
                 <input name="ThemeId" value="@Model.Theme.Id" hidden />
             </div>
         </div>
+		
+	
         <div class="form-group">
-            <label for="TitleString" class="control-label col-md-4"><div style="color: #ff6933;">Какая услуга Вам нужна?</div></label>
+            <label for="TitleString" class="control-label col-md-4"><div style="color: #333333;">Какая услуга Вам нужна?</div></label>
             <div class="col-md-4">
                 <select class="form-control" name="TitleId" required>
                     @if (string.IsNullOrEmpty(Model.Theme.Title))
@@ -85,13 +89,15 @@
                 </select>
             </div>
         </div>
+		<br />
+<h4 style="color: #333333;">Местоположение заказа</h4>
 <hr>
+
         <div class="form-group">
-            <label for="SubTheme2" class="control-label col-md-4"><div style="color: #31c9e9;">Страна исполнения заявки:</div></label>
+            <label for="SubTheme2" class="control-label col-md-4"><div style="color: #333333;">Регион исполнения заявки:</div></label>
             <div class="col-md-4">
-                <select class="form-control" name="CountryId" id="CountrysSelect" required>
-                    <option disabled selected>Выберите страну</option>
-                    @foreach (var item in Model.ListCountrys)
+                <select class="form-control" name="RegionId" id="RegionSelect" required>
+                    @foreach (var item in Model.ListRegions)
                     {
                         <option id="@item.Id">@item.Name</option>
                     }
@@ -100,59 +106,63 @@
         </div>
 
         <div class="form-group">
-            <label for="SubTheme2" class="control-label col-md-4"><div style="color: #31c9e9;">Регион исполнения заявки:</div></label>
-            <div class="col-md-4">
-                <select class="form-control" name="RegionId" id="RegionSelect" required>
-                    <option disabled selected>Выберите регион</option>
-                </select>
-            </div>
-        </div>
-
-        <div class="form-group">
-            <label for="SubTheme2" class="control-label col-md-4"><div style="color: #31c9e9;">Город исполнения заявки:</div></label>
+            <label for="SubTheme2" class="control-label col-md-4"><div style="color: #333333;">Город исполнения заявки:</div></label>
             <div class="col-md-4">
                 <select class="form-control" name="CityId" required>
                     <option disabled selected>Выберите город</option>
                 </select>
             </div>
         </div>
+		<br />
+<h4 style="color: #333333;">Название и текст заявки</h4>
 <hr>
         <div class="form-group">
-            <label for="Title" class="control-label col-md-4"><div style="color: #ff6933;">Придумайте название заявки:</div></label>
+            <label for="Title" class="control-label col-md-4"><div style="color: #333333;">Придумайте название заявки:</div></label>
             <div class="col-md-8">
                 <input type="text" required class="form-control" placeholder="Например: Ищу ведущего/банкетный зал или DJ на юбилей 3 сентября" name="Title" maxlength="100" value="@Model.Title" />
             </div>
         </div>
 
         <div class="form-group">
-            <label for="Message" class="control-label col-md-4"><div style="color: #ff6933;">Текст заявки/условия конкурса:</div></label>
+            <label for="Message" class="control-label col-md-4"><div style="color: #333333;">Текст заявки/условия конкурса:</div></label>
             <div class="col-md-8">
-                <textarea class="form-control" required rows="7" maxlength="10000" name="Message" placeholder="Максимально подробно опишите детали и условия вашей заявки, укажите дату, место проведения события, количество гостей и прочие условия, которые необходимо учесть исполнителям, перед тем, как сделать Вам выгодное предложение."></textarea>
+                <textarea class="form-control" required rows="7" maxlength="10000" name="Message" placeholder="Максимально подробно опишите детали и условия вашей заявки, укажите  место проведения события, прочие условия, которые необходимо учесть исполнителям, перед тем, как сделать Вам выгодное предложение."></textarea>
             </div>
         </div>
+		<br />
+<h4 style="color: #333333;">Уточняющие детали</h4>
 <hr>
         <div class="form-group">
-            <label for="CountGuests" class="control-label col-md-4"><div style="color: #24ac34;">Количество гостей?</div></label>
-            <div class="col-md-2">
-                <input type="number" min="0" step="1" class="form-control" name="CountGuests" placeholder="Количество гостей" value="@Model.CountGuests" />
+            <label for="CountGuests" class="control-label col-md-4"><div style="color: #333333;"><i class="glyphicon glyphicon-time" aria-hidden="true" style="color: #ff0000;"></i> Дата и время оказания услуги : </div></label>
+            <div class="col-md-3">
+                <input type="text" class="form-control" name="EventDay" placeholder="Дата проведения " value="@Model.EventDay" />
+            </div>
+            <div class="col-md-3">
+                <input type="text" class="form-control" name="EventDay" placeholder="Время начала" value="@Model.EventDay" />
             </div>
         </div>
         <div class="form-group">
-            <label for="Cost" class="control-label col-md-4"><div style="color: #24ac34;">На какую сумму Вы ориентируетесь?</div></label>
-            <div class="col-md-2">
+            <label for="CountGuests" class="control-label col-md-4"><div style="color: #3333333;"><i class="glyphicon glyphicon-cutlery" style="color: #07a7fa;"></i> Количество гостей?</div></label>
+            <div class="col-md-3">
+                <input type="number" min="0" step="1" class="form-control" name="CountGuests" placeholder=" ?" value="@Model.CountGuests" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="Cost" class="control-label col-md-4"><div style="color: #333333;"><i class="glyphicon glyphicon-usd" style="color: #90d228;"></i> На какую сумму Вы ориентируетесь?</div></label>
+            <div class="col-md-3">
                 <input type="number" min="0" step="1" class="form-control" name="Cost" placeholder="Средняя цена" value="@Model.Cost" />
             </div>
         </div>
 
         <div class="form-group">
-            <label for="ListFiles" class="control-label col-md-4"><div style="color: #386a71;">Прикрепите 2 фото (если необходимо, до 2Mg)</div></label>
+            <label for="ListFiles" class="control-label col-md-4"><div style="color: #333333;"><i class="glyphicon glyphicon-picture" aria-hidden="true" style="color: #ac47cd;"></i> Прикрепите 2 фото (если необходимо, до 2Mb)</div></label>
             <div class="col-md-5">
                 <input type="file" accept="image/*" multiple class="form-control" name="ListFiles" value="" />
             </div>
         </div>
 
         <div class="form-group">
-            <label for="SubTheme2" class="control-label col-md-4"><div style="color: #c15671;">Какое время, Вы планируете рассматривать предложения от исполнителей услуг?</div></label>
+            <label for="SubTheme2" class="control-label col-md-4"><div style="color: #333333;"><i class="glyphicon glyphicon-dashboard" aria-hidden="true" style="color: #eca62b;"></i> Время рассмотрения предложений?</div></label>
             <div class="col-md-2">
                 <select class="form-control" name="ActiveTime">
                     @if (Model.ActiveTime == "3 дня")
@@ -190,6 +200,7 @@
                 </select>
             </div>
         </div>
+		<hr>
         <div style="padding: 20px 0px 20px 0px; text-align: center;">
             Нажатие кнопки «Отправить заявку исполнителям» означает согласие с <a href="~/Docs/Instruction">Инструкцией заполнения заявок</a>.
         </div>

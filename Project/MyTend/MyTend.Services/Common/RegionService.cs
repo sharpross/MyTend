@@ -46,6 +46,7 @@ namespace MyTend.Services
             var result = new List<Region>();
 
             var all = Region.FindAll()
+                .Where(x => x.Country.Name == "Россия")
                 .OrderBy(x => x.Name);
 
             result.AddRange(all);

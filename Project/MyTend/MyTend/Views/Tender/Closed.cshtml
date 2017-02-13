@@ -34,27 +34,70 @@
 
     @foreach (var item in Model.CloseTenders)
     {
-        <tr>
-            <td width="100">
-                @Html.ActionLink(item.Title, "Details", "Tender", new { id = item.Id }, null)
-            </td>
-            <td width="100" style="text-align: center">
-                @Html.ActionLink(item.Theme.Theme + ": " + item.Theme.Title, "Details", "Tender", new { id = item.Id }, null)
-            </td>
-            <td width="100" style="text-align: center">
-                @Html.ActionLink(item.City.Name, "Details", "Tender", new { id = item.Id }, null)
-            </td>
-            <td width="70" style="text-align: center">
-                @if (item.Winner == null)
-                {
-                    <div>Победитель не выбран</div>
-                }
-                else
-                {
-                    @Html.ActionLink(item.Winner.FullName, "Details", "Tender", new { id = item.Id }, null)
-                }
-            </td>
-        </tr>
+        <div class="row" id="tenderrow-@item.Id">
+            <div class="col-lg-1">
+                <a href="~/Tender/Details?id=@item.Id">
+                    <img src="~/Content/images/kats/@item.Theme.ImageName" width="90" height="100" />
+                </a>
+            </div>
+            <div class="col-lg-11">
+                <table style="width: 100%">
+                    <tr>
+                        <td width="20%" style="text-align: right;">
+                            <strong></strong>
+                        </td>
+                        <td style="padding-left: 10px;">
+                            <h4> @Html.ActionLink(item.Title, "Details", "Tender", new { id = item.Id }, null) </h4>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="20%" style="text-align: right;">
+                            <strong></strong>
+                        </td>
+                        <td style="padding-left: 10px;">
+                            @if (item.Cost == 0)
+                            {
+                                @:<div><p style="word-wrap: break-word; font-size: 17px;">Договорная</div>
+                                    }
+                            else
+                            {
+                                @:<div><p style="font-size:17px">@item.Cost.ToString("0.00") руб.</p></div>
+                                    }
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="20%" style="text-align: right;">
+                            <strong></strong>
+                        </td>
+                        <td style="padding-left: 10px;">
+                            <span style="color: #858585;">
+                                @item.City.Name
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="20%" style="text-align: right;">
+                            <strong></strong>
+                        </td>
+                        <td style="padding-left: 10px;">
+                            <span style="color: #858585;">
+                                @string.Format("Рассмотрение предложений: c " + item.CreatedDateTime.ToString("dd.MM.yyyy") + " до " + item.DateEnd.ToString("dd.MM.yyyy"))
+                            </span>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td width="20%" style="text-align: right;"></td>
+                        <td style="padding-left: 10px; text-align: right;">
+                            <a href="#" style="color: #eca62b;" onclick="hideTender(@item.Id)"><i class="glyphicon glyphicon-remove" style="color: #eca62b;"></i>Удалить</a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+                <div class="rowWhite">
+
+                </div>
     }
 
 </table>

@@ -15,7 +15,7 @@
         {
             var shtamp = string.Format("017{0}_{1}", DateTime.Now.ToString("ddMMyyyyhh"), "kadastr");
 
-            if (!string.IsNullOrEmpty(id) && id == shtamp) 
+            //if (!string.IsNullOrEmpty(id) && id == shtamp) 
             {
                 ActiveRecordStarter.CreateSchema();
 

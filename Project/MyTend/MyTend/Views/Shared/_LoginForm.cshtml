@@ -1,8 +1,7 @@
 ﻿@if (ViewBag.IsAuth == false)
 {
     <div style="text-align: center;">
-        <p><a href="#" id="login" class="btn" style="text-decoration: underline; color: white;">Войти</a></p>
-        <p><a href="~/Account/Registration" id="login" class="btn" style="text-decoration: underline; color: white;">Зарегистрируйтесь</a></p>
+        
     </div>
 
     <div id="loginForm" class="modal">
@@ -11,9 +10,9 @@
                 <div class="modal-body">
                     <div name="LoginForm">
                         <div class="form-group" style="text-align: center">
-                            <img src="@Url.Content("~/Content/images/logo2.png")" height="100">
+                            <img src="@Url.Content("~/Content/images/prev.png")" height="100">
                             
-							 <h5><div style="color: #0db7e1;"><strong>Сайт, где исполнитель Event-услуг соревнуется за праздник заказчика</strong></h5>
+							 <h5><div style="color: #07a7fa;"><strong>Сайт, где исполнители Event-услуг соревнуются за праздник заказчика</strong></h5>
                                                           
                         </div>
                         <div class="form-group">
@@ -38,12 +37,6 @@
 }
 @if (ViewBag.IsAuth == true)
 {
-    string loginName = ViewBag.UserLogin.ToString();
-
-    <div style="text-align: center;">
-        <p style="padding-top: 10px;"><strong>@Html.ActionLink(loginName, "Card", "Account", new { user = ViewBag.UserLogin }, new { @style = "color: white" })</strong></p>
-        
-        <p><strong><a name="LogoutButton" style="color: white;">Выход</a></strong></p>
-    </div>
+    
 }
 <script src="~/Scripts/app/login.js"></script>
