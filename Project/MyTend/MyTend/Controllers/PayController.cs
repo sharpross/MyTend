@@ -21,6 +21,7 @@ namespace MyTend.Controllers
         // GET: Pay
         public ActionResult Index()
         {
+            return Redirect("/home/index");
             this.ViewBag.NoIndexing = true;
 
             ViewBag.PayScript = GetPayString();
