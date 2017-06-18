@@ -11,11 +11,11 @@ namespace MyTend.Attributes
 {
     public class OnlySubAttribute : ActionFilterAttribute, IActionFilter
     {
-        public AuthService Auth { get; set; }
+        //public AuthService Auth { get; set; }
 
         public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
-            this.Auth = new AuthService();
+            /*this.Auth = new AuthService();
 
             var payService = new PayService(this.Auth.User);
 
@@ -26,7 +26,7 @@ namespace MyTend.Attributes
             else
             {
                 filterContext.Result = new RedirectResult("~/Account/OnlyForSub");
-            }
+            }*/
         }
     }
 }

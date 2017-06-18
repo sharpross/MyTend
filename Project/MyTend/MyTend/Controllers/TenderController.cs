@@ -125,7 +125,6 @@
         /// Активные тендеры
         /// </summary>
         /// <returns></returns>
-        [OnlySub]
         [BanResource]
         public ActionResult Active() 
         {
@@ -144,8 +143,7 @@
 
             return View(model);
         }
-
-        [OnlySub]
+        
         [BanResource]
         public ActionResult Winner()
         {
