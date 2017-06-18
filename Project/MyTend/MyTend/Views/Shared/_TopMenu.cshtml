@@ -11,12 +11,10 @@
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li><a href="/">Главная<span class="sr-only"></span></a></li>
+                <li><a href="/"style="color: #07a7fa;">Главная / Новая заявка<span class="sr-only"></span></a></li>
             </ul>
            
             <ul class="nav navbar-nav navbar-right">
-			 
-			
                 @if (ViewBag.IsAuth == true)
                 {
                     string loginName = ViewBag.UserLogin.ToString();
@@ -54,10 +52,12 @@
                         Нажатие кнопки "Войти" означает согласие с <a href="~/Docs/Rules">Условиями использования сайта</a>.
                     </div>
                     <div style="text-align: center">
-                        <button type="button" class="btn btn-custom-red" name="LoginButton"><strong>Войти</strong></button>
+                        <button type="button" class="btn btn-custom-orange" name="LoginButton">Войти</span></button>
                     </div>
                 </div>
-
+<div class="row" style="text-align: center; padding-top: 20px;">Еще не зарегистрировались?
+                                        <a href="#" class="btn" id="login3">Зарегистрироваться</a>
+                                    </div>
             </div>
         </div>
     </div>

@@ -21,7 +21,7 @@ namespace MyTend.Services.Common
 
         public int PrepareAccount()
         {
-            var account = Utils.GenerateInt();
+           /* var account = Utils.GenerateInt();
 
             var isFirst = !PayInfo.FindAll(Expression.Eq("User", this.User))
                 .Any(x => x.User.Id == this.User.Id);
@@ -38,14 +38,14 @@ namespace MyTend.Services.Common
                 Account = account
             };
 
-            newPay.Create();
+            newPay.Create();*/
 
-            return account;
+            return 0;
         }
 
         public void MakePay(int account)
         {
-            var payinfo = PayInfo.FindAll(Expression.Eq("Account", account))
+            /*var payinfo = PayInfo.FindAll(Expression.Eq("Account", account))
                 .FirstOrDefault(x => x.Account == account);
 
             if (payinfo != null && payinfo.IsPayed == false)
@@ -56,7 +56,7 @@ namespace MyTend.Services.Common
             else
             {
                 throw new Exception("Счёт платежа не найден.");
-            }
+            }*/
         }
 
         public List<PayInfo> GetHistory()
@@ -73,13 +73,13 @@ namespace MyTend.Services.Common
         {
             if (this.HasPay())
             {
-                var has = PayInfo
+                /*var has = PayInfo
                     .FindAll(Expression.Eq("User", this.User))
                     .Where(x => x.IsPayed)
                     .OrderBy(x => x.PayEnd)
                     .First();
 
-                return has != null ? (DateTime?)has.PayEnd : null;
+                return has != null ? (DateTime?)has.PayEnd : null;*/
             }
 
             return null;
@@ -87,25 +87,25 @@ namespace MyTend.Services.Common
 
         public bool HasPay()
         {
-            var has = PayInfo
+            /*var has = PayInfo
                 .FindAll(Expression.Eq("User", this.User))
                 .Where(x => DateTime.Now <= x.PayEnd)
                 .Where(x => x.IsPayed)
-                .Any();
+                .Any();*/
 
-            return has;
+            return true;
         }
 
         public string PayEnd()
         {
             var end = string.Empty;
 
-            if (this.HasPay())
+            /*if (this.HasPay())
             {
                 var date = this.GetDatePayEnd();
 
                 end = date.Value.ToString("dd.MM.yyyy");
-            }
+            }*/
 
             return end;
         }

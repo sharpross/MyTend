@@ -67,7 +67,7 @@
                         <div style="padding: 20px 0px 20px 0px; text-align: center;">
                            Выберите и загрузите свой фото-аватар. </br> Если вы частная компания, Вы можете загрузить свой логотип.
                         </div>
-                        <button type="button" class="btn btn-custom-red" id="updateProfile"><strong>Сохранить фото</strong></button>
+                        <button type="button" class="btn btn-custom-orange" id="updateProfile">Сохранить фото</button>
                     </div>
                 </div>
                 <div class="col-md-8">
@@ -168,7 +168,7 @@
                     Нажатие кнопки «Сохранить» означает согласие с <a href="~/Docs/AboutProfile">Правилами заполнения профиля</a>
                 </div>
                 <div class="row" style="text-align: center;">
-                    <button type="button" class="btn btn-custom-red" id="updateProfile"><strong>Сохранить</strong></button>
+                    <button type="button" class="btn btn-custom-orange" id="updateProfile">Сохранить</button>
                 </div>
                 <div class="row">
                     <div class="col-lg-12 errorBox"></div>
@@ -268,8 +268,8 @@
                 </div>
                 <div class="row" style="text-align: center;">
                     <div class="col-lg-12">
-                        <button type="submit" class="btn btn-custom-red ladda-button" data-style="expand-left">
-                            <span class="ladda-label"><strong>Загрузить фото</strong></span>
+                        <button type="submit" class="btn btn-custom-orange ladda-button" data-style="expand-left">
+                            <span class="ladda-label">Загрузить фото</span>
                         </button>
                     </div>
                 </div>
@@ -295,28 +295,28 @@
         <div class="tab-pane" id="tab5-3">
             <div style="padding-bottom: 20px;">
                 <h4> В данном разделе опишите  об услуге, которую Вы оказываете. </h4>
-                <h5> Максимальная  длина текста, до<strong>  10.000</strong> символов.</h5>
+                <h5> Максимальная  длина текста, до<strong>  20.000</strong> символов.</h5>
 				
             <div class="row">
                 <form method="post" action="UpdateProfile">
                     <div class="form-group">
                         <div class="col-md-12">
-                            <textarea rows="10" cols="95" name="portfoli" maxlength="10000">@Model.Portfolio</textarea>
+                            <textarea rows="10" cols="95" name="portfoli" maxlength="20000">@Model.Portfolio</textarea>
                             <br />
                         </div>
                     </div>
 					<div style="text-align: center;">
    
      
-</div>
+</div><i>
                 Информация в данном разделе не должна нарушать законы РФ, должна быть правдивой и соответствовать правилам добросовестной конкуренции.
-                <div style="color: #eca62b  ; font-weight: bold;">Утверждения рекламного характера, а также прилагательных в превосходной степени «самый», «полный», «дешевый», «лучший», «единственный» и им подобных, не допускается.</div>
+                Утверждения рекламного характера, а также прилагательных в превосходной степени «самый», «полный», «дешевый», «лучший», «единственный» и им подобных, не допускается</i>.
             </div>
                     <div class="<div class=" form-group">
                         <div class="col-md-12 progress-demo" style="text-align: center; padding-top: 20px;">
                            
 							
-                            <button type="button" class="btn btn-custom-red ladda-button" data-style="expand-left" onclick="savePortfolio(this)"><strong>Сохранить</strong></button>
+                            <button type="button" class="btn btn-custom-orange ladda-button" data-style="expand-left" onclick="savePortfolio(this)">Сохранить текст</button>
                         </div>
                     </div>
                 </form>
@@ -396,7 +396,7 @@
                                         <div class="row">
                                             <div class="col-lg-12">
                                                 <div style="padding-top: 20px; text-align: center;">
-                                                    <button type="button" class="btn btn-custom-red" onclick="UpdateSubsciptions(this)"><strong>Сохранить / Подписаться</strong></button>
+                                                    <button type="button" class="btn btn-custom-orange" onclick="UpdateSubsciptions(this)">Сохранить / Подписаться</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -411,7 +411,7 @@
                 <div class="row">
                     <div class="col-lg-12" style="text-align: center; padding-top: 0px;">
                         
-                        <button type="button" class="btn btn-custom-red" onclick="UpdateSubsciptions(this)"><strong>Сохранить / Подписаться</strong></button>
+                        <button type="button" class="btn btn-custom-orange" onclick="UpdateSubsciptions(this)">Сохранить / Подписаться</button>
                     </div>
                 </div>
             </div>

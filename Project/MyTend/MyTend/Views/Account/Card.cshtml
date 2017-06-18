@@ -19,11 +19,11 @@
 @if (!string.IsNullOrEmpty(Model.AboutShort))
 {
     <div class="card-block">
-        <div class="card-table-content" style="word-wrap: break-word; color: #8a8a8a; font-size: 16px;">
+        <div class="card-table-content" style="word-wrap: break-word; color: #8a8a8a; font-size: 16px;"> 
             @Model.AboutShort 
         </div>
     </div>
-	  <hr>
+	  
 
 
 }
@@ -67,7 +67,7 @@
         @if (!string.IsNullOrEmpty(Model.Email))
         {
             <div class="card-block">
-                <div class="card-table-content"><img src="~/Content/images/mailicon.png" /> <a href="mailto:@Model.Email">@Model.Email</a></div>
+                <div class="card-table-content"> <a href="mailto:@Model.Email"><img src="~/Content/images/mailicon.png" />@Model.Email</a></div>
             </div>
         }
         @if (!string.IsNullOrEmpty(Model.Site))
@@ -110,7 +110,10 @@
 
 <script src="~/Scripts/app/openTab.js"></script>
     </div>
-	
+	<div style="text-align: center;"><br>
+    
+           <div class="title-line">Об услуге</div>
+		   </div>
 
     <div class="col-md-8">
         <div class="card-table">
@@ -123,6 +126,10 @@
 					</div>
 				}
             </div>
+			<div style="text-align: center;"><br>
+    
+           <div class="title-line">Портфолио</div>
+		   </div>
 
             <div id="gallery" style="display:none; padding-bottom: 10px;">
                 @foreach (var file in Model.Portfiles)
@@ -130,6 +137,7 @@
                     <img src="~/File/get?id=@file.Id" data-image="/File/get?id=@file.Id" data-description="" style="display:none" />
                 }
             </div>
+			 
 
             <script language="javascript">
                     $(document).ready(function () {

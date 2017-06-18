@@ -4,20 +4,13 @@
     ViewBag.Title = "Заявки от заказчиков/покупателей";
 }
 
-<h1 style="color: #af9654;">Приглашения принять участие в аукционных-торгах</h1>
+<h3 style="color: #222222;">Приглашения принять участие в аукционных-торгах</h3>
 
-<h5>
+<h6>
     Ознакомьтесь с полным текстом заявки (условия конкурса).</br>
     Если Вы откликнитесь  предложением для заказчика, заявка перейдет в меню «Мои Предложения Заказчикам» где Вы сможете следить за ходом аукционного-торга.
-</h5>
-<ol>
-    <li><strong>Оформить/изменить подписку</strong> на получение приглашений к участию, учитывая Ваши услуги можно - <a href="http://my-tend.com/Account/Profile?tab=tab5-4" target="_blank"><strong>ТУТ</strong></a>.
-    </li>
-    <li>Обязательно следует<strong> уточнить регионы/города</strong>, в которых вы готовы их оказывать - <a href="http://my-tend.com/Account/Profile?tab=tab5-5" target="_blank"><strong>ТУТ</strong></a>.
-    </li>
-	<li>После оформления подписки, Вам будут приходить приглашения принять участие в аукционах, исходя из выбранных видов деятельности и городов. 
-    </li>
-	</ol>
+</h6>
+
 <div class="tabs">
     <ul class="nav nav-tabs nav-justified">
         <li class="active"><a href="#tab5-2" class="tabBlue" data-toggle="tab"></a></li>
@@ -96,6 +89,7 @@
             }
             else
             {
+			<p class="bg-warning">
                 <div><strong>
                     Заявок пока не поступало, рекомендуем проверить позже</strong>.
                 </div>
@@ -105,8 +99,26 @@
 				<div>
                     Так же рекомендуем проверять наличие новых заявок самостоятельно, в этом пункте меню.
                 </div>
+			
+           
+                
+				<ol>
+    <li><strong>Оформить/изменить подписку</strong> на получение приглашений к участию, учитывая Ваши услуги можно - <a href="http://my-tend.com/Account/Profile?tab=tab5-4" target="_blank"><strong>ТУТ</strong></a>.
+    </li>
+    <li>Обязательно следует<strong> уточнить регионы/города</strong>, в которых вы готовы их оказывать - <a href="http://my-tend.com/Account/Profile?tab=tab5-5" target="_blank"><strong>ТУТ</strong></a>.
+    </li>
+	<li>После оформления подписки, Вам будут приходить приглашения принять участие в аукционах, исходя из выбранных видов деятельности и городов. 
+    </li>
+	</ol></p>
             }
 
         </div>
+		<div class="col-lg-12" style="text-align: center;">
+                                @if (ViewBag.IsAuth != null)
+                                {
+                                    <br />
+                                    <a href="http://my-tend.com/Account/Profile?tab=tab5-4" class="btn btn-custom-orange header-btn full-size">Редактировать подписку</a>
+                                }
+                            </div>
     </div>
 </div>
