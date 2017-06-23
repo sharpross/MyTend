@@ -67,25 +67,25 @@
         @if (!string.IsNullOrEmpty(Model.Email))
         {
             <div class="card-block">
-                <div class="card-table-content"> <a href="mailto:@Model.Email"><img src="~/Content/images/mailicon.png" />@Model.Email</a></div>
+                <div class="card-table-content"> <h5><a href="mailto:@Model.Email"><img src="~/Content/images/mailicon.png" />@Model.Email</a></h5> </div>
             </div>
         }
         @if (!string.IsNullOrEmpty(Model.Site))
         {
             <div class="card-block">
-                <div class="card-table-content"><img src="~/Content/images/siteicon.png" /> <a href="@Model.Site">@Model.Site.ToLower().Replace("http://", string.Empty).Replace("https://", string.Empty)</a></div>
+                <div class="card-table-content"><img src="~/Content/images/siteicon.png" />  <h5><a href="@Model.Site">@Model.Site.ToLower().Replace("http://", string.Empty).Replace("https://", string.Empty)</a></h5> </div>
             </div>
         }
         @if (!string.IsNullOrEmpty(Model.Youtube))
         {
             <div class="card-block">
-                <div class="card-table-content"><img src="~/Content/images/Youtubeicon.png" /> <a href="@Model.Youtube">@Model.Youtube.ToLower().Replace("http://", string.Empty).Replace("https://", string.Empty)</a></div>
+                <div class="card-table-content"><img src="~/Content/images/Youtubeicon.png" /> <h5><a href="@Model.Youtube">@Model.Youtube.ToLower().Replace("http://", string.Empty).Replace("https://", string.Empty)</a></h5> </div>
             </div>
         }
         @if (!string.IsNullOrEmpty(Model.VKontakte))
         {
             <div class="card-block">
-                <div class="card-table-content"> <img src="~/Content/images/VKicon.png" /> <a target="_blank" href="@Model.VKontakte">@Model.VKontakte.ToLower().Replace("http://", string.Empty).Replace("https://", string.Empty)</a></div>
+                <div class="card-table-content"> <img src="~/Content/images/VKicon.png" /> <h5><a target="_blank" href="@Model.VKontakte">@Model.VKontakte.ToLower().Replace("http://", string.Empty).Replace("https://", string.Empty)</a></h5> </div>
             </div>
         }
         @if (!string.IsNullOrEmpty(Model.Instagram))

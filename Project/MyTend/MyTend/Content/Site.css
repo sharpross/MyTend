@@ -276,6 +276,10 @@ div.tabs ul.nav-tabs a:last-child, div.tabs ul.nav-tabs a:last-child:hover {
     font-family: Arial, sans-serif !important;
 }
 
+h4, .h4, h5, .h5, h6, .h6 {
+    margin-top: 0px;
+    margin-bottom: 10px;
+}
 
 .font_black {
     color: black;
@@ -363,17 +367,24 @@ div.tabs ul.nav-tabs a:last-child, div.tabs ul.nav-tabs a:last-child:hover {
 .aw-text {
     text-align: center;
 }
-
 div.tabs ul.nav-tabs a {
-    background: #07a7fa none repeat scroll 0 0 !important;
+    color: black;
 }
-
 div.tabs ul.nav-tabs a:hover {
-    background: #90d228 none repeat scroll 0 0 !important;
+    color: black;
+}
+div.tabs ul.nav-tabs li.active a {
+    color: black;
+}
+div.tabs ul.nav-tabs a {
+    background: white none repeat scroll 0 0 !important;
+}
+div.tabs ul.nav-tabs a:hover {
+    background: #efeeee none repeat scroll 0 0 !important;
 }
 
 div.tabs ul.nav-tabs li.active a {
-    background: #90d228 none repeat scroll 0 0 !important;
+    background: #dedede none repeat scroll 0 0 !important;
 }
 
 div.tabs div.tab-content {
@@ -574,8 +585,9 @@ header {
 }
 
 .navbar-default {
-    background-color: #f8f8f8;
-    border-bottom-color:  #e8e8f0;
+    background-color: #3b3d3d;
+    
+    margin-bottom: 0px;
 }
 
 .sidebar-nav-item {
@@ -584,4 +596,9 @@ header {
 
 .form-control {
     border-radius: 5px;
+}
+
+.header-image-backgound {
+    background-image: url("images/logo.png");
+
 }

@@ -1,4 +1,4 @@
-﻿<nav class="navbar navbar-default" style="background-color: white">
+﻿<nav class="navbar navbar-default" style="background-color: #3b3d3d">
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -13,8 +13,12 @@
             <ul class="nav navbar-nav">
                 <li><a href="/"style="color: #07a7fa;">Главная / Новая заявка<span class="sr-only"></span></a></li>
             </ul>
+		
+		
            
             <ul class="nav navbar-nav navbar-right">
+			 <li><a name="LogoutButton" style="color: #90d228;"><strong>Стать исполнителем услуг</strong></a></li>
+			
                 @if (ViewBag.IsAuth == true)
                 {
                     string loginName = ViewBag.UserLogin.ToString();
@@ -27,8 +31,8 @@
                     <li><a href="~/Account/Registration" id="login" class="btn" style="text-decoration: underline; color: #07a7fa;">Зарегистрируйтесь</a></li>
                 }
             </ul>
-        </div>
-    </div>
+        
+   
 </nav>
 <div id="loginForm" class="modal">
     <div class="modal-dialog">
@@ -38,7 +42,7 @@
                     <div class="form-group" style="text-align: center">
                         <img src="@Url.Content("~/Content/images/logobanner.svg")" height="120">
 
-                        <h5><div style="color: #222222;"><strong>Сайт, где исполнители Event-услуг соревнуются за праздник заказчика!</strong></h5>
+                        <h5><div style="color: #fa6567;"><strong>Сайт, где исполнители Event-услуг соревнуются за праздник заказчика!</strong></h5>
 
                     </div>
                     <div class="form-group">
