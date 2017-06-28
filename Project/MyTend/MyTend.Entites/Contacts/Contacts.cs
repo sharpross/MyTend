@@ -12,11 +12,11 @@
     public class Contact : BaseEntity<Contact>
     {
         [BelongsTo("UserId")]
-        [ValidateNonEmpty("Не известный пользователь")]
+        [ValidateNonEmpty("Неизвестный пользователь")]
         public UserSystem User { get; set; }
 
         [BelongsTo("FriendId")]
-        [ValidateNonEmpty("Не известный пользователь")]
+        [ValidateNonEmpty("Неизвестный пользователь")]
         public UserSystem Friend { get; set; }
     }
 }

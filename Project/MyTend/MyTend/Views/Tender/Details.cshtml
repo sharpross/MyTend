@@ -82,20 +82,15 @@
     </span></strong>
 </h5>
     </p>
-       <div style="text-align: center;"><br>
+    <div style="text-align: center;"><br>
     
-           <div class="title-line">Текст заявки</div>
-		    </br>
+        <div class="title-line">Текст заявки</div>
+	    </br>
   
-</div>
-
-
-      
-            
+    </div>
+    
     </div>
     </p>
-    
- 		
 		<p style="word-wrap: break-word; font-size: 17px;">
         @Html.Raw(Model.Message.Replace("\n", "<br />"))
     </p>
@@ -316,6 +311,9 @@
                             }
                             else
                             {
+                                <strong style="color: #a8a8a8; text-decoration: none;">
+                                    @string.Format("{0}", message.User.AboutShort)
+                                </strong>
                                 <strong style="color: black; text-decoration: none;">
                                     @string.Format("{0}, {1}, {2}", message.User.City.Region.Country.Name, message.User.City.Region.Name, message.User.City.Name)
                                 </strong>
@@ -323,7 +321,10 @@
                         }
                         else
                         {
-                            <strong style="color: black; text-decoration: none;">
+                            <strong style="color: #a8a8a8; text-decoration: none;">
+                                @string.Format("{0}", message.User.AboutShort)
+                            </strong>
+                            <strong style="color: #a8a8a8; text-decoration: none;">
                                 @string.Format("{0}, {1}, {2}", message.User.City.Region.Country.Name, message.User.City.Region.Name, message.User.City.Name)
                             </strong>
                         }
@@ -345,19 +346,12 @@
         <div class="row" style="border: 1px solid #d8dfe6; border-top: 0px; border-bottom: 0px; background-color: #f0f2f7; font-weight: bold;">
             <div class="col-md-12" style="text-align: right">
                 <div style="padding-top: 10px; padding-bottom: 10px;">
-                    @if (message.User.Login != ViewBag.UserLogin)
-                    {
-                        <span>
-
-                        </span>
-                    }
-
                     @if (Model.Winner == null)
                     {
                         if (message.User.Login != ViewBag.UserLogin && Model.User.Login == ViewBag.UserLogin)
                         {
                             <span style="padding-left: 40px;">
-                                @Html.ActionLink("Выбрать победителем", "SelectWinner", "Tender", new { @tenderId = Model.Id, @userId = message.User.Id }, new { @style = "", @class = "makeSub btn btn-custom-red" })
+                                @Html.ActionLink("Выбрать победителем конкурса", "SelectWinner", "Tender", new { @tenderId = Model.Id, @userId = message.User.Id }, new { @style = "", @class = "makeSub btn btn-custom-red" })
                             </span>
                         }
                     }

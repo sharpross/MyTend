@@ -126,7 +126,7 @@
 
             if (user == null)
             {
-                throw new Exception("Не известный пользователь.");
+                throw new Exception("Неизвестный пользователь.");
             }
 
             if(!string.IsNullOrEmpty(this.Password) && !string.IsNullOrEmpty(this.PasswordRetry))

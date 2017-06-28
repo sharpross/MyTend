@@ -13,12 +13,12 @@
     <br />
 	<div style="text-align: left;">
     
-        <img src="~/Content/images/123.JPG" style="width: 100%" />
-    
+     
 
-     <h2 style="color: #222222;">Заполните и отправьте заявку по нужным исполнителям! </h2>
+     <h2 style="color: #222222;"><span class="glyphicon glyphicon-pencil"></span> Заполните и отправьте заявку по нужным исполнителям! </h2>
 	 
-	 <div style="color: #07a7fa;">Новая заявка / Поиск исполнителя / @Model.Theme.Theme</div>
+	 <div style="color: #07a7fa;">
+Новая заявка / Поиск исполнителя / @Model.Theme.Theme</div>
 	  <hr>
  	 </div>
     <div class="form-horizontal">
@@ -132,7 +132,7 @@
         <div class="form-group">
             <label for="CountGuests" class="control-label col-md-4 low-font"><div style="color: #333333;"><i class="glyphicon glyphicon-time" aria-hidden="true" style="color: #ff0000;"></i> Дата и время оказания услуги : </div></label>
             <div class="col-md-3">
-                <input type="text" class="form-control" name="EventDay" placeholder="Дата проведения " value="@Model.EventDay" />
+                <input type="text" class="form-control" name="EventDay" placeholder="Дата проведения " max="20" value="@Model.EventDay" />
             </div>
             <div class="col-md-3">
                 <input type="text" class="form-control" name="EventDay" placeholder="Время начала" value="@Model.EventDay" />
@@ -141,7 +141,7 @@
         <div class="form-group">
             <label for="CountGuests" class="control-label col-md-4 low-font"><div style="color: #3333333;"><i class="glyphicon glyphicon-cutlery" style="color: #07a7fa;"></i> Количество гостей?</div></label>
             <div class="col-md-3">
-                <input type="number" min="0" step="1" class="form-control" name="CountGuests" placeholder=" ?" value="@Model.CountGuests" />
+                <input type="number" min="0" step="1" class="form-control" name="CountGuests" placeholder="10" value="@Model.CountGuests" />
             </div>
         </div>
         <div class="form-group">
@@ -199,7 +199,7 @@
         </div>
 		<hr>
         <div style="padding: 20px 0px 20px 0px; text-align: center;">
-            Нажатие кнопки «Отправить заявку исполнителям» означает согласие с <a href="~/Docs/Instruction">Инструкцией заполнения заявок</a>.
+            После отправки заявки, система расскажет и пригласит к участию в конкурсном торге исполнителей услуг учитывая выбранный город и услугу. 
         </div>
         <div class="form-group">
             <div class="col-md-12" style="text-align: center;">

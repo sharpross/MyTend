@@ -8,7 +8,7 @@
     public class Tender : BaseEntity<Tender>
     {
         [BelongsTo("UserId")]
-        [ValidateNonEmpty("Не известный пользователь")]
+        [ValidateNonEmpty("Неизвестный пользователь")]
         public UserSystem User { get; set; }
 
         [BelongsTo("WinerId")]

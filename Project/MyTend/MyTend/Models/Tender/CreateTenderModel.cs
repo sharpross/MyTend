@@ -57,7 +57,7 @@
 
             if (theme == null)
             {
-                throw new Exception("Не известный тендер.");
+                throw new Exception("Неизвестный конкурсный торг.");
             }
 
             var listSubThemes = TenderTheme.FindAll(Expression.Eq("Theme", theme.Theme))
@@ -107,7 +107,7 @@
 
             if (theme == null)
             {
-                throw new Exception("Не известный тендер.");
+                throw new Exception("Неизвестный конкурсный торг.");
             }
 
             var listSubThemes = TenderTheme.FindAll(Expression.Eq("Theme", theme.Theme))
