@@ -1,7 +1,7 @@
 ﻿ body {
     font-family: Arial,!important;
     font-size: 13px;
-    line-height: 22.5px;
+    line-height: 30px;
     font-weight: 400;
 }
 
@@ -599,6 +599,6 @@ header {
 }
 
 .header-image-backgound {
-    background-image:  url("images/header-image-backgound.png");
+    background-image:  url("images/header-image-backgound.jpg");
 
 }

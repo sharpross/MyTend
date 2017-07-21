@@ -24,6 +24,8 @@ namespace MyTend.Models
 
         public List<Tender> Tenders { get; set; }
 
+        public int CanSumm { get; set; }
+
         public TenderDetailsModel(AuthService auth, int id)
         {
             this.Tenders = new List<Tender>();

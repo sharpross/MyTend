@@ -22,3 +22,30 @@
     <strong>Спасибо, что используете наш сервис!</strong>
 </p></div>
 
+<div class="form-group" style="text-align: left">
+    <h3 style="color: #333333;">
+
+        Поздравляем — Вы выбрали победителя!
+    </h3>
+
+</div>
+<div>
+    <br />
+    <div class="form-group" style="text-align: left">
+        <h4 style="color: #f99313;">
+
+            Что дальше?
+        </h4>
+
+    </div>
+    <h5>
+        Вы выбрали победителем: @Html.ActionLink(Model.Winner.FullName, "Card", "Account", new { user = Model.Winner.Login }, null)
+    </h5>
+    <h5>
+        Свяжитесь с @Html.ActionLink(Model.Winner.FullName, "Card", "Account", new { user = Model.Winner.Login }, null) используя контакты в его визитке.
+    </h5>
+    <h3>
+        <span class="fa fa-phone"></span> @Html.ActionLink(Model.Winner.Phone, "Card", "Account", new { user = Model.Winner.Login }, null) 
+    </h3>
+
+</div>

@@ -57,7 +57,8 @@
                 Message = this.Message,
                 Date = DateTime.Now,
                 CreatedDateTime = DateTime.Now,
-                Tender = tender
+                Tender = tender,
+                CanSumm = this.CanSumm
             };
 
             return tenderMessage;

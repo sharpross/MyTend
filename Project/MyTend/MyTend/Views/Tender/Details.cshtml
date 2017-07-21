@@ -20,7 +20,7 @@
                 {
                     <span style="color: #eca62b; font-weight: bold"><span class="glyphicon glyphicon-user"></span> @Model.User.FullName </span>
 
-                    <span style=>
+                    <span>
 					 @string.Format("рассматривает предложения с " + Model.CreatedDateTime.ToString("dd.MM.yyyy") + " до " + Model.DateEnd.ToString("dd.MM.yyyy"))
                      </span>
 					
@@ -223,7 +223,7 @@
     {
         msgNum++;
 
-        <div class="row" style="border: 1px solid #d8dfe6; border-bottom: 0px; border-style: solid;">
+        <div class="row" style="border: 1px solid #d8dfe6; border-bottom: 0px; border-style: solid; border-top: 0px;">
             <div class="col-md-3">
                 <div style="width: 100%; text-align: left;">
 
@@ -300,7 +300,7 @@
                             </div>
                         }
                     </div>
-                    <div style="color: blue; width:100%; text-align: left; font-size: 14px;">
+                    <div style="color: blue; width:100%; text-align: left; font-size: 14px; line-height: 10px;">
                         @if (Model.Winner != null)
                         {
                             if (Model.Winner.Login == ViewBag.UserLogin)
@@ -311,9 +311,6 @@
                             }
                             else
                             {
-                                <strong style="color: #a8a8a8; text-decoration: none;">
-                                    @string.Format("{0}", message.User.AboutShort)
-                                </strong>
                                 <strong style="color: black; text-decoration: none;">
                                     @string.Format("{0}, {1}, {2}", message.User.City.Region.Country.Name, message.User.City.Region.Name, message.User.City.Name)
                                 </strong>
@@ -321,10 +318,7 @@
                         }
                         else
                         {
-                            <strong style="color: #a8a8a8; text-decoration: none;">
-                                @string.Format("{0}", message.User.AboutShort)
-                            </strong>
-                            <strong style="color: #a8a8a8; text-decoration: none;">
+                            <strong style="color: #a8a8a8; text-decoration: none; ">
                                 @string.Format("{0}, {1}, {2}", message.User.City.Region.Country.Name, message.User.City.Region.Name, message.User.City.Name)
                             </strong>
                         }
@@ -333,7 +327,9 @@
                     <div style="color:#a8a8a8; text-align: left; padding-top: 10px; padding-bottom: 10px;">
                         Предлагает Вам:
                     </div>
-
+                    <div>
+                        <strong>Предлагаемая сумма: </strong> @message.CanSumm р.
+                    </div>
                     <div style="word-wrap: break-word;">
                         @Html.Raw(message.Message.Replace("\n", "<br />"))
                     </div>
@@ -385,10 +381,13 @@
 Если Вы заказчик: уточните детали Вашей  заявки или задайте вопрос исполнителям, если он у Вас имеется." maxlength="1000"></textarea>
                     </div>
                 </div>
+                <div class="form-group col-md-4">
+                    <input type="number" min="0" class="form-control" name="CanSumm" placeholder="Предлагаемая сумма" value="@Model.CanSumm">
+                </div>
             </div>
-
+            
             <div class="form-group">
-                <div class="" style="text-align: center;">
+                <div class="" style="text-align: right;">
                     <button id="addMessage" type="button" class="btn btn-custom-green" onclick="addTenderMessage()">Отправить предложение / сообщение</button>
                 </div>
             </div>

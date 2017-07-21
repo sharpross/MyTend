@@ -70,7 +70,7 @@
             {
                 Email.From(this._from)
                 .To(this._email)
-                .Subject("Вы победитель аукционного-торга")
+                .Subject("Вы победитель конкурсного-торга")
                 .UsingCultureTemplateFromFile("~\\Content\\email\\winner.html", new { TenderId = tenderId, Title = tenderTitle, Name = name })
                 .UsingClient(this.GetClient())
                 .Send();
@@ -96,7 +96,7 @@
             {
                 Email.From(this._from)
                 .To(this._email)
-                .Subject("Новый коментарий в аукционном-торге:" + tenderTitle)
+                .Subject("Новый коментарий в конкурсном-торге:" + tenderTitle)
                 .UsingCultureTemplateFromFile("~\\Content\\email\\getresponce.html", new {To = to, TenderId = tenderId, Title = tenderTitle, Name = name })
                 .UsingClient(this.GetClient())
                 .Send();

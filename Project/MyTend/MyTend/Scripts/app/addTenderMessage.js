@@ -2,7 +2,8 @@
     var btn = $('button[id=addMessage]'),
         userId = $('input[name=UserId]').val(),
         temderId = $('input[name=TenderId]').val(),
-        msg = $('textarea[name=Message]').val();
+        msg = $('textarea[name=Message]').val(),
+        canSumm = $('input[name=CanSumm]').val();
 
     var ani = new kamati.animation.dots(btn[0]);
     ani.start();
@@ -14,7 +15,8 @@
             model: {
                 Message: msg,
                 UserId: userId,
-                TenderId: temderId
+                TenderId: temderId,
+                CanSUmm: canSumm
             }
         },
         success: function (data) {

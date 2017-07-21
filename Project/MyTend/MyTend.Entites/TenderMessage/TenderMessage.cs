@@ -22,5 +22,8 @@
         [Property(Length=2000)]
         [ValidateNonEmpty]
         public string Message { get; set; }
+        
+        [Property]
+        public int CanSumm { get; set; }
     }
 }
