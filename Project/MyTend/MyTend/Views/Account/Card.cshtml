@@ -2,14 +2,37 @@
 
 @{
     ViewBag.Title = "Визитная карточка: " + Model.FullName;
-
     var parts = Model.FullName.Split(' ');
     var secondname = Model.FullName;
     var firstname = string.Empty;
 
 }
 <script>
-    var openTabParam = "@ViewBag.OpenTabParam";
+    var openTabParam = "@ViewBag.OpenTabParam",
+        phone = @Model.Phone,
+        phoneHide = phone ? phone.toString().substr(0, 5) : "",
+        hidePhone = function (){
+            var el = $('#phone-place');
+
+            if(el){
+                el.text(phoneHide + '****');
+            }
+        },
+        showPhone = function(){
+            var el = $('#phone-place');
+
+            if(el){
+                el.text(phone);
+            }
+        };
+
+    $(document).ready(function(){
+        hidePhone();
+
+        var el = $('#showPhone');
+        el.click(showPhone);
+    });
+
 </script>
 
 <h2 style="font-weight; color: #222222">
@@ -23,9 +46,6 @@
             @Model.AboutShort 
         </div>
     </div>
-	  
-
-
 }
 
 <div class="row">
@@ -60,38 +80,41 @@
         @if (!string.IsNullOrEmpty(Model.Phone))
         {	
             <div class="card-block">
-                <div class="card-table-content"><h3><i class="glyphicon glyphicon-phone" style="color: #333333;"></i> @Model.Phone</h3></div>
+                <div class="card-table-content"><h3> <div id="phone-place"></div> </h3></div>
+            </div>
+            <div>
+                <div id="showPhone" style="cursor: pointer; color: #00ca6e">Показть телефон</div>
             </div>
         }
         <br />
         @if (!string.IsNullOrEmpty(Model.Email))
         {
             <div class="card-block">
-                <div class="card-table-content"> <h5><a href="mailto:@Model.Email"><img src="~/Content/images/mailicon.png" />@Model.Email</a></h5> </div>
+                <div class="card-table-content"> <h5><a href="mailto:@Model.Email"><img src="~/Content/images/mailicon.png" /> @Model.Email</a></h5> </div>
             </div>
         }
         @if (!string.IsNullOrEmpty(Model.Site))
         {
             <div class="card-block">
-                <div class="card-table-content"><img src="~/Content/images/siteicon.png" />  <h5><a href="@Model.Site">@Model.Site.ToLower().Replace("http://", string.Empty).Replace("https://", string.Empty)</a></h5> </div>
+                <div class="card-table-content">  <h5><a href="@Model.Site"><img src="~/Content/images/siteicon.png" /> @Model.Site.ToLower().Replace("http://", string.Empty).Replace("https://", string.Empty)</a></h5> </div>
             </div>
         }
         @if (!string.IsNullOrEmpty(Model.Youtube))
         {
             <div class="card-block">
-                <div class="card-table-content"><img src="~/Content/images/Youtubeicon.png" /> <h5><a href="@Model.Youtube">@Model.Youtube.ToLower().Replace("http://", string.Empty).Replace("https://", string.Empty)</a></h5> </div>
+                <div class="card-table-content"><h5><a href="@Model.Youtube"><img src="~/Content/images/Youtubeicon.png" /> @Model.Youtube.ToLower().Replace("http://", string.Empty).Replace("https://", string.Empty)</a></h5> </div>
             </div>
         }
         @if (!string.IsNullOrEmpty(Model.VKontakte))
         {
             <div class="card-block">
-                <div class="card-table-content"> <img src="~/Content/images/VKicon.png" /> <h5><a target="_blank" href="@Model.VKontakte">@Model.VKontakte.ToLower().Replace("http://", string.Empty).Replace("https://", string.Empty)</a></h5> </div>
+                <div class="card-table-content"><h5><a target="_blank" href="@Model.VKontakte"><img src="~/Content/images/VKicon.png" />  @Model.VKontakte.ToLower().Replace("http://", string.Empty).Replace("https://", string.Empty)</a></h5> </div>
             </div>
         }
         @if (!string.IsNullOrEmpty(Model.Instagram))
         {
             <div class="card-block">
-                <div class="card-table-content"><img src="~/Content/images/instagammicon.png" /> <a href="@Model.Instagram">@Model.Instagram.ToLower().Replace("http://", string.Empty).Replace("https://", string.Empty)</a></div>
+                <div class="card-table-content"> <a href="@Model.Instagram"><img src="~/Content/images/instagammicon.png" /> @Model.Instagram.ToLower().Replace("http://", string.Empty).Replace("https://", string.Empty)</a></div>
             </div>
         }
         <br />

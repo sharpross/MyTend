@@ -21,7 +21,7 @@
 			
                 @if (ViewBag.IsAuth == true)
                 {
-                    string loginName = ViewBag.UserLogin.ToString();
+                    string loginName = ViewBag.UserName.ToString();
                     <li>@Html.ActionLink(loginName, "Card", "Account", new { user = ViewBag.UserLogin }, new { @style = "color: #07a7fa;" })</li>
                     <li><a name="LogoutButton" style="color: #07a7fa;">Выход</a></li>
                 }
