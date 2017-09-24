@@ -11,6 +11,20 @@ namespace MyTend
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/jquery-ui").Include(
+                "~/Content/jquery-ui{version}.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/fine-uploader").Include(
+                "~/Content/fine-uploader/fine-uploader.min.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/jquery-maskedinput").Include(
+                "~/Scripts/jquery.maskedinput-{version}.min.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/wysihtml5").Include(
+             "~/Scripts/wysihtml5-0.3.0.js",
+              "~/Scripts/bootstrap-wysihtml5.js"
+             ));
+
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));
 
@@ -59,7 +73,10 @@ namespace MyTend
                       "~/Content/theme/css/global-style.css",
                       "~/Content/theme/assets/fancybox/jquery.fancybox.css",
                       "~/Content/metisMenu.min.css",
-                      "~/Content/site.css"
+                      "~/Content/site.css",
+                      "~/Content/jquery-ui.css",
+                      "~/Content/bootstrap-wysihtml5.css",
+                      "~/Content/fine-uploader/fine-uploader-gallery.min.css"
                       ));
 
 

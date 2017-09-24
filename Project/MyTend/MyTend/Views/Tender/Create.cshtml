@@ -132,10 +132,10 @@
         <div class="form-group">
             <label for="CountGuests" class="control-label col-md-4 low-font"><div style="color: #333333;"><i class="glyphicon glyphicon-time" aria-hidden="true" style="color: #ff0000;"></i> Дата и время оказания услуги : </div></label>
             <div class="col-md-3">
-                <input type="text" class="form-control" name="EventDay" placeholder="Дата проведения "  value="@Model.EventDay" />
+                <input type="date" class="form-control" name="EventDay" placeholder="Дата проведения "  value="@Model.EventDay" />
             </div>
             <div class="col-md-3">
-                <input type="text" class="form-control" name="EventDay" placeholder="Время начала" value="@Model.EventDay" />
+                <input type="time" class="form-control" name="EventDay" placeholder="Время начала" value="@Model.EventDay" />
             </div>
         </div>
         <div class="form-group">
@@ -154,7 +154,51 @@
         <div class="form-group">
             <label for="ListFiles" class="control-label col-md-4 low-font"><div style="color: #333333;"><i class="glyphicon glyphicon-picture" aria-hidden="true" style="color: #ac47cd;"></i> Прикрепите 2 фото (если необходимо, до 2Mb)</div></label>
             <div class="col-md-5">
-                <input type="file" accept="image/*" multiple class="form-control" name="ListFiles" value="" />
+                @{ Html.RenderPartial("~/Views/Shared/_FineUploader.cshtml"); }
+                <div id="uploader"></div>
+                <script>
+                    var fileCount = 0;
+                    var addedFiles = 0;
+                    var fileLimit = 2;
+                    // Some options to pass to the uploader are discussed on the next page
+                    var uploader = new qq.FineUploader({
+                        element: document.getElementById("uploader"),
+                        validation: {
+                            allowedExtensions: ['jpeg', 'jpg', 'gif', 'png']
+                        },
+                        autoUpload: false,
+                        request: {
+                            endpoint: 'server/handleUploads'
+                        },
+                        callbacks: {
+                            onSubmit: function (id, fileName) {
+                                console.log('submit');
+                                fileCount++;
+                                if (fileCount > fileLimit) {
+                                    $('input[name="qqfile"]').attr('disabled', true);
+                                    $('#uploader .qq-upload-drop-area').hide();
+                                    return false;
+                                }
+                            },
+                            onCancel: function (id, fileName) {
+                                fileCount--;
+                                if (fileCount <= fileLimit) {
+                                    $('input[name="qqfile"]').attr('disabled', false);
+                                    $('#portfolio-uploader .qq-upload-drop-area').show();
+                                }
+                            },
+                            onComplete: function (id, fileName, responseJSON) {
+                                if (responseJSON.success) {
+                                    addedFiles++;
+                                    if (addedFiles >= fileLimit) {
+                                        $('input[name="qqfile"]').attr('disabled', true);
+                                        $('#uploader .qq-upload-drop-area').hide();
+                                    }
+                                }
+                            }
+                        }
+                    })
+                </script>
             </div>
         </div>
 

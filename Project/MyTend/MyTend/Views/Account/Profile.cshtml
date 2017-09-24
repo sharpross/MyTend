@@ -62,7 +62,51 @@
                         <img src="/Image/Get?id=0" width="300" height="300" class="img-thumbnail" id="avatar">
                     }
 
-                    <input type="file" accept="image/*" name="AvatarFile" id="AvatarFile" style="padding-top: 10px; padding-bottom: 10px;" />
+                    @{ Html.RenderPartial("~/Views/Shared/_FineUploader.cshtml"); }
+                    <script>
+                        var fileCount = 0;
+                        var addedFiles = 0;
+                        var fileLimit = 1;
+                        // Some options to pass to the uploader are discussed on the next page
+                        var uploader = new qq.FineUploader({
+                            element: document.getElementById("uploader"),
+                            validation: {
+                                allowedExtensions: ['jpeg', 'jpg', 'gif', 'png']
+                            },
+                            autoUpload: false,
+                            request: {
+                                endpoint: 'server/handleUploads'
+                            },
+                            callbacks: {
+                                onSubmit: function (id, fileName) {
+                                    console.log('submit');
+                                    fileCount ++;
+                                    if(fileCount > fileLimit) {
+                                        $('input[name="qqfile"]').attr('disabled', true);
+                                        $('#uploader .qq-upload-drop-area').hide();
+                                        return false;
+                                    }
+                                },
+                                onCancel: function (id, fileName) {
+                                    fileCount--;
+                                    if (fileCount <= fileLimit) {
+                                        $('input[name="qqfile"]').attr('disabled', false);
+                                        $('#portfolio-uploader .qq-upload-drop-area').show();
+                                    }
+
+                                },
+                                onComplete: function(id, fileName, responseJSON) {
+                                    if (responseJSON.success) {
+                                        addedFiles ++;
+                                        if(addedFiles >= fileLimit) {
+                                            $('input[name="qqfile"]').attr('disabled', true);
+                                            $('#uploader .qq-upload-drop-area').hide();
+                                        }
+                                    }
+                                }
+                            }
+                        })
+                    </script>
                     <div class="row" style="text-align: center;">
                         <div style="padding: 20px 0px 20px 0px; text-align: center;">
                            Выберите и загрузите свой фото-аватар. </br> Если вы частная компания, Вы можете загрузить свой логотип.
@@ -239,6 +283,60 @@
                     <div class="col-lg-12">
                         <div class="form-group">
                             <input type="file" accept="image/*" class="form-control" name="ProfileFiles" multiple />
+                                @{ Html.RenderPartial("~/Views/Shared/_FineUploader.cshtml"); }
+                            <div id="portfolio-uploader"></div>
+                            <script>
+                                var fileCount = 0;
+                                var addedFiles = 0;
+                                var fileLimit = 20;
+                                // Some options to pass to the uploader are discussed on the next page
+                                var uploader = new qq.FineUploader({
+                                    element: document.getElementById("portfolio-uploader"),
+                                    validation: {
+                                        allowedExtensions: ['jpeg', 'jpg', 'gif', 'png'],
+                                        sizeLimit: 2621440
+                                    },
+                                    text: {
+                                        uploadButton: 'Выбрать'
+                                    },
+                                    messages: {
+                                        typeError: 'Выбранный файл не соответствует ни одному из типов jpeg, jpg, gif, png',
+                                        sizeError: 'Размер выбранного файла превышает допустимый (2.5 Мб)'
+                                    },
+                                    autoUpload: false,
+                                    multiple: true,
+                                    request: {
+                                        endpoint: 'server/handleUploads'
+                                    },
+                                    callbacks: {
+                                        onSubmit: function (id, fileName) {
+                                            console.log('submit');
+                                            fileCount++;
+                                            if (fileCount > fileLimit) {
+                                                $('input[name="qqfile"]').attr('disabled', true);
+                                                $('#portfolio-uploader .qq-upload-drop-area').hide();
+                                                return false;
+                                            }
+                                        },
+                                        onCancel: function (id, fileName) {
+                                            fileCount--;
+                                            if (fileCount <= fileLimit) {
+                                                $('input[name="qqfile"]').attr('disabled', false);
+                                                $('#portfolio-uploader .qq-upload-drop-area').show();
+                                            }
+                                        },
+                                        onComplete: function (id, fileName, responseJSON) {
+                                            if (responseJSON.success) {
+                                                addedFiles++;
+                                                if (addedFiles >= fileLimit) {
+                                                    $('input[name="qqfile"]').attr('disabled', true);
+                                                    $('#portfolio-uploader .qq-upload-drop-area').hide();
+                                                }
+                                            }
+                                        }
+                                    }
+                                })
+                            </script>
                             <div style="color: #222222"><strong>
                                 Вы можете загрузить не более 20 фотографий, размером не более 2.5 Мб каждая)</strong>
                             </div>
@@ -420,6 +518,7 @@
             $(document).ready(function () {
                 var max = 10;
 
+                $('input[name="qqfile"]').attr('id', 'AvatarFile');
                 $('input.subCheck').on('click', function (el) {
                     var selected = $('input.subCheck');
 
