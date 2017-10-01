@@ -224,22 +224,22 @@
         msgNum++;
 
         <div class="row" style="border: 1px solid #d8dfe6; border-bottom: 0px; border-style: solid; border-top: 0px;">
-            <div class="col-md-3">
-                <div style="width: 100%; text-align: left;">
+            <div class="col-md-2">
+                <div style="width: 100%; text-align: center;">
 
                     @if (message.User.Avatar != null)
                     {
                         <a href="~/Account/Card?user=@message.User.Login">
-                            <img src='/Image/Get?id=@message.User.Avatar.Id' style="width: 100%; height: 100%;  padding-top: 6px;" />
+                            <img src='/Image/Get?id=@message.User.Avatar.Id' style="width: 120px; height: 120px;  padding-top: 6px;" />
                         </a>
                     }
                     else
                     {
-                        <p><img src='/Image/Get?id=0' style="width: 100%; height: 100%;  padding-top: 6px;" /></p>
+                        <p><img src='/Image/Get?id=0' style="width: 120px; height: 120px;  padding-top: 6px;" /></p>
                     }
                 </div>
             </div>
-            <div class="col-md-9">
+            <div class="col-md-10">
                 <div style="padding-top: 5px;">
                     <div style="color: blue; width:100%; text-align: left; font-size: 16px;">
                         @if (Model.Winner != null)
@@ -252,7 +252,7 @@
                             }
                             else
                             {
-                                <strong style="color: rgb(204, 0, 1); text-decoration: none;">
+                                <strong style="color: rgb(204, 0, 1); text-decoration: none; ">
                                     @message.User.FullName.ToUpper()
                                 </strong>
                             }
@@ -282,7 +282,7 @@
                             }
                             else
                             {
-                                <div style="color: gray; text-decoration: none;">
+                                <div style="color: gray; text-decoration: none; line-height: 15px;">
                                     @if (message.User.AboutShort != null && !string.IsNullOrEmpty(message.User.AboutShort))
                                     {
                                         @message.User.AboutShort
@@ -292,7 +292,7 @@
                         }
                         else
                         {
-                            <div style="color: gray; text-decoration: none;">
+                            <div style="color: gray; text-decoration: none; line-height: 15px;">
                                 @if (message.User.AboutShort != null && !string.IsNullOrEmpty(message.User.AboutShort))
                                 {
                                     @message.User.AboutShort
@@ -305,33 +305,32 @@
                         {
                             if (Model.Winner.Login == ViewBag.UserLogin)
                             {
-                                <strong>
-                                    @Html.ActionLink(string.Format("{0}, {1}, {2}", message.User.City.Region.Country.Name, message.User.City.Region.Name, message.User.City.Name), "Card", "Account", new { @user = message.User.Login }, new { @style = "color: black; text-decoration: none;" })
-                                </strong>
+                                @Html.ActionLink(string.Format("{0}", message.User.City.Name), "Card", "Account", new { @user = message.User.Login }, new { @style = "color: black; text-decoration: none;" })
                             }
                             else
                             {
-                                <strong style="color: black; text-decoration: none;">
-                                    @string.Format("{0}, {1}, {2}", message.User.City.Region.Country.Name, message.User.City.Region.Name, message.User.City.Name)
-                                </strong>
+                                @Html.ActionLink(string.Format("{0}", message.User.City.Name), "Card", "Account", new { @user = message.User.Login }, new { @style = "color: black; text-decoration: none;" })
                             }
                         }
                         else
                         {
-                            <strong style="color: #a8a8a8; text-decoration: none; ">
-                                @string.Format("{0}, {1}, {2}", message.User.City.Region.Country.Name, message.User.City.Region.Name, message.User.City.Name)
-                            </strong>
+                            @Html.ActionLink(string.Format("{0}", message.User.City.Name), "Card", "Account", new { @user = message.User.Login }, new { @style = "color: black; text-decoration: none;" })
                         }
                     </div>
 
                     <div style="color:#a8a8a8; text-align: left; padding-top: 10px; padding-bottom: 10px;">
                         Предлагает Вам:
                     </div>
-                    <div>
-                        <strong>Предлагаемая сумма: </strong> @message.CanSumm р.
-                    </div>
                     <div style="word-wrap: break-word;">
                         @Html.Raw(message.Message.Replace("\n", "<br />"))
+                    </div>
+                    <div style="text-align: right;">
+                        <div>
+                            Окажет услугу за:
+                        </div>
+                        <div style="color: darkgreen">
+                            <span style="font-weight:bold; font-size: 28px;">@message.CanSumm</span>
+                        </div>
                     </div>
                     <div style="color:gray; text-align: right;">
                         (@message.Date.ToString("dd.MM.yyyy HH:mm:ss"))
@@ -381,14 +380,13 @@
 Если Вы заказчик: уточните детали Вашей  заявки или задайте вопрос исполнителям, если он у Вас имеется." maxlength="1000"></textarea>
                     </div>
                 </div>
-                <div class="form-group col-md-4">
-                    <input type="number" min="0" class="form-control" name="CanSumm" placeholder="Предлагаемая сумма" value="@Model.CanSumm">
+                <div class="form-group col-md-4" >  
+                    <input type="number" min="0" class="form-control" name="CanSumm" placeholder="Предлагаемая сумма" >
                 </div>
-            </div>
-            
-            <div class="form-group">
-                <div class="" style="text-align: right;">
-                    <button id="addMessage" type="button" class="btn btn-custom-green" onclick="addTenderMessage()">Отправить предложение / сообщение</button>
+                <div class="form-group">
+                    <div class="" style="text-align: right; width: 100%">
+                        <button id="addMessage" type="button" class="btn btn-custom-green" onclick="addTenderMessage()">Отправить предложение / сообщение</button>
+                    </div>
                 </div>
             </div>
         }

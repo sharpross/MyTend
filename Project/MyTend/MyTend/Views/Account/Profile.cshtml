@@ -75,7 +75,7 @@
                         <div class="col-lg-6">
                             <div class="form-group">
                                 <label for="Name">Логин</label>
-                                <input type="email" class="form-control" name="Login" placeholder="my@mail.ru" value="@Model.Login" required readonly>
+                                <input type="email" class="form-control" name="LoginName" placeholder="my@mail.ru" value="@Model.Login" required readonly>
                             </div>
                         </div>
                     </div>
@@ -191,7 +191,7 @@
 
                     var form_data = new FormData();
                     form_data.append("AvatarFile", avatarFile);
-                    form_data.append("Login", $('[name=Login]').val());
+                    form_data.append("Login", $('[name=LoginName]').val());
                     form_data.append("Email", $('[name=Email]').val());
                     form_data.append("Password", $('[name=Password]').val());
                     form_data.append("PasswordRetry", $('[name=PasswordRetry]').val());
