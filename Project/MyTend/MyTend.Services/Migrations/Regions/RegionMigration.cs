@@ -3339,7 +3339,7 @@ namespace MyTend.Services.Migrations.Regions
             listRu89.Add(new City() { Name = "Царча", Region =tkuarchel});
             listRu89.Add(new City() { Name = "Чхуартал", Region =tkuarchel});
   
-            this.Create(listRu89);*/
+            this.Create(listRu89);
 
 
 
@@ -3513,7 +3513,7 @@ namespace MyTend.Services.Migrations.Regions
             listRu91.Add(new City() { Name = "Шклов", Region = mogilev });
             this.Create(listRu91);
 
-            /*var kaz = new Country() { Name = "Казахстан" };
+            var kaz = new Country() { Name = "Казахстан" };
             kaz.Create();
 
             var astana = new Region() { Country = kaz, Name = "Астана", NomberSort = 0, IsMillion = true };
@@ -3700,7 +3700,7 @@ namespace MyTend.Services.Migrations.Regions
            listRu110.Add(new City() { Name = "Шардара", Region = ukazobl});
 		   listRu110.Add(new City() { Name = "Шыкмент", Region = ukazobl});
 
-           this.Create(listRu110);*/
+           this.Create(listRu110);
 
 
                  	
@@ -4455,7 +4455,7 @@ namespace MyTend.Services.Migrations.Regions
            listRu135.Add(new City() { Name = "Хотин", Region = chernoveck});
            listRu135.Add(new City() { Name = "Черновцы", Region = chernoveck});
           
-           this.Create(listRu135);
+           this.Create(listRu135);*/
 
         }
 

@@ -42,6 +42,7 @@
         {
             try
             {
+                return;
                 Email.From(this._from)
                 .To(this._email)
                 .Subject("Спасибо за регистрацию")
@@ -68,6 +69,7 @@
         {
             try
             {
+                return;
                 Email.From(this._from)
                 .To(this._email)
                 .Subject("Вы победитель конкурсного-торга")
@@ -94,6 +96,7 @@
         {
             try
             {
+                return;
                 Email.From(this._from)
                 .To(this._email)
                 .Subject("Новый коментарий в конкурсном-торге:" + tenderTitle)
@@ -120,6 +123,7 @@
         {
             try
             {
+                return;
                 Email.From(this._from)
                 .To(ConfigurationManager.AppSettings["TenderEmail"])
                 .Subject("Создан торг")
@@ -146,6 +150,7 @@
         {
             try
             {
+                return;
                 Email.From(this._from)
                 .To(ConfigurationManager.AppSettings["ManyEmail"])
                 .Subject("Произведена оплата")

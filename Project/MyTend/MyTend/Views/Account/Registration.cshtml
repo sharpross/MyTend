@@ -1,4 +1,6 @@
-﻿@model MyTend.Models.RegistrationModel
+﻿	 <br />	 <br />
+
+@model MyTend.Models.RegistrationModel
 
 @{
     ViewBag.Title = "Пройдите регистрацию";
@@ -21,7 +23,7 @@
                     </div>
                 </div>
                 <div class="row" style="text-align: center;">
-                    <a href="#" class="btn" id="login2">Войти если зарегистрированны</a>
+                    <a href="#" class="btn" id="login2">Войдите если зарегистрированны</a>
                 </div>
                 <div class="tabs">
 
@@ -88,7 +90,7 @@
                                     <div class="row">
                                         <div class="col-lg-7">
                                             <div class="form-group">
-                                                <label for="Name" class="low-font">Регион</label>
+                                                <label for="Name" class="low-font"><strong>Откуда Вы?</strong>	 <br />Регион</label>
                                                 <select class="form-control" name="RegionId" id="RegionSelect" required>
                                                     <option disabled selected>Выберите регион</option>
                                                     @foreach (var item in Model.ListRegions)
@@ -199,3 +201,4 @@
         $('form#reg').submit();
     });
 </script>
+ <br /> <br />

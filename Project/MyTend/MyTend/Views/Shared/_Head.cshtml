@@ -10,14 +10,9 @@
                                 <br />
                                 <br />
                                 <br />
-								@*<br />*@
                                 <br />
-								<br />
-
-							<br />
-								
-							
-                                
+                                <br />
+                                <br />                                
                             </a>
                         </div>
                     </div>
@@ -34,7 +29,10 @@
                 @if (ViewBag.IsAuth != null)
                 {
                     <div style="padding-top: 30px">
-                        <a href="~/Tender/My" class="btn btn-custom-aqua" style="width: 240px"><strong>Проверить<br>предложения</strong></a>
+                        <a href="~/Tender/Index" class="btn btn-custom-red" style="width: 240px">Создать заявку</a>
+                    </div>
+                    <div style="padding-top: 30px">
+                        <a href="~/Tender/My" class="btn btn-custom-yellow" style="width: 240px">Проверить предложения <br>от исполнителей</a>
                     </div>
                 }
             </div>
@@ -42,49 +40,46 @@
     </div>
 
     <br /> 
-    <div style="padding-top: 10px;">
-        @if (ViewBag.IsAuth == true)
-        {
-            <nav class="navbar navbar-default" style="background-color: white; margin-top: 0px; padding-top: 10px;">
-                <div class="container">
-
-
-                    <div class="navbar-header">
-                        <ul class="nav navbar-nav">
-                            <li>
-
-                                <span class="sidebar-nav-item"><h5 style="color: #222222;     margin-top: 4px;"> Меню исполнителей услуг :</h5></span>
-
-                            </li>
-                            <li>
-                                <a href="~/account/card?user=@ViewBag.UserLogin" aria-expanded="false">
-                                    <span class="sidebar-nav-item">Моя Визитка</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="~/tender/active" aria-expanded="false">
-                                    <span class="sidebar-nav-item">Заявки от Заказчиков</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="~/tender/list" aria-expanded="false">
-                                    <span class="sidebar-nav-item">Мои Предложения Заказчикам</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="~/tender/winner" aria-expanded="false">
-                                    <span class="sidebar-nav-item">Победы в Конкурсах</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="~/pay/index" aria-expanded="false">
-                                    <span class="sidebar-nav-item">Оплата Участия в Торгах</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-        }
-    </div>
+    
 </header>
+<div style="padding-top: 10px;">
+    @if (ViewBag.IsAuth == true)
+    {
+        <nav class="navbar navbar-default" style="background-color: white; margin-top: 0px; padding-top: 10px;">
+            <div class="container">
+                <div class="navbar-header">
+                    <ul class="nav navbar-nav">
+                        <li>
+                            <span class="sidebar-nav-item"><span style="color: #222222;"> Меню исполнителей услуг:</span></span>
+                        </li>
+                        <li>
+                            <a href="~/account/card?user=@ViewBag.UserLogin" aria-expanded="false">
+                                <span class="sidebar-nav-item">Моя Визитка</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="~/tender/active" aria-expanded="false">
+                                <span class="sidebar-nav-item">Заявки от Заказчиков</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="~/tender/list" aria-expanded="false">
+                                <span class="sidebar-nav-item">Мои Предложения Заказчикам</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="~/tender/winner" aria-expanded="false">
+                                <span class="sidebar-nav-item">Победы в Конкурсах</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="~/pay/index" aria-expanded="false">
+                                <span class="sidebar-nav-item">Оплата Участия в Торгах</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    }
+</div>

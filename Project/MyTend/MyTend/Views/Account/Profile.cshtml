@@ -1,4 +1,10 @@
-﻿@model MyTend.Models.ProfileModel
+﻿ <br />
+								 <br />
+							
+								 
+ <H3> Мои персональные данные, подписка на конкурсные торги   </H3>
+   
+@model MyTend.Models.ProfileModel
 
 @{
     ViewBag.Title = "Редактирование Визитки";
@@ -108,10 +114,10 @@
                         })
                     </script>
                     <div class="row" style="text-align: center;">
-                        <div style="padding: 20px 0px 20px 0px; text-align: center;">
-                           Выберите и загрузите свой фото-аватар. </br> Если вы частная компания, Вы можете загрузить свой логотип.
+                        <div style="padding: 20px 0px 20px 0px; text-align: left;">
+                           Выберите и загрузите свой фото-аватар.  Если вы частная компания, Вы можете загрузить свой логотип.
                         </div>
-                        <button type="button" class="btn btn-custom-orange" id="updateProfile">Сохранить фото</button>
+                        <button type="button" class="btn btn-custom-orange" id="updateProfile">Сохранить изображение</button>
                     </div>
                 </div>
                 <div class="col-md-8">
@@ -119,7 +125,7 @@
                         <div class="col-lg-6">
                             <div class="form-group">
                                 <label for="Name">Логин</label>
-                                <input type="email" class="form-control" name="Login" placeholder="my@mail.ru" value="@Model.Login" required readonly>
+                                <input type="email" class="form-control" name="LoginName" placeholder="my@mail.ru" value="@Model.Login" required readonly>
                             </div>
                         </div>
                     </div>
@@ -150,7 +156,7 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-lg-8">
+                        <div class="col-lg-10">
                             <div class="form-group">
                                 <label for="Name">Ваше имя или псевдоним, название банкетного зала, название компании</label>
                                 <input type="text" class="form-control" name="FullName" placeholder="Иванов Иван/dj.Антон/Банкетный Зал «У Палыча»" maxlength="80" value="@Model.FullName" required>
@@ -158,7 +164,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-lg-8">
+                        <div class="col-lg-10">
                             <div class="form-group">
                                 <label for="Name">Кем Вы работаете, чем занимаетесь? (до 80 символов)</label>
                                 <input type="text" class="form-control" name="AboutShort" maxlength="80" placeholder="Ведущий/DJ/организация торжеств/банкетов/дирректор завода/домохозяйка" value="@Model.AboutShort">
@@ -174,35 +180,42 @@
                             </div>
                         </div>
                     </div>
+					<div style="text-align: left;">
+    
+           <div class="title-line"> <span style="color: #f45656;">Рекомендуем заполнять только исполнителям услуг</span></div>
+  
+</div>
+
+					
                  <div class="row">
-                        <div class="col-lg-10">
+                        <div class="col-lg-8">
                             <div class="form-group">
-                                <label for="Name">Ваш сайт (рекомендовано только продавцам услуг)</label>
-                                <input type="url" class="form-control" name="Site" placeholder="Адрес вашего сайта (рекомендуется только продавцам)" maxlength="40" value="@Model.Site">
+                                <label for="Name">Адрес Вашего сайта</label>
+                                <input type="url" class="form-control" name="Site" placeholder="Адрес вашего сайта " maxlength="40" value="@Model.Site">
                             </div>
                         </div>
                     </div>
 
                     <div class="row">
-                        <div class="col-lg-10">
+                        <div class="col-lg-8">
                             <div class="form-group">
-                                <label for="Name">Youtube</label>
+                                <label for="Name">У вас есть видео-канал Youtube ?</label>
                                 <input type="url" class="form-control" name="Youtube" placeholder="Youtube" maxlength="40" value="@Model.Youtube">
                             </div>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-lg-10">
+                        <div class="col-lg-8">
                             <div class="form-group">
-                                <label for="Name">ВКонтакте (рекомендовано по желанию)</label>
+                                <label for="Name">Ваша страница или группа ВКонтакте </label>
                                 <input type="url" class="form-control" name="VKontakte" placeholder="Ваша страничка в ВКонтакте" maxlength="50" value="@Model.VKontakte">
                             </div>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-lg-10">
+                        <div class="col-lg-8">
                             <div class="form-group">
-                                <label for="Name">Instagram (рекомендовано по желанию)</label>
+                                <label for="Name">Вы ведете Instagram ?</label>
                                 <input type="url" class="form-control" name="Instagram" placeholder="Укажите всю ссылку Instagram целиком" maxlength="50" value="@Model.Instagram">
                             </div>
                         </div>
@@ -212,7 +225,7 @@
                     Нажатие кнопки «Сохранить» означает согласие с <a href="~/Docs/AboutProfile">Правилами заполнения профиля</a>
                 </div>
                 <div class="row" style="text-align: center;">
-                    <button type="button" class="btn btn-custom-orange" id="updateProfile">Сохранить</button>
+                    <button type="button" class="btn btn-custom-orange" id="updateProfile">Сохранить данные</button>
                 </div>
                 <div class="row">
                     <div class="col-lg-12 errorBox"></div>
@@ -235,7 +248,7 @@
 
                     var form_data = new FormData();
                     form_data.append("AvatarFile", avatarFile);
-                    form_data.append("Login", $('[name=Login]').val());
+                    form_data.append("Login", $('[name=LoginName]').val());
                     form_data.append("Email", $('[name=Email]').val());
                     form_data.append("Password", $('[name=Password]').val());
                     form_data.append("PasswordRetry", $('[name=PasswordRetry]').val());
@@ -275,6 +288,7 @@
         <!-- Портфолио -->
         <div class="tab-pane" id="tab5-2">
             <div style="padding-bottom: 20px;">
+			<br />
                 <h4> Разместите несколько фотографий с вашей работой.</h4> Наглядность вашей деятельности увеличит шанс на успех среди заказчиков.
             </div>
             @using (Html.BeginForm("UpdateProfiles", "Account", FormMethod.Post, new { enctype = "multipart/form-data" }))
@@ -392,6 +406,7 @@
         <!-- Об услуге -->
         <div class="tab-pane" id="tab5-3">
             <div style="padding-bottom: 20px;">
+			<br />
                 <h4> В данном разделе опишите  об услуге, которую Вы оказываете. </h4>
                 <h5> Максимальная  длина текста, до<strong>  20.000</strong> символов.</h5>
 				
@@ -443,6 +458,7 @@
 
         <!-- Тендеры -->
         <div class="tab-pane" id="tab5-4">
+		<br />
             <h4> Что бы получать заявки только на услуги которые Вы оказываете, укажите их системе.</h4>
 
             <div style="padding-bottom: 20px;">
@@ -704,3 +720,4 @@
     </div>
 </div>
 <script src="~/Scripts/app/openTab.js"></script>
+ <br /> <br />
