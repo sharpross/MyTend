@@ -11,8 +11,8 @@
                                 <br />
                                 <br />
                                 <br />
-                                <br />
-                                <br />                                
+                               
+                                                               
                             </a>
                         </div>
                     </div>
@@ -29,10 +29,12 @@
                 @if (ViewBag.IsAuth != null)
                 {
                     <div style="padding-top: 30px">
-                        <a href="~/Tender/Index" class="btn btn-custom-red" style="width: 240px">Создать заявку</a>
+                        <a href="~/Tender/Index" class="btn btn-custom-red" style="width: 240px"><span class=" glyphicon glyphicon-plus"></span>
+Создать заявку</a>
                     </div>
                     <div style="padding-top: 30px">
-                        <a href="~/Tender/My" class="btn btn-custom-yellow" style="width: 240px">Проверить предложения <br>от исполнителей</a>
+                        <a href="~/Tender/My" class="btn btn-custom-yellow" style="width: 240px">
+Проверить предложения <br>от исполнителей</a>
                     </div>
                 }
             </div>
@@ -42,16 +44,16 @@
     <br /> 
     
 </header>
+
 <div style="padding-top: 10px;">
     @if (ViewBag.IsAuth == true)
     {
         <nav class="navbar navbar-default" style="background-color: white; margin-top: 0px; padding-top: 10px;">
             <div class="container">
                 <div class="navbar-header">
+				
                     <ul class="nav navbar-nav">
-                        <li>
-                            <span class="sidebar-nav-item"><span style="color: #222222;"> Меню исполнителей услуг:</span></span>
-                        </li>
+                     
                         <li>
                             <a href="~/account/card?user=@ViewBag.UserLogin" aria-expanded="false">
                                 <span class="sidebar-nav-item">Моя Визитка</span>
@@ -72,9 +74,14 @@
                                 <span class="sidebar-nav-item">Победы в Конкурсах</span>
                             </a>
                         </li>
-                        <li>
-                            <a href="~/pay/index" aria-expanded="false">
-                                <span class="sidebar-nav-item">Оплата Участия в Торгах</span>
+                         <li>
+                            <a href="~/Account/Profile?tab=tab5-4" aria-expanded="false">
+                                <span class="sidebar-nav-item">Подписка Услуг</span>
+                            </a>
+                        </li>
+						 <li>
+                            <a href="~/Account/Profile?tab=tab5-5" aria-expanded="false">
+                                <span class="sidebar-nav-item">Подписка региона исполнения</span>
                             </a>
                         </li>
                     </ul>

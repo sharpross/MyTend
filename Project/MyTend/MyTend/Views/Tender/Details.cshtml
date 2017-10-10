@@ -4,6 +4,7 @@
     ViewBag.Title = "Конкурс на право исполнения услуги";
     var msgNum = 0;
 }
+<br />
 <div class="row" style="border: 0px; border-bottom: 0px; border-color: #D8D8D8; border-style: solid;">
     <div class="col-md-12" style="text-align: left;">
         <h2><div style="color: #111111;"> @Model.Title </h2>
@@ -24,9 +25,10 @@
 					 @string.Format("рассматривает предложения с " + Model.CreatedDateTime.ToString("dd.MM.yyyy") + " до " + Model.DateEnd.ToString("dd.MM.yyyy"))
                      </span>
 					
+					
 					                 }
            </p>
-		<div style="text-align: center;"><br>
+		<div style="text-align: center;">
     
            <div class="title-line">Детали заявки</div>
   
@@ -82,10 +84,10 @@
     </span></strong>
 </h5>
     </p>
-    <div style="text-align: center;"><br>
+    <div style="text-align: center;">
     
-        <div class="title-line">Текст заявки</div>
-	    </br>
+        <div class="title-line">Текст заявки, условия заказа</div>
+	   
   
     </div>
     
@@ -168,33 +170,12 @@
             {
 		 <div style="text-align: center;"><br>
     
-           <div class="title-line">Участникам конкурсного-торга на заметку!</div>
+           <div class="title-line">Молодой хозяйке на заметку!</div>
 		   </div>
-                <div class="col-md-12" style="text-align: left;">
-                    
-                    <ul>
-                        <li>Не торопитесь с выбором победителя торга. Дождитесь максимальное количество предложений. Каждое из них будет выгодно отличаться.</li>
-                        <li>Не забывайте писать на "доске предложений" свои вопросы, уточнения или детали, которые должны знать исполнители услуг, предлагая вам свои условия.</li>
-                        <li><strong>Выбрав  победителя, свяжитесь с ним по телефону</strong>.<br> Назначте встречу для возможного заключения сделки на условиях которые Вас устроили.</li>
-                    </ul>
-				     </div>
-            }
-            else
-            {
-           
-                <div class="col-md-12" style="text-align: left;">
-				
-                    <strong></strong>
-					<div style="font-size: 10px; color: red;">
-					   (Ссылка на визитку будет доступна только победителю конкурса/торга)
-                    </div>
-                    <ul>
-                        <li>Внимательно изучив условия заявки от покупателя услуги, а также предложения конкурентов, <strong>сделайте более выгодное предложение</strong>.</li>
-                        <li>Следите за ходом аукциона / торга и меняйте свои условия для покупателя на более выгодные, извучив предложения конкурентов.</li>
-                        <li>Отправленное предложение невозможно отредактировать/изменить. Вы можете написать новое предложение с другими условиями.</li>
-                    </ul>
-					<hr>
-                </div>
+ <h5> <img src="~/Content/images/galochka.png" /> <strong>Цена и объем услуги</strong> - победитель конкурсного - торга, не может повысить цену или изменить объем услуги предложенной на сайте. </h5>
+<h5> <img src="~/Content/images/galochka.png" /> <strong> По правилам сайта, ссылка на визитку заказчика, будет доступна только победителю конкурсного-торга. </h5>
+<h5> <img src="~/Content/images/galochka.png" /> <strong>Какой нибудь совет участникам </strong> - Продавец не может в случае победы в конкурсе повышать цену услуги. </h5>
+
             }
         }
 
@@ -328,7 +309,7 @@
                         <div>
                             Окажет услугу за:
                         </div>
-                        <div style="color: darkgreen">
+                        <div style="color:#89c728">
                             <span style="font-weight:bold; font-size: 28px;">@message.CanSumm</span>
                         </div>
                     </div>

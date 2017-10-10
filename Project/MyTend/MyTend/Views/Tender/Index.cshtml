@@ -1,23 +1,20 @@
 ﻿@model MyTend.Models.ListThemeTenderModel
 @{
-    ViewBag.Title = "My-Tend заказать банкет, ведущего, DJ, тамады, артистов, шоу";
+    ViewBag.Title = "У Вас скоро событие? Разместите свой заказ на Аукционе событий и выбирайте выгодные предложения!";
     var max = Model.Themes.Count() - 1;
     var i = 0;
     var itemI = 0;
 }
+	<br />
 <div style="text-align: center;">
-    <a href="http://bristolcafe.ru" target="_blank">
-        <div style="font-style: italic">Реклама</div>
-        <img src="~/Content/images/bristol.png" style="width: 85%" />
-    </a>
+    
+           <div class="title-line">Выберите услугу</div>
+  
 </div>
-
-
-<div style="padding-top: 10px;"></div>
 
 <div class="tenderRow" style="padding-top:10px">
     <div class="form-group" style="text-align: center">
-        <h3><div style="color: #00aaff;">Устройте тендер по поиску исполнителей услуг на Вашем празднике:</h3>
+        
     </div>
 
     @foreach (var item in Model.Themes)
@@ -30,10 +27,10 @@
         <div style="text-align: center">
             <div class="col-md-4">
                 <p>
-                    <a href="~/Tender/Create?id=@item.Id"><img src="~/Content/images/kats/@item.ImageName" class="tenderImg" width="150" height="120" /></a>
+                    <a href="~/Tender/Create?id=@item.Id"><img src="~/Content/images/kats/@item.ImageName" class="tenderImg" width="110" height="80" /></a>
                 </p>
                 <p>
-                    <h5><strong>@Html.ActionLink(item.Theme, "Create", "Tender", new { @id = item.Id }, new { @style = "color: #02a6c9;", @class = "no_line" })</strong></h5>
+                    <h5>@Html.ActionLink(item.Theme, "Create", "Tender", new { @id = item.Id }, new { @style = "color: #07a7fa;", @class = "no_line" })</h5>
                 </p>
             </div>
         </div>
@@ -55,3 +52,76 @@
         itemI++;
     }
 </div>
+
+<br />
+    <h3 style="color: #f99313;">	
+
+Философия My-Tend </h3> 
+                            
+                           	<br />
+
+<div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+        <div class="row">
+            <div class="col-md-1"><img src="~/Content/images/novip.png" width="50" height="50" /></div>
+            <div class="col-md-11" style="line-height:18px">
+                <div style="font-weight: bold; font-size: 17px;">Нет VIP исполнителей, привелегий над конкурентами.</div>
+                <div style="font-size: 14px;">
+                    Конкурентная форма выбора исполнителя дает Вам хорошие предложения услуг и сервиса за вменяемые деньги. Конкурентная форма выбора исполнителя дает Вам хорошие предложения услуг и сервиса за вменяемые деньги.
+                </div>
+            </div>
+        </div><br />
+		  <div class="row">
+            <div class="col-md-1"><img src="~/Content/images/icon-2.png" width="50" height="50" /></div>
+            <div class="col-md-11" style="line-height:18px">
+                <div style="font-weight: bold; font-size: 17px;">Abc</div>
+                <div style="font-size: 14px;">
+                    Конкурентная форма выбора исполнителя дает Вам хорошие предложения услуг и сервиса за вменяемые деньги. Конкурентная форма выбора исполнителя дает Вам хорошие предложения услуг и сервиса за вменяемые деньги.
+                </div>
+            </div>
+        </div><br />
+		  <div class="row">
+            <div class="col-md-1"><img src="~/Content/images/icon-3.png" width="50" height="50" /></div>
+            <div class="col-md-11" style="line-height:18px">
+                <div style="font-weight: bold; font-size: 17px;">Abc</div>
+                <div style="font-size: 14px;">
+                    Конкурентная форма выбора исполнителя дает Вам хорошие предложения услуг и сервиса за вменяемые деньги. Конкурентная форма выбора исполнителя дает Вам хорошие предложения услуг и сервиса за вменяемые деньги.
+                </div>
+            </div>
+        </div><br />
+        <div class="row">
+            <div class="col-md-1"><img src="~/Content/images/icon-4.png" width="50" height="50" /></div>
+            <div class="col-md-11" style="line-height:18px">
+                <div style="font-weight: bold; font-size: 17px;">Abc</div>
+                <div style="font-size: 14px;">
+                    Конкурентная форма выбора исполнителя дает Вам хорошие предложения услуг и сервиса за вменяемые деньги. Конкурентная форма выбора исполнителя дает Вам хорошие предложения услуг и сервиса за вменяемые деньги.
+                </div>
+            </div>
+        </div><br />
+		 <div class="row">
+            <div class="col-md-1"><img src="~/Content/images/icon-5.png" width="50" height="50" /></div>
+            <div class="col-md-11" style="line-height:18px">
+                <div style="font-weight: bold; font-size: 17px;">Abc</div>
+                <div style="font-size: 14px;">
+                    Конкурентная форма выбора исполнителя дает Вам хорошие предложения услуг и сервиса за вменяемые деньги. Конкурентная форма выбора исполнителя дает Вам хорошие предложения услуг и сервиса за вменяемые деньги.
+                </div>
+            </div>
+        </div><br />
+    </div>
+	
+    <div class="col-md-1"></div>
+</div>
+<div style="text-align: center;"><br>
+    
+           <div class="title-line">В чем очевидная выгода поиска исполнителей на нашем My-Tend.Com?</div>
+  
+</div>	
+<h5><div style="color: #222222;">На нашем сайте НЕТ готовых объявлений, списков, рейтингов! Только конкретные предложения  под конкретный заказ!Вы лишь выбираете самое выгодное!</h5>
+ <hr>
+<h5><div style="color: #222222;">Вы не только  не переплачиваете общаясь напрямую с нужным исполнителем без посредников но и с большей вероятностью получаете скидки или бонусы, так как продажа на виду у коллег конкурентов диктует быть лучше и выгоднее.</h5>
+ <hr>
+<h5><div style="color: #222222;"> Только реальные и актуальные предложения под условия Вашего заказа! Вы не тратите время на общение с исполнителями которые уже заняты или им "мало денег", не надо обзванивать десятки объявлений объясняя одно и тоже.</h5>
+ <hr>
+<h5><div style="color: #222222;"> Конкурентная форма выбора исполнителя дает Вам хорошие предложения услуг и сервиса за вменяемые деньги.</h5>
+ <hr>

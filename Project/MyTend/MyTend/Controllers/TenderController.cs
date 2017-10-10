@@ -111,6 +111,9 @@
                 return RedirectToAction("Created", new { id = model.Id });
             }
 
+            var temModel = new CreateTenderModel(model.ThemeId);
+            model.ListRegions = temModel.ListRegions;
+
             return View(model);
         }
 

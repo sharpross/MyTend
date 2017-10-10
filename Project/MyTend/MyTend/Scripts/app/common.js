@@ -47,7 +47,7 @@ var emailValidation = function () {
 
     return re.test(email);
 };
-
+/*
 $(document).ready(function ($) {
     $('textarea').wysihtml5();
     $('input[name="Phone"]').mask("+7(999) 999-99-99");
@@ -58,5 +58,5 @@ $(document).ready(function ($) {
         $('button[type="submit"]').attr('disabled', !emailValidation());
         $('.email-error').attr('hidden', !emailValidation());
     });
-});
+});*/
 

@@ -4,18 +4,19 @@
     ViewBag.Title = "Заявки от заказчиков/покупателей";
 }
 
-<h3 style="color: #222222;"><span class="glyphicon glyphicon-star"></span> Приглашения принять участие в аукционных-торгах</h3>
+<h3 style="color: #222222;"> Приглашения принять участие в аукционных-торгах</h3>
 
 <h5>
     
     Если Вы откликнитесь  предложением для заказчика, заявка перейдет в меню «Мои Предложения Заказчикам» где Вы сможете следить за ходом аукционного-торга.
 </h5>
 
+
+   
+
+
 <div class="tabs">
-      <ul class="nav nav-tabs nav-justified">
-        <li class="active"><a href="#tab5-1" data-toggle="tab" style="text-decoration: none; border-radius: 0px 00px 0px 0px;"></a></li>
-       
-    </ul>
+     
     <div class="tab-content">
         <div class="tab-pane active" id="tab5-1">
             @if (Model.Tenders.Count > 0)
@@ -106,12 +107,8 @@
             }
 
         </div>
-		<div class="col-lg-12" style="text-align: center;">
-                                @if (ViewBag.IsAuth != null)
-                                {
-                                    <br />
-                                    <a href="http://my-tend.com/Account/Profile?tab=tab5-4" class="btn btn-custom-orange header-btn full-size">Редактировать подписку</a>
-                                }
-                            </div>
+	  <img src="~/Content/images/stars.png" style="width: 100%" />
     </div>
 </div>
+
+

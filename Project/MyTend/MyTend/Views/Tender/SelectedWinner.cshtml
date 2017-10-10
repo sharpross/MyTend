@@ -2,34 +2,21 @@
 @{
     ViewBag.Title = "Победитель заявки/торга, определён";
 }
-
-<div class="form-group" style="text-align: center">
-    <img src="@Url.Content("~/Content/images/tenderStop.png")" height="100">
-
-
-<h3>Победитель аукционного торга, определён!</h3>
-
-<p>
-    Заявка <a href="~/Tender/Details?id=@Model.Id">@Model.Title</a> закрыта и переходит в @Html.ActionLink("Мои заявки", "My", "Tender")/Завершённые торги.
-</p>
-<p>
-    Вы выбрали победителем: @Html.ActionLink(Model.Winner.FullName, "Card", "Account", new { user = Model.Winner.Login }, null)
-</p>
-<p>
-    Свяжитесь с @Html.ActionLink(Model.Winner.FullName, "Card", "Account", new { user = Model.Winner.Login }, null) используя контакты в его визитке.
-</p>
-<p>
-    <strong>Спасибо, что используете наш сервис!</strong>
-</p></div>
-
+<br /><br />
 <div class="form-group" style="text-align: left">
-    <h3 style="color: #333333;">
 
-        Поздравляем — Вы выбрали победителя!
-    </h3>
 
-</div>
-<div>
+      
+<h3>Победитель конкурсного торга, определён!</h3>
+     
+
+<p>
+    В заявке <a href="~/Tender/Details?id=@Model.Id">@Model.Title</a> Вы выбрали победителем: @Html.ActionLink(Model.Winner.FullName, "Card", "Account", new { user = Model.Winner.Login }, null)
+	 <br />Конкурс закрыт и переходит  и переходит в меню  в @Html.ActionLink("Мои заявки", "My", "Tender") / Завершённые торги. <br />
+
+
+  
+</p>
     <br />
     <div class="form-group" style="text-align: left">
         <h4 style="color: #f99313;">
@@ -38,14 +25,43 @@
         </h4>
 
     </div>
+   
     <h5>
-        Вы выбрали победителем: @Html.ActionLink(Model.Winner.FullName, "Card", "Account", new { user = Model.Winner.Login }, null)
+        Свяжитесь с исполнителем услуг @Html.ActionLink(Model.Winner.FullName, "Card", "Account", new { user = Model.Winner.Login }, null) используя контакты в его визитке.
     </h5>
-    <h5>
-        Свяжитесь с @Html.ActionLink(Model.Winner.FullName, "Card", "Account", new { user = Model.Winner.Login }, null) используя контакты в его визитке.
-    </h5>
-    <h3>
-        <span class="fa fa-phone"></span> @Html.ActionLink(Model.Winner.Phone, "Card", "Account", new { user = Model.Winner.Login }, null) 
-    </h3>
+   
 
 </div>
+ <div class="row">
+ 
+            <div class="col-md-1"><img src="~/Content/images/icon-phone.png" width="50" height="50" /></div>
+            <div class="col-md-11" style="line-height:20">
+	
+                      <h3>
+       </span> @Html.ActionLink(Model.Winner.Phone, "Card", "Account", new { user = Model.Winner.Login }, null) 
+    </h3>
+     
+
+				</div></div><br />
+				 <div class="row">
+            <div class="col-md-1"><img src="~/Content/images/321.png" width="50" height="50" /></div>
+            <div class="col-md-11" style="line-height:20px">
+                <div style="font-weight: bold; font-size: 17px;">Договоритесь о встрече </div>
+                <div style="font-size: 14px;">
+                  Договоритесь с выбранным исполнителем о встрече и заключите договор <br />на предложенных им условиях во время торга на нашем сайте! <br />
+				 
+                </div>
+ </div> </div>
+			<br />
+				 <div class="row">
+            <div class="col-md-1"><img src="~/Content/images/icon-prazdnik.png" width="50" height="50" /></div>
+            <div class="col-md-11" style="line-height:20px">
+                <div style="font-weight: bold; font-size: 17px;">Ждите свой праздник!!!</div>
+                <div style="font-size: 14px;">
+                  Договорившись обо всем с исполнителем, радостно ожидайте свое праздничное событие <br />
+				  Дождавшись его, веселитесь от души, рекомендуйте наш сайт своим родным и близким!
+				  
+                </div>
+ </div> </div>
+			<br />
+		<H4>Спасибо, что  используете 	<strong>My-Tend.Com</strong></H4>
