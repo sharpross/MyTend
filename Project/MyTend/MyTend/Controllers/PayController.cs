@@ -3,7 +3,6 @@ using MyTend.Services.Common;
 using MyTend.Services.EmailService;
 using MyTender.Core;
 using MyTender.Security;
-using RomanPushkin.BetterRobokassa;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -24,14 +23,14 @@ namespace MyTend.Controllers
             return Redirect("/home/index");
             this.ViewBag.NoIndexing = true;
 
-            ViewBag.PayScript = GetPayString();
+            //ViewBag.PayScript = GetPayString();
             ViewBag.PayHistory = new PayService(this.Auth.User).GetHistory();
             ViewBag.PayEnd = new PayService(this.Auth.User).GetDatePayEnd();
 
             return View();
         }
 
-        private string GetPayString()
+        /*private string GetPayString()
         {
             var payService = new PayService(this.Auth.User);
 
@@ -45,9 +44,9 @@ namespace MyTend.Controllers
             
             return redirectUrl;
 
-        }
+        }*/
 
-        [HttpGet]
+        /*[HttpGet]
         public string Result(RobokassaConfirmationRequest confirmationRequest)
         {
             try
@@ -111,7 +110,7 @@ namespace MyTend.Controllers
             this.ViewBag.NoIndexing = true;
 
             return View();
-        }
+        }*/
 
         public ActionResult Fail()
         {

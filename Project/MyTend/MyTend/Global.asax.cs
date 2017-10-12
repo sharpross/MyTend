@@ -2,7 +2,6 @@
 using MyTend.Data;
 using MyTend.Entites;
 using MyTend.Scheduler.CloseTender;
-using RomanPushkin.BetterRobokassa;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +16,6 @@ namespace MyTend
     {
         protected void Application_Start()
         {
-            RobokassaConfig.AssertConfigurationIsValid();
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);

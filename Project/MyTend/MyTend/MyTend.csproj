@@ -719,6 +719,8 @@
     <Content Include="Scripts\jquery.maskedinput-1.3.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\metisMenu.js" />
     <Content Include="Scripts\metisMenu.min.js" />
     <Content Include="Scripts\wysihtml5-0.3.0.js" />
@@ -936,8 +938,6 @@
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
-    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
-    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\kamati.js" />
     <Content Include="Scripts\ladda.min.js" />
     <Content Include="Scripts\md5.js" />
@@ -1054,10 +1054,6 @@
     <ProjectReference Include="..\MyTender.Security\MyTender.Security.csproj">
       <Project>{debbd8b9-34e7-401c-aa0b-d735ade12bce}</Project>
       <Name>MyTender.Security</Name>
-    </ProjectReference>
-    <ProjectReference Include="D:\GitHub\Mytend\RomanPushkin.BetterRobokassa\RomanPushkin.BetterRobokassa.csproj">
-      <Project>{ea6e2524-ffb3-4019-9975-cea866b4c240}</Project>
-      <Name>RomanPushkin.BetterRobokassa</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
