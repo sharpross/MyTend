@@ -21,6 +21,7 @@
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
     <UseGlobalApplicationHostFile />
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -247,6 +248,56 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\common\md5.js" />
     <Content Include="Content\common\md5.min.js" />
+    <Content Include="Content\datetimepicker\css\bootstrap-datetimepicker.css" />
+    <Content Include="Content\datetimepicker\css\bootstrap-datetimepicker.min.css" />
+    <Content Include="Content\datetimepicker\js\bootstrap-datetimepicker.js" />
+    <Content Include="Content\datetimepicker\js\bootstrap-datetimepicker.min.js" />
+    <Content Include="Content\datetimepicker\js\locales\bootstrap-datetimepicker.ar.js" />
+    <Content Include="Content\datetimepicker\js\locales\bootstrap-datetimepicker.az.js" />
+    <Content Include="Content\datetimepicker\js\locales\bootstrap-datetimepicker.bg.js" />
+    <Content Include="Content\datetimepicker\js\locales\bootstrap-datetimepicker.bn.js" />
+    <Content Include="Content\datetimepicker\js\locales\bootstrap-datetimepicker.ca.js" />
+    <Content Include="Content\datetimepicker\js\locales\bootstrap-datetimepicker.cs.js" />
+    <Content Include="Content\datetimepicker\js\locales\bootstrap-datetimepicker.da.js" />
+    <Content Include="Content\datetimepicker\js\locales\bootstrap-datetimepicker.de.js" />
+    <Content Include="Content\datetimepicker\js\locales\bootstrap-datetimepicker.ee.js" />
+    <Content Include="Content\datetimepicker\js\locales\bootstrap-datetimepicker.el.js" />
+    <Content Include="Content\datetimepicker\js\locales\bootstrap-datetimepicker.es.js" />
+    <Content Include="Content\datetimepicker\js\locales\bootstrap-datetimepicker.fi.js" />
+    <Content Include="Content\datetimepicker\js\locales\bootstrap-datetimepicker.fr.js" />
+    <Content Include="Content\datetimepicker\js\locales\bootstrap-datetimepicker.he.js" />
+    <Content Include="Content\datetimepicker\js\locales\bootstrap-datetimepicker.hr.js" />
+    <Content Include="Content\datetimepicker\js\locales\bootstrap-datetimepicker.hu.js" />
+    <Content Include="Content\datetimepicker\js\locales\bootstrap-datetimepicker.hy.js" />
+    <Content Include="Content\datetimepicker\js\locales\bootstrap-datetimepicker.id.js" />
+    <Content Include="Content\datetimepicker\js\locales\bootstrap-datetimepicker.is.js" />
+    <Content Include="Content\datetimepicker\js\locales\bootstrap-datetimepicker.it.js" />
+    <Content Include="Content\datetimepicker\js\locales\bootstrap-datetimepicker.ja.js" />
+    <Content Include="Content\datetimepicker\js\locales\bootstrap-datetimepicker.ka.js" />
+    <Content Include="Content\datetimepicker\js\locales\bootstrap-datetimepicker.ko.js" />
+    <Content Include="Content\datetimepicker\js\locales\bootstrap-datetimepicker.lt.js" />
+    <Content Include="Content\datetimepicker\js\locales\bootstrap-datetimepicker.lv.js" />
+    <Content Include="Content\datetimepicker\js\locales\bootstrap-datetimepicker.ms.js" />
+    <Content Include="Content\datetimepicker\js\locales\bootstrap-datetimepicker.nb.js" />
+    <Content Include="Content\datetimepicker\js\locales\bootstrap-datetimepicker.nl.js" />
+    <Content Include="Content\datetimepicker\js\locales\bootstrap-datetimepicker.no.js" />
+    <Content Include="Content\datetimepicker\js\locales\bootstrap-datetimepicker.pl.js" />
+    <Content Include="Content\datetimepicker\js\locales\bootstrap-datetimepicker.pt-BR.js" />
+    <Content Include="Content\datetimepicker\js\locales\bootstrap-datetimepicker.pt.js" />
+    <Content Include="Content\datetimepicker\js\locales\bootstrap-datetimepicker.ro.js" />
+    <Content Include="Content\datetimepicker\js\locales\bootstrap-datetimepicker.rs-latin.js" />
+    <Content Include="Content\datetimepicker\js\locales\bootstrap-datetimepicker.rs.js" />
+    <Content Include="Content\datetimepicker\js\locales\bootstrap-datetimepicker.ru.js" />
+    <Content Include="Content\datetimepicker\js\locales\bootstrap-datetimepicker.sk.js" />
+    <Content Include="Content\datetimepicker\js\locales\bootstrap-datetimepicker.sl.js" />
+    <Content Include="Content\datetimepicker\js\locales\bootstrap-datetimepicker.sv.js" />
+    <Content Include="Content\datetimepicker\js\locales\bootstrap-datetimepicker.sw.js" />
+    <Content Include="Content\datetimepicker\js\locales\bootstrap-datetimepicker.th.js" />
+    <Content Include="Content\datetimepicker\js\locales\bootstrap-datetimepicker.tr.js" />
+    <Content Include="Content\datetimepicker\js\locales\bootstrap-datetimepicker.ua.js" />
+    <Content Include="Content\datetimepicker\js\locales\bootstrap-datetimepicker.uk.js" />
+    <Content Include="Content\datetimepicker\js\locales\bootstrap-datetimepicker.zh-CN.js" />
+    <Content Include="Content\datetimepicker\js\locales\bootstrap-datetimepicker.zh-TW.js" />
     <Content Include="Content\email\makepay.html" />
     <Content Include="Content\email\create.html" />
     <Content Include="Content\email\getresponce.html" />
@@ -285,33 +336,24 @@
     <Content Include="Content\images\2.svg" />
     <Content Include="Content\images\321.png" />
     <Content Include="Content\images\ahtung.png" />
-    <Content Include="Content\images\aneks_dlya_sajta.jpg" />
-    <Content Include="Content\images\aqua.png" />
-    <Content Include="Content\images\avtograph.gif" />
-    <Content Include="Content\images\banner_na_sayt-2.png" />
     <Content Include="Content\images\bb\aqua.png" />
     <Content Include="Content\images\bb\fiolet.png" />
     <Content Include="Content\images\bb\green.png" />
     <Content Include="Content\images\bb\morkov.png" />
     <Content Include="Content\images\bb\orange.png" />
     <Content Include="Content\images\bb\red.png" />
-    <Content Include="Content\images\bek.png" />
     <Content Include="Content\images\binokl.png" />
-    <Content Include="Content\images\borderblue.png" />
-    <Content Include="Content\images\bristol.png" />
-    <Content Include="Content\images\bw.png" />
     <Content Include="Content\images\cardBackground.png" />
     <Content Include="Content\images\champions.png" />
-    <Content Include="Content\images\detali.png" />
+    <Content Include="Content\images\clok.png" />
+    <Content Include="Content\images\doc.png" />
     <Content Include="Content\images\eror.png" />
     <Content Include="Content\images\eventobed.png" />
     <Content Include="Content\images\fail.jpg" />
-    <Content Include="Content\images\fun24.png" />
     <Content Include="Content\images\galochka.png" />
+    <Content Include="Content\images\geo.png" />
     <Content Include="Content\images\green.png" />
-    <Content Include="Content\images\header-image-backgound.jpg" />
     <Content Include="Content\images\header-image-backgound.png" />
-    <Content Include="Content\images\hitoboi.png" />
     <Content Include="Content\images\icon-1.png" />
     <Content Include="Content\images\icon-2.png" />
     <Content Include="Content\images\icon-3.png" />
@@ -348,14 +390,15 @@
     <Content Include="Content\images\kats\8.svg" />
     <Content Include="Content\images\kats\9.svg" />
     <Content Include="Content\images\kirkina.png" />
-    <Content Include="Content\images\kuranov.png" />
-    <Content Include="Content\images\kuzmin.png" />
+    <Content Include="Content\images\kniga.png" />
     <Content Include="Content\images\logo-3.png" />
     <Content Include="Content\images\logo.png" />
     <Content Include="Content\images\logo.svg" />
     <Content Include="Content\images\logo2.png" />
     <Content Include="Content\images\logo2.svg" />
+    <Content Include="Content\images\mail.png" />
     <Content Include="Content\images\mailicon.png" />
+    <Content Include="Content\images\many.png" />
     <Content Include="Content\images\mazan.png" />
     <Content Include="Content\images\mazanDance.png" />
     <Content Include="Content\images\miamidance.png" />
@@ -364,7 +407,6 @@
     <Content Include="Content\images\noVIP.png" />
     <Content Include="Content\images\OGimage.png" />
     <Content Include="Content\images\OnlyForSub.svg" />
-    <Content Include="Content\images\orange1.png" />
     <Content Include="Content\images\pay.svg" />
     <Content Include="Content\images\phone.png" />
     <Content Include="Content\images\podpiska.png" />
@@ -372,7 +414,7 @@
     <Content Include="Content\images\prikimg.png" />
     <Content Include="Content\images\redgal.png" />
     <Content Include="Content\images\robokassa.png" />
-    <Content Include="Content\images\salut.png" />
+    <Content Include="Content\images\rubl.png" />
     <Content Include="Content\images\shekotov.png" />
     <Content Include="Content\images\siteicon.png" />
     <Content Include="Content\images\skypeIcon.png" />
@@ -392,7 +434,9 @@
     <Content Include="Content\images\welcom.svg" />
     <Content Include="Content\images\winner.png" />
     <Content Include="Content\images\youtubeicon.png" />
-    <Content Include="Content\images\zagriev.png" />
+    <Content Include="Content\images\zakazchik.png" />
+    <Content Include="Content\images\zemla.png" />
+    <Content Include="Content\images\А.png" />
     <Content Include="Content\jquery-ui.css" />
     <Content Include="Content\ladda.min.css" />
     <Content Include="Content\metisMenu.css" />
@@ -711,6 +755,7 @@
     <Content Include="Content\fine-uploader\jquery.fine-uploader.js.map" />
     <Content Include="Content\fine-uploader\jquery.fine-uploader.min.js.map" />
     <Content Include="Content\fine-uploader\LICENSE" />
+    <Content Include="Content\datetimepicker\less\datetimepicker.less" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\bootstrap-wysihtml5.js" />
     <Content Include="Scripts\fine-uploader.min.js" />
@@ -1054,10 +1099,6 @@
     <ProjectReference Include="..\MyTender.Security\MyTender.Security.csproj">
       <Project>{debbd8b9-34e7-401c-aa0b-d735ade12bce}</Project>
       <Name>MyTender.Security</Name>
-    </ProjectReference>
-    <ProjectReference Include="D:\GitHub\Mytend\RomanPushkin.BetterRobokassa\RomanPushkin.BetterRobokassa.csproj">
-      <Project>{ea6e2524-ffb3-4019-9975-cea866b4c240}</Project>
-      <Name>RomanPushkin.BetterRobokassa</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

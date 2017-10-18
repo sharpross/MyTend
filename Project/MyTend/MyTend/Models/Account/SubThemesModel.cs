@@ -10,24 +10,34 @@ namespace MyTend.Models
 {
     public class SubThemesModel
     {
-        public List<int> ListThemes { get; set; }
+        public List<ThemeModel> ListThemes { get; set; }
 
         public void Save(UserSystem user)
         {
             var services = new TenderFilterService(user);
 
-            services.SaveFiltres(this.ListThemes);
+            var ids = this.ListThemes.Select(x => x.Id).ToList();
+
+            services.SaveFiltres(ids);
         }
 
         public void Load(UserSystem user)
         {
             var services = new TenderFilterService(user);
 
-            var sel = services.GetListSubs()
-                .Select(x => x.Theme.Id)
-                .ToList();
+            this.ListThemes = new List<ThemeModel>();
 
-            this.ListThemes = sel;
+            services.GetListSubs().ForEach(x => this.ListThemes.Add(new ThemeModel() {
+                Id = x.Theme.Id,
+                Parent = x.Id
+            }));
+        }
+
+        public class ThemeModel
+        {
+            public int Id { get; set; }
+            
+            public int Parent { get; set; }
         }
     }
 }

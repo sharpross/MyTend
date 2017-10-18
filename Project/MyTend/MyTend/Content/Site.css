@@ -73,18 +73,18 @@ a.btn.btn-two {
 
 .wp-theme-1 a {
     text-decoration: none;
-    color: #07a7fa;
+    color: #0091d9;
 }
 
-.wp-theme-1 a:hover {
-    text-decoration: none;
-    color: #07a7fa;
-}
+    .wp-theme-1 a:hover {
+        text-decoration: none;
+        color: red;
+    }
 
-.wp-theme-1 a:hover {
-    text-decoration: underline !important;
-    color: #07a7fa;
-}
+    .wp-theme-1 a:hover {
+        text-decoration: underline !important;
+        color: red;
+    }
 
 .widget a {
     text-decoration: none !important;
@@ -305,8 +305,7 @@ h1, h2, h3 {
 }
 
 .city-block {
-    max-width: 300px;
-    text-align: center;
+    text-align: left;
 }
 
 .like-link {
@@ -617,4 +616,14 @@ header {
 .header-image-backgound {
     background-image:  url("images/header-image-backgound.png");
 
+}
+
+.panel-default {
+    border-color: #fff;
+}
+
+.panel-default > .panel-heading {
+    color: #333;
+    background-color: #ffffff;
+    border-color: #fff;
 }

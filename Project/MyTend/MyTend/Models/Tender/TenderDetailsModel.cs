@@ -50,6 +50,11 @@ namespace MyTend.Models
                 var tenderByFilter = this.TendersFilter.GetByListTenders(this.RegionFilter.GetTenders());
 
                 this.Tenders.AddRange(tenderByFilter);
+
+                if (tender.Winner != null && tender.Winner.Id == this.Auth.User.Id)
+                {
+                    this.Tenders.Add(tender);
+                }
             }
             else
             {

@@ -27,9 +27,12 @@
 
         public List<Country> ListCountrys { get; set; }
 
+        public List<Region> ListRegions { get; set; }
+
         public ProfileModel()
         {
-            this.ListCountrys = RegionService.CountryAll();
+            //this.ListCountrys = RegionService.CountryAll();
+            
         }
 
         public ProfileModel(UserSystem user)
@@ -51,12 +54,14 @@
             this.Site = user.Site;
             this.Skype = user.Skype;
             this.FullName = user.FullName;
-            this.ListCountrys = RegionService.CountryAll();
+            //this.ListCountrys = RegionService.CountryAll();
             this.TenderThemes = this.GetListTenderTheme();
             this.SubCitys = new List<City>();
             this.SubRegions = new List<Region>();
             this.Portfolios = new List<FileSystem>().ToArray();
             this.Youtube = user.Youtube;
+
+            this.ListRegions = RegionService.RegionAll();
 
             var filter = new RegionFilterService(user);
 

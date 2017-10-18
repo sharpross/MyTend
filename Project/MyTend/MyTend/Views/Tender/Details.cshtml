@@ -61,14 +61,12 @@
     </div>
 </div>
 		
-    </p>
-     </p>
     <p style="word-wrap: break-word;">
-       <h5><i class="glyphicon glyphicon-cutlery" style="color: #07a7fa;"></i> Количество гостей <span style="color: #333333;"><strong>
+       <i class="glyphicon glyphicon-cutlery" style="color: #07a7fa;"></i> Количество гостей <span style="color: #333333;"><strong>
                 @string.Format("{0} чел.", Model.CountGuests)</strong>
             </span>
-        </h5>
-		    <p>
+       
+		    
        <h5><i class="glyphicon glyphicon-usd" style="color: #90d228;"></i> Запланированный бюджет <strong>
     <span style="color: #333333;">
         @if (Model.Cost.ToString() == "0")
@@ -93,7 +91,7 @@
     
     </div>
     </p>
-		<p style="word-wrap: break-word; font-size: 17px;">
+		<p style="word-wrap: break-word; font-size: 17px; line-height: 18px;">
         @Html.Raw(Model.Message.Replace("\n", "<br />"))
     </p>
   
@@ -173,7 +171,7 @@
            <div class="title-line">Молодой хозяйке на заметку!</div>
 		   </div>
  <h5> <img src="~/Content/images/galochka.png" /> <strong>Цена и объем услуги</strong> - победитель конкурсного - торга, не может повысить цену или изменить объем услуги предложенной на сайте. </h5>
-<h5> <img src="~/Content/images/galochka.png" /> <strong> По правилам сайта, ссылка на визитку заказчика, будет доступна только победителю конкурсного-торга. </h5>
+<h5> <img src="~/Content/images/galochka.png" /> <strong> По правилам сайта</strong>, ссылка на визитку заказчика, будет доступна только победителю конкурсного-торга. </h5>
 <h5> <img src="~/Content/images/galochka.png" /> <strong>Какой нибудь совет участникам </strong> - Продавец не может в случае победы в конкурсе повышать цену услуги. </h5>
 
             }
@@ -252,18 +250,18 @@
                             </strong>
                         }
                     </div>
-                    <div style="color: blue; width:100%; text-align: left; font-size: 14px;">
+                    <div style="color: blue; width:100%; text-align: left; font-size: 20px; ">
                         @if (Model.Winner != null)
                         {
                             if (Model.Winner.Login == ViewBag.UserLogin)
                             {
-                                <strong>
-                                    @Html.ActionLink(message.User.AboutShort, "Card", "Account", new { @user = message.User.Login }, new { @style = "color: gray; text-decoration: none;" })
-                                </strong>
+                                <h5>
+                                    @Html.ActionLink(message.User.AboutShort, "Card", "Account", new { @user = message.User.Login }, new { @style = "color: #919191; text-decoration: none;" })
+                                </h5>
                             }
                             else
                             {
-                                <div style="color: gray; text-decoration: none; line-height: 15px;">
+                                <div style="color: #919191; text-decoration: none; line-height: 15px;">
                                     @if (message.User.AboutShort != null && !string.IsNullOrEmpty(message.User.AboutShort))
                                     {
                                         @message.User.AboutShort
@@ -273,7 +271,7 @@
                         }
                         else
                         {
-                            <div style="color: gray; text-decoration: none; line-height: 15px;">
+                            <div style="color: #919191; text-decoration: none; line-height: 15px;">
                                 @if (message.User.AboutShort != null && !string.IsNullOrEmpty(message.User.AboutShort))
                                 {
                                     @message.User.AboutShort
@@ -281,28 +279,25 @@
                             </div>
                         }
                     </div>
-                    <div style="color: blue; width:100%; text-align: left; font-size: 14px; line-height: 10px;">
+                    <div style="color: blue; width:100%; text-align: left; font-size: 14px; line-height: 15px;">
                         @if (Model.Winner != null)
                         {
                             if (Model.Winner.Login == ViewBag.UserLogin)
                             {
-                                @Html.ActionLink(string.Format("{0}", message.User.City.Name), "Card", "Account", new { @user = message.User.Login }, new { @style = "color: black; text-decoration: none;" })
+                                @Html.ActionLink(string.Format("{0}", message.User.City.Name), "Card", "Account", new { @user = message.User.Login }, new { @style = "color: #919191; text-decoration: none;" })
                             }
                             else
                             {
-                                @Html.ActionLink(string.Format("{0}", message.User.City.Name), "Card", "Account", new { @user = message.User.Login }, new { @style = "color: black; text-decoration: none;" })
+                                @Html.ActionLink(string.Format("{0}", message.User.City.Name), "Card", "Account", new { @user = message.User.Login }, new { @style = "color: #919191; text-decoration: none;" })
                             }
                         }
                         else
                         {
-                            @Html.ActionLink(string.Format("{0}", message.User.City.Name), "Card", "Account", new { @user = message.User.Login }, new { @style = "color: black; text-decoration: none;" })
+                            @Html.ActionLink(string.Format("{0}", message.User.City.Name), "Card", "Account", new { @user = message.User.Login }, new { @style = "color: #919191; text-decoration: none;" })
                         }
                     </div>
 
-                    <div style="color:#a8a8a8; text-align: left; padding-top: 10px; padding-bottom: 10px;">
-                        Предлагает Вам:
-                    </div>
-                    <div style="word-wrap: break-word;">
+                    <div style="word-wrap: break-word; line-height: 18px;">
                         @Html.Raw(message.Message.Replace("\n", "<br />"))
                     </div>
                     <div style="text-align: right;">
@@ -327,7 +322,7 @@
                         if (message.User.Login != ViewBag.UserLogin && Model.User.Login == ViewBag.UserLogin)
                         {
                             <span style="padding-left: 40px;">
-                                @Html.ActionLink("Выбрать победителем конкурса", "SelectWinner", "Tender", new { @tenderId = Model.Id, @userId = message.User.Id }, new { @style = "", @class = "makeSub btn btn-custom-red" })
+                                @Html.ActionLink("Выбрать победителем конкурса", "SelectWinner", "Tender", new { @tenderId = Model.Id, @userId = message.User.Id }, new { @style = "", @class = "makeSub" })
                             </span>
                         }
                     }

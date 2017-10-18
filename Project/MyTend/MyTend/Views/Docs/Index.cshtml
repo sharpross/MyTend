@@ -1,10 +1,20 @@
 ﻿@{
     ViewBag.Title = "Документы";
 }
-
+<br /><br />
 <h2>Документы</h2>
 
-<p>
+
+<br />
+
+		 <div class="row">
+            <div class="col-md-1"><img src="~/Content/images/doc.png" width="50" height="50" /></div>
+            <div class="col-md-11" style="line-height:20px">
+                <div style="font-weight: bold; font-size: 17px;">Документы сайта My-tend.Com</div>
+                <div style="font-size: 14px;">
+                 <p>
+				 
+				 <br />
     @Html.ActionLink("Договор оказания платных услуг", "Oferta", "Docs")
 </p>
 <p>
@@ -19,3 +29,6 @@
 <p>
     @Html.ActionLink("Как это работает", "AboutWork", "Docs")
 </p>
+				  
+                </div>
+ </div> </div>

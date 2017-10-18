@@ -42,7 +42,8 @@
         public List<Region> ListRegions { get; set; }
 
         public HttpPostedFileBase[] ListFiles { get; set; }
-
+        public HttpPostedFileBase[] qqfile { get; set; }
+        
         private bool IsSub { get; set; }
 
         public CreateTenderModel()

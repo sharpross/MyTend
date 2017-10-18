@@ -15,12 +15,13 @@
     
      
 
-     <h2 style="color: #222222;"><span class="glyphicon glyphicon-pencil"></span> Заполните и отправьте заявку по нужным исполнителям! </h2>
+     <h3 style="color: #222222;">Заполните и отправьте заявку по нужным исполнителям! </h3>
 	 
 	 <div style="color: #07a7fa;">
 Новая заявка / Поиск исполнителя / @Model.Theme.Theme</div>
 	  <hr>
  	 </div>
+	 
     <div class="form-horizontal">
         <div class="row">
             <div class="col-md-4" style="text-align: center">
@@ -31,7 +32,7 @@
                            </div>
         </div>
 		
-                @if (Model.Errors.Count > 0)
+        @if (Model.Errors.Count > 0)
         {
             <div class="alert alert-danger" role="alert">
                 @foreach (var item in Model.Errors)
@@ -51,7 +52,7 @@
 		
 	
         <div class="form-group">
-            <label for="TitleString" class="control-label col-md-4 low-font"><div style="color: #333333;">Какая услуга Вам нужна?</div></label>
+            <label for="TitleString" class="control-label col-md-4 low-font"><div style="color: #333333;">Выберите подкатегорию услуги:</div></label>
             <div class="col-md-4">
                 <select class="form-control" name="TitleId" required>
                     @if (string.IsNullOrEmpty(Model.Theme.Title))
@@ -86,7 +87,7 @@
             </div>
         </div>
 		<br />
-<h4 style="color: #333333;">Местоположение заказа</h4>
+<h4 style="color: #333333;"><img src="~/Content/images/geo.png" width="15" height="15" />Местоположение заказа</h4>
 <hr>
 
         <div class="form-group">
@@ -111,7 +112,7 @@
             </div>
         </div>
 		<br />
-<h4 style="color: #333333;">Название и текст заявки</h4>
+<h4 style="color: #333333;"><img src="~/Content/images/kniga.png" width="15" height="15" />Название и текст заявки</h4>
 <hr>
         <div class="form-group">
             <label for="Title" class="control-label col-md-4 low-font"><div style="color: #333333;">Придумайте название заявки:</div></label>
@@ -131,12 +132,23 @@
 <hr>
         <div class="form-group">
             <label for="CountGuests" class="control-label col-md-4 low-font"><div style="color: #333333;"><i class="glyphicon glyphicon-time" aria-hidden="true" style="color: #ff0000;"></i> Дата и время оказания услуги : </div></label>
-            <div class="col-md-3">
-                <input type="date" class="form-control" name="EventDay" placeholder="Дата проведения "  value="@Model.EventDay" />
+            <div class="input-group date form_datetime col-md-3" data-date="" data-date-format="dd MM yyyy - HH:ii" data-link-field="dtp_input2" data-link-format="dd MM yyyy - HH:ii">
+                <input class="form-control" size="16" type="text" value="" readonly name="EventDay">
+                <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
             </div>
-            <div class="col-md-3">
-                <input type="time" class="form-control" name="EventDay" placeholder="Время начала" value="@Model.EventDay" />
-            </div>
+            <input type="hidden" id="dtp_input2" value="" /><br />
+            <script type="text/javascript">
+                $('.form_datetime').datetimepicker({
+                    language: 'ru',
+                    weekStart: 1,
+                    todayBtn: 1,
+                    autoclose: 1,
+                    todayHighlight: 1,
+                    startView: 2,
+                    forceParse: 0,
+                    showMeridian: 1
+                });
+            </script>
         </div>
         <div class="form-group">
             <label for="CountGuests" class="control-label col-md-4 low-font"><div style="color: #3333333;"><i class="glyphicon glyphicon-cutlery" style="color: #07a7fa;"></i> Количество гостей?</div></label>
@@ -154,51 +166,7 @@
         <div class="form-group">
             <label for="ListFiles" class="control-label col-md-4 low-font"><div style="color: #333333;"><i class="glyphicon glyphicon-picture" aria-hidden="true" style="color: #ac47cd;"></i> Прикрепите 2 фото (если необходимо, до 2Mb)</div></label>
             <div class="col-md-5">
-                @{ Html.RenderPartial("~/Views/Shared/_FineUploader.cshtml"); }
-                <div id="uploader"></div>
-                <script>
-                    var fileCount = 0;
-                    var addedFiles = 0;
-                    var fileLimit = 2;
-                    // Some options to pass to the uploader are discussed on the next page
-                    var uploader = new qq.FineUploader({
-                        element: document.getElementById("uploader"),
-                        validation: {
-                            allowedExtensions: ['jpeg', 'jpg', 'gif', 'png']
-                        },
-                        autoUpload: false,
-                        request: {
-                            endpoint: 'server/handleUploads'
-                        },
-                        callbacks: {
-                            onSubmit: function (id, fileName) {
-                                console.log('submit');
-                                fileCount++;
-                                if (fileCount > fileLimit) {
-                                    $('input[name="qqfile"]').attr('disabled', true);
-                                    $('#uploader .qq-upload-drop-area').hide();
-                                    return false;
-                                }
-                            },
-                            onCancel: function (id, fileName) {
-                                fileCount--;
-                                if (fileCount <= fileLimit) {
-                                    $('input[name="qqfile"]').attr('disabled', false);
-                                    $('#portfolio-uploader .qq-upload-drop-area').show();
-                                }
-                            },
-                            onComplete: function (id, fileName, responseJSON) {
-                                if (responseJSON.success) {
-                                    addedFiles++;
-                                    if (addedFiles >= fileLimit) {
-                                        $('input[name="qqfile"]').attr('disabled', true);
-                                        $('#uploader .qq-upload-drop-area').hide();
-                                    }
-                                }
-                            }
-                        }
-                    })
-                </script>
+                <input type="file" accept="image/*" multiple class="form-control" name="ListFiles" value="" />
             </div>
         </div>
 
@@ -242,14 +210,13 @@
             </div>
         </div>
 		<hr>
-        <div style="padding: 20px 0px 20px 0px; text-align: center;">
-		 После отправки заявки, система расскажет и пригласит к участию в конкурсном торге <br />  исполнителей услуг учитывая выбранный город и услугу.
-            
-        </div>
+      
         <div class="form-group">
-            <div class="col-md-12" style="text-align: center;">
+            <div class="col-md-11" style="text-align: right;"> После отправки заявки, 
+			система расскажет и пригласит к участию в конкурсном торге <br />  исполнителей услуг учитывая выбранный город и услугу.
 			
-                <button class="btn btn-custom-orange" style="width: 35%" type="submit">Отправить заявку исполнителям услуг </button>
+               <br /> <button type="submit" class="btn btn-custom-orange" style="width: 40%"><span class="glyphicon glyphicon-send"></span>
+Отправить заявку исполнителям услуг </button>
             </div>
         </div>
     </div>
@@ -258,7 +225,7 @@
 <script src="~/Scripts/app/selectRegions.js"></script>
 <script>
     blockBtns();
-    
+
     function blockBtns() {
         var els = $('button[type=submit]');
         els.on('click', function (e) {

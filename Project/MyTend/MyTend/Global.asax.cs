@@ -1,15 +1,11 @@
-﻿using FluentScheduler;
-using MyTend.Data;
-using MyTend.Entites;
-using MyTend.Scheduler.CloseTender;
-using RomanPushkin.BetterRobokassa;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using FluentScheduler;
+using MyTend.Data;
+using MyTend.Scheduler.CloseTender;
 
 namespace MyTend
 {
@@ -17,7 +13,7 @@ namespace MyTend
     {
         protected void Application_Start()
         {
-            RobokassaConfig.AssertConfigurationIsValid();
+            //RobokassaConfig.AssertConfigurationIsValid();
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);

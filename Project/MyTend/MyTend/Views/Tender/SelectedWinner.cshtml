@@ -38,7 +38,14 @@
             <div class="col-md-11" style="line-height:20">
 	
                       <h3>
-       </span> @Html.ActionLink(Model.Winner.Phone, "Card", "Account", new { user = Model.Winner.Login }, null) 
+        @if (!string.IsNullOrEmpty(Model.Winner.Phone))
+        {
+            @Html.ActionLink(Model.Winner.Phone, "Card", "Account", new { user = Model.Winner.Login }, null)
+        }
+        else
+        {
+            @Html.ActionLink(Model.Winner.FullName, "Card", "Account", new { user = Model.Winner.Login }, null)
+        }
     </h3>
      
 

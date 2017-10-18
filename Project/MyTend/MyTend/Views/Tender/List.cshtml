@@ -3,10 +3,10 @@
 @{
     ViewBag.Title = "Мои предложения заказчикам";
 }
-
-<h3 style="color: #fe5900;">Мои предложения заказчикам</h3>
-<h5 style="color: #00a5e5;">Аукционные торги, в которых Вы принимаете участие как исполнитель услуг.</h5>
-<h6 style="color: #66c7d0;">Регулярно проверяйте то, что предлагают Ваши конкуренты, быть может Вы сделаете более выгодное предложение для заказчика и он выберет именно Вас!</h6>
+<br />
+<h3 style="color: #222222;">Мои предложения заказчикам</h3>
+<h5 style="color: #555555;">Аукционные торги, в которых Вы принимаете участие как исполнитель услуг.</h5><br />
+<h6 style="color: #555555;">Регулярно проверяйте то, что предлагают Ваши конкуренты, быть может Вы сделаете более выгодное предложение для заказчика и он выберет именно Вас!</h6>
 
 <div class="tabs">
        <ul class="nav nav-tabs nav-justified">
@@ -20,25 +20,19 @@
                 foreach (var item in Model.OpenTenders)
                 {
                     <div class="row" id="tenderrow-@item.Id">
-                        <div class="col-lg-1">
+                        <div class="col-lg-2" style="text-align: center">
                             <a href="~/Tender/Details?id=@item.Id">
                                 <img src="~/Content/images/kats/@item.Theme.ImageName" width="90" height="100" />
                             </a>
                         </div>
-                        <div class="col-lg-11">
+                        <div class="col-lg-10">
                             <table style="width: 100%">
                                 <tr>
-                                    <td width="20%" style="text-align: right;">
-                                        <strong></strong>
-                                    </td>
                                     <td style="padding-left: 10px;">
                                         <h4> @Html.ActionLink(item.Title, "Details", "Tender", new { id = item.Id }, null) </h4>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td width="20%" style="text-align: right;">
-                                        <strong></strong>
-                                    </td>
                                     <td style="padding-left: 10px;">
                                         @if (item.Cost == 0)
                                         {
@@ -51,32 +45,17 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td width="20%" style="text-align: right;">
-                                        <strong></strong>
-                                    </td>
                                     <td style="padding-left: 10px;">
-                                        <span style="color: #858585;">
-                                            @item.City.Name
-                                        </span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td width="20%" style="text-align: right;">
-                                        <strong></strong>
-                                    </td>
-                                    <td style="padding-left: 10px;">
-                                        <span style="color: #858585;">
+                                        <div style="color: #858585; line-height: 18px;">
+                                            @item.Theme.Title <br />
+                                            @item.City.Name <br />
                                             @string.Format("Рассмотрение предложений: c " + item.CreatedDateTime.ToString("dd.MM.yyyy") + " до " + item.DateEnd.ToString("dd.MM.yyyy"))
-                                        </span>
+                                        </div>
                                     </td>
                                 </tr>
-
                                 <tr>
-                                    <td width="20%" style="text-align: right;">
-                                        <strong></strong>
-                                    </td>
                                     <td style="padding-left: 10px; text-align: right;">
-                                        <a href="#" style="color: #eca62b;" onclick="hideTender(@item.Id)"><i class="glyphicon glyphicon-remove" style="color: #eca62b;"></i>Удалить</a>
+                                        <a href="#" style="color: #ff0000;" onclick="hideTender(@item.Id)"><i class="glyphicon glyphicon-remove" style="color: #ff0000;"></i>Удалить</a>
                                     </td>
                                 </tr>
                             </table>
@@ -98,25 +77,19 @@
                 foreach (var item in Model.CloseTenders)
                 {
                     <div class="row" id="tenderrow-@item.Id">
-                        <div class="col-lg-1">
+                        <div class="col-lg-2" style="text-align: center">
                             <a href="~/Tender/Details?id=@item.Id">
                                 <img src="~/Content/images/kats/@item.Theme.ImageName" width="90" height="100" />
                             </a>
                         </div>
-                        <div class="col-lg-11">
+                        <div class="col-lg-10">
                             <table style="width: 100%">
                                 <tr>
-                                    <td width="20%" style="text-align: right;">
-                                        <strong></strong>
-                                    </td>
                                     <td style="padding-left: 10px;">
                                         <h4> @Html.ActionLink(item.Title, "Details", "Tender", new { id = item.Id }, null) </h4>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td width="20%" style="text-align: right;">
-                                        <strong></strong>
-                                    </td>
                                     <td style="padding-left: 10px;">
                                         @if (item.Cost == 0)
                                         {
@@ -129,32 +102,17 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td width="20%" style="text-align: right;">
-                                        <strong></strong>
-                                    </td>
                                     <td style="padding-left: 10px;">
-                                        <span style="color: #858585;">
-                                            @item.City.Name
-                                        </span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td width="20%" style="text-align: right;">
-                                        <strong></strong>
-                                    </td>
-                                    <td style="padding-left: 10px;">
-                                        <span style="color: #858585;">
+                                        <div style="color: #858585; line-height: 18px;">
+                                            @item.Theme.Title <br />
+                                            @item.City.Name <br />
                                             @string.Format("Рассмотрение предложений: c " + item.CreatedDateTime.ToString("dd.MM.yyyy") + " до " + item.DateEnd.ToString("dd.MM.yyyy"))
-                                        </span>
+                                        </div>
                                     </td>
                                 </tr>
-
                                 <tr>
-                                    <td width="20%" style="text-align: right;">
-                                        <strong></strong>
-                                    </td>
                                     <td style="padding-left: 10px; text-align: right;">
-                                        <a href="#" style="color: #eca62b;" onclick="hideTender(@item.Id)"><i class="glyphicon glyphicon-remove" style="color: #eca62b;"></i>Удалить</a>
+                                        <a href="#" style="color: #ff0000;" onclick="hideTender(@item.Id)"><i class="glyphicon glyphicon-remove" style="color: #ff0000;"></i>Удалить</a>
                                     </td>
                                 </tr>
                             </table>

@@ -1,18 +1,7 @@
-﻿using MyTend.Entites;
-using MyTend.Services.Common;
-using MyTend.Services.EmailService;
-using MyTender.Core;
-using MyTender.Security;
-using RomanPushkin.BetterRobokassa;
-using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Globalization;
-using System.Linq;
-using System.Security.Cryptography;
+﻿using System.Security.Cryptography;
 using System.Text;
-using System.Web;
 using System.Web.Mvc;
+using MyTend.Services.Common;
 
 namespace MyTend.Controllers
 {
@@ -24,14 +13,14 @@ namespace MyTend.Controllers
             return Redirect("/home/index");
             this.ViewBag.NoIndexing = true;
 
-            ViewBag.PayScript = GetPayString();
+            //ViewBag.PayScript = GetPayString();
             ViewBag.PayHistory = new PayService(this.Auth.User).GetHistory();
             ViewBag.PayEnd = new PayService(this.Auth.User).GetDatePayEnd();
 
             return View();
         }
 
-        private string GetPayString()
+        /*private string GetPayString()
         {
             var payService = new PayService(this.Auth.User);
 
@@ -45,9 +34,9 @@ namespace MyTend.Controllers
             
             return redirectUrl;
 
-        }
+        }*/
 
-        [HttpGet]
+        /*[HttpGet]
         public string Result(RobokassaConfirmationRequest confirmationRequest)
         {
             try
@@ -104,14 +93,14 @@ namespace MyTend.Controllers
             }
 
             return "False";
-        }
+        }*/
 
-        public ActionResult Success(RobokassaConfirmationRequest confirmationRequest)
+        /*public ActionResult Success(RobokassaConfirmationRequest confirmationRequest)
         {
             this.ViewBag.NoIndexing = true;
 
             return View();
-        }
+        }*/
 
         public ActionResult Fail()
         {

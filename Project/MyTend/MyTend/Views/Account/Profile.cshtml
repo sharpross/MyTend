@@ -1,14 +1,14 @@
-﻿ <br />
-								 <br />
-							
-								 
- <H3> Мои персональные данные, подписка на конкурсные торги   </H3>
-   
-@model MyTend.Models.ProfileModel
+﻿@model MyTend.Models.ProfileModel
 
 @{
     ViewBag.Title = "Редактирование Визитки";
 }
+<br />
+<br />
+
+
+<H3> Мои персональные данные, подписка на конкурсные торги   </H3>
+
 <script>
     var openTabParam = "@ViewBag.OpenTabParam",
         userData = {
@@ -45,11 +45,11 @@
 }
 <div class="tabs">
     <ul class="nav nav-tabs nav-justified">
-        <li class=""><a href="#tab5-1" data-toggle="tab" style="text-decoration: none;">Визитка</a></li>
-        <li class=""><a href="#tab5-2" data-toggle="tab" style="text-decoration: none;">Портфолио</a></li>
-        <li class=""><a href="#tab5-3" data-toggle="tab" style="text-decoration: none;">Об услуге</a></li>
-        <li class=""><a href="#tab5-4" data-toggle="tab" style="text-decoration: none;">Подписка услуг</a></li>
-        <li class=""><a href="#tab5-5" data-toggle="tab" style="text-decoration: none;">Регионы, города</a></li>
+        <li class=""><a href="#tab5-1" data-toggle="tab" style="text-decoration: none;"><span class="glyphicon glyphicon-user" aria-hidden="true" style="color: #333333;"></span> Визитка</a></li>
+        <li class=""><a href="#tab5-2" data-toggle="tab" style="text-decoration: none;"><span class="glyphicon glyphicon-picture" aria-hidden="true" style="color: #333333;"></span> Портфолио</a></li>
+        <li class=""><a href="#tab5-3" data-toggle="tab" style="text-decoration: none;"><span class="glyphicon glyphicon-info-sign" aria-hidden="true" style="color: #333333;"></span> Об услуге</a></li>
+        <li class=""><a href="#tab5-4" data-toggle="tab" style="text-decoration: none;"><span class="glyphicon glyphicon-list" aria-hidden="true" style="color: #333333;"></span> Подписка услуг</a></li>
+        <li class=""><a href="#tab5-5" data-toggle="tab" style="text-decoration: none;"><span class="glyphicon glyphicon-globe" aria-hidden="true" style="color: #333333;"></span> Регионы, города</a></li>
     </ul>
 
     <div class="tab-content">
@@ -68,51 +68,7 @@
                         <img src="/Image/Get?id=0" width="300" height="300" class="img-thumbnail" id="avatar">
                     }
 
-                    @{ Html.RenderPartial("~/Views/Shared/_FineUploader.cshtml"); }
-                    <script>
-                        var fileCount = 0;
-                        var addedFiles = 0;
-                        var fileLimit = 1;
-                        // Some options to pass to the uploader are discussed on the next page
-                        var uploader = new qq.FineUploader({
-                            element: document.getElementById("uploader"),
-                            validation: {
-                                allowedExtensions: ['jpeg', 'jpg', 'gif', 'png']
-                            },
-                            autoUpload: false,
-                            request: {
-                                endpoint: 'server/handleUploads'
-                            },
-                            callbacks: {
-                                onSubmit: function (id, fileName) {
-                                    console.log('submit');
-                                    fileCount ++;
-                                    if(fileCount > fileLimit) {
-                                        $('input[name="qqfile"]').attr('disabled', true);
-                                        $('#uploader .qq-upload-drop-area').hide();
-                                        return false;
-                                    }
-                                },
-                                onCancel: function (id, fileName) {
-                                    fileCount--;
-                                    if (fileCount <= fileLimit) {
-                                        $('input[name="qqfile"]').attr('disabled', false);
-                                        $('#portfolio-uploader .qq-upload-drop-area').show();
-                                    }
-
-                                },
-                                onComplete: function(id, fileName, responseJSON) {
-                                    if (responseJSON.success) {
-                                        addedFiles ++;
-                                        if(addedFiles >= fileLimit) {
-                                            $('input[name="qqfile"]').attr('disabled', true);
-                                            $('#uploader .qq-upload-drop-area').hide();
-                                        }
-                                    }
-                                }
-                            }
-                        })
-                    </script>
+                    <input type="file" accept="image/*" name="AvatarFile" id="AvatarFile" style="padding-top: 10px; padding-bottom: 10px;" />
                     <div class="row" style="text-align: center;">
                         <div style="padding: 20px 0px 20px 0px; text-align: left;">
                            Выберите и загрузите свой фото-аватар.  Если вы частная компания, Вы можете загрузить свой логотип.
@@ -182,7 +138,8 @@
                     </div>
 					<div style="text-align: left;">
     
-           <div class="title-line"> <span style="color: #f45656;">Рекомендуем заполнять только исполнителям услуг</span></div>
+           <div class="title-line"> <span style="color: #f45656;"><big><span class="glyphicon glyphicon-star" aria-hidden="true" style="color: #51bbec;"></span></big>
+Рекомендуем заполнять только исполнителям услуг</span></div>
   
 </div>
 
@@ -297,60 +254,6 @@
                     <div class="col-lg-12">
                         <div class="form-group">
                             <input type="file" accept="image/*" class="form-control" name="ProfileFiles" multiple />
-                                @{ Html.RenderPartial("~/Views/Shared/_FineUploader.cshtml"); }
-                            <div id="portfolio-uploader"></div>
-                            <script>
-                                var fileCount = 0;
-                                var addedFiles = 0;
-                                var fileLimit = 20;
-                                // Some options to pass to the uploader are discussed on the next page
-                                var uploader = new qq.FineUploader({
-                                    element: document.getElementById("portfolio-uploader"),
-                                    validation: {
-                                        allowedExtensions: ['jpeg', 'jpg', 'gif', 'png'],
-                                        sizeLimit: 2621440
-                                    },
-                                    text: {
-                                        uploadButton: 'Выбрать'
-                                    },
-                                    messages: {
-                                        typeError: 'Выбранный файл не соответствует ни одному из типов jpeg, jpg, gif, png',
-                                        sizeError: 'Размер выбранного файла превышает допустимый (2.5 Мб)'
-                                    },
-                                    autoUpload: false,
-                                    multiple: true,
-                                    request: {
-                                        endpoint: 'server/handleUploads'
-                                    },
-                                    callbacks: {
-                                        onSubmit: function (id, fileName) {
-                                            console.log('submit');
-                                            fileCount++;
-                                            if (fileCount > fileLimit) {
-                                                $('input[name="qqfile"]').attr('disabled', true);
-                                                $('#portfolio-uploader .qq-upload-drop-area').hide();
-                                                return false;
-                                            }
-                                        },
-                                        onCancel: function (id, fileName) {
-                                            fileCount--;
-                                            if (fileCount <= fileLimit) {
-                                                $('input[name="qqfile"]').attr('disabled', false);
-                                                $('#portfolio-uploader .qq-upload-drop-area').show();
-                                            }
-                                        },
-                                        onComplete: function (id, fileName, responseJSON) {
-                                            if (responseJSON.success) {
-                                                addedFiles++;
-                                                if (addedFiles >= fileLimit) {
-                                                    $('input[name="qqfile"]').attr('disabled', true);
-                                                    $('#portfolio-uploader .qq-upload-drop-area').hide();
-                                                }
-                                            }
-                                        }
-                                    }
-                                })
-                            </script>
                             <div style="color: #222222"><strong>
                                 Вы можете загрузить не более 20 фотографий, размером не более 2.5 Мб каждая)</strong>
                             </div>
@@ -465,28 +368,30 @@
                 Темы показаны, по примеру запроса от лица заказчика.  У Вас есть возможность подписаться на <strong>10</strong> тем.
                 После внесенных изменений, перед тем как покинуть вкладку нажмите кнопку<strong> «Сохранить / Подписаться»</strong>.
             </div>
-            <div class="SubTender">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="SubTender">
 
-                <div class="wp-example" id="accordions">
-                    <div class="panel-group" id="accordionThree">
-                        @{
-                            var i = 0;
-                        }
-                        @foreach (var theme in Model.TenderThemes)
-                        {
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <h4 class="panel-title">
-                                        <a data-toggle="collapse" data-parent="#accordionThree" href="@string.Format("#collapse{0}a", i)" class="collapsed">
-                                            @theme.Key
-                                        </a>
-                                    </h4>
-                                </div>
-                                <div id="@string.Format("collapse{0}a", i)" class="panel-collapse collapse" style="height: 0px;">
-                                    <div class="panel-body">
-                                        <div class="row">
-                                            @foreach (var title in theme.Value)
-                                            {
+                        <div class="wp-example" id="accordions">
+                            <div class="panel-group" id="accordionThree">
+                                @{
+                                    var i = 0;
+                                }
+                                @foreach (var theme in Model.TenderThemes)
+                                {
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title">
+                                            <a data-toggle="collapse" data-parent="#accordionThree" href="@string.Format("#collapse{0}a", i)" class="collapsed">
+                                                @theme.Key
+                                            </a>
+                                        </h4>
+                                    </div>
+                                    <div id="@string.Format("collapse{0}a", i)" class="panel-collapse collapse" style="height: 0px;">
+                                        <div class="panel-body">
+                                            <div class="row">
+                                                @foreach (var title in theme.Value)
+                                                {
                                                 <div class="col-md-8">
                                                     @if (!title.IsTitle)
                                                     {
@@ -494,9 +399,9 @@
                                                     }
                                                     else
                                                     {
-                                                        <div style="font-weight: bold; color: #950f81">
-                                                            @title.Title
-                                                        </div>
+                                                    <div style="font-weight: bold; color: #950f81">
+                                                        @title.Title
+                                                    </div>
                                                     }
                                                 </div>
                                                 <div class="col-md-4">
@@ -505,36 +410,39 @@
                                                         <input type="checkbox" name="@title.Id" id="@title.Id" class="subCheck" />
                                                     }
                                                 </div>
-                                            }
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-lg-12">
-                                                <div style="padding-top: 20px; text-align: center;">
-                                                    <button type="button" class="btn btn-custom-orange" onclick="UpdateSubsciptions(this)">Сохранить / Подписаться</button>
+                                                }
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-12">
+                                                    <div style="padding-top: 20px; text-align: center;">
+                                                        <button type="button" class="btn btn-custom-orange subThemeBtn" onclick="UpdateSubsciptions(this)">Сохранить / Подписаться</button>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+                                    i++;
+                                }
                             </div>
-                                            i++;
-                        }
-                    </div>
 
-                </div>
-                <div class="row">
-                    <div class="col-lg-12" style="text-align: center; padding-top: 0px;">
-                        
-                        <button type="button" class="btn btn-custom-orange" onclick="UpdateSubsciptions(this)">Сохранить / Подписаться</button>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12" style="text-align: center; padding-top: 0px;">
+
+                                <button type="button" class="btn btn-custom-orange subThemeBtn" onclick="UpdateSubsciptions(this)">Сохранить / Подписаться</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
+                <div class="col-lg-4"></div>
             </div>
+            
         </div>
         <script>
             $(document).ready(function () {
                 var max = 10;
 
-                $('input[name="qqfile"]').attr('id', 'AvatarFile');
                 $('input.subCheck').on('click', function (el) {
                     var selected = $('input.subCheck');
 
@@ -559,13 +467,15 @@
             });
 
             function UpdateSubsciptions() {
+                
+                $('button.subThemeBtn').attr('disabled', 'disabled');
                 var subs = [];
 
                 var selected = $('input.subCheck');
 
                 for (var i = 0; i < selected.length; i++) {
                     if (selected[i].checked == true) {
-                        subs.push(selected[i].id);
+                        subs.push({ Id: selected[i].id});
                     }
                 }
 
@@ -577,16 +487,17 @@
                     type: 'POST',
                     success: function (resp) {
                         var url = window.location.origin + window.location.pathname + "?tab=tab5-4";
-                        window.location = url;
+                        //window.location = url;
+                        $('button.subThemeBtn').removeAttr('disabled');
                     }
                 });
             }
 
             function setChecked(data){
-                for(var i = 0; i <= data.length; i++){
-                    var selected = $('input.subCheck[id='+data[i]+']');
+                for(var i = 0; i < data.length; i++){
+                    var selected = $('input.subCheck[id='+data[i].Id+']');
 
-                    if(selected){
+                    if (selected.length > 0){
                         selected.attr('checked', true);
                     }
                 }
@@ -609,58 +520,19 @@
             <div class="row">
                 <form method="post" action="UpdateProfile">
                     <div class="row">
-                        <div class="col-lg-3"></div>
-                        <div class="col-lg-6">
+                        <div class="col-lg-5">
                             <div class="form-group">
-                                <label for="SubTheme2" class="control-label col-md-12">Страна</label>
+                                <label for="SubTheme2" class="control-label col-md-12">Выберите страну, регион</label>
                                 <div class="col-md-12">
-                                    <select class="form-control" name="Country" id="subCountrysSelect" required>
-                                        <option disabled selected>Выберите страну</option>
-                                        @foreach (var item in Model.ListCountrys)
+                                    <select class="form-control" name="Region" id="subRegionSelect" required>
+                                        <option disabled selected>Выберите регион</option>
+                                        @foreach (var item in Model.ListRegions)
                                         {
                                             <option id="@item.Id">@item.Name</option>
                                         }
                                     </select>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-lg-3"></div>
-                    </div>
-                    <br />
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <div class="form-group">
-                                <label for="SubTheme2" class="control-label col-md-12">Чтобы подписаться сразу на целый регион: Выберите страну, регион, нажмите «Добавить регион»</label>
-                                <div class="col-md-12">
-                                    <select class="form-control" name="Region" id="subRegionSelect" required>
-                                        <option disabled selected>Выберите регион</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="form-group col-md-12" style=" padding-top: 10px; text-align: center">
-                                    <button type="button" class="button" onclick="addRegionsToList()"><strong>Добавить регион</strong></button>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-lg-12" id="listRegions">
-                                    @if (Model.SubRegions.Count > 0)
-                                    {
-                                        foreach (var region in Model.SubRegions)
-                                        {
-                                            <div class="city-block" id="@region.Name">
-                                                <div class="city-title">
-                                                    @region.Name
-                                                    <span class="fa fa-times red like-link" onclick="removeFromList(this)"></span>
-                                                </div>
-                                            </div>
-                                        }
-                                    }
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-6">
                             <div class="form-group">
                                 <label for="SubTheme2" class="control-label col-md-12">Чтобы подписаться на отдельные города: Выберите страну, регион, город, нажмите «Добавить город»</label>
                                 <div class="col-md-12">
@@ -670,7 +542,7 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="form-group col-md-12" style=" padding-top: 10px; text-align: center">
+                                <div class="form-group col-md-12" style="padding-top: 10px; text-align: center">
                                     <button type="button" class="button" onclick="addCityToList()"><strong>Добавить город</strong></button>
                                 </div>
                             </div>
@@ -690,6 +562,9 @@
                                     }
                                 </div>
                             </div>
+                        </div>
+                        <div class="col-lg-7">
+                            
                         </div>
                     </div>
                     <div class="row">

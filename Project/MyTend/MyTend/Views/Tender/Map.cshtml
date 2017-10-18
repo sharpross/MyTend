@@ -3,22 +3,32 @@
 @{
     ViewBag.Title = "Карта аукционных торгов";
 }
+<br />
+<h2>Карта конкурсных-торгов</h2>
 
-<h1>Карта аукционных торгов</h1>
 
+<br />
+
+		 <div class="row">
+            <div class="col-md-1"><img src="~/Content/images/zemla.png" width="50" height="50" /></div>
+            <div class="col-md-11" style="line-height:20px">
+                <div style="font-weight: bold; font-size: 17px;">Категории  и темы </div>
+                <div style="font-size: 14px;">	 <br />
+                
 @foreach (var item in Model)
 {
     var aa = item.Value.First();
 
     <div class="row">
         <div class="col-lg-12">
-            <h4>
-                @Html.ActionLink(item.Key, "Create", "Tender", new { @id = aa.Id }, new { @style = "color: #008cc3;" })
+            <h4><br />
+                @Html.ActionLink(item.Key, "Create", "Tender", new { @id = aa.Id }, new { @style = "color: #07a7fa;" })
             </h4>
 
             @foreach (var sub in item.Value)
             {
-                <div>
+                
+				<div>
                     @if (sub.IsTitle)
                     {
                         <div style="color: rgb(204, 0, 1); font-weight: bold;">
@@ -35,3 +45,6 @@
     </div>
 }
 
+ </div> </div> </div>
+				 
+				 <br />

@@ -31,8 +31,8 @@ namespace MyTend
                 configuration.For<AccountController>(ac => ac.Login(string.Empty, string.Empty)).Ignore();
                 configuration.For<AccountController>(ac => ac.Card(string.Empty, string.Empty)).Ignore();
                 configuration.For<AccountController>(ac => ac.Welcom()).Ignore();
-                configuration.For<PayController>(ac => ac.Result(null)).Ignore();
-                configuration.For<PayController>(ac => ac.Success(null)).Ignore();
+                //configuration.For<PayController>(ac => ac.Result(null)).Ignore();
+                //configuration.For<PayController>(ac => ac.Success(null)).Ignore();
                 configuration.For<PayController>(ac => ac.Fail()).Ignore();
                 configuration.For<ErrorController>().Ignore();
 

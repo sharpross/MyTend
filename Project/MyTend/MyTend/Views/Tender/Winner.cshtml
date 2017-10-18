@@ -18,7 +18,7 @@
                 foreach (var item in Model.Tenders)
                 {
                     <div class="row" id="tenderrow-@item.Id">
-                        <div class="col-lg-1">
+                        <div class="col-lg-2">
                             <div>
                                 <a href="~/Tender/Details?id=@item.Id">
                                     <img src="~/Content/images/kats/@item.Theme.ImageName" width="90" height="100" />
@@ -27,78 +27,23 @@
                             <div>
                                 @if (item.Winner != null && item.Winner.Login == ViewBag.UserLogin)
                                 {
-                                    <a href="~/Tender/Details?id=@item.Id">
-                                        <img src="~/Content/images/winner.png" width="50" height="60" />
-                                    </a>
+                                    
                                 }
                             </div>
                         </div>
-                        <div class="col-lg-11">
-                            <table style="width: 100%">
-                                <tr>
-                                    <td width="20%" style="text-align: right;">
-                                        <strong>Название торгов:</strong>
-                                    </td>
-                                    <td style="padding-left: 10px;">
-                                        @item.Title
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td width="20%" style="text-align: right;">
-                                        <strong>Тема/категория:</strong>
-                                    </td>
-                                    <td style="padding-left: 10px;">
-                                        @item.Theme.Theme: @item.Theme.Title
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td width="20%" style="text-align: right;">
-                                        <strong>Регион/Город:</strong>
-                                    </td>
-                                    <td style="padding-left: 10px;">
-                                        @item.City.Name
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td width="20%" style="text-align: right;">
-                                        <strong>Бюджет:</strong>
-                                    </td>
-                                    <td style="padding-left: 10px;">
-                                        @if (item.Cost == 0)
-                                        {
-                                            @:<div>Договорная</div>
-                                        }
-                                        else
-                                        {
-                                            @:<div>@item.Cost.ToString("0.00") руб.</div>
-                                        }
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td width="20%" style="text-align: right;">
-                                        <strong>Период торга:</strong>
-                                    </td>
-                                    <td style="padding-left: 10px;">
-                                        @Html.ActionLink(item.Winner.FullName, "Card", "Account", new { @user = item.Winner.Login }, new { @style = "color: red" })
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td width="20%" style="text-align: right;"></td>
-                                    <td style="padding-left: 10px;">
-                                        @Html.ActionLink("Посмотреть подробнее...", "Details", "Tender", new { id = item.Id }, null)
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td width="20%" style="text-align: right;"></td>
-                                    <td style="padding-left: 10px; text-align: right;">
-                                        <a href="#" style="color: red;" onclick="hideTender(@item.Id)"><span class="fa fa-trash"></span> Удалить/очистить список</a>
-                                    </td>
-                                </tr>
-                            </table>
+                        <div class="col-lg-10">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div style="padding-top: 20px">
+                                        @Html.ActionLink(item.User.FullName, "Card", "Account", new { id = item.User.Email }, null) выбрал Вас победителем в торге @Html.ActionLink(item.Title, "Details", "Tender", new { id = item.Id }, null)
+                                    </div>
+                                    <div>
+                                        Свяжитесь с ним по номеру: <span style="font-weight: bold; font-size: 20px; padding-left: 7px;">@item.User.Phone</span> 
+                                    </div>
+                                </div>
+                            </div>
+                            
                         </div>
-                    </div>
-                    <div class="rowWhite">
-
                     </div>
                 }
             }
