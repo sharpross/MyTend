@@ -35,7 +35,7 @@
                             <div class="row">
                                 <div class="col-lg-12">
                                     <div style="padding-top: 20px">
-                                        @Html.ActionLink(item.User.FullName, "Card", "Account", new { user = item.User.Login }, null) выбрал Вас победителем в торге @Html.ActionLink(item.Title, "Details", "Tender", new { id = item.Id }, null)
+                                        @Html.ActionLink(item.User.FullName, "Card", "Account", new { id = item.User.Email }, null) выбрал Вас победителем в торге @Html.ActionLink(item.Title, "Details", "Tender", new { id = item.Id }, null)
                                     </div>
                                     <div>
                                         Свяжитесь с ним по номеру: <span style="font-weight: bold; font-size: 20px; padding-left: 7px;">@item.User.Phone</span> 

@@ -87,7 +87,7 @@
             </div>
         </div>
 		<br />
-<h4 style="color: #333333;"><img src="~/Content/images/geo.png" width="15" height="15" />Местоположение заказа</h4>
+<h4 style="color: #333333;"><img src="~/Content/images/geo2.png" width="17" height="17" />Местоположение заказа</h4>
 <hr>
 
         <div class="form-group">
@@ -112,7 +112,7 @@
             </div>
         </div>
 		<br />
-<h4 style="color: #333333;"><img src="~/Content/images/kniga.png" width="15" height="15" />Название и текст заявки</h4>
+<h4 style="color: #333333;"><img src="~/Content/images/planshet.png" width="15" height="15" />Название и текст заявки</h4>
 <hr>
         <div class="form-group">
             <label for="Title" class="control-label col-md-4 low-font"><div style="color: #333333;">Придумайте название заявки:</div></label>
@@ -131,10 +131,10 @@
 <h4 style="color: #333333;">Уточняющие детали</h4>
 <hr>
         <div class="form-group">
-            <label for="CountGuests" class="control-label col-md-4 low-font"><div style="color: #333333;"><i class="glyphicon glyphicon-time" aria-hidden="true" style="color: #ff0000;"></i> Дата и время оказания услуги : </div></label>
+            <label for="CountGuests" class="control-label col-md-4 low-font"><div style="color: #333333;"> <img src="~/Content/images/data.png"width="18" height="19" /> Дата и время оказания услуги : </div></label>
             <div class="input-group date form_datetime col-md-3" data-date="" data-date-format="dd MM yyyy - HH:ii" data-link-field="dtp_input2" data-link-format="dd MM yyyy - HH:ii">
-                <input class="form-control" size="16" type="text" value="" placeholder="Выберите дату и время" readonly name="EventDay">
-                <span class="input-group-addon"><span class="glyphicon glyphicon-calendar" style="color: red;"></span></span>
+                <input class="form-control" size="16" type="text" value="" readonly name="EventDay">
+                <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
             </div>
             <input type="hidden" id="dtp_input2" value="" /><br />
             <script type="text/javascript">
@@ -151,27 +151,27 @@
             </script>
         </div>
         <div class="form-group">
-            <label for="CountGuests" class="control-label col-md-4 low-font"><div style="color: #3333333;"><i class="glyphicon glyphicon-cutlery" style="color: #07a7fa;"></i> Количество гостей?</div></label>
+            <label for="CountGuests" class="control-label col-md-4 low-font"><div style="color: #3333333;"> <img src="~/Content/images/gosti.png"width="22" height="18" />  Количество гостей?</div></label>
             <div class="col-md-3">
                 <input type="number" min="0" step="1" class="form-control" name="CountGuests" placeholder="10" value="@Model.CountGuests" />
             </div>
         </div>
         <div class="form-group">
-            <label for="Cost" class="control-label col-md-4 low-font"><div style="color: #333333;"><i class="glyphicon glyphicon-usd" style="color: #90d228;"></i> На какую сумму Вы ориентируетесь?</div></label>
+            <label for="Cost" class="control-label col-md-4 low-font"><div style="color: #333333;"><img src="~/Content/images/rubl.png"width="19" height="16" />  На какую сумму Вы ориентируетесь?</div></label>
             <div class="col-md-3">
                 <input type="number" min="0" step="1" class="form-control" name="Cost" placeholder="Средняя цена" value="@Model.Cost" />
             </div>
         </div>
 
         <div class="form-group">
-            <label for="ListFiles" class="control-label col-md-4 low-font"><div style="color: #333333;"><i class="glyphicon glyphicon-picture" aria-hidden="true" style="color: #ac47cd;"></i> Прикрепите 2 фото (если необходимо, до 2Mb)</div></label>
+            <label for="ListFiles" class="control-label col-md-4 low-font"><div style="color: #333333;"><img src="~/Content/images/foto.png"width="23" height="16" /> Прикрепите 2 фото (если необходимо, до 2Mb)</div></label>
             <div class="col-md-5">
                 <input type="file" accept="image/*" multiple class="form-control" name="ListFiles" value="" />
             </div>
         </div>
 
         <div class="form-group">
-            <label for="SubTheme2" class="control-label col-md-4 low-font"><div style="color: #333333;"><i class="glyphicon glyphicon-dashboard" aria-hidden="true" style="color: #eca62b;"></i> Время рассмотрения предложений?</div></label>
+            <label for="SubTheme2" class="control-label col-md-4 low-font"><div style="color: #333333;"> <img src="~/Content/images/data.png"width="18" height="19" /> Время рассмотрения предложений?</div></label>
             <div class="col-md-2">
                 <select class="form-control" name="ActiveTime">
                     @if (Model.ActiveTime == "3 дня")

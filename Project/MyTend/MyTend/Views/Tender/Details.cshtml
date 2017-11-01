@@ -170,9 +170,9 @@
     
            <div class="title-line">Молодой хозяйке на заметку!</div>
 		   </div>
- <h5> <img src="~/Content/images/galochka.png" /> <strong>Цена и объем услуги</strong> - победитель конкурсного - торга, не может повысить цену или изменить объем услуги предложенной на сайте. </h5>
-<h5> <img src="~/Content/images/galochka.png" /> <strong> По правилам сайта</strong>, ссылка на визитку заказчика, будет доступна только победителю конкурсного-торга. </h5>
-<h5> <img src="~/Content/images/galochka.png" /> <strong>Какой нибудь совет участникам </strong> - Продавец не может в случае победы в конкурсе повышать цену услуги. </h5>
+ <h5> <img src="~/Content/images/galochka.png" /> Победитель конкурсного - торга, не может повысить цену или изменить объем услуги предложенной на сайте. </h5>
+<h5> <img src="~/Content/images/galochka.png" /> Ссылка на визитку заказчика, будет доступна только победителю конкурсного-торга. </h5>
+<h5> <img src="~/Content/images/galochka.png" /> Выбрать можно только 1 победителя. </h5>
 
             }
         }
@@ -331,17 +331,18 @@
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <img src="@Url.Content("~/Content/images/logo-3.png")" height="60">
-                                            <h4 class="modal-title" id="myModalLabel"> Выбрать победителем?</h4>
+                                            <img src="@Url.Content("~/Content/images/logo4.png")" height="120">
+											<br />
+											<br />
+											
+                                            <h4 class="modal-title" id="myModalLabel">  Вы уверены что хотите выбрать победителем <br /> @message.User.FullName</h4>
                                         </div>
                                         <div class="modal-body">
-                                            <h5>
-                                                Вы уверены что хотите выбрать победителем @message.User.FullName
-                                            </h5>
+                                       
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-custom-red" data-dismiss="modal">Отмена</button>
-                                            <button type="button" class="btn btn-custom-green" onclick="selectWinner(@Model.Id, @message.User.Id)">Выбрать</button>
+                                            <button type="button" class="btn btn-custom-green" onclick="selectWinner(@Model.Id, @message.User.Id)">Выбрать победителем, остановить конкурсный-торг!</button>
                                         </div>
                                     </div>
                                 </div>

@@ -48,7 +48,7 @@
     </div>
     <div class="card-block">
         <div class="card-table-content" style="word-wrap: break-word; color: #8a8a8a; font-size: 17px;">
-            <h6><img src="~/Content/images/geo2.png" width="17" height="17" /><strong>@string.Format("{1}, {2}", Model.City.Region.Country.Name, Model.City.Region.Name, Model.City.Name)</strong></h6> 
+            <h6><img src="~/Content/images/geo2.png" width="15" height="15" /><strong>@string.Format("{1}, {2}", Model.City.Region.Country.Name, Model.City.Region.Name, Model.City.Name)</strong></h6> 
         </div>
     </div>
 	<!-- Put this script tag to the <head> of your page -->
@@ -105,31 +105,31 @@
         @if (!string.IsNullOrEmpty(Model.Email))
         {
             <div class="card-block">
-                <div class="card-table-content"> <h5><a href="mailto:@Model.Email"><img src="~/Content/images/mailicon.png" /> @Model.Email</a></h5> </div>
+                <div class="card-table-content"> <h5><a href="mailto:@Model.Email"><img src="~/Content/images/mail.png" width="20" height="20" /> @Model.Email</a></h5> </div>
             </div>
         }
         @if (!string.IsNullOrEmpty(Model.Site))
         {
             <div class="card-block">
-                <div class="card-table-content">  <h5><a href="@Model.Site"><img src="~/Content/images/siteicon.png" /> @Model.Site.ToLower().Replace("http://", string.Empty).Replace("https://", string.Empty)</a></h5> </div>
+                <div class="card-table-content">  <h5><a href="@Model.Site"><img src="~/Content/images/www.png" width="20" height="20" /> @Model.Site.ToLower().Replace("http://", string.Empty).Replace("https://", string.Empty)</a></h5> </div>
             </div>
         }
         @if (!string.IsNullOrEmpty(Model.Youtube))
         {
             <div class="card-block">
-                <div class="card-table-content"><h5><a href="@Model.Youtube"><img src="~/Content/images/Youtubeicon.png" /> @Model.Youtube.ToLower().Replace("http://", string.Empty).Replace("https://", string.Empty)</a></h5> </div>
+                <div class="card-table-content"><h5><a href="@Model.Youtube"><img src="~/Content/images/youtube.png" width="20" height="20" /> @Model.Youtube.ToLower().Replace("http://", string.Empty).Replace("https://", string.Empty)</a></h5> </div>
             </div>
         }
         @if (!string.IsNullOrEmpty(Model.VKontakte))
         {
             <div class="card-block">
-                <div class="card-table-content"><h5><a target="_blank" href="@Model.VKontakte"><img src="~/Content/images/VKicon.png" />  @Model.VKontakte.ToLower().Replace("http://", string.Empty).Replace("https://", string.Empty)</a></h5> </div>
+                <div class="card-table-content"><h5><a target="_blank" href="@Model.VKontakte"><img src="~/Content/images/vkontakte.ico" width="20" height="20" />  @Model.VKontakte.ToLower().Replace("http://", string.Empty).Replace("https://", string.Empty)</a></h5> </div>
             </div>
         }
         @if (!string.IsNullOrEmpty(Model.Instagram))
         {
             <div class="card-block">
-                <div class="card-table-content"><h5><a target="_blank" href="@Model.Instagram"><img src="~/Content/images/instagammicon.png" /> @Model.Instagram.ToLower().Replace("http://", string.Empty).Replace("https://", string.Empty)</a></h5> </div>
+                <div class="card-table-content"><h5><a target="_blank" href="@Model.Instagram"><img src="~/Content/images/instagram.png" width="20" height="20" /> @Model.Instagram.ToLower().Replace("http://", string.Empty).Replace("https://", string.Empty)</a></h5> </div>
             </div>
         }
         <br />
