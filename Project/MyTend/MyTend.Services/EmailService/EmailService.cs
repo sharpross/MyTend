@@ -89,17 +89,43 @@
                 logRec.Save();
             }
         }
-        
-        public void AddComment(string to,string tenderId, string name, string tenderTitle)
+
+        public void SelectredWinner(string tenderId, string name, string tenderTitle)
         {
             try
             {
                 Email.From(this._from)
                 .To(this._email)
+                .Subject("Вы победитель конкурсного-торга")
+                .UsingCultureTemplateFromFile("~\\Content\\email\\selecedwinner.html", new { TenderId = tenderId, Title = tenderTitle, Name = name })
+                .UsingClient(this.GetClient())
+                .Send();
+            }
+            catch (Exception e)
+            {
+                var logRec = new Log()
+                {
+                    Context = "Winner",
+                    Level = MyTend.Entites.Enums.LogLevel.Info,
+                    Message = e.Message,
+                    Stack = e.StackTrace,
+                    UserName = null
+                };
+
+                logRec.Save();
+            }
+        }
+
+        public void AddComment(string to,string tenderId, string name, string tenderTitle)
+        {
+            try
+            {
+                /*Email.From(this._from)
+                .To(this._email)
                 .Subject("Новый коментарий в конкурсном-торге:" + tenderTitle)
                 .UsingCultureTemplateFromFile("~\\Content\\email\\getresponce.html", new {To = to, TenderId = tenderId, Title = tenderTitle, Name = name })
                 .UsingClient(this.GetClient())
-                .Send();
+                .Send();*/
             }
             catch (Exception e)
             {

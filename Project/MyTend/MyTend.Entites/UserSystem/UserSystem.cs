@@ -67,21 +67,29 @@
         [Property(Length = 255)]
         public string AboutShort { get; set; }
 
-        [Property(Length=10000)]
+        [Property(Length = 10000)]
         public string Portfolio { get; set; }
 
         [BelongsTo("Avatarid")]
         public FileSystem Avatar { get; set; }
 
+        [Property()]
+        public DateTime SubToDate { get; set; }
+
         public bool IsBlocked
         {
-            get 
+            get
             {
                 var blocks = BlockUser.FindAll()
                     .Any(x => x.DateTo > DateTime.Now);
 
                 return blocks;
             }
+        }
+
+        public UserSystem()
+        {
+            this.SubToDate = DateTime.Now.AddDays(-30);
         }
     }
 }

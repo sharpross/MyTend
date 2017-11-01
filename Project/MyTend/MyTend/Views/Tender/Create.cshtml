@@ -133,8 +133,8 @@
         <div class="form-group">
             <label for="CountGuests" class="control-label col-md-4 low-font"><div style="color: #333333;"><i class="glyphicon glyphicon-time" aria-hidden="true" style="color: #ff0000;"></i> Дата и время оказания услуги : </div></label>
             <div class="input-group date form_datetime col-md-3" data-date="" data-date-format="dd MM yyyy - HH:ii" data-link-field="dtp_input2" data-link-format="dd MM yyyy - HH:ii">
-                <input class="form-control" size="16" type="text" value="" readonly name="EventDay">
-                <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                <input class="form-control" size="16" type="text" value="" placeholder="Выберите дату и время" readonly name="EventDay">
+                <span class="input-group-addon"><span class="glyphicon glyphicon-calendar" style="color: red;"></span></span>
             </div>
             <input type="hidden" id="dtp_input2" value="" /><br />
             <script type="text/javascript">
@@ -224,8 +224,13 @@
 }
 <script src="~/Scripts/app/selectRegions.js"></script>
 <script>
+<<<<<<< HEAD
     blockBtns();
 
+=======
+    /*blockBtns();
+    
+>>>>>>> d47d310273ebf5c1ae5a02986b5ab63a94cf3281
     function blockBtns() {
         var els = $('button[type=submit]');
         els.on('click', function (e) {
@@ -239,5 +244,5 @@
                 }
             });
         });
-    }
+    }*/
 </script>

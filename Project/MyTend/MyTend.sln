@@ -1,7 +1,12 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
+<<<<<<< HEAD
 # Visual Studio 15
 VisualStudioVersion = 15.0.26730.15
+=======
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+>>>>>>> d47d310273ebf5c1ae5a02986b5ab63a94cf3281
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyTend", "MyTend\MyTend.csproj", "{A783DC24-4DE5-4D98-9E39-7AF2AC8EB391}"
 EndProject
@@ -83,8 +88,11 @@ Global
 		{B9D80343-98EA-4706-AB90-E58A9F48FED2} = {9536D240-DA17-46EB-99C3-61DB7189371E}
 		{FF896143-D318-48A1-A889-7D9D68FB6D29} = {88E7F595-46D8-4C41-9A72-C5E0D6163C6B}
 		{DEBBD8B9-34E7-401C-AA0B-D735ADE12BCE} = {88E7F595-46D8-4C41-9A72-C5E0D6163C6B}
+<<<<<<< HEAD
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4181DA13-537F-4155-8A0B-DA3BB3D496CB}
+=======
+>>>>>>> d47d310273ebf5c1ae5a02986b5ab63a94cf3281
 	EndGlobalSection
 EndGlobal

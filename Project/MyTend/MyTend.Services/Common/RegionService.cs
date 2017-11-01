@@ -54,6 +54,16 @@ namespace MyTend.Services
             return result;
         }
 
+        public static List<City> CityAll()
+        {
+            var result = new List<City>();
+
+            var all = City.FindAll();
+            result.AddRange(all);
+
+            return result;
+        }
+
         public static List<Region> RegionById(int id)
         {
             var result = new List<Region>();

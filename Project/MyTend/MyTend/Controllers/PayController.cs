@@ -1,6 +1,8 @@
-﻿using System.Security.Cryptography;
+using System;
+using System.Security.Cryptography;
 using System.Text;
 using System.Web.Mvc;
+using MyTend.Entites;
 using MyTend.Services.Common;
 
 namespace MyTend.Controllers
@@ -10,150 +12,60 @@ namespace MyTend.Controllers
         // GET: Pay
         public ActionResult Index()
         {
-            return Redirect("/home/index");
-            this.ViewBag.NoIndexing = true;
+            if (this.Auth.User == null)
+            {
+                return RedirectToRoute("Home");
+            }
 
-            //ViewBag.PayScript = GetPayString();
-            ViewBag.PayHistory = new PayService(this.Auth.User).GetHistory();
-            ViewBag.PayEnd = new PayService(this.Auth.User).GetDatePayEnd();
+            this.ViewBag.NoIndexing = true;
+            this.ViewBag.UserId = this.Auth.User.Id;
 
             return View();
         }
 
-        /*private string GetPayString()
+        public ActionResult GetYandexForm()
         {
-            var payService = new PayService(this.Auth.User);
+            var form = "";
 
-            var priceRub = int.Parse(ConfigurationManager.AppSettings["PayValue"]);
-            var orderId = payService.PrepareAccount();
-            var customerEmail = this.Auth.User.Login;
-
-            string redirectUrl =
-                string.Format("<a id=\"gopay\" class=\"btn btn-custom-green\" href=\"{0}\" disabled >Оплатить</a>",
-                Robokassa.GetRedirectUrl(priceRub, orderId, customerEmail, this.Auth.User.Id.ToString()));
-            
-            return redirectUrl;
-
-        }*/
-
-        /*[HttpGet]
-        public string Result(RobokassaConfirmationRequest confirmationRequest)
-        {
-            try
-            {
-                var log = new Log()
-                {
-                    Context = "Pay",
-                    Level = Entites.Enums.LogLevel.Critical,
-                    Message = this.Request.RawUrl,
-                    UserName = this.Auth.User != null ? this.Auth.User.Login : "System",
-                    Addr = this.Request.ServerVariables["REMOTE_ADDR"],
-                    Agent = this.Request.ServerVariables["HTTP_USER_AGENT"],
-                    Query = this.Request.ServerVariables["QUERY_STRING"]
-                };
-
-                log.Create();
-            }
-            catch (Exception ex)
-            {
-            }
-
-            try
-            {
-
-                if (confirmationRequest.IsQueryValid(RobokassaQueryType.ResultURL))
-                {
-                    var userId = int.Parse(confirmationRequest.Shp_item);
-
-                    var dateBegin = DateTime.Now;
-                    var dateEnd = DateTime.Now.AddMonths(1);
-
-                    var user = UserSystem.GetById(userId); 
-
-                    if (user != null)
-                    {
-                        var payService = new PayService(user);
-                        payService.MakePay(confirmationRequest.InvId);
-
-                        try
-                        {
-                            var service = new EmailService(this.Auth.User.Email);
-                            service.MakePay(this.Auth.User.Login, this.Auth.User.FullName, DateTime.Now.ToString(), Constants._SUB_SUM.ToString());
-                        }
-                        catch
-                        { }
-                    }
-
-                    return "OK"; 
-                }
-            }
-            catch (Exception) 
-            {
-                return "False";
-            }
-
-            return "False";
-        }*/
-
-        /*public ActionResult Success(RobokassaConfirmationRequest confirmationRequest)
-        {
-            this.ViewBag.NoIndexing = true;
-
-            return View();
-        }*/
-
-        public ActionResult Fail()
-        {
-            this.ViewBag.NoIndexing = true;
-
-            return View();
+            return JsonSuccess(form);
         }
 
-        private bool IsValid()
+        [HttpPost]
+        public void Paid(string notification_type, string operation_id, string label, string datetime,
+            decimal amount, decimal withdraw_amount, string sender, string sha1_hash, string currency, bool codepro)
         {
-            string sMrchPass2 = "my-tend2016";
+            string key = "t40EFlYqHufXpZN/Nm2P3JQJ";
 
-            // HTTP parameters
-            string sOutSum = GetPrm("OutSum");
-            string sInvId = GetPrm("InvId");
-            string Shp_item = GetPrm("Shp_item");
-            string sCrc = GetPrm("SignatureValue");
+            string paramString = String.Format("{0}&{1}&{2}&{3}&{4}&{5}&{6}&{7}&{8}",
+                notification_type, operation_id, amount, currency, datetime, sender,
+                codepro.ToString().ToLower(), key, label);
 
-            string sCrcBase = string.Format("{0}:{1}:{2}:Shp_item={3}",
-                                             sOutSum, sInvId, sMrchPass2, Shp_item);
+            string paramStringHash1 = GetHash(paramString);
+            StringComparer comparer = StringComparer.OrdinalIgnoreCase;
 
-            // build own CRC
-            MD5CryptoServiceProvider md5 = new MD5CryptoServiceProvider();
-            byte[] bSignature = md5.ComputeHash(Encoding.ASCII.GetBytes(sCrcBase));
+            var user = UserSystem.Find(int.Parse(label));
 
-            StringBuilder sbSignature = new StringBuilder();
-            foreach (byte b in bSignature)
-                sbSignature.AppendFormat("{0:x2}", b);
+            var payService = new PayService(user);
+            var payInfo = payService.Notify(label, paramString);
 
-            string sMyCrc = sbSignature.ToString();
-
-            if (sMyCrc.ToUpper() != sCrc.ToUpper())
+            if (comparer.Compare(paramStringHash1, sha1_hash) == 0)
             {
-                return false;
+                payService.MakePay(payInfo);
             }
-
-            return true;
         }
 
-        private string GetPrm(string sName)
+        private string GetHash(string val)
         {
-            string sValue = string.Empty;
+            SHA1 sha = new SHA1CryptoServiceProvider();
+            byte[] data = sha.ComputeHash(Encoding.Default.GetBytes(val));
 
-            if ((this.Request.Params[sName] as string) != null)
-                return this.Request.Params[sName] as string;
+            StringBuilder sBuilder = new StringBuilder();
 
-            if ((this.Request[sName] as string) != null)
-                return this.Request[sName] as string;
-
-            if ((this.Request.QueryString[sName] as string) != null)
-                return this.Request.QueryString[sName] as string;
-
-            return sValue;
+            for (int i = 0; i < data.Length; i++)
+            {
+                sBuilder.Append(data[i].ToString("x2"));
+            }
+            return sBuilder.ToString();
         }
     }
 }

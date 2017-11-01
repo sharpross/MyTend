@@ -19,6 +19,8 @@
 
         public List<City> SubCitys { get; set; }
 
+        public Dictionary<string, List<City>> GroupCitys { get; set; }
+
         public HttpPostedFileBase[] AvatarFile { get; set; }
 
         public HttpPostedFileBase[] ProfileFiles { get; set; }
@@ -58,6 +60,7 @@
             this.TenderThemes = this.GetListTenderTheme();
             this.SubCitys = new List<City>();
             this.SubRegions = new List<Region>();
+            this.GroupCitys = new Dictionary<string, List<City>>();
             this.Portfolios = new List<FileSystem>().ToArray();
             this.Youtube = user.Youtube;
 
@@ -76,6 +79,14 @@
             }
 
             var obj = UserSystem.GetById(this.Id);
+
+            var allCitys = RegionService.CityAll()
+                .GroupBy(x => x.Region.Name);
+
+            foreach (var kvp in allCitys)
+            {
+                this.GroupCitys.Add(kvp.Key, kvp.ToList());
+            }
 
             this.LoadPortfolios(obj);
         }

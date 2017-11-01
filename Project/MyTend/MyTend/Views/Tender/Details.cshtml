@@ -35,7 +35,7 @@
 </div>	
 <div class="row">
     <div class="col-md-12";">
-             <h5><i class="glyphicon glyphicon-globe" style="color: #ac47cd;"></i>
+             <h5> <img src="~/Content/images/geo2.png"width="17" height="17" />
            
             Место исполнения:@if (Model.Region.IsMillion == false)
             {
@@ -52,7 +52,7 @@
         </h5>
 				
 		<h5>
-		<div style="color: #111111 ;"> <i class="glyphicon glyphicon-time" aria-hidden="true" style="color: #ff0000;"></i> Дата и время проведения:<strong>
+		<div style="color: #111111 ;">  <img src="~/Content/images/data.png"width="18" height="19" /> Дата и время проведения:<strong>
                 @string.Format("{0}  {1}", Model.EventDay, Model.EventTime)</strong>
             </div>
         </h5>
@@ -62,12 +62,12 @@
 </div>
 		
     <p style="word-wrap: break-word;">
-       <i class="glyphicon glyphicon-cutlery" style="color: #07a7fa;"></i> Количество гостей <span style="color: #333333;"><strong>
+      <img src="~/Content/images/gosti.png"width="20" height="18" /> Количество гостей <span style="color: #333333;"><strong>
                 @string.Format("{0} чел.", Model.CountGuests)</strong>
             </span>
        
 		    
-       <h5><i class="glyphicon glyphicon-usd" style="color: #90d228;"></i> Запланированный бюджет <strong>
+       <h5><img src="~/Content/images/rubl.png"width="19" height="16" /> Запланированный бюджет <strong>
     <span style="color: #333333;">
         @if (Model.Cost.ToString() == "0")
         {
@@ -315,15 +315,38 @@
             </div>
         </div>
         <div class="row" style="border: 1px solid #d8dfe6; border-top: 0px; border-bottom: 0px; background-color: #f0f2f7; font-weight: bold;">
-            <div class="col-md-12" style="text-align: right">
+            <div class="col-md-12" style="">
                 <div style="padding-top: 10px; padding-bottom: 10px;">
                     @if (Model.Winner == null)
                     {
                         if (message.User.Login != ViewBag.UserLogin && Model.User.Login == ViewBag.UserLogin)
                         {
-                            <span style="padding-left: 40px;">
-                                @Html.ActionLink("Выбрать победителем конкурса", "SelectWinner", "Tender", new { @tenderId = Model.Id, @userId = message.User.Id }, new { @style = "", @class = "makeSub" })
-                            </span>
+                            <div style="width: 100%; text-align: right">
+                                <span style="padding-left: 40px;">
+                                    <a href="#" class="makeSub" data-toggle="modal" data-target="@String.Format("#myModal-{0}", msgNum)">Выбрать победителем конкурса</a>
+                                </span>
+                            </div>
+                            <!-- Всплывающее окно начало -->
+                            <div class="modal fade" id="@String.Format("myModal-{0}", msgNum)" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <img src="@Url.Content("~/Content/images/logo-3.png")" height="60">
+                                            <h4 class="modal-title" id="myModalLabel"> Выбрать победителем?</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <h5>
+                                                Вы уверены что хотите выбрать победителем @message.User.FullName
+                                            </h5>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-custom-red" data-dismiss="modal">Отмена</button>
+                                            <button type="button" class="btn btn-custom-green" onclick="selectWinner(@Model.Id, @message.User.Id)">Выбрать</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Всплывающее окно начало -->
                         }
                     }
                     else
@@ -340,6 +363,22 @@
         </div>
     }
 }
+	
+<script>
+    function selectWinner(tenderId, userId) {
+        $.ajax({
+            url: '/Tender/SelectWinner',
+            data: {
+                userId: userId,
+                tenderId: tenderId
+            },
+            success: function () {
+                var url = "@string.Format("/Tender/SelectedWinner?id={0}", Model.Id)"
+                window.location = url;
+            }
+        })
+    }
+</script>
 
 @if (Model.Winner == null)
 {

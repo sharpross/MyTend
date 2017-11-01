@@ -6,6 +6,7 @@ using System;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
+using MyTender.Security;
 
 namespace MyTend
 {
@@ -31,9 +32,7 @@ namespace MyTend
                 configuration.For<AccountController>(ac => ac.Login(string.Empty, string.Empty)).Ignore();
                 configuration.For<AccountController>(ac => ac.Card(string.Empty, string.Empty)).Ignore();
                 configuration.For<AccountController>(ac => ac.Welcom()).Ignore();
-                //configuration.For<PayController>(ac => ac.Result(null)).Ignore();
-                //configuration.For<PayController>(ac => ac.Success(null)).Ignore();
-                configuration.For<PayController>(ac => ac.Fail()).Ignore();
+                configuration.For<PayController>(ac => ac.Paid(string.Empty, string.Empty, string.Empty, string.Empty, 0, 0, string.Empty, string.Empty, string.Empty, false)).Ignore();
                 configuration.For<ErrorController>().Ignore();
 
 
@@ -42,7 +41,7 @@ namespace MyTend
                 configuration.For<TenderController>(ac => ac.Map()).Ignore();
             });
 
-            filters.Add(new HandleErrorAttribute());
+            filters.Add(new ErrorAtr());
             filters.Add(new HandleSecurityAttribute(), 0);
         }
 

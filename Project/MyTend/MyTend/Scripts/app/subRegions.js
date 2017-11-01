@@ -1,4 +1,31 @@
 ﻿$(document).ready(function () {
+    $('input.subCity').on('click', function (el) {
+        var citys = $('input.subCity:checked'),
+            sub = [];
+
+        for (var i = 0; i < citys.length; i++) {
+            var c = $('input[id=' + citys[i].id + ']');
+            if (c[0].checked === true) {
+                sub.push(c[0].id * 1);
+            }
+        }
+
+        if (sub.length > 15) {
+            el.target.checked = false;
+        } else {
+            $.ajax({
+                url: '/Account/UpdateSubRegions',
+                data: {
+                    model: {
+                        Citys: sub
+                    }
+                },
+                method: 'POST',
+                success: function (resp) {}
+            });
+        }
+    });
+    
 
     $('select[id=subCountrysSelect]').change(function (e) {
         var id = e.target.selectedOptions[0].id;

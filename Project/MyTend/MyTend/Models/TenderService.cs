@@ -144,7 +144,7 @@ namespace MyTend.Models
                 var exist = TenderMessage.FindAll(Expression.Eq("Tender", x))
                     .Any();
 
-                if (!exist)
+                //if (!exist)
                 {
                     tenderResult.Add(x);
                 }

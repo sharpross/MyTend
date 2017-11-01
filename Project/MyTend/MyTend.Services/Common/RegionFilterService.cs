@@ -7,6 +7,7 @@
     using System;
     using System.Collections.Generic;
     using System.Linq;
+    using System.Configuration;
 
     /// <summary>
     /// Сервис для управления подписками и получение списка тендеро
@@ -51,7 +52,7 @@
         /// </summary>
         /// <param name="citys"></param>
         /// <param name="regions"></param>
-        public void Save(List<string> citys, List<string> regions)
+        public void Save(List<int> citys, List<string> regions)
         {
             var allFilters = RegionFilter.FindAll(Expression.Eq("User", user))
                .ToList();
@@ -61,10 +62,11 @@
                 filter.Delete();
             }
 
-            foreach (var city in citys.Skip(Math.Max(0, citys.Count - Constants._MAX_SUB_CITYS)))
+            var maxCitys = int.Parse(ConfigurationManager.AppSettings["MaxCitySub"]);
+
+            foreach (var city in citys.Skip(Math.Max(0, citys.Count - maxCitys)))
             {
-                var cityObj = City.GetByProp("Name", city)
-                    .FirstOrDefault();
+                var cityObj = City.GetById(city);
 
                 if (cityObj != null)
                 {

@@ -47,16 +47,3 @@ var emailValidation = function () {
 
     return re.test(email);
 };
-/*
-$(document).ready(function ($) {
-    $('textarea').wysihtml5();
-    $('input[name="Phone"]').mask("+7(999) 999-99-99");
-    $(PASSWORD_INPUT).on('change', function () {
-
-    });
-    $(EMAIL_INPUT).on('change', function () {
-        $('button[type="submit"]').attr('disabled', !emailValidation());
-        $('.email-error').attr('hidden', !emailValidation());
-    });
-});*/
-

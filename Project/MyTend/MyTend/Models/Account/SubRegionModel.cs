@@ -6,13 +6,13 @@
 
     public class SubRegionModel
     {
-        public List<string> Citys { get; set; }
+        public List<int> Citys { get; set; }
 
         public List<string> Regions { get; set; }
 
         public SubRegionModel()
         {
-            this.Citys = new List<string>();
+            this.Citys = new List<int>();
             this.Regions = new List<string>();
         }
 

@@ -627,3 +627,18 @@ header {
     background-color: #ffffff;
     border-color: #fff;
 }
+
+.panel-group .panel-heading {
+    padding: 5px 15px;
+    position: relative;
+}
+
+.modal-header {
+    border-bottom: 0px solid #e5e5e5;
+    text-align: center;
+}
+
+.modal-footer {
+    border-top: 0px solid #e5e5e5;
+    text-align: center;
+}

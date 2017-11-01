@@ -67,7 +67,6 @@
                     {
                         <img src="/Image/Get?id=0" width="300" height="300" class="img-thumbnail" id="avatar">
                     }
-
                     <input type="file" accept="image/*" name="AvatarFile" id="AvatarFile" style="padding-top: 10px; padding-bottom: 10px;" />
                     <div class="row" style="text-align: center;">
                         <div style="padding: 20px 0px 20px 0px; text-align: left;">
@@ -245,8 +244,24 @@
         <!-- Портфолио -->
         <div class="tab-pane" id="tab5-2">
             <div style="padding-bottom: 20px;">
-			<br />
-                <h4> Разместите несколько фотографий с вашей работой.</h4> Наглядность вашей деятельности увеличит шанс на успех среди заказчиков.
+					<br />
+
+		 <div class="row">
+            <div class="col-md-1"><img src="~/Content/images/port.png" width="60" height="60" /></div>
+            <div class="col-md-11" style="line-height:20px">
+                <div style="font-weight: bold; font-size: 17px;">Портфолио вашей услуги.
+				</div>
+                <div style="font-size: 14px;">
+                Разместите несколько фотографий с вашей работой. Наглядность вашей деятельности увеличит шанс на успех среди заказчиков. <br />
+				  <br />
+				   <p> <i><span style="color: #f54e4e;">
+               Изображения в данном разделе не должны нарушать любые законы РФ об иллюстрациях, изображениях людей, и авторских правах .
+             
+           </i> </span></p>
+                </div>
+ </div> </div>
+			<br />	
+				
             </div>
             @using (Html.BeginForm("UpdateProfiles", "Account", FormMethod.Post, new { enctype = "multipart/form-data" }))
             {
@@ -309,9 +324,23 @@
         <!-- Об услуге -->
         <div class="tab-pane" id="tab5-3">
             <div style="padding-bottom: 20px;">
-			<br />
-                <h4> В данном разделе опишите  об услуге, которую Вы оказываете. </h4>
-                <h5> Максимальная  длина текста, до<strong>  20.000</strong> символов.</h5>
+					<br />
+
+		 <div class="row">
+            <div class="col-md-1"><img src="~/Content/images/obusluge.png" width="60" height="60" /></div>
+            <div class="col-md-11" style="line-height:20px">
+                <div style="font-weight: bold; font-size: 17px;"> Об услуге, которую Вы оказываете.
+				</div>
+                <div style="font-size: 14px;">
+                 В данном разделе опишите  об услуге, которую Вы оказываете. <br />
+				  Максимальная  длина текста, до<strong>  20.000</strong> символов.<br /> <br />
+				   <p> <i><span style="color: #f54e4e;">
+                Информация в данном разделе не должна нарушать законы РФ, должна быть правдивой и соответствовать правилам добросовестной конкуренции.
+                Утверждения рекламного характера, а также прилагательных в превосходной степени «самый», «полный», «дешевый», «лучший», «единственный» и им подобных, не допускается</i>.
+           </span></p>
+                </div>
+ </div> </div>
+			<br />	
 				
             <div class="row">
                 <form method="post" action="UpdateProfile">
@@ -321,21 +350,18 @@
                             <br />
                         </div>
                     </div>
-					<div style="text-align: center;">
-   
-     
-</div><i>
-                Информация в данном разделе не должна нарушать законы РФ, должна быть правдивой и соответствовать правилам добросовестной конкуренции.
-                Утверждения рекламного характера, а также прилагательных в превосходной степени «самый», «полный», «дешевый», «лучший», «единственный» и им подобных, не допускается</i>.
-            </div>
-                    <div class="<div class=" form-group">
+                    <div style="text-align: center;"></div>
+                    <i>
+                        Информация в данном разделе не должна нарушать законы РФ, должна быть правдивой и соответствовать правилам добросовестной конкуренции.
+                        Утверждения рекламного характера, а также прилагательных в превосходной степени «самый», «полный», «дешевый», «лучший», «единственный» и им подобных, не допускается
+                    </i>.
+                    <div class=" form-group">
                         <div class="col-md-12 progress-demo" style="text-align: center; padding-top: 20px;">
-                           
-							
                             <button type="button" class="btn btn-custom-orange ladda-button" data-style="expand-left" onclick="savePortfolio(this)">Сохранить текст</button>
                         </div>
                     </div>
                 </form>
+            </div>
                 <script>
                     function savePortfolio(el) {
                         var ani = new kamati.animation.dots(el);
@@ -361,17 +387,28 @@
 
         <!-- Тендеры -->
         <div class="tab-pane" id="tab5-4">
-		<br />
-            <h4> Что бы получать заявки только на услуги которые Вы оказываете, укажите их системе.</h4>
+	
+          
 
             <div style="padding-bottom: 20px;">
-                Темы показаны, по примеру запроса от лица заказчика.  У Вас есть возможность подписаться на <strong>10</strong> тем.
-                После внесенных изменений, перед тем как покинуть вкладку нажмите кнопку<strong> «Сохранить / Подписаться»</strong>.
+              		<br />
+
+		 <div class="row">
+            <div class="col-md-1"><img src="~/Content/images/podpiska.png" width="60" height="60" /></div>
+            <div class="col-md-11" style="line-height:20px">
+                <div style="font-weight: bold; font-size: 17px;">Подпишитесь на заявки по видам услуг.
+				</div>
+                <div style="font-size: 14px;">
+                  Найдите в списке тем, услуги которые Вы  готовы оказывать, и поставьте галочки. Заявки будут приходить только по этим услугам. <br />
+				  Максимальное количество выбранных услуг - 15.
+				  
+                </div>
+ </div> </div>
+			<br />	
             </div>
             <div class="row">
                 <div class="col-lg-8">
                     <div class="SubTender">
-
                         <div class="wp-example" id="accordions">
                             <div class="panel-group" id="accordionThree">
                                 @{
@@ -392,24 +429,24 @@
                                             <div class="row">
                                                 @foreach (var title in theme.Value)
                                                 {
-                                                <div class="col-md-8">
-                                                    @if (!title.IsTitle)
-                                                    {
-                                                        @title.Title
-                                                    }
-                                                    else
-                                                    {
-                                                    <div style="font-weight: bold; color: #950f81">
-                                                        @title.Title
+                                                    <div class="col-md-8">
+                                                        @if (!title.IsTitle)
+                                                        {
+                                                            <h5>@title.Title</h5>
+                                                        }
+                                                        else
+                                                        {
+                                                        <div style="font-weight: bold; color: #950f81">
+                                                            <h5>@title.Title</h5>
+                                                        </div>
+                                                        }
                                                     </div>
-                                                    }
-                                                </div>
-                                                <div class="col-md-4">
-                                                    @if (!title.IsTitle)
-                                                    {
-                                                        <input type="checkbox" name="@title.Id" id="@title.Id" class="subCheck" />
-                                                    }
-                                                </div>
+                                                    <div class="col-md-4">
+                                                        @if (!title.IsTitle)
+                                                        {
+                                                            <input type="checkbox" name="@title.Id" id="@title.Id" class="subCheck" />
+                                                        }
+                                                    </div>
                                                 }
                                             </div>
                                             <div class="row">
@@ -425,11 +462,9 @@
                                     i++;
                                 }
                             </div>
-
                         </div>
                         <div class="row">
                             <div class="col-lg-12" style="text-align: center; padding-top: 0px;">
-
                                 <button type="button" class="btn btn-custom-orange subThemeBtn" onclick="UpdateSubsciptions(this)">Сохранить / Подписаться</button>
                             </div>
                         </div>
@@ -437,159 +472,153 @@
                 </div>
                 <div class="col-lg-4"></div>
             </div>
-            
         </div>
-        <script>
-            $(document).ready(function () {
-                var max = 10;
-
-                $('input.subCheck').on('click', function (el) {
-                    var selected = $('input.subCheck');
-
-                    var sel = 0;
-
-                    for (var i = 0; i < selected.length; i++) {
-                        if (el.target != selected[i]) {
-                            if (selected[i].checked == true) {
-                                sel++;
-                            }
-
-                            if (sel == max) {
-                                break;
-                            }
-                        }
-                    }
-
-                    if (sel == max) {
-                        el.target.checked = false;
-                    }
-                });
-            });
-
-            function UpdateSubsciptions() {
-                
-                $('button.subThemeBtn').attr('disabled', 'disabled');
-                var subs = [];
-
-                var selected = $('input.subCheck');
-
-                for (var i = 0; i < selected.length; i++) {
-                    if (selected[i].checked == true) {
-                        subs.push({ Id: selected[i].id});
-                    }
-                }
-
-                $.ajax({
-                    url: '/Account/UpdateSubThemes',
-                    data: {
-                        ListThemes: subs
-                    },
-                    type: 'POST',
-                    success: function (resp) {
-                        var url = window.location.origin + window.location.pathname + "?tab=tab5-4";
-                        //window.location = url;
-                        $('button.subThemeBtn').removeAttr('disabled');
-                    }
-                });
-            }
-
-            function setChecked(data){
-                for(var i = 0; i < data.length; i++){
-                    var selected = $('input.subCheck[id='+data[i].Id+']');
-
-                    if (selected.length > 0){
-                        selected.attr('checked', true);
-                    }
-                }
-            }
-
-            $(document).ready(function() {
-                $.ajax({
-                    url: '/Account/GetSubThemes',
-                    type: 'POST',
-                    success: function (resp) {
-                        setChecked(resp.Data);
-                    }
-                });
-            });
-        </script>
+        
 
         <!-- Города -->
         <div class="tab-pane" id="tab5-5">
+         		<br />
 
+		 <div class="row">
+            <div class="col-md-1"><img src="~/Content/images/GOROD.png" width="60" height="60" /></div>
+            <div class="col-md-11" style="line-height:20px">
+                <div style="font-weight: bold; font-size: 17px;">Подпишитесь на заявки из  городов в которых вы оказываете услуги.
+				</div>
+                <div style="font-size: 14px;">
+				Найдите города в которых Вы оказыаете свои услуги, и поставьте галочки, что  бы получать заявки на исполнение услуг в этих городах.
+                <br />
+				  Что бы отписаться от города, уберите галочку.
+				  <br />
+				  Максимальное количество выбранныхгородов - 15.
+				  
+                </div>
+ </div> </div>
+			<br />	
+		<h2>Россия</h2>
+			
             <div class="row">
-                <form method="post" action="UpdateProfile">
-                    <div class="row">
-                        <div class="col-lg-5">
-                            <div class="form-group">
-                                <label for="SubTheme2" class="control-label col-md-12">Выберите страну, регион</label>
-                                <div class="col-md-12">
-                                    <select class="form-control" name="Region" id="subRegionSelect" required>
-                                        <option disabled selected>Выберите регион</option>
-                                        @foreach (var item in Model.ListRegions)
-                                        {
-                                            <option id="@item.Id">@item.Name</option>
-                                        }
-                                    </select>
+                <div class="col-lg-8">
+                    <div class="wp-example" id="accodrions2">
+                        <div class="panel-group" id="accordionTree2">
+                            @{ 
+                                i++;
+                            }
+                            @foreach (var region in Model.GroupCitys)
+                            {
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title">
+                                            <a data-toggle="collapse" data-parent="#accordionThree" href="@string.Format("#collapse{0}a", i)" class="collapsed">
+                                                @region.Key
+                                            </a>
+                                        </h4>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="SubTheme2" class="control-label col-md-12">Чтобы подписаться на отдельные города: Выберите страну, регион, город, нажмите «Добавить город»</label>
-                                <div class="col-md-12">
-                                    <select class="form-control" name="City" id="subCitySelect" required>
-                                        <option disabled selected>Выберите город</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="form-group col-md-12" style="padding-top: 10px; text-align: center">
-                                    <button type="button" class="button" onclick="addCityToList()"><strong>Добавить город</strong></button>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-lg-12" id="listCity">
-                                    @if (Model.SubCitys.Count > 0)
-                                    {
-                                        foreach (var city in Model.SubCitys)
-                                        {
-                                            <div class="city-block" id="@city.Name">
-                                                <div class="city-title">
-                                                    @city.Name
-                                                    <span class="fa fa-times red like-link" onclick="removeFromList(this)"></span>
+                                <div id="@string.Format("collapse{0}a", i)" class="panel-collapse collapse" style="height: 0px;">
+                                    <div class="panel-body">
+                                        <div class="row">
+                                            @foreach (var city in region.Value)
+                                            {
+                                                <div class="col-md-4">
+                                                    <h5>@city.Name</h5>
                                                 </div>
-                                            </div>
-                                        }
-                                    }
+                                                <div class="col-md-8">
+                                                    @if (Model.SubCitys.FirstOrDefault(x => x.Id == city.Id) != null)
+                                                    {
+                                                    <input type="checkbox" name="@city.Id" id="@string.Format("{0}", city.Id)" class="subCity" checked/>
+                                                    }
+                                                    else
+                                                    {
+                                                    <input type="checkbox" name="@city.Id" id="@string.Format("{0}", city.Id)" class="subCity" />
+                                                    }
+                                                </div>
+                                            }
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-7">
-                            
+                                i++;
+                            }
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="form-group col-lg-12" style="padding-left: 40px; padding-right: 40px; padding-top: 40px;">
-
-                            <div>
-                                Чтобы добавить еще один регион/город:<strong> повторите действия и нажмите нужную кнопку</strong>.
-                            </div>
-                            <div>
-                                Если вы не желаете получать заявки, связанные с подписанным регионом или городом, <strong>удалите их, нажав на крестик рядом</strong>.
-                            </div>
-                            <div>
-                                Подписаться на города-субьекты, такие как Москва, Санкт-Петербург, Севастополь <strong>можно, добавив и как регион, и как город</strong>.
-                            </div>
-                            <div>
-                                Подписываться на город, который относится к региону, на который вы уже подписаны, не имеет смысла.
-                            </div>
-                            <div>
-                                Для уточнения географии исполнения Ваших услуг Вы можете подписаться на: <strong>4 региона</strong>, а также отдельно на <strong>10 городов</strong>.
-                            </div>
-
-                        </div>
-                    </div>
-                </form>
+                </div>
+                <div class="col-lg-8"></div>
             </div>
+            <!-- Города0 -->
+            <script>
+                $(document).ready(function () {
+                    var max = 10;
+
+                    $('input.subCheck').on('click', function (el) {
+                        var selected = $('input.subCheck');
+
+                        var sel = 0;
+
+                        for (var i = 0; i < selected.length; i++) {
+                            if (el.target != selected[i]) {
+                                if (selected[i].checked == true) {
+                                    sel++;
+                                }
+
+                                if (sel == max) {
+                                    break;
+                                }
+                            }
+                        }
+
+                        if (sel == max) {
+                            el.target.checked = false;
+                        }
+                    });
+                });
+
+                function UpdateSubsciptions() {
+
+                    $('button.subThemeBtn').attr('disabled', 'disabled');
+                    var subs = [];
+
+                    var selected = $('input.subCheck');
+
+                    for (var i = 0; i < selected.length; i++) {
+                        if (selected[i].checked == true) {
+                            subs.push({ Id: selected[i].id });
+                        }
+                    }
+
+                    $.ajax({
+                        url: '/Account/UpdateSubThemes',
+                        data: {
+                            ListThemes: subs
+                        },
+                        type: 'POST',
+                        success: function (resp) {
+                            var url = window.location.origin + window.location.pathname + "?tab=tab5-4";
+                            //window.location = url;
+                            $('button.subThemeBtn').removeAttr('disabled');
+                        }
+                    });
+                }
+
+                function setChecked(data) {
+                    for (var i = 0; i < data.length; i++) {
+                        var selected = $('input.subCheck[id=' + data[i].Id + ']');
+
+                        if (selected.length > 0) {
+                            selected.attr('checked', true);
+                        }
+                    }
+                }
+
+                $(document).ready(function () {
+                    $.ajax({
+                        url: '/Account/GetSubThemes',
+                        type: 'POST',
+                        success: function (resp) {
+                            setChecked(resp.Data);
+                        }
+                    });
+                });
+            </script>
+            
             <script src="~/Scripts/app/subRegions.js"></script>
         </div>
     </div>

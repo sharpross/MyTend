@@ -98,14 +98,12 @@
                 var messageService = new UserMessagesService(this.Auth.User);
 
                 this.ViewBag.ActiveTendersCount = tenderService.GetCountTenders();
-                this.ViewBag.UnreadedMessages = 0;//messageService.CountUnread();
+                this.ViewBag.UnreadedMessages = 0;
 
                 this.ViewBag.IsAuth = true;
                 this.ViewBag.UserLogin = this.Auth.User.Login;
                 this.ViewBag.UserEmail = this.Auth.User.Email;
                 this.ViewBag.UserName = this.Auth.User.FullName;
-                this.ViewBag.HasPay = payService.HasPay();
-                this.ViewBag.PayEnd = payService.PayEnd();
 
                 var active = 0;// new MyTend.Models.TenderService().GetActive().Count;
                 var winner = 0;// new MyTend.Models.TenderService().GetWinner().Count;

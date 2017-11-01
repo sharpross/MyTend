@@ -94,9 +94,9 @@
 
             if (model.IsValid())
             {
-                var isSub = this.ViewBag.HasPay;
+                var isSub = this.Auth.User.SubToDate >= DateTime.Now;
 
-                model.Save(isSub);
+                model.Save(true);
 
                 this.tempString = model.Title;
 
@@ -196,7 +196,7 @@
                 return JsonFailur(ex.Message);
             }
 
-            return RedirectToAction("SelectedWinner", new { @id = tenderId });
+            return JsonSuccess();// RedirectToAction("SelectedWinner", new { @id = tenderId });
         }
 
         public ActionResult CancelTender(int id)
