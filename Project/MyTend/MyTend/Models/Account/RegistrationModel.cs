@@ -10,6 +10,7 @@
     using System.Text;
     using System.Threading.Tasks;
     using System.Web;
+    using MyTend.Services.Common;
 
     public class RegistrationModel : UserSystem
     {
@@ -63,6 +64,13 @@
             if (obj.IsValid())
             {
                 var next = true;
+                var users = UserSystem.FindAllByProperty("Phone", obj.Phone);
+
+                if (users.Any())
+                {
+                    this.Errors.Add("Пользователь с иаким номером телефона зарегистрирован. Пожалуйста воспользуйтесь восстановлением аккаунта.");
+                    next = false;
+                }
 
                 if (this.Password != this.Password2)
                 {
@@ -75,13 +83,7 @@
                     this.Errors.Add("Вы не согласились с правилами сайта.");
                     next = false;
                 }
-
-                if (this.IsAllowPublic != "on")
-                {
-                    this.Errors.Add("Вы не согласились с правилами сайта.");
-                    next = false;
-                }
-
+                
                 if (next)
                 {
                     obj.Create();
@@ -102,7 +104,7 @@
 
             return false;
         }
-
+        
         public FileSystem UpdateAvatar(UserSystem user)
         {
             FileSystem file = null;

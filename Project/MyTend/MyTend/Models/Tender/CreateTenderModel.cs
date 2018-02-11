@@ -1,17 +1,15 @@
 ﻿namespace MyTend.Models
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Configuration;
+    using System.Linq;
+    using System.Web;
     using MyTend.Entites;
     using MyTend.Services;
     using MyTend.Services.File;
     using MyTender.Security;
     using NHibernate.Criterion;
-    using System;
-    using System.Collections.Generic;
-    using System.Configuration;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
-    using System.Web;
 
     public class CreateTenderModel : Tender
     {

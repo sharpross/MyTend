@@ -4,13 +4,17 @@
     ViewBag.Title = "Заявки от заказчиков/покупателей";
 }
 
+<div style="padding-top: 20px;">
+	@RenderPage("Common/Search.cshtml", Model)
+</div>
+
+
 <h3 style="color: #222222;"> Приглашения принять участие в аукционных-торгах</h3>
 
 <h5>
     
     Если Вы откликнитесь  предложением для заказчика, заявка перейдет в меню «Мои Предложения Заказчикам» где Вы сможете следить за ходом аукционного-торга.
 </h5>
-
 
 <div class="tabs">
      
@@ -21,15 +25,27 @@
                 foreach (var item in Model.Tenders)
                 {
                     <div class="row" id="tenderrow-@item.Id">
-                        <div class="col-lg-1">
+                        <div class="col-lg-2 text-center">
                             <a href="~/Tender/Details?id=@item.Id">
-                                <img src="~/Content/images/kats/@item.Theme.ImageName" width="90" height="100" />
+                                @if (item.User.Avatar != null)
+                                {
+                                    <div>
+                                        <img src="~/image/get/@item.User.Avatar.Id" width="100" height="100" class="img-circle" />
+                                    </div>
+                                }
+                                else
+                                {
+                                    <div>
+                                        <img src="~/image/get/0" width="100" height="100" class="img-circle" />
+                                    </div>
+                                }
+                                
                             </a>
                         </div>
-                        <div class="col-lg-11">
+                        <div class="col-lg-10">
                             <table style="width: 100%">
                                 <tr>
-                                    <td width="20%" style="text-align: right;">
+                                    <td width="5%" style="text-align: right;">
                                         <strong></strong>
                                     </td>
                                     <td style="padding-left: 10px;">
@@ -37,7 +53,7 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td width="20%" style="text-align: right;">
+                                    <td width="5%" style="text-align: right;">
                                         <strong></strong>
                                     </td>
                                     <td style="padding-left: 10px;">
@@ -52,32 +68,22 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td width="20%" style="text-align: right;">
+                                    <td width="5%" style="text-align: right;">
                                         <strong></strong>
                                     </td>
-                                    <td style="padding-left: 10px;">
-                                        <span style="color: #858585;">
-                                            @item.City.Name
-                                        </span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td width="20%" style="text-align: right;">
-                                        <strong></strong>
-                                    </td>
-                                    <td style="padding-left: 10px;">
-                                        <span style="color: #858585;">
-                                            @string.Format("Рассмотрение предложений: c " + item.CreatedDateTime.ToString("dd.MM.yyyy") + " до " + item.DateEnd.ToString("dd.MM.yyyy"))
-                                        </span>
+                                    <td style="padding-left: 10px; line-height: 18px;">
+                                        <div>@string.Format("{0}", item.Theme.Title)</div>
+                                        <div>@string.Format("{0} / {1}", item.Region.Name, item.City.Name) </div>
+                                        <div>@string.Format("Рассмотрение предложений: c " + item.CreatedDateTime.ToString("dd.MM.yyyy") + " до " + item.DateEnd.ToString("dd.MM.yyyy"))</div>
                                     </td>
                                 </tr>
 
                                 <tr>
-                                    <td width="20%" style="text-align: right;">
+                                    <td width="5%" style="text-align: right;">
                                         <strong></strong>
                                     </td>
                                     <td style="padding-left: 10px; text-align: right;">
-                                        <a href="#" style="color: #eca62b;" onclick="hideTender(@item.Id)"><i class="glyphicon glyphicon-remove" style="color: #eca62b;"></i>Удалить</a>
+                                        <a href="#" style="color: #b0b0b0;" onclick="hideTender(@item.Id)"><i class="glyphicon glyphicon-remove" style="color: #b0b0b0;"></i>Удалить</a>
                                     </td>
                                 </tr>
                             </table>
@@ -89,10 +95,10 @@
             {
 			<p class="bg-warning">
                 <div><strong>
-                    Заявок пока не поступало, рекомендуем проверить позже</strong>.
+                    <img src="~/Content/images/lamp.png"width="16" height="20" />Заявок по условиям выбранных услуг и городов, пока не поступало, рекомендуем проверить позже!</strong>.
                 </div>
                 <div>
-                    В случае поступления заявок, Робот-Тендер оповестит и пригласит Вас ознакомиться с заявками, по электронной почте.
+                    В случае если кто то разместит заявку в категории ваших услуг и городе, Робот-Тендер оповестит и пригласит Вас ознакомиться с заявками, по электронной почте.
                 </div>
 				<div>
                     Так же рекомендуем проверять наличие новых заявок самостоятельно, в этом пункте меню.
@@ -104,7 +110,7 @@
             }
 
         </div>
-	  <img src="~/Content/images/stars.png" style="width: 100%" />
+	 
     </div>
 </div>
 

@@ -11,9 +11,7 @@
     public class AuthService
     {
         private UserSystem CurrentSystemUser { get; set; }
-
-        //public HttpContextBase HttpContext { get; set; }
-
+        
         public UserSystem User
         { 
             get 

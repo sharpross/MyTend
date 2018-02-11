@@ -1,0 +1,328 @@
+﻿@model MyTend.Models.ListTendersModel
+
+<div class="row">
+    <div class="col-lg-6 text-center">
+        <div class="btn-class-grey" data-target="#vU" id="seach-a"><img src="~/Content/images/baklaszanstar.svg" width="21" height="20" /> Какие услуги Вы  оказываете?</div>
+    </div>
+    <div class="col-lg-6 text-center">
+        <div class="btn-class-grey" data-target="#vG" id="seach-b"><img src="~/Content/images/GEO4.png" width="25" height="18" /> В каких городах Вы их оказываете?</div>
+    </div>
+</div>
+
+<!-- modal uslug-->
+<div class="modal fade" id="vU" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" style="color: red">&times;</span></button>
+               <img src="~/Content/images/ispolnitely2.svg" width="300" />
+			   <h4 class="modal-title">Поставьте галочки напротив услуг которые  Вы оказываете</h4>
+                <div>
+                    <h5 class="modal-title">
+                        В случае, если кто-то разместит заявку в категории ваших услуг, Робот-Тендер оповестит и пригласит Вас к участию в конкурсе по электронной почте.
+                    </h5>
+                </div>
+            </div>
+            <div class="modal-body">
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        @{
+                            var i = 0;
+                        }
+                        @foreach (var theme in Model.TenderThemases)
+                        {
+                        <div class="panel panel-default" style="margin-bottom: 0px;">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#accordionThree" href="@string.Format("#collapse{0}a", i)" class="collapsed">
+                                        @theme.Key
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="@string.Format("collapse{0}a", i)" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <div class="row">
+                                        @foreach (var title in theme.Value)
+                                        {
+                                        <div class="col-md-7">
+                                            @if (!title.IsTitle)
+                                            {
+                                            <h5><span id="lb-th-@title.Id">@title.Title</span></h5>
+                                            }
+                                            else
+                                            {
+                                            <div style="font-weight: bold; color: #950f81">
+                                                <h5>@title.Title</h5>
+                                            </div>
+                                            }
+                                        </div>
+                                        <div class="col-md-4">
+                                            @if (!title.IsTitle)
+                                            {
+                                            <input type="checkbox" name="@title.Id" id="@title.Id" class="subCheck" onclick="onSelectTheme('@title.Title', this)" />
+                                            }
+                                        </div>
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                            i++;
+                        }
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn-class-grey" data-dismiss="modal">Закрыть</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<div class="modal fade" id="vG" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" style="color: red">&times;</span></button>
+                 <img src="~/Content/images/ispolnitelygeo.svg" width="350" />
+			   <h4 class="modal-title">Укажите, в каких городах Вы готовы исполнять услуги</h4>
+				<h5 class="modal-title"> В случае, если кто-то разместит заявку в указанных вами городах, Робот-Тендер оповестит и пригласит Вас к участию в конкурсе по электронной почте.
+				Так же заявка появится в мею "Заявки от заказчиков"</h5>
+            </div>
+            <div class="modal-body">
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="wp-example" id="accodrions2">
+                            <div class="panel-group" id="accordionTree2">
+                                @{
+                                    i++;
+                                }
+                                @foreach (var region in Model.GroupCitys)
+                                {
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title">
+                                            <a data-toggle="collapse" data-parent="#accordionThree" href="@string.Format("#collapse{0}a", i)" class="collapsed">
+                                                @region.Key
+                                            </a>
+                                        </h4>
+                                    </div>
+                                </div>
+                                <div id="@string.Format("collapse{0}a", i)" class="panel-collapse collapse" >
+                                    <div class="panel-body">
+                                        <div class="row">
+                                            @foreach (var city in region.Value)
+                                            {
+                                            <div class="col-md-4">
+                                                <h5><span id="lb-cy-@city.Id">@city.Name</span></h5>
+                                            </div>
+                                            <div class="col-md-7">
+                                                <input type="checkbox" name="@city.Id" id="@city.Id" class="subCity" onclick="onSelectCity('@city.Name', this)" />
+                                            </div>
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+                                    i++;
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn-class-grey" data-dismiss="modal">Закрыть</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<script>
+    $('#seach-a').on('click', function () {
+        $('#vU').modal();
+    });
+    $('#seach-b').on('click', function () {
+        $('#vG').modal();
+    });
+</script>
+
+@if (Model.Context != null && Model.Context.Citys != null && Model.Context.Themes != null)
+{
+    <script>
+        var selectedCitys = @Html.Raw(Json.Encode(Model.Context.Citys)),
+            selectedThemes = @Html.Raw(Json.Encode(Model.Context.Themes));
+
+        $(document).ready(function () {
+            for (let i = 0; i < selectedThemes.length; i++) {
+                var ts = $('#lb-th-' + selectedThemes[i]);
+                var title = ts.text(),
+                    e = {
+                        id: selectedThemes[i]
+                    };
+
+                $('input[id=' + selectedThemes[i] + ']').attr('checked', true);
+
+                onSelectTheme(title, e, true);
+            }
+
+            for (let i = 0; i < selectedCitys.length; i++) {
+                var ts = $('#lb-cy-' + selectedCitys[i]);
+                var title = ts.text(),
+                    e = {
+                        id: selectedCitys[i]
+                    };
+
+                $('input[id=' + selectedCitys[i] + ']').attr('checked', true);
+
+                onSelectCity(title, e, true);
+            }
+        });
+    </script>
+}
+else
+{
+    <script>
+        var selectedThemes = [],
+            selectedCitys = [];
+    </script>
+}
+
+<script>
+    function onSelectTheme(theme, e, rendered) {
+        let el = selectedThemes.find(function (x) {
+            return x === e.id;
+        });
+
+        if (e.checked || rendered == true) {
+            if (!el) {
+                selectedThemes.push(e.id * 1);
+            }
+            let newElement = '<div style="display: initial; padding-right: 10px;" name="e-t-' + e.id + '"><span class="" >' + theme + ' <span class="glyphicon glyphicon-remove e-t-c" style="color: red;" onclick="removeTheme(' + e.id + ')"></span></span></div>';
+            $('.listThemes').append(newElement);
+            if (rendered != true) {
+                search();
+            }
+        } else {
+            removeTheme(e.id);
+            let index = selectedThemes.indexOf(e.id);
+            selectedThemes.splice(index, 1);
+        }
+    }
+
+    function removeTheme(id) {
+        let index = selectedThemes.indexOf(id * 1);
+        if (index > -1) selectedThemes.splice(index, 1);
+        $('div[name=e-t-' + id + ']').remove();
+        $('input[id=' + id + ']').attr('checked', false);
+        search();
+    }
+
+    function onSelectCity(city, e, rendered) {
+        let el = selectedCitys.find(function (x) {
+            return x === e.id;
+        });
+
+        if (e.checked || rendered == true) {
+            if (!el) {
+                selectedCitys.push(e.id * 1);
+            }
+            let newElement = '<div style="display: initial; padding-right: 10px;" name="e-c-' + e.id + '"><span class="" >' + city + ' <span class="glyphicon glyphicon-remove e-t-c" style="color: red;" onclick="removeCity(' + e.id + ')"></span></span></div>';
+            $('.listCitys').append(newElement);
+            if (rendered != true) {
+                search();
+            }
+        } else {
+            removeCity(e.id);
+        }
+        
+    }
+
+    function removeCity(id) {
+        let index = selectedCitys.indexOf(id * 1);
+        if (index > -1) selectedCitys.splice(index, 1);
+        $('div[name=e-c-' + id + ']').remove();
+        $('input[id=' + id + ']').attr('checked', false);
+        search();
+    }
+
+    function search() {
+        var param = {
+            Model: {
+                Citys: [],
+                Themes: []
+            }
+        };
+
+        if (selectedThemes.length > 0) {
+            param.Model.Themes = selectedThemes;
+        }
+
+        if (selectedCitys.length > 0) {
+            param.Model.Citys = selectedCitys;
+        }
+
+        if (selectedCitys.length == 0 && selectedThemes.length == 0) {
+            param.Model.IsClear = true;
+        } else {
+            param.Model.IsClear = false;
+        }
+
+        $.ajax({
+            type: 'POST',
+            data: param.Model, // #2
+            url: '/Tender/Active',
+        });
+    }
+
+    function reloadPage() {
+        var newlocation = window.location.origin + window.location.pathname;
+        window.location = newlocation;
+    }
+</script>
+
+<div class="row">
+    <div class="col-lg-12 text-center">
+        <div class="row" style="padding-top: 20px;">
+            <div class="col-lg-6">
+                <a class="" role="button" data-toggle="collapse" href="#collapseThemes" aria-expanded="false" aria-controls="collapseThemes">
+                    Показать / Скрыть выбранные услуги
+                </a>
+                <div class="collapse" id="collapseThemes">
+                    <div class="listThemes paddin-top-20">
+                    </div>
+                </div>
+                
+            </div>
+            <div class="col-lg-6">
+                <a class="" role="button" data-toggle="collapse" href="#collapseCitys" aria-expanded="false" aria-controls="collapseCitys">
+                    Показать / Скрыть выбранные города
+                </a>
+                <div class="collapse" id="collapseCitys">
+                    <div class="listCitys paddin-top-20">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div style="padding-top: 20px;">
+            <div class="btn-class-orange" onclick="reloadPage()"><span class="glyphicon glyphicon-search"></span>
+Найти / Сохранить</div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .e-t {
+        border: 1px solid gray;
+        margin:5px;
+        padding: 3px;
+        border-radius: 3px;
+    }
+
+    .e-t-c {
+        cursor: pointer;
+    }
+</style>

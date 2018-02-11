@@ -1,17 +1,19 @@
 ﻿namespace MyTend.Controllers
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Web;
+    using System.Web.Mvc;
     using MyTend.Attributes;
+    using MyTend.Entites;
     using MyTend.Entites.Block;
     using MyTend.Models;
-    using MyTender.Core;
-    using MyTender.Security;
-    using System;
-    using System.Web.Mvc;
-    using System.Linq;
+    using MyTend.Services.Common;
     using MyTend.Services.EmailService;
+    using MyTender.Core;
     using Newtonsoft.Json;
-    using System.Collections.Generic;
-    using System.Net;
+    using NHibernate.Criterion;
 
     public class AccountController : BaseController
     {
@@ -30,14 +32,63 @@
             this.ViewBag.OpenTabParam = tab;
             return View(model);
         }
+        
+        public ActionResult Activate(ActivationModel model)
+        {
+            if (this.Auth.User.Activated)
+            {
+                return RedirectToAction("Index", "Home");
+            }
 
-        public ActionResult Card(string user, string tab)
+            if (model.Code != string.Empty)
+            {
+                var smsActivator = SmsActivation.FindFirst(Expression.Eq("User", this.Auth.User));
+
+                if (smsActivator != null)
+                {
+                    if (smsActivator.Code == model.Code)
+                    {
+                        var user = UserSystem.FindAllByProperty("Login", this.Auth.User.Login).First();
+                        user.Activated = true;
+                        user.Save();
+
+                        return RedirectToAction("Welcom", "Account");
+                    }
+                    else
+                    {
+                        model.Error = "Не верно введён пароль";
+                    }
+                }
+            }
+
+            model.Phone = this.Auth.User.Phone;
+
+            return View(model);
+        }
+        
+        public ActionResult Card(string user)
         {
             this.ViewBag.NoIndexing = true;
 
             var model = new CardModel(user);
-            this.ViewBag.OpenTabParam = tab;
+            
             return View(model);
+        }
+
+        public class LoadProfilesModel
+        {
+            public HttpPostedFileBase[] Files { get; set; }
+        }
+
+        public ActionResult AddImage(LoadProfilesModel model)
+        {
+            if (model != null && model.Files.Length > 0)
+            {
+                var model2 = new ProfileModel();
+                model2.AddProfile(model, this.Auth.User);
+            }
+
+            return null;
         }
 
         [HttpPost]
@@ -45,7 +96,7 @@
         {
             model.AddProfile(this.Auth.User);
 
-            return RedirectToAction("Card", new { @user = this.Auth.User.Login, @tab = "tab5-3" });
+            return RedirectToAction("Card", new { @user = this.Auth.User.Login });
         }
 
         [HttpPost]
@@ -57,7 +108,7 @@
                 {
                     model.UpdateProfile();
                 }
-                catch(Exception e)
+                catch (Exception e)
                 {
                     return JsonFailur(e.Message);
                 }
@@ -143,70 +194,84 @@
         [HttpPost]
         public ActionResult Registration(RegistrationModel model)
         {
-            var response = Request["g-recaptcha-response"];
-            //secret that was generated in key value pair
-            const string secret = "6LfVYTYUAAAAABYdK2aq2YMOVn1453mlkfuCtYmM";
-
-            var client = new WebClient();
-            var reply =
-                client.DownloadString(
-                    string.Format("https://www.google.com/recaptcha/api/siteverify?secret={0}&response={1}", secret, response));
-
-            var captchaResponse = JsonConvert.DeserializeObject<CaptchaResponse>(reply);
-
-            //when response is false check for the error message
-            if (!captchaResponse.Success)
+            if (model.TryRegistry())
             {
-                if (captchaResponse.ErrorCodes.Count <= 0) return View();
+                this.Auth.Login(model.Login, model.Password);
 
-                var error = captchaResponse.ErrorCodes[0].ToLower();
-                switch (error)
+                try
                 {
-                    case ("missing-input-secret"):
-                        model.Errors.Add("The secret parameter is missing.");
-                        break;
-                    case ("invalid-input-secret"):
-                        model.Errors.Add("The secret parameter is invalid or malformed.");
-                        break;
+                    this.SendSms(model.Login, model.Phone);
 
-                    case ("missing-input-response"):
-                        model.Errors.Add("The response parameter is missing.");
-                        break;
-                    case ("invalid-input-response"):
-                        model.Errors.Add("The response parameter is invalid or malformed.");
-                        break;
-
-                    default:
-                        model.Errors.Add("Error occured. Please try again");
-                        break;
+                    var emailService = new EmailService(model.Login);
+                    emailService.Registration(model.FullName, model.Login, model.Password);
+                }
+                catch (Exception ex)
+                {
+                    return JsonFailur(ex);
                 }
             }
-            else
-            {
-                if (model.TryRegistry())
-                {
-                    this.Auth.Login(model.Login, model.Password);
-
-                    try
-                    {
-                        var emailService = new EmailService(model.Login);
-                        emailService.Registration(model.FullName, model.Login, model.Password);
-                    }
-                    catch
-                    {
-
-                    }
-                }
-            }
-
-            
 
             if (model.Errors.Count > 0)
             {
                 return View(model);
             }
+            else
+            {
+                return RedirectToAction("Activate", "Account");
+            }
+        }
 
-            return RedirectToAction("Welcom");
+        public ActionResult ResendSms(string phone)
+        {
+            try
+            {
+                this.SendSms(this.Auth.User.Login, phone);
+            }
+            catch (Exception ex)
+            {
+                return JsonFailur(ex);
+            }
+            
+            return JsonSuccess();
+        }
+
+        private void SendSms(string login, string phone)
+        {
+            var code = Utils.GenerateNumber(4);
+
+            var user = UserSystem.FindOne(Expression.Eq("Login", login));
+
+            if (user == null)
+            {
+                throw new Exception("Пользователь " + login + " не найден.");
+            }
+
+            if (user.Activated)
+            {
+                return;
+            }
+
+            var sms = SmsActivation.FindOne(Expression.Eq("User", this.Auth.User));
+
+            if (sms != null)
+            {
+                sms.Code = code;
+            }
+            else
+            {
+                sms = new SmsActivation()
+                {
+                    User = user,
+                    Code = code
+                };
+            }
+
+            sms.Save();
+
+            var phone2 = string.IsNullOrEmpty(phone) ? user.Phone : phone;
+
+            var sender = new SmsMegafonSender();
+            sender.Send(code, phone2, user);
         }
 
         [AllowAnonymous]
@@ -250,6 +315,13 @@
             }
         }
 
+        public ActionResult YouSeller()
+        {
+            
+
+            return View();
+        }
+
         public ActionResult Welcom()
         {
             return View();
@@ -264,15 +336,7 @@
 
             return View(block);
         }
-
-        [HttpPost]
-        public ActionResult ValidateCaptcha()
-        {
-            
-
-            return View();
-        }
-
+        
         public class CaptchaResponse
         {
             [JsonProperty("success")]

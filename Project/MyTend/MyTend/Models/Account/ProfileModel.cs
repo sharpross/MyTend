@@ -8,6 +8,7 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Web;
+    using static MyTend.Controllers.AccountController;
 
     public class ProfileModel : UserSystem
     {
@@ -50,7 +51,7 @@
             this.Instagram = user.Instagram;
             this.Login = user.Login;
             this.Phone = user.Phone;
-            this.Phone2 = user.Phone2;
+            //this.Phone2 = user.Phone2;
             this.Portfolio = user.Portfolio;
             this.Region = user.Region;
             this.Site = user.Site;
@@ -165,7 +166,7 @@
                 user.FullName = this.FullName;
                 user.Facebook = this.Facebook;
                 user.Phone = this.Phone;
-                user.Phone2 = this.Phone2;
+                //user.Phone2 = this.Phone2;
                 user.Site = this.Site;
                 user.Skype = this.Skype;
                 user.AboutShort = this.AboutShort;
@@ -217,6 +218,13 @@
             file = service.UpdateAvatar(this.AvatarFile, user);
 
             return file;
+        }
+
+        public void AddProfile(LoadProfilesModel model, UserSystem user)
+        {
+            var service = new FileControllerService();
+
+            service.UpdateFiles(model.Files, user);
         }
 
         public void AddProfile(UserSystem user)

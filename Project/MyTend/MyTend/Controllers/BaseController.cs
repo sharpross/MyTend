@@ -89,6 +89,8 @@
             this.ViewBag.IsAuth = false;
             this.ViewBag.NoIndexing = false;
 
+            this.ViewBag.UserAvatarId = 0;
+
             if (this.Auth.User != null)
             {
                 var regionFilter = new RegionFilterService(this.Auth.User);
@@ -100,10 +102,16 @@
                 this.ViewBag.ActiveTendersCount = tenderService.GetCountTenders();
                 this.ViewBag.UnreadedMessages = 0;
 
+                if (this.Auth.User.Avatar != null)
+                {
+                    this.ViewBag.UserAvatarId = this.Auth.User.Avatar.Id;
+                }
+
                 this.ViewBag.IsAuth = true;
                 this.ViewBag.UserLogin = this.Auth.User.Login;
                 this.ViewBag.UserEmail = this.Auth.User.Email;
                 this.ViewBag.UserName = this.Auth.User.FullName;
+                this.ViewBag.IsPayed = this.Auth.User.SubToDate >= DateTime.Now;
 
                 var active = 0;// new MyTend.Models.TenderService().GetActive().Count;
                 var winner = 0;// new MyTend.Models.TenderService().GetWinner().Count;
@@ -144,7 +152,7 @@
                 Success = false
             };
 
-            this.Response.StatusCode = 500;
+            //this.Response.StatusCode = 500;
 
             return Json(result, JsonRequestBehavior.AllowGet); ;
         }

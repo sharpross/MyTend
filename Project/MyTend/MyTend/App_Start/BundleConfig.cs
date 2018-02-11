@@ -51,6 +51,7 @@ namespace MyTend
                 "~/Content/lightbox/lightbox.min.js",
                 "~/Content/te/jquery-te-1.4.0.min.js",
                 "~/Content/common/md5.min.js",
+                "~/Scripts/jquery.mask.min.js",
 
                 "~/Content/theme/assets/fancybox/jquery.fancybox.js",
                 "~/Content/theme/assets/hover-dropdown/bootstrap-hover-dropdown.min.js",

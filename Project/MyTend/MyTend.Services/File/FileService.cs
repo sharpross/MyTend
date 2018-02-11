@@ -1,17 +1,13 @@
 ﻿namespace MyTend.Services.File
 {
+    using System.Collections.Generic;
+    using System.IO;
+    using System.Linq;
     using MyTend.Entites;
     using MyTend.Entites.Enums;
     using MyTend.Entites.FileStorageInfo;
     using MyTender.Core;
     using NHibernate.Criterion;
-    using System;
-    using System.Collections.Generic;
-    using System.IO;
-    using System.Linq;
-    using System.Text;
-    using System.Threading;
-    using System.Threading.Tasks;
 
     /// <summary>
     /// Сервис по работе с файлами. 
@@ -22,6 +18,8 @@
         public FileSystem Get(int fileId)
         {
             var file = FileSystem.GetById(fileId);
+
+            file.Data = StorableFileService.Get(file.Id, file.Name);
 
             return file;
         }
@@ -42,6 +40,11 @@
                     //.Where(x => x.Tender != null && x.Tender.Id == tender.Id)
                     .Select(x => x.File)
                     .ToList();
+
+                foreach (var file in files)
+                {
+                    file.Data = StorableFileService.Get(file.Id, file.Name);
+                }
             }
             catch
             { 
@@ -89,8 +92,10 @@
                     File = fileSystem,
                     Tender = tender
                 };
-
+                
                 fileInfo.Create();
+
+                StorableFileService.Save(file.Data, file.Name, fileInfo.Id);
 
                 result.Add(fileInfo);
 
@@ -117,6 +122,11 @@
                     .Where(x => x.IsAvatar == false)
                     .Select(x => x.File)
                     .ToList();
+
+                foreach (var file in files)
+                {
+                    file.Data = StorableFileService.Get(file.Id, file.Name);
+                }
             }
             else
             {
@@ -128,6 +138,11 @@
                         .Where(x => x.IsAvatar == true)
                         .Select(x => x.File)
                         .ToList();
+
+                    foreach (var file in files)
+                    {
+                        file.Data = StorableFileService.Get(file.Id, file.Name);
+                    }
                 }
             }
 
@@ -147,12 +162,12 @@
 
             foreach (var file in files)
             {
-                if (i >= Constants._MAX_FILES_USER)
+                if (i > Constants._MAX_FILES_USER)
                 {
                     continue;
                 }
 
-                if (file.Data.Length >= Constants._MAX_FILE_SIZE)
+                if (file.Data.Length > Constants._MAX_FILE_SIZE)
                 {
                     continue;
                 }
@@ -169,9 +184,10 @@
                 while (fileSystem.Id == 0)
                 {
                     fileSystem.Save();
-                    Thread.Sleep(200);
                 }
-                
+
+                StorableFileService.Save(file.Data, file.Name, fileSystem.Id);
+
                 var fileInfo = new FileStorageInfo()
                 {
                     File = fileSystem,
@@ -186,8 +202,9 @@
                         while (fileInfo.Id == 0)
                         {
                             fileInfo.SaveAndFlush();
-                            Thread.Sleep(300);
                         }
+
+                        StorableFileService.Save(file.Data, file.Name, fileSystem.Id);
 
                         result.Add(fileInfo);
 
@@ -200,7 +217,7 @@
                 }
                 catch
                 {
-                    //fileSystem.Delete();
+                    
                 }
             }
 

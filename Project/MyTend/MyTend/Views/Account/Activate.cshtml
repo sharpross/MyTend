@@ -1,0 +1,65 @@
+﻿@model MyTend.Models.ActivationModel
+
+@{
+    ViewBag.Title = "Активация";
+}
+
+	<br />
+	<h3 style="color: #222222">Регистрация. Шаг 2 </h3>
+
+	<br />
+	<h4 style="color: #ff5f00">Код подтверждения выслан в бесплатном SMS-сообщении.</h4> 
+	<br />
+
+			 <div class="row">
+				<div class="col-md-1"><img src="~/Content/images/aktivation.png" width="55" height="55" /></div>
+				<div class="col-md-11" style="line-height:20px">
+					<div style="font-weight: bold; font-size: 17px;">Для чего это нужно?</div>
+                <div style="font-size: 14px;">
+                 Подтверждение номера необходимо для  защиты вашего профиля на сайте.<br />
+				
+				 Все визитки сайта должны быть подтвержденными, это уменьшает риск 
+				противоправных действий внутри  сайта.
+				
+                <div class="row">
+    <div class="col-lg-6">
+	<br />
+        <form>
+            <label for="code">Номер телефона</label>
+            <input type="text" name="Phone" value="@Model.Phone" /><br />
+            <br />
+            <div><strong>Введите код</strong>, полученный по СМС. </div>
+            <br />
+            <label for="code">Код смс</label>
+            <input type="text" name="Code" /><br />
+			<br />
+			 <div><a href="#" class="resendsms">Смс не пришло? Отправить ещё раз!</a></div>
+		<br />
+            <button type="submit">Подтвердить</button>
+			<br />
+			
+        </form>
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        $('input[name=Phone]').mask('+7 (999) 999 99 99');
+    });
+    $('a.resendsms').on('click', function () {
+        $.ajax({
+            data: {
+                phone: $('input[name=Phone]').val()
+            },
+            url: '/Account/ResendSms',
+            method: 'GET',
+            error: function (err) {
+                debugger;
+            }
+        });
+    });
+</script>
+				  
+                </div>
+ </div> </div>
+			<br />	
+

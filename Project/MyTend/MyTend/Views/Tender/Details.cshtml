@@ -4,30 +4,75 @@
     ViewBag.Title = "Конкурс на право исполнения услуги";
     var msgNum = 0;
 }
+@if (Model.IsActive == false)
+{
+    if (Model.Winner != null)
+    {
+    <style>
+        .w_b {
+            padding: 20px;
+        }
+    </style>
+
+    <div class="row">
+        <div class="col-lg-12 ">
+            <div class="w_b">
+                <div style="text-align: center">
+                    <img src="~/Content/images/Tenderstop.png" width="130" />
+                </div>
+                <div style="text-align: center">
+                    <h4 style="color: #DC143C;">Конкурсный-торг закрыт!</h4>
+                    Победителем конкурсного-торга выбран: <strong>@Html.ActionLink(Model.Winner.FullName, "Card", "Account", new { @user = Model.Winner.Login }, new { @style = "color: #54aed3" })</strong>
+                </div>
+                <div style="text-align: center;">
+                    Торг перенесён в "Завершенные торги (архив)"
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    }
+    else
+    {
+    <div style="text-align: center">
+        <img src="~/Content/images/Tenderstop.png" width="100" />
+    </div>
+        <div style="text-align: center">
+            <h4 style="color: #DC143C;"> Время публикации конкурсного-торга истекло, победитель не выбран.</h4>
+        </div>
+        <div style="text-align: center;">
+            Торг перенесён в "Завершенные торги (архив)"
+        </div>
+    }
+}
 <br />
-<div class="row" style="border: 0px; border-bottom: 0px; border-color: #D8D8D8; border-style: solid;">
+<div class="row" style="border: 1px; border-bottom: 1px; border-color: #e1e1e1; border-style: solid;">
     <div class="col-md-12" style="text-align: left;">
-        <h2><div style="color: #111111;"> @Model.Title </h2>
+        <h2><div style="color: #111111;"> @Model.Title </div></h2>
+        <h5 style="color: #07a7fa;">@string.Format("Тема конкурсного торга: {0} / {1}", Model.Theme.Theme, Model.Theme.Title)</h5>
 	
-		<p>Заказчик 
+		  <br />
+		 <h5><img src="~/Content/images/lamp.svg"width="16" height="20" />Заказчик 
 
                 @if (Model.Winner != null && ViewBag.UserLogin == Model.Winner.Login)
-            {
-                    <span style="color: #307a7fa; font-weight: bold"><span class="glyphicon glyphicon-user"></span> 
+                {
+                    <span style="color: #307a7fa; font-weight: bold">
                         @Html.ActionLink(Model.User.FullName, "Card", "Account", new { @user = Model.User.Login }, null)
                     </span>
                 }
                 else
                 {
-                    <span style="color: #eca62b; font-weight: bold"><span class="glyphicon glyphicon-user"></span> @Model.User.FullName </span>
+                    <span style="color: #2F4F4F; font-weight: bold"> @Model.User.FullName </span>
 
                     <span>
 					 @string.Format("рассматривает предложения с " + Model.CreatedDateTime.ToString("dd.MM.yyyy") + " до " + Model.DateEnd.ToString("dd.MM.yyyy"))
                      </span>
 					
 					
-					                 }
-           </p>
+				}
+             </h5>
+			 <br />
 		<div style="text-align: center;">
     
            <div class="title-line">Детали заявки</div>
@@ -62,7 +107,7 @@
 </div>
 		
     <p style="word-wrap: break-word;">
-      <img src="~/Content/images/gosti.png"width="20" height="18" /> Количество гостей <span style="color: #333333;"><strong>
+      <img src="~/Content/images/gosti.png"width="24" height="20" /> Количество гостей <span style="color: #333333;"><strong>
                 @string.Format("{0} чел.", Model.CountGuests)</strong>
             </span>
        
@@ -81,21 +126,22 @@
         }
     </span></strong>
 </h5>
-    </p>
+    
+	<br />
     <div style="text-align: center;">
     
         <div class="title-line">Текст заявки, условия заказа</div>
 	   
   
     </div>
-    
+
     </div>
-    </p>
-		<p style="word-wrap: break-word; font-size: 17px; line-height: 18px;">
+ <div class="col-md-9">
+		<p style="word-wrap: break-word; font-size: 18px; line-height: 18px;">
         @Html.Raw(Model.Message.Replace("\n", "<br />"))
-    </p>
+   </div>
   
-     </p>
+ 
 </div>
         
  <div style="text-align: center;"><br>
@@ -117,75 +163,23 @@
             });
         </script>
     </div>
-}
-
-@if (Model.IsActive == false)
-{
-    if (Model.Winner != null)
-    {
-        <style>
-            .w_b {
-                padding: 20px;
-            }
-        </style>
-
-        <div class="row">
-            <div class="col-lg-12 bg-success">
-                <div class="w_b">
-                    <div style="text-align: center">
-                        Аукционный-торг закрыт! Победителем конкурса/торга выбран: <strong>@Html.ActionLink(Model.Winner.FullName, "Card", "Account", new { @user = Model.Winner.Login }, new { @style = "color: red" })</strong>
-                    </div>
-                    <div style="text-align: center;">
-                        Торг перенесён в "Завершенные торги (архив)"
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    }
-    else
-    {
-        <div style="text-align: center">
-            Время публикации аукционного-торга истекло, победитель не выбран.
-        </div>
-        <div style="text-align: center;">
-            Торг перенесён в меню "Завершенные торги"
-        </div>
-    }
-}
-
-<div style="padding-top: 15px;"></div>
-
-@if (Model.Messages != null)
-{
-    <div style="padding-top: 15px;"></div>
-    <div class="row" style="border: 0px solid #d8dfe6; border-style: solid;">
-        
-
-        @if (Model.IsActive)
-        {
-            if (Model.User.Login == ViewBag.UserLogin)
-            {
-		 <div style="text-align: center;"><br>
-    
-           <div class="title-line">Молодой хозяйке на заметку!</div>
-		   </div>
- <h5> <img src="~/Content/images/galochka.png" /> Победитель конкурсного - торга, не может повысить цену или изменить объем услуги предложенной на сайте. </h5>
-<h5> <img src="~/Content/images/galochka.png" /> Ссылка на визитку заказчика, будет доступна только победителю конкурсного-торга. </h5>
-<h5> <img src="~/Content/images/galochka.png" /> Выбрать можно только 1 победителя. </h5>
-
-            }
-        }
-
-    </div>
+	   <br />
+ <h5>  <img src="~/Content/images/lamp.svg"width="16" height="20" /> Вы имеете право купить услугу по цене, которую указал исполнитель, 
+ перед тем, когда Вы его выбрали победителем конкурса. </h5>
+<h5>  <img src="~/Content/images/lamp.svg"width="16" height="20" /> Объявить победителем конкурсного-торга возможно лишь 1 исполнителя. </h5>
+<h5> <img src="~/Content/images/lamp.svg"width="16" height="20" /> Предложения могут делать —  только те исполнители,  у которых вид деательности связан с темой заказа. За нарушение блокировка на неделю.
+    </h5>
+	<h5>  <img src="~/Content/images/lamp.svg"width="16" height="20" /> Если заказчик или исполнитель победивший в конкурсе не выходит на связь в течении трех дней! Вы имеете право оставить ему отрицательный отзыв в визитке!!!</h5>
+	<h5>  <img src="~/Content/images/lamp.svg"width="16" height="20" /> Настоятельно рекомендуем, 
+	ознакамливаться с информацией об исполнителях в их визитках. Это поможет сделать более правильный выбор победителя.</h5>
     <br />
     if (Model.Messages.Count == 0)
     {
         if (Model.User.Login == this.ViewBag.UserLogin)
         {
             <div class="row">
-                <div class="col-md-12" style="text-align: center; font-weight: bold;">
-                    Предложений от исполнителей пока нет, рекомендуем проверить позже!
+                <div class="col-md-12" style="text-align: center; font-weight:  font-color #ff6163;">
+                   <img src="~/Content/images/vnimanie.png" style="width: 16px" /> Предложений от исполнителей пока нет, рекомендуем проверить позже!
                 </div>
             </div>
         }
@@ -193,28 +187,29 @@
     else
     {
         <div class="row">
-            <div class="col-md-12" style="font-size: 14px; color: white; background-color: #944295; text-align: center;">
-                <strong><i class="glyphicon glyphicon-comment" style="color: #ffffff;"></i>  Доска предложений</strong>
+            <div class="col-md-12" style="font-size: 15px; color: white; background-color: #944295; text-align: center;">
+               ДОСКА ПРЕДЛОЖЕНИЙ EVENT-УСЛУГ 
             </div>
         </div>
+		 <br />
     }
     foreach (var message in Model.Messages)
     {
         msgNum++;
 
-        <div class="row" style="border: 1px solid #d8dfe6; border-bottom: 0px; border-style: solid; border-top: 0px;">
+        <div class="row" style="border: 0px solid #d8dfe6; border-bottom: 0px; border-style: solid; border-top: 0px;">
             <div class="col-md-2">
                 <div style="width: 100%; text-align: center;">
 
                     @if (message.User.Avatar != null)
                     {
                         <a href="~/Account/Card?user=@message.User.Login">
-                            <img src='/Image/Get?id=@message.User.Avatar.Id' style="width: 120px; height: 120px;  padding-top: 6px;" />
+                            <img src='/Image/Get?id=@message.User.Avatar.Id' style="width: 120px; height: 120px; " class="img-circle" />
                         </a>
                     }
                     else
                     {
-                        <p><img src='/Image/Get?id=0' style="width: 120px; height: 120px;  padding-top: 6px;" /></p>
+                        <p><img src='/Image/Get?id=0' style="width: 120px; height: 120px;" class="img-circle" /></p>
                     }
                 </div>
             </div>
@@ -226,7 +221,13 @@
                             if (Model.Winner.Login == ViewBag.UserLogin)
                             {
                                 <strong>
-                                    @Html.ActionLink(message.User.FullName.ToUpper(), "Card", "Account", new { @user = message.User.Login }, new { @style = "color: rgb(204, 0, 1); text-decoration: none;" })
+                                    @Html.ActionLink(message.User.FullName.ToUpper(), "Card", "Account", new { @user = message.User.Login }, new { @style = "color: rgb(204, 0, 1); text-decoration: none;" }) 
+                                    @if (message.User.Id == Model.Winner.Id)
+                                    {
+                                        <span style="padding-left: 0px;">
+                                            @Html.ActionLink("(Победитель конкусного торга)", "Card", "Account", new { @user = message.User.Login }, new { @style = "color: red" })
+                                        </span>
+                                    }
                                 </strong>
                             }
                             else
@@ -256,7 +257,7 @@
                             if (Model.Winner.Login == ViewBag.UserLogin)
                             {
                                 <h5>
-                                    @Html.ActionLink(message.User.AboutShort, "Card", "Account", new { @user = message.User.Login }, new { @style = "color: #919191; text-decoration: none;" })
+                                    @string.Format("{0} / {1}", message.User.AboutShort, message.User.City.Name)
                                 </h5>
                             }
                             else
@@ -264,7 +265,10 @@
                                 <div style="color: #919191; text-decoration: none; line-height: 15px;">
                                     @if (message.User.AboutShort != null && !string.IsNullOrEmpty(message.User.AboutShort))
                                     {
-                                        @message.User.AboutShort
+                                    <h5>
+                                        @string.Format("{0} / {1}", message.User.AboutShort, message.User.City.Name)
+                                    </h5>
+                                        
                                     }
                                 </div>
                             }
@@ -274,38 +278,26 @@
                             <div style="color: #919191; text-decoration: none; line-height: 15px;">
                                 @if (message.User.AboutShort != null && !string.IsNullOrEmpty(message.User.AboutShort))
                                 {
-                                    @message.User.AboutShort
+                                <h5>
+                                    @string.Format("{0} / {1}", message.User.AboutShort, message.User.City.Name)
+                                </h5>
                                 }
                             </div>
                         }
                     </div>
-                    <div style="color: blue; width:100%; text-align: left; font-size: 14px; line-height: 15px;">
-                        @if (Model.Winner != null)
-                        {
-                            if (Model.Winner.Login == ViewBag.UserLogin)
-                            {
-                                @Html.ActionLink(string.Format("{0}", message.User.City.Name), "Card", "Account", new { @user = message.User.Login }, new { @style = "color: #919191; text-decoration: none;" })
-                            }
-                            else
-                            {
-                                @Html.ActionLink(string.Format("{0}", message.User.City.Name), "Card", "Account", new { @user = message.User.Login }, new { @style = "color: #919191; text-decoration: none;" })
-                            }
-                        }
-                        else
-                        {
-                            @Html.ActionLink(string.Format("{0}", message.User.City.Name), "Card", "Account", new { @user = message.User.Login }, new { @style = "color: #919191; text-decoration: none;" })
-                        }
-                    </div>
 
                     <div style="word-wrap: break-word; line-height: 18px;">
-                        @Html.Raw(message.Message.Replace("\n", "<br />"))
+                        <div class="row">
+                            <div class="col-lg-9">@Html.Raw(message.Message.Replace("\n", "<br />"))</div>
+                            <div class="col-lg-3"></div>
+                        </div>
                     </div>
                     <div style="text-align: right;">
                         <div>
                             Окажет услугу за:
                         </div>
                         <div style="color:#89c728">
-                            <span style="font-weight:bold; font-size: 28px;">@message.CanSumm</span>
+                            <span style="font-weight:bold; font-size: 25px;">@message.CanSumm</span>
                         </div>
                     </div>
                     <div style="color:gray; text-align: right;">
@@ -314,7 +306,7 @@
                 </div>
             </div>
         </div>
-        <div class="row" style="border: 1px solid #d8dfe6; border-top: 0px; border-bottom: 0px; background-color: #f0f2f7; font-weight: bold;">
+        <div class="row" style="border: 0px solid #d8dfe6; border-bottom: 0px; font-weight: normal;">
             <div class="col-md-12" style="">
                 <div style="padding-top: 10px; padding-bottom: 10px;">
                     @if (Model.Winner == null)
@@ -322,16 +314,16 @@
                         if (message.User.Login != ViewBag.UserLogin && Model.User.Login == ViewBag.UserLogin)
                         {
                             <div style="width: 100%; text-align: right">
-                                <span style="padding-left: 40px;">
-                                    <a href="#" class="makeSub" data-toggle="modal" data-target="@String.Format("#myModal-{0}", msgNum)">Выбрать победителем конкурса</a>
-                                </span>
+                                <span style="padding-left: 0px;"> <div class="btn-class-winer" onclick="reloadPage()">
+                                    <a href="#" class="makeSub" data-toggle="modal" data-target="@String.Format("#myModal-{0}", msgNum)"><img src="~/Content/images/molot.png" width="20" height="20" /> Выбрать победителем </a>
+                               </div>  </span> 
                             </div>
                             <!-- Всплывающее окно начало -->
                             <div class="modal fade" id="@String.Format("myModal-{0}", msgNum)" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <img src="@Url.Content("~/Content/images/logo4.png")" height="120">
+                                            <img src="/Image/Get?id=@message.User.Id" class="img-circle" height="130">
 											<br />
 											<br />
 											
@@ -342,7 +334,7 @@
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-custom-red" data-dismiss="modal">Отмена</button>
-                                            <button type="button" class="btn btn-custom-green" onclick="selectWinner(@Model.Id, @message.User.Id)">Выбрать победителем, остановить конкурсный-торг!</button>
+                                            <button type="button" class="btn btn-custom-green" onclick="selectWinner(@Model.Id, @message.User.Id)"><img src="~/Content/images/molot2.png" width="23" height="23" />  Выбрать победителем, остановить конкурсный-торг!</button>
                                         </div>
                                     </div>
                                 </div>
@@ -352,12 +344,7 @@
                     }
                     else
                     {
-                        if (message.User.Id == Model.Winner.Id)
-                        {
-                            <span style="padding-left: 40px;">
-                                @Html.ActionLink("Победитель торга", "Card", "Account", new { @user = message.User.Login }, new { @style = "color: red" })
-                            </span>
-                        }
+                        
                     }
                 </div>
             </div>
@@ -381,7 +368,7 @@
     }
 </script>
 
-@if (Model.Winner == null)
+@if (Model.IsActive == true)
 {
     <div style="padding-top: 15px;"></div>
     <div class="row">
@@ -396,12 +383,12 @@
 Если Вы заказчик: уточните детали Вашей  заявки или задайте вопрос исполнителям, если он у Вас имеется." maxlength="1000"></textarea>
                     </div>
                 </div>
-                <div class="form-group col-md-4" >  
-                    <input type="number" min="0" class="form-control" name="CanSumm" placeholder="Предлагаемая сумма" >
+                <div class="form-group col-md-3" >  
+                    <input type="number" min="0" class="form-control" name="CanSumm" placeholder="Исполню заказ, за:" >
                 </div>
                 <div class="form-group">
-                    <div class="" style="text-align: right; width: 100%">
-                        <button id="addMessage" type="button" class="btn btn-custom-green" onclick="addTenderMessage()">Отправить предложение / сообщение</button>
+                    <div class="" style="text-align: right; width: 98%">
+                        <button id="addMessage" type="button" class="btn-class-grey" onclick="addTenderMessage()">Отправить предложение/сообщение</button>
                     </div>
                 </div>
             </div>
@@ -417,3 +404,4 @@
         $('a.makeSub').attr('disabled', true);
     });
 </script>
+<br /><br />

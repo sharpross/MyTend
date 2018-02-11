@@ -19,7 +19,7 @@
             {
                 ActiveRecordStarter.CreateSchema();
 
-                var migration = new RegionMigration();
+                var migration = new RegionMigration2();
                 migration.Migrate();
 
                 var migration2 = new TenderThemesMigration2();

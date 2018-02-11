@@ -9,8 +9,7 @@
         [Property]
         [ValidateNonEmpty]
         public string Name { get; set; }
-
-        [Property]
+        
         public byte[] Data { get; set; }
 
         [Property]

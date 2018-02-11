@@ -14,7 +14,7 @@
             @if (ViewBag.IsAuth == true)
             {
                 <li class="active">
-                    <a href="~/account/card?user=@ViewBag.UserLogin" aria-expanded="false">
+                    <a href="~/Account/Card?user=@ViewBag.UserLogin" aria-expanded="false">
                         <span class="sidebar-nav-item"> <strong>Моя Визитка</strong></span>
 						@Html.ActionLink(" Rед.", "Profile", "Account", null, new { @style = "color: gray; font-size: 10px;" })
                     </a>

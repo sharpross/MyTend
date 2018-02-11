@@ -26,9 +26,20 @@
 
             var filtres = this.GetListSubs();
 
+            if (tenders.Count == 0)
+            {
+                tenders = Tender.FindAll(Expression.Eq("IsActive", true)).ToList();
+            }
+
+            if (filtres.Count == 0)
+            {
+                return tenders;
+            }
+
             foreach (var filter in filtres)
             {
                 var aa = tenders
+                    .Where(x => x.User != User)
                     .Where(x => x.Theme.Id == filter.Theme.Id)
                     .ToList();
 
@@ -46,7 +57,6 @@
         {
             var filtres = TenderFilter
                 .FindAll(Expression.Eq("User", this.User))
-                //.Where(x => x.User.Id == this.User.Id)
                 .ToList();
 
             return filtres;
@@ -105,6 +115,16 @@
                 var f = TenderFilter.GetById(filter.Id);
 
                 f.Delete();
+            }
+        }
+
+        public void Clear()
+        {
+            var data = TenderFilter.FindAll();
+
+            foreach (var rec in data)
+            {
+                rec.Delete();
             }
         }
 

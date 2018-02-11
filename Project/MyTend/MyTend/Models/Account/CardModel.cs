@@ -41,7 +41,7 @@ namespace MyTend.Models
             this.Instagram = user.Instagram;
             this.Login = user.Login;
             this.Phone = user.Phone;
-            this.Phone2 = user.Phone2;
+            //this.Phone2 = user.Phone2;
             this.Portfolio = user.Portfolio;
             this.Region = user.Region;
             this.Site = user.Site;

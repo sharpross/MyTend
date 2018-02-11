@@ -116,58 +116,6 @@
             }
         }
 
-        public void AddComment(string to,string tenderId, string name, string tenderTitle)
-        {
-            try
-            {
-                /*Email.From(this._from)
-                .To(this._email)
-                .Subject("Новый коментарий в конкурсном-торге:" + tenderTitle)
-                .UsingCultureTemplateFromFile("~\\Content\\email\\getresponce.html", new {To = to, TenderId = tenderId, Title = tenderTitle, Name = name })
-                .UsingClient(this.GetClient())
-                .Send();*/
-            }
-            catch (Exception e)
-            {
-                var logRec = new Log()
-                {
-                    Context = "AddComment",
-                    Level = MyTend.Entites.Enums.LogLevel.Info,
-                    Message = e.Message,
-                    Stack = e.StackTrace,
-                    UserName = null
-                };
-
-                logRec.Save();
-            }
-        }
-
-        public void CreateTender(string tenderId, string title)
-        {
-            try
-            {
-                Email.From(this._from)
-                .To(ConfigurationManager.AppSettings["TenderEmail"])
-                .Subject("Создан торг")
-                .UsingCultureTemplateFromFile("~\\Content\\email\\create.html", new { TenderId = tenderId, Title = title })
-                .UsingClient(this.GetClient())
-                .Send();
-            }
-            catch (Exception e)
-            {
-                var logRec = new Log()
-                {
-                    Context = "CreateTender",
-                    Level = MyTend.Entites.Enums.LogLevel.Info,
-                    Message = e.Message,
-                    Stack = e.StackTrace,
-                    UserName = null
-                };
-
-                logRec.Save();
-            }
-        }
-
         public void MakePay(string login, string name, string time, string sum)
         {
             try
@@ -176,6 +124,32 @@
                 .To(ConfigurationManager.AppSettings["ManyEmail"])
                 .Subject("Произведена оплата")
                 .UsingCultureTemplateFromFile("~\\Content\\email\\makepay.html", new { Login = login, Fullname = name, Date = time, Sum = sum })
+                .UsingClient(this.GetClient())
+                .Send();
+            }
+            catch (Exception e)
+            {
+                var logRec = new Log()
+                {
+                    Context = "MakePay",
+                    Level = MyTend.Entites.Enums.LogLevel.Info,
+                    Message = e.Message,
+                    Stack = e.StackTrace,
+                    UserName = null
+                };
+
+                logRec.Save();
+            }
+        }
+
+        public void CloseTenderByTime(string tenderName, int tenderId, string userName)
+        {
+            try
+            {
+                Email.From(this._from)
+                .To(ConfigurationManager.AppSettings["ManyEmail"])
+                .Subject("Произведена оплата")
+                .UsingCultureTemplateFromFile("~\\Content\\email\\CloseTenderByTime.html", new { TenderName = tenderName, TenderId = tenderId, Name = userName })
                 .UsingClient(this.GetClient())
                 .Send();
             }

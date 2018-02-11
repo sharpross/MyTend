@@ -3,6 +3,8 @@
 @model MyTend.Models.RegistrationModel
 
 @{
+    
+
     ViewBag.Title = "Пройдите регистрацию";
 }
 
@@ -77,10 +79,10 @@
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-lg-6">
+                                        <div class="col-lg-12">
                                             <div class="form-group">
-                                                <label for="Name" class="low-font">Телефон для связи с заказчиком или исполнителем услуги</label>
-                                                <input type="text" class="form-control" name="Phone" maxlength="20" placeholder="Телефон" value="@Model.Phone" required>
+                                                <label for="Name" class="low-font">Телефон для связи с заказчиком или исполнителем услуги (пример: +7 999 111 2233)</label>
+                                                <input type="text" class="form-control" name="Phone" placeholder="+7 999 111 2233" value="@Model.Phone" required>
                                             </div>
                                         </div>
                                     </div>
@@ -119,18 +121,12 @@
                                     </div>
                                     <div class="row">
                                         <div style="padding-bottom: 20px;">
-                                            <input type="checkbox" name="IsAllowRules" id="IsAllowRules" /> С <a href="~/Docs/Rules" target="_blank">правилами пользования сайтом</a> ознакомлен и согласен.
+                                            <input type="checkbox" name="IsAllowRules" id="IsAllowRules" /> С <a href="~/Docs/Rules" target="_blank">правилами пользования сайтом</a> и <a href="~/Docs/PublicData" target="_blank">Соглашение на обработку персональных данных</a> ознакомлен и согласен.
                                         </div>
                                     </div>
-                                    <div class="row">
-                                        <div style="padding-bottom: 20px;">
-                                            <input type="checkbox" name="IsAllowPublic" id="IsAllowPublic" /> Я прочитал и принял <a href="~/Docs/PublicData" target="_blank">Соглашение на обработку персональных данных</a>.
-                                        </div>
-                                    </div>
-
                                     <div class="row">
                                         <div style="padding-left: 23%; padding-bottom: 20px;">
-                                            <div class="g-recaptcha" data-sitekey="6LfxbjYUAAAAAHUWqFXI6QrdfctqoQv-3fEWIx9j"></div>
+                                            
                                         </div>
                                         <script src="https://www.google.com/recaptcha/api.js" async defer></script>
                                     </div>
@@ -156,6 +152,10 @@
 
 <script src="~/Scripts/app/selectRegions.js"></script>
 <script>
+    $(document).ready(function () {
+        $('input[name=Phone]').mask('+7 (999) 999 99 99');
+    });
+
     var btn = $('button#sub');
     btn.on('click', function () {
         btn.attr('disabled', true);

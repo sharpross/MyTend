@@ -2,7 +2,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-12" style="text-align: center;">
-                <strong>My-Tend.Com © 2017  </strong>Интернет-тендер Event услуг для физических лиц.<br />
+                <strong>My-Tend.Com © 2018  </strong>Интернет-тендер Event услуг для физических лиц.<br />
                 Использование сайта "My-Tend.Com" означает согласие с <a href="~/Docs/Rules">Условиями использования сайта</a> и <a href="~/Docs/PublicData" target="_blank">Соглашением на обработку персональных данных</a>.<br />
                 Пользователи, желающие стать продавцами, принимают <a href="/Docs/Oferta">Договор-оферту</a>. <br /><strong>Сделано в Татарстане!</strong>
             </div>
@@ -12,7 +12,7 @@
                 <div style="text-align: center">
 
                     <span>
-                        @Html.ActionLink("На главную", "About", "Home", null, new { @class = "f_m_a" })
+                        @Html.ActionLink("На главную", "Index", "Home", null, new { @class = "f_m_a" })
                     </span>
                     <span class="f_m_b">|</span>
                     <span>
@@ -20,20 +20,18 @@
                     </span>
                     <span class="f_m_b">|</span>
                     <span>
-                        @Html.ActionLink("Карта торгов", "Map", "Tender", null, new { @class = "f_m_a" })
+                        @Html.ActionLink("Карта конкурсных-торгов", "Map", "Tender", null, new { @class = "f_m_a" })
                     </span>
                     <span class="f_m_b">|</span>
                     <span>
-                        @Html.ActionLink("Новости сайта", "Blog", "Home", null, new { @class = "f_m_a" })
+                        @Html.ActionLink("Стать продавцом услуг", "torgs", "docs", null, new { @class = "f_m_a" })
                     </span>
                     <span class="f_m_b">|</span>
                     <span>
                         @Html.ActionLink("Специальные акции", "Torgs", "Docs", null, new { @class = "f_m_a" })
                     </span>
                     <span class="f_m_b">|</span>
-                    <span>
-                        @Html.ActionLink("Документы", "Index", "Docs", null, new { @class = "f_m_a" })
-                    </span>
+                   
                     <span class="f_m_b">|</span>
                     <span>
                         @Html.ActionLink("Рекламодателям", "support", "Home", null, new { @class = "f_m_a" })

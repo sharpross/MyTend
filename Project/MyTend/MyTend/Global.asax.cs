@@ -1,12 +1,5 @@
 
-﻿using System;
-
-﻿using FluentScheduler;
-using MyTend.Data;
-using MyTend.Entites;
-using MyTend.Scheduler.CloseTender;
 using System;
-
 using System.Collections.Generic;
 using System.Web.Mvc;
 using System.Web.Optimization;

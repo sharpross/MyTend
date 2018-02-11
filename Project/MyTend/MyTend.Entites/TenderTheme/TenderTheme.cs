@@ -19,6 +19,10 @@
         public string ImageName { get; set; }
 
         [Property]
+        [ValidateNonEmpty]
+        public string ImageName2 { get; set; }
+
+        [Property]
         public bool IsTitle { get; set; }
 
         [Property]

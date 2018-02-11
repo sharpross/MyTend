@@ -22,7 +22,7 @@ namespace MyTend.Controllers
 
             return View();
         }
-
+        
         public ActionResult GetYandexForm()
         {
             var form = "";
@@ -52,6 +52,21 @@ namespace MyTend.Controllers
             {
                 payService.MakePay(payInfo);
             }
+        }
+
+        public ActionResult SetPayed()
+        {
+            if (this.Auth.User == null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
+            var user = this.Auth.User;
+
+            user.SubToDate = DateTime.Now.AddMonths(1);
+            user.Save();
+
+            return RedirectToAction("YouSeller", "Account");
         }
 
         private string GetHash(string val)

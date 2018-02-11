@@ -48,33 +48,35 @@
         public string Instagram { get; set; }
 
         [Property(Length = 255)]
+        [ValidateIsUnique("Такой номер телефона уже используется")]
+        [ValidateNonEmpty("Укажите номер телефона")]
         public string Phone { get; set; }
-
-        [Property(Length = 255)]
-        public string Phone2 { get; set; }
-
+        
         [ValidateNonEmpty("Укажите регион")]
-        [BelongsTo("regionid")]
+        [BelongsTo]
         public Region Region { get; set; }
 
         [ValidateNonEmpty("Укажите город")]
-        [BelongsTo("cityid")]
+        [BelongsTo]
         public City City { get; set; }
 
-        [Property(Length = 10000)]
+        [Property(Length = 5000)]
         public string AboutFull { get; set; }
 
         [Property(Length = 255)]
         public string AboutShort { get; set; }
 
-        [Property(Length = 10000)]
+        [Property(Length = 5000)]
         public string Portfolio { get; set; }
 
-        [BelongsTo("Avatarid")]
+        [BelongsTo]
         public FileSystem Avatar { get; set; }
 
         [Property()]
         public DateTime SubToDate { get; set; }
+
+        [Property()]
+        public bool Activated { get; set; }
 
         public bool IsBlocked
         {

@@ -1,64 +1,94 @@
 ﻿@model MyTend.Models.ListThemeTenderModel
 @{
-    ViewBag.Title = "У Вас скоро событие? Разместите свой заказ на Аукционе событий и выбирайте выгодные предложения!";
+    ViewBag.Title = "У Вас скоро праздничное событие? Разместите свой заказ на Аукционе событий и выбирайте выгодные предложения от профессионалов Event-индустрии!";
     var max = Model.Themes.Count() - 1;
     var i = 0;
     var itemI = 0;
 }
-<h1 style="color: #111111;"><strong>У ВАС СКОРО - ДЕНЬ РОЖДЕНИЯ, СВАДЬБА, КОРПОРАТИВ ИЛИ ВЕЧЕРИНКА?</strong></h1>
-<h3 style="color: #555555">Хотите выбрать, сравнить цены, и выбрать наилучшее для Вас предложение и исполнителя услуги?</h3>
+<meta name="yandex-verification" content="38cfbdd6deec697c" />
+<br />
+<div class="form-group" style="text-align: left">
+       <a href="~/tender/map" target="_blank">
+        <img src="~/Content/images/ispolnitelirussia2.svg" style="width: 80%" />
+		    </a></div>
+ <h3 style="color: #000000;"><strong>Сайт, где исполнители, соревнуются за праздник заказчика!</strong></h3>
+<h5 style="color: #000000;">Всегда найдется исполнитель нужной услуги, который готов  предложить для Вас наилучшие  условия, цены и выбор!</h5>
 
 <br />
-
-		 <div class="row">
-            <div class="col-md-1"><img src="~/Content/images/newzayavka.png" width="60" height="60" /></div>
-            <div class="col-md-11" style="line-height:20px">
+<div class="row">
+            <div class="col-md-1"><img src="~/Content/images/newtender.svg" width="70" height="70" /></div>
+            <div class="col-md-8" style="line-height:20px">
                 <div style="font-weight: bold; font-size: 17px;"><a href="/tender/index">Создайте заявку (тендер)</a></div>
-                <div style="font-size: 14px;">
-                  Заполните все вкладки заявки, описав  ипсолнителям все детали и бюджет <br />
-				  от этого зависит какую цену и бонусы предложат исполнители .
-				  
+				<br />
+                <div style="font-size: 15px;">
+                  Заполните заявку, расскажите о будущем событии, опишите детали, дату, бюджет и нажмите - отправить!
+				  <br />
+				  Сайт пригласит к участию в конкурсе по вашей заявке исполнителей нужной услуги в нужном Вам городе.
+		
+				  	  
                 </div>
  </div> </div>
 			<br />		 <div class="row">
-            <div class="col-md-1"><img src="~/Content/images/ispolnitely.png" width="60" height="60" /></div>
-            <div class="col-md-11" style="line-height:20px">
-                <div style="font-weight: bold; font-size: 17px;">Исполнители пишут предложения и соревнуются за Ваш заказ!</div>
-                <div style="font-size: 14px;">
-                 Учитывая детали Вашей заявки и предложения коллег-конкурентов исполнитеи  <br />
-				  будут писать для Вас предложения цены и возможных бонусов!
+            <div class="col-md-1"><img src="~/Content/images/ispolnitely.svg" width="70" height="70" /></div>
+            <div class="col-md-8" style="line-height:20px">
+                <div style="font-weight: bold; font-size: 17px;">Исполнители пишут предложения и соревнуются за Ваш заказ.</div>
+				<br />
+                <div style="font-size: 15px;">
+                   
+                       
+                           Учитывая детали Вашей заявки и предложения коллег-конкурентов, исполнитеи 
+                            в течении нескольких дней  пишут для Вас предложения и соревнуются между собой не только в цене, но и в том, как интересно
+							и необычно они готовы предоставить нужную вам услугу.
+						
+                     
+                        
+                  
+                 
                 </div>
  </div> </div>
 			<br />
 				 <div class="row">
-            <div class="col-md-1"><img src="~/Content/images/icon-win.png" width="60" height="60" /></div>
-            <div class="col-md-11" style="line-height:20px"> 
-                <div style="font-weight: bold; font-size: 17px;">Выбираете исполнителя предожившего наилучшие условия!</div>
-                <div style="font-size: 14px;">
-                  В течении нескольких дней вы знакомитесь с поступившими предложениями и<br />
-				  выберите победителем исполнителя который предожил наилучшие условия исполнения Вашего заказа!
+            <div class="col-md-1"><img src="~/Content/images/winer.svg" width="70" height="70" /></div>
+            <div class="col-md-8" style="line-height:20px"> 
+                <div style="font-weight: bold; font-size: 17px;">Сравниваете предложения и выбираете победителя конкурса!</div>
+				<br />
+                <div style="font-size: 15px;">
+					
+							Вы знакомитесь с поступившими предложениями, сравниваете их, и решаете, кто же сделал самое выгодное и интересное предложение!
+							<br />	
+                            Выбрав победителя конкурса, нажмите кнопку " выбрать победителем" и созвонитесь для обсуждения заключения сделки и оплаты.<br />
+                       
+                      
+                  
 				  
+				
                 </div>
  </div> </div>
 			<br />
 			<div class="row">
-            <div class="col-md-1"><img src="~/Content/images/icon-prazdnik.png" width="60" height="60" /></div>
-            <div class="col-md-11" style="line-height:20px">
-                <div style="font-weight: bold; font-size: 17px;">Созвонитесь, заключите договор, веселитесь!</div>
-                <div style="font-size: 14px;">
-                 Объявив победителя конкурса, созвонитесь и встретьтесь с ним, для заключения договора!<br />
-				
-				 Дождавшись день Вашего события - веселитесь и будьте счастливы!<br />
-				
-				 
+            <div class="col-md-1"><img src="~/Content/images/prazdnik.svg" width="70" height="70" /></div>
+            <div class="col-md-8" style="line-height:20px"> 
+                <div style="font-weight: bold; font-size: 17px;">Заключаете договор и ждете день праздничного события!</div>
+				<br />
+                <div style="font-size: 15px;">
+					
+                           Связавшись с выбранным исполнителем, обсуждаете все детали будущего праздника.
+							<br />	
+                           После этого, остается самое  сложное - с нетерпением  ожидать  день праздничного события.
+                       
+                      
+                  
 				  
+				
                 </div>
  </div> </div>
-
 			<br />
+			
+			
+		
 <div style="text-align: center;">
     
-           <div class="title-line">Выберите необходимую услугу</div>
+           <div class="title-line"> Выберите необходимую услугу и проведите конкурсный-торг на право исполнения заказа</div>
   
 </div>
 
@@ -74,13 +104,13 @@
             @:<div class="row">
         }
 
-        <div style="text-align: center">
+        <div class="text-center">
             <div class="col-md-4">
+                    <div style="margin: auto;background-size: cover; width: 180px; height: 180px; background-image:url(../Content/images/kats2/@item.ImageName);">
+                        <a href="~/Tender/Create?id=@item.Id"><img src="~/Content/images/kats2/@item.ImageName2" class="tenderImg" width="180" height="180" /></a>
+                    </div>
                 <p>
-                    <a href="~/Tender/Create?id=@item.Id"><img src="~/Content/images/kats/@item.ImageName" class="tenderImg" width="110" height="80" /></a>
-                </p>
-                <p>
-                    <h5>@Html.ActionLink(item.Theme, "Create", "Tender", new { @id = item.Id }, new { @style = "color: #07a7fa;", @class = "no_line" })</h5>
+                   <h5 style="color: #000000;">@Html.ActionLink(item.Theme, "Create", "Tender", new { @id = item.Id }, new { @style = "", @class = "no_line" })</h5>
                 </p>
             </div>
         </div>
@@ -104,75 +134,47 @@
 </div>
 
 <br />
-    <h3 style="color: #f99313;">	
-
-Пять причин полюбить My-Tend!</h3> 
                             
                            	<br />
+							<h3><strong>Причиты полюбить MY-TEND.COM </strong><h3 />
 
-<div class="row">
-    <div class="col-md-1"></div>
-    <div class="col-md-10">
-        <div class="row">
-            <div class="col-md-1"><img src="~/Content/images/icon-1.png" width="50" height="50" /></div>
-            <div class="col-md-11" style="line-height:18px">
-                <div style="font-weight: bold; font-size: 17px;">Наша идея и философия</div>
+  <div class="row">
+            <div class="col-md-1"><img src="~/Content/images/vedushiy.svg" width="60"" height="60"" /></div>
+            <div class="col-md-9" style="line-height:18px">
+                
+				<br />
                 <div style="font-size: 14px;">
-                    Конкурентная форма выбора исполнителя дает Вам хорошие предложения услуг и сервиса за вменяемые деньги. Конкурентная форма выбора исполнителя дает Вам хорошие предложения услуг и сервиса за вменяемые деньги.
-                </div>
-            </div>
-        </div><br />
-		  <div class="row">
-            <div class="col-md-1"><img src="~/Content/images/icon-2.png" width="50" height="50" /></div>
-            <div class="col-md-11" style="line-height:18px">
-                <div style="font-weight: bold; font-size: 17px;">Побеждает не самое дешевое, а самое выгодное и интересное предложение!</div>
-                <div style="font-size: 14px;">
-                 У вас не торгуются у кого дешевле, у нас выявляют самое выгодное, интересное и конкурентноспособеное предложение!
-				 Победителем конкурсного-торга становитсяя предложивший - лучший сценарий, цену, условия, бонусы и не только. Так же на выбор исполнителя влияет портфолио  и описание услуг в визитке.
-                </div>
-            </div>
-        </div><br />
-		  <div class="row">
-            <div class="col-md-1"><img src="~/Content/images/icon-3.png" width="50" height="50" /></div>
-            <div class="col-md-11" style="line-height:18px">
-                <div style="font-weight: bold; font-size: 17px;">Abc</div>
-                <div style="font-size: 14px;">
-                    Конкурентная форма выбора исполнителя дает Вам хорошие предложения услуг и сервиса за вменяемые деньги. Конкурентная форма выбора исполнителя дает Вам хорошие предложения услуг и сервиса за вменяемые деньги.
-                </div>
-            </div>
-        </div><br />
-        <div class="row">
-            <div class="col-md-1"><img src="~/Content/images/icon-4.png" width="50" height="50" /></div>
-            <div class="col-md-11" style="line-height:18px">
-                <div style="font-weight: bold; font-size: 17px;">Abc</div>
-                <div style="font-size: 14px;">
-                    Конкурентная форма выбора исполнителя дает Вам хорошие предложения услуг и сервиса за вменяемые деньги. Конкурентная форма выбора исполнителя дает Вам хорошие предложения услуг и сервиса за вменяемые деньги.
-                </div>
-            </div>
-        </div><br />
-		 <div class="row">
-            <div class="col-md-1"><img src="~/Content/images/icon-5.png" width="50" height="50" /></div>
-            <div class="col-md-11" style="line-height:18px">
-                <div style="font-weight: bold; font-size: 17px;">Abc</div>
-                <div style="font-size: 14px;">
-                    Конкурентная форма выбора исполнителя дает Вам хорошие предложения услуг и сервиса за вменяемые деньги. Конкурентная форма выбора исполнителя дает Вам хорошие предложения услуг и сервиса за вменяемые деньги.
-                </div>
-            </div>
-        </div><br />
-    </div>
+				<br />
+				<li >Желание исполнителей показать себя и свои услуги с более выгодной стороны по отношению к колегам конкурентам а так же желание победить
+				в конкурсе за Ваш заказ, предоставляет Вам массу выгодных предложений по нужной Вам услуге!</li >
+				<br />
+				<li >Мы не будем никого рекомендовать, не будем показывать готовые, обобщенные объявления.
+				ам не придется искать, исполнители сами напишут вам предложение.
+				Только рассскажите им о Вашем  будущем событиии!</li >
+				<br />
+				<li >  Идея и философия сайта расчитана на то, что  бы предложения исполнителей писались только по мере надобности на услуги заказчика,
+					поэтому мы принципиально не делаем готовые списки объявлений.</li >
+				<br />
+				<li >Конкурс на право исполнения услуги, это не погоня за "дешевой" услугой. Это желание определить самое
+				выгодное и иинтересное предложение для заказчика.</li >
+				<br />
+				<li >Победу одержат - лучшие условия, цена, сценарий, креативный подход к клиенту,бонусы и не только!</li >
+				<br />
+				<li >	Перед Вами  окажется масса предложений по нужной услуге, созданные именно для Вас - Выбирайте лучшее для себя!</li >
+				<br />
 	
-    <div class="col-md-1"></div>
-</div>
-<div style="text-align: center;"><br>
-    
-           <div class="title-line">В чем очевидная выгода поиска исполнителей на нашем My-Tend.Com?</div>
-  
-</div>	
-<h5><div style="color: #222222;">На нашем сайте НЕТ готовых объявлений, списков, рейтингов! Только конкретные предложения  под конкретный заказ!Вы лишь выбираете самое выгодное!</h5>
- <hr>
-<h5><div style="color: #222222;">Вы не только  не переплачиваете общаясь напрямую с нужным исполнителем без посредников но и с большей вероятностью получаете скидки или бонусы, так как продажа на виду у коллег конкурентов диктует быть лучше и выгоднее.</h5>
- <hr>
-<h5><div style="color: #222222;"> Только реальные и актуальные предложения под условия Вашего заказа! Вы не тратите время на общение с исполнителями которые уже заняты или им "мало денег", не надо обзванивать десятки объявлений объясняя одно и тоже.</h5>
- <hr>
-<h5><div style="color: #222222;"> Конкурентная форма выбора исполнителя дает Вам хорошие предложения услуг и сервиса за вменяемые деньги.</h5>
- <hr>
+			
+				
+			
+                   
+					
+					
+				 </div>
+            </div>
+        </div>	<br />
+		
+		<br />
+		<br />
+        
+	
+   

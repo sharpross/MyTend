@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MyTend.Services.EmailService;
 
 namespace MyTend.Scheduler.CloseTender
 {
@@ -15,7 +16,7 @@ namespace MyTend.Scheduler.CloseTender
     {
         public void Init()
         {
-            
+
         }
 
         public void Run()
@@ -34,7 +35,16 @@ namespace MyTend.Scheduler.CloseTender
                 tender.IsActive = false;
 
                 tender.Update();
+
+                this.Notifie(tender);
             }
+        }
+
+        private void Notifie(Tender tender)
+        {
+            var service = new EmailService(tender.User.Email);
+
+            service.CloseTenderByTime(tender.Title, tender.Id, tender.User.FullName);
         }
 
         public void Execute()

@@ -134,54 +134,16 @@
         }
 
         /// <summary>
-        /// Получить тендеры по подписаным городам и ррегионам
+        /// Получить тендеры по подписаным городам и регионам
         /// </summary>
         /// <returns>Список тендеров</returns>
         public List<Tender> GetTenders()
         {
             var tenders = new List<Tender>();
-
-            var tendersByRegions = this.GetTenderByRegions();
+            
             var tendersByCitys = this.GetTenderByCitys();
-
-            tenders.AddRange(tendersByRegions);
-
-            foreach(var tender in tendersByCitys)
-            {
-                var exist = tenders
-                    .FirstOrDefault(x => x.Id == tender.Id);
-
-                if (exist == null)
-                {
-                    tenders.Add(tender);
-                }
-            }
-
-            /*var tendersByRegions = this.GetTenderByRegions();
-            var tendersByCitys = this.GetTenderByCitys();
-
-            tenders.AddRange(tendersByRegions);
-            tenders.AddRange(tendersByCitys);
-
-            var citys = this.GetCitys();
-            var regions = this.GetRegions();
-
-            foreach (var city in citys)
-            {
-                var contain = regions.Contains(city.Region);
-
-                if (!contain)
-                {
-                    var tendersCity = tendersByCitys
-                        .Where(x => x.City == city)
-                        .ToList();
-
-                    tenders.AddRange(tendersCity);
-                }
-            }*/
-
-            return tenders
-                .ToList();
+            
+            return tendersByCitys.ToList();
         }
 
         /// <summary>
@@ -214,14 +176,24 @@
 
             var citys = this.GetCitys();
 
-            foreach (var city in citys)
+            if (citys.Count == 0)
             {
-                var tendersByRegion = Tender.FindAll(Expression.Eq("City", city))
-                    .Where(x => x.Winner == null);
-
-                tenders.AddRange(tendersByRegion);
+                citys = City.FindAll().ToList();
             }
 
+            var recs = Tender.FindAll(Expression.Eq("IsActive", true));
+
+            foreach (var rec in recs)
+            {
+                foreach (var city in citys)
+                {
+                    if (rec.City.Id == city.Id)
+                    {
+                        tenders.Add(rec);
+                    }
+                }
+            }
+            
             return tenders;
         }
 
@@ -250,7 +222,24 @@
                 .Select(x => x.City)
                 .ToList();
 
+            if (records.Count == 0)
+            {
+                //return City.FindAll().ToList();
+            }
+
             return records;
+        }
+
+        public void Clear()
+        {
+            var data = RegionFilter.FindAll();
+
+            foreach (var rec in data)
+            {
+                rec.Delete();
+            }
+
+            //RegionFilter.DeleteAll();
         }
     }
 }

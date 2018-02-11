@@ -1,39 +1,39 @@
-﻿<header class="header-image-backgound container">
-    <div class="container ">
+﻿   <div class="container ">
         <div class="row">
             <div class="col-sm-9">
                 <div class="row">
-                    <div class="col-md-3">
-                        <div style="text-align: center; padding-top: -10px;" class="">
+                    <div class="col-md-4">
+                        <div style="text-align: center; padding-top: 0px;" class="">
                             <a href="~/Home/Index" title="MY-TEND.COM" style="text-decoration: none;)">
                                 <img src="@Url.Content("~/Content/images/logo.png")" height="140">
-                                <br />
-                                <br />
-                                <br />
-                                <br />
-                               
-                                                               
                             </a>
                         </div>
                     </div>
-                    <div class="col-md-9">
-                        <div style="text-align: right; padding-top: 28px;">
-                            <h4 style="color: #f52124;"><strong>У ВАС СКОРО ПРАЗДНИЧНОЕ СОБЫТИЕ?</strong></h4>
-                            <h5 style="color: #ffffff;"><strong>Разместите свой заказ на My-Tend.Com и выбирайте выгодные предложения исполнителей услуг для Вашего мероприятия!</strong></h5>
+					
+                    <div class="col-md-8">
+                        <div style="text-align: left; padding-top: 0px;">
+						 <h2 style="color: #222222;"><strong> У Вас скоро праздничное событие?</strong></h2>
+                            <h5 style="color: #800080;"> <strong>Проведите конкурс на право исполнения услуги для Вашего праздника!</strong> </h5>
+							<h5 style="color: #222222;"> 
+							-Исполнители будут соревноваться за Ваш заказ!<br>
+							-Вы выбираете самое лучшее и выгодное предложение!
+							</h5>
+                       
                         </div>
                     </div>
                 </div>
             </div>
 
+
             <div class="col-sm-3">
                 @if (ViewBag.IsAuth != null)
                 {
                     <div style="padding-top: 30px">
-                        <a href="~/Tender/Index" class="btn btn-custom-red" style="width: 240px"><span class=" glyphicon glyphicon-plus"></span>
-Создать заявку</a>
+                        <a href="~/Tender/Index" class="btn-class-winer" style="width: 200px"><span class=" glyphicon glyphicon-plus"></span>
+<strong>Создать заявку</strong></a>
                     </div>
                     <div style="padding-top: 30px">
-                        <a href="~/Tender/My" class="btn btn-custom-yellow" style="width: 240px">
+                        <a href="~/Tender/My" class="btn-custom-aqua" style="width: 240px">
 Проверить предложения <br>от исполнителей</a>
                     </div>
                 }
@@ -41,52 +41,74 @@
         </div>
     </div>
 
-    <br /> 
-    
-</header>
-
-<div style="padding-top: 10px;">
-    @if (ViewBag.IsAuth == true)
-    {
-        <nav class="navbar navbar-default" style="background-color: white; margin-top: 0px; padding-top: 10px;">
+<div  class="container">
+    <div style="padding-top: 10px;">
+        @if (ViewBag.IsAuth == true)
+        {
+        <nav class="navbar navbar-default" style="background-color: #ffffff; margin-top: 0px; padding-top: 2px;">
             <div class="container">
                 <div class="navbar-header">
-				
-                    <ul class="nav navbar-nav">
-                     
+                    @if (ViewBag.IsPayed == true)
+                {
+                <ul class="nav navbar-nav emenu">
+                    <li>
+                        <a href="/" aria-expanded="false">
+                            <span class="">Главная </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="~/account/card?user=@ViewBag.UserLogin" aria-expanded="false">
+                            <span class="">Моя Визитка</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="~/tender/active" aria-expanded="false">
+                            <span class="">Заявки от Заказчиков</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="~/tender/list" aria-expanded="false">
+                            <span class="">Мои Предложения Заказчикам</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="~/tender/winner" aria-expanded="false">
+                            <span class="">Победы в Конкурсах</span>
+                        </a>
+                    </li>
+                </ul>
+                    }
+                    else
+                    {
+                    <ul class="nav navbar-nav emenu">
                         <li>
-                            <a href="~/account/card?user=@ViewBag.UserLogin" aria-expanded="false">
-                                <span class="sidebar-nav-item">Моя Визитка</span>
+                            <a href="/" aria-expanded="false">
+                                <span class="">Главная / Новая заявка</span>
                             </a>
                         </li>
                         <li>
-                            <a href="~/tender/active" aria-expanded="false">
-                                <span class="sidebar-nav-item">Заявки от Заказчиков</span>
+                            <a href="~/Account/Card?user=@ViewBag.UserLogin" aria-expanded="false">
+                                <span class="">Моя Визитка</span>
                             </a>
                         </li>
                         <li>
-                            <a href="~/tender/list" aria-expanded="false">
-                                <span class="sidebar-nav-item">Мои Предложения Заказчикам</span>
+                            <a href="~/Docs/torgs" aria-expanded="false">
+                                <span class="">Стать продавцом</span>
                             </a>
                         </li>
                         <li>
-                            <a href="~/tender/winner" aria-expanded="false">
-                                <span class="sidebar-nav-item">Победы в Конкурсах</span>
-                            </a>
-                        </li>
-                         <li>
-                            <a href="~/Account/Profile?tab=tab5-4" aria-expanded="false">
-                                <span class="sidebar-nav-item">Подписка Услуг</span>
-                            </a>
-                        </li>
-						 <li>
-                            <a href="~/Account/Profile?tab=tab5-5" aria-expanded="false">
-                                <span class="sidebar-nav-item">Подписка региона исполнения</span>
+                            <a href="~/Tender/My" aria-expanded="false">
+                                <span class="">Проверить предложения от исполнителей</span>
                             </a>
                         </li>
                     </ul>
+                    }
                 </div>
             </div>
+            <hr style="margin-top: 5px;">
         </nav>
-    }
+
+        }
+    </div>
 </div>
+

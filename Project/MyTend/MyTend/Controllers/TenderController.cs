@@ -10,6 +10,7 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Web.Mvc;
+    using MyTend.Models;
 
     public class TenderController : BaseController
     {
@@ -37,6 +38,8 @@
         /// </summary>
         /// <returns></returns>
         [BanResource]
+        [SmsActivation]
+        [OnlySub]
         public ActionResult List()
         {
             var model = new ActiveTenderListModel();
@@ -71,6 +74,7 @@
         /// <returns></returns>
         [HttpGet]
         [BanResource]
+        [SmsActivation]
         public ActionResult Create(int id)
         {
             var model = new CreateTenderModel(id);
@@ -85,6 +89,7 @@
         [HttpPost]
         [ValidateInput(false)]
         [BanResource]
+        [SmsActivation]
         public ActionResult Create(CreateTenderModel model)
         {
             if (this.Auth.User == null)
@@ -99,15 +104,7 @@
                 model.Save(true);
 
                 this.tempString = model.Title;
-
-                try
-                {
-                    var service = new EmailService(this.Auth.User.Email);
-                    service.CreateTender(model.Id.ToString(), model.Title);
-                }
-                catch
-                { }
-
+                
                 return RedirectToAction("Created", new { id = model.Id });
             }
 
@@ -124,18 +121,27 @@
             return View(tender);
         }
 
+        public ActionResult UpdateSubs(FilterContext context)
+        {
+            var model = new ListTendersModel(context);
+
+            return View(model);
+        }
+
         /// <summary>
         /// Активные тендеры
         /// </summary>
         /// <returns></returns>
         [BanResource]
-        public ActionResult Active() 
+        [SmsActivation]
+        [OnlySub]
+        public ActionResult Active(FilterContext context) 
         {
-            var model = new ListTendersModel();
+            var model = new ListTendersModel(context);
 
             return View(model);
         }
-
+        
         /// <summary>
         /// Мои тендеры
         /// </summary>
@@ -148,6 +154,8 @@
         }
         
         [BanResource]
+        [SmsActivation]
+        [OnlySub]
         public ActionResult Winner()
         {
             var model = new WinnerTenderModel();
@@ -162,6 +170,7 @@
         /// </summary>
         /// <param name="id">Id тендера</param>
         /// <returns></returns>
+        [SmsActivation]
         public ActionResult Details(int id)
         {
             var model = new TenderDetailsModel(this.Auth, id);
@@ -216,18 +225,7 @@
                 if (model.IsValid())
                 {
                     model.Save();
-
-                    try
-                    {
-                        if (model.Tender.User.Id != this.Auth.User.Id)
-                        {
-                            var service = new EmailService(this.Auth.User.Email);
-                            service.AddComment(this.Auth.User.FullName, model.TenderId.ToString(), model.Tender.User.FullName, model.Tender.Title);
-                        }
-                    }
-                    catch
-                    { }
-
+                    
                     return JsonSuccess();
                 }
             }

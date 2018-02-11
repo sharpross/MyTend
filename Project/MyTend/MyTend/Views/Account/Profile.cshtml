@@ -7,7 +7,7 @@
 <br />
 
 
-<H3> Мои персональные данные, подписка на конкурсные торги   </H3>
+<H3> Редактирование визитки   </H3>
 
 <script>
     var openTabParam = "@ViewBag.OpenTabParam",
@@ -48,8 +48,7 @@
         <li class=""><a href="#tab5-1" data-toggle="tab" style="text-decoration: none;"><span class="glyphicon glyphicon-user" aria-hidden="true" style="color: #333333;"></span> Визитка</a></li>
         <li class=""><a href="#tab5-2" data-toggle="tab" style="text-decoration: none;"><span class="glyphicon glyphicon-picture" aria-hidden="true" style="color: #333333;"></span> Портфолио</a></li>
         <li class=""><a href="#tab5-3" data-toggle="tab" style="text-decoration: none;"><span class="glyphicon glyphicon-info-sign" aria-hidden="true" style="color: #333333;"></span> Об услуге</a></li>
-        <li class=""><a href="#tab5-4" data-toggle="tab" style="text-decoration: none;"><span class="glyphicon glyphicon-list" aria-hidden="true" style="color: #333333;"></span> Подписка услуг</a></li>
-        <li class=""><a href="#tab5-5" data-toggle="tab" style="text-decoration: none;"><span class="glyphicon glyphicon-globe" aria-hidden="true" style="color: #333333;"></span> Регионы, города</a></li>
+        <li class=""><a href="#tab5-4" data-toggle="tab" style="text-decoration: none;"><span class="glyphicon glyphicon-list" aria-hidden="true" style="color: #333333;"></span> Смена пароля</a></li>
     </ul>
 
     <div class="tab-content">
@@ -68,52 +67,19 @@
                         <img src="/Image/Get?id=0" width="300" height="300" class="img-thumbnail" id="avatar">
                     }
                     <input type="file" accept="image/*" name="AvatarFile" id="AvatarFile" style="padding-top: 10px; padding-bottom: 10px;" />
-                    <div class="row" style="text-align: center;">
-                        <div style="padding: 20px 0px 20px 0px; text-align: left;">
-                           Выберите и загрузите свой фото-аватар.  Если вы частная компания, Вы можете загрузить свой логотип.
-                        </div>
-                        <button type="button" class="btn btn-custom-orange" id="updateProfile">Сохранить изображение</button>
+                   <div class="row" style="text-align: left;">
+                        
+				   <h5> Выберите и загрузите свою личную фотографию.	</h5>
+                        
+                        <button type="button" class="btn-class-orange" id="updateProfile">Сохранить изображение  </button>
                     </div>
                 </div>
                 <div class="col-md-8">
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <div class="form-group">
-                                <label for="Name">Логин</label>
-                                <input type="email" class="form-control" name="LoginName" placeholder="my@mail.ru" value="@Model.Login" required readonly>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <div class="form-group">
-                                <label for="Name">Электронная почта</label>
-                                <input type="email" class="form-control" name="Email" placeholder="my@mail.ru" value="@Model.Email" required readonly>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <div class="form-group">
-                                <label for="Name">Пароль (только если необходимо сменить пароль)</label>
-                                <input type="password" min="5" class="form-control" name="Password" placeholder="Пароль" value="@Model.Password">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <div class="form-group">
-                                <label for="Name">Повторить пароль</label>
-                                <input type="password" min="5" class="form-control" name="PasswordRetry" placeholder="Пароль" value="@Model.Password">
-                            </div>
-                        </div>
-                    </div>
-
+                    
                     <div class="row">
                         <div class="col-lg-10">
                             <div class="form-group">
-                                <label for="Name">Ваше имя или псевдоним, название банкетного зала, название компании</label>
+                                <label for="Name" style="font-weight: 100">Ваше имя или псевдоним, название банкетного зала, название компании</label>
                                 <input type="text" class="form-control" name="FullName" placeholder="Иванов Иван/dj.Антон/Банкетный Зал «У Палыча»" maxlength="80" value="@Model.FullName" required>
                             </div>
                         </div>
@@ -121,7 +87,7 @@
                     <div class="row">
                         <div class="col-lg-10">
                             <div class="form-group">
-                                <label for="Name">Кем Вы работаете, чем занимаетесь? (до 80 символов)</label>
+                                <label for="Name" style="font-weight: 100">Кем Вы работаете, чем занимаетесь? (до 80 символов)</label>
                                 <input type="text" class="form-control" name="AboutShort" maxlength="80" placeholder="Ведущий/DJ/организация торжеств/банкетов/дирректор завода/домохозяйка" value="@Model.AboutShort">
                             </div>
                         </div>
@@ -130,14 +96,14 @@
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="form-group">
-                                <label for="Name">Ваш телефон (обязательно для всех)</label>
-                                <input type="text" class="form-control" name="Phone" placeholder="+79991112233" maxlength="20" value="@Model.Phone">
+                                <label for="Name" style="font-weight: 100">Ваш телефон (обязательно для всех)</label>
+                                <input type="text" class="form-control" name="Phone" placeholder="+7 999 111 2233" maxlength="20" value="@Model.Phone">
                             </div>
                         </div>
                     </div>
 					<div style="text-align: left;">
     
-           <div class="title-line"> <span style="color: #f45656;"><big><span class="glyphicon glyphicon-star" aria-hidden="true" style="color: #51bbec;"></span></big>
+           <div class="title-line"> <span style="color: #f45656;">
 Рекомендуем заполнять только исполнителям услуг</span></div>
   
 </div>
@@ -146,7 +112,7 @@
                  <div class="row">
                         <div class="col-lg-8">
                             <div class="form-group">
-                                <label for="Name">Адрес Вашего сайта</label>
+                                <label for="Name" style="font-weight: 100">Адрес Вашего сайта</label>
                                 <input type="url" class="form-control" name="Site" placeholder="Адрес вашего сайта " maxlength="40" value="@Model.Site">
                             </div>
                         </div>
@@ -155,7 +121,7 @@
                     <div class="row">
                         <div class="col-lg-8">
                             <div class="form-group">
-                                <label for="Name">У вас есть видео-канал Youtube ?</label>
+                                <label for="Name" style="font-weight: 100">У вас есть видео-канал Youtube ?</label>
                                 <input type="url" class="form-control" name="Youtube" placeholder="Youtube" maxlength="40" value="@Model.Youtube">
                             </div>
                         </div>
@@ -163,7 +129,7 @@
                     <div class="row">
                         <div class="col-lg-8">
                             <div class="form-group">
-                                <label for="Name">Ваша страница или группа ВКонтакте </label>
+                                <label for="Name" style="font-weight: 100">Ваша страница или группа ВКонтакте </label>
                                 <input type="url" class="form-control" name="VKontakte" placeholder="Ваша страничка в ВКонтакте" maxlength="50" value="@Model.VKontakte">
                             </div>
                         </div>
@@ -171,17 +137,16 @@
                     <div class="row">
                         <div class="col-lg-8">
                             <div class="form-group">
-                                <label for="Name">Вы ведете Instagram ?</label>
-                                <input type="url" class="form-control" name="Instagram" placeholder="Укажите всю ссылку Instagram целиком" maxlength="50" value="@Model.Instagram">
+                                <label for="Name" style="font-weight: 100">Вы ведете Instagram ?</label>
+                                <input type="url" class="form-control" name="Instagram" placeholder="Укажите ссылку Instagram целиком" maxlength="50" value="@Model.Instagram">
                             </div>
                         </div>
                     </div>
                 </div>
-                <div style="padding: 20px 0px 20px 0px; text-align: center;">
-                    Нажатие кнопки «Сохранить» означает согласие с <a href="~/Docs/AboutProfile">Правилами заполнения профиля</a>
-                </div>
+                
                 <div class="row" style="text-align: center;">
-                    <button type="button" class="btn btn-custom-orange" id="updateProfile">Сохранить данные</button>
+                    <button type="button" class="btn-class-orange" id="updateProfile">
+Сохранить данные</button>
                 </div>
                 <div class="row">
                     <div class="col-lg-12 errorBox"></div>
@@ -206,8 +171,8 @@
                     form_data.append("AvatarFile", avatarFile);
                     form_data.append("Login", $('[name=LoginName]').val());
                     form_data.append("Email", $('[name=Email]').val());
-                    form_data.append("Password", $('[name=Password]').val());
-                    form_data.append("PasswordRetry", $('[name=PasswordRetry]').val());
+                    //form_data.append("Password", $('[name=Password]').val());
+                    //form_data.append("PasswordRetry", $('[name=PasswordRetry]').val());
                     form_data.append("FullName", $('[name=FullName]').val());
                     form_data.append("AboutShort", $('[name=AboutShort]').val());
                     form_data.append("Phone", $('[name=Phone]').val());
@@ -247,17 +212,17 @@
 					<br />
 
 		 <div class="row">
-            <div class="col-md-1"><img src="~/Content/images/port.png" width="60" height="60" /></div>
+            <div class="col-md-1"><img src="~/Content/images/vedushiy.svg" width="60" height="60" /></div>
             <div class="col-md-11" style="line-height:20px">
                 <div style="font-weight: bold; font-size: 17px;">Портфолио вашей услуги.
 				</div>
                 <div style="font-size: 14px;">
-                Разместите несколько фотографий с вашей работой. Наглядность вашей деятельности увеличит шанс на успех среди заказчиков. <br />
-				  <br />
-				   <p> <i><span style="color: #f54e4e;">
+                Разместите до  <strong>20</strong> фотографий. Наглядность Вашей деятельности увеличит шанс на победу во время проведения конкурсов. <br />
+			
+			
                Изображения в данном разделе не должны нарушать любые законы РФ об иллюстрациях, изображениях людей, и авторских правах .
              
-           </i> </span></p>
+       
                 </div>
  </div> </div>
 			<br />	
@@ -268,14 +233,19 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="form-group">
-                            <input type="file" accept="image/*" class="form-control" name="ProfileFiles" multiple />
-                            <div style="color: #222222"><strong>
-                                Вы можете загрузить не более 20 фотографий, размером не более 2.5 Мб каждая)</strong>
-                            </div>
+                            <input type="file" accept="image/*" class="form-control" id="ProfileFiles" name="ProfileFiles" multiple />
+                            
                         </div>
                     </div>
                 </div>
-
+                     <div class="row" style="text-align: center;">
+                    <div class="col-lg-12">
+                        <button type="button" class="btn-class-orange" data-style="expand-left" onclick="loadProfiles()">
+                            <span class="ladda-label">Загрузить фото</span>
+                        </button>
+                    </div>
+                </div>
+					<br />	
                 <div class="row">
                     @foreach (var item in Model.Portfolios)
                     {
@@ -293,18 +263,53 @@
                         </div>
                     }
                 </div>
-                <div style="padding: 20px 0px 20px 0px; text-align: center;">
-                    Нажатие кнопки «Загрузить» означает согласие с <a href="~/Docs/AboutProfile">Правилами заполнения профиля</a>
-                </div>
-                <div class="row" style="text-align: center;">
-                    <div class="col-lg-12">
-                        <button type="submit" class="btn btn-custom-orange ladda-button" data-style="expand-left">
-                            <span class="ladda-label">Загрузить фото</span>
-                        </button>
-                    </div>
-                </div>
+               
+                
             }
             <script>
+                function loadProfiles() {
+                    var files = document.getElementById('ProfileFiles').files,
+						isReady = false;
+
+                    var check = function () {
+                        if (isReady) {
+                            var url = window.location.origin + window.location.pathname + "?tab=tab5-2";
+                            window.location = url;
+                        }
+                        else {
+                            setTimeout(check, 2000); // check again in a second
+                        }
+                    }
+
+					check();
+					
+                    for (var i = 0; i < files.length; i++) {
+                        var form_data = new FormData();
+                        var file = files[i],
+                            size = file.size / 1024 / 1024;
+
+                        if (size > 3.9) {
+                            continue;
+                        }
+
+                        form_data.append("Files", file);
+
+                        $.ajax({
+                            type: 'POST',
+                            url: '/Account/AddImage',
+                            data: form_data,
+                            cache: false,
+                            contentType: false,
+                            processData: false,
+                            success: function (data) {
+
+                            }
+                        });
+                    }
+
+                    isReady = true;
+                }
+
                 function removePortFile(id) {
                     $.ajax({
                         type: 'POST',
@@ -316,8 +321,8 @@
                         success: function (data) {
                             $('#portFile-' + id).remove();
                         }
-                    });
-                }
+                            });
+                        }
             </script>
         </div>
 
@@ -327,37 +332,35 @@
 					<br />
 
 		 <div class="row">
-            <div class="col-md-1"><img src="~/Content/images/obusluge.png" width="60" height="60" /></div>
+            <div class="col-md-1"><img src="~/Content/images/vedushiy.svg" width="60" height="60" /></div>
             <div class="col-md-11" style="line-height:20px">
                 <div style="font-weight: bold; font-size: 17px;"> Об услуге, которую Вы оказываете.
 				</div>
                 <div style="font-size: 14px;">
-                 В данном разделе опишите  об услуге, которую Вы оказываете. <br />
-				  Максимальная  длина текста, до<strong>  20.000</strong> символов.<br /> <br />
-				   <p> <i><span style="color: #f54e4e;">
-                Информация в данном разделе не должна нарушать законы РФ, должна быть правдивой и соответствовать правилам добросовестной конкуренции.
-                Утверждения рекламного характера, а также прилагательных в превосходной степени «самый», «полный», «дешевый», «лучший», «единственный» и им подобных, не допускается</i>.
-           </span></p>
+                 В данном разделе расскажите  об услуге, которую Вы оказываете. <br />
+				  Максимальная  длина текста, до<strong> 20.000</strong> символов.<br />
+				   
                 </div>
  </div> </div>
-			<br />	
+			
 				
             <div class="row">
                 <form method="post" action="UpdateProfile">
                     <div class="form-group">
                         <div class="col-md-12">
-                            <textarea rows="10" cols="95" name="portfoli" maxlength="20000">@Model.Portfolio</textarea>
+                            <textarea rows="10" cols="95" name="portfoli" maxlength="4000">@Model.Portfolio</textarea>
                             <br />
+							<span style="color: #555555;"><img src="~/Content/images/lamp.png" width="15" height="16" />
+                Информация в данном разделе не должна нарушать законы РФ, должна быть правдивой и соответствовать правилам добросовестной конкуренции.
+                Утверждения рекламного характера, а также прилагательных в превосходной степени «самый», «полный», «дешевый», «лучший», «единственный» и им подобных, не допускается</i>.
+           </span>
                         </div>
                     </div>
-                    <div style="text-align: center;"></div>
-                    <i>
-                        Информация в данном разделе не должна нарушать законы РФ, должна быть правдивой и соответствовать правилам добросовестной конкуренции.
-                        Утверждения рекламного характера, а также прилагательных в превосходной степени «самый», «полный», «дешевый», «лучший», «единственный» и им подобных, не допускается
-                    </i>.
+                   
+                   
                     <div class=" form-group">
                         <div class="col-md-12 progress-demo" style="text-align: center; padding-top: 20px;">
-                            <button type="button" class="btn btn-custom-orange ladda-button" data-style="expand-left" onclick="savePortfolio(this)">Сохранить текст</button>
+                            <button type="button" class="btn-class-orange" data-style="expand-left" onclick="savePortfolio(this)">Сохранить текст</button>
                         </div>
                     </div>
                 </form>
@@ -385,243 +388,18 @@
             </div>
         </div>
 
-        <!-- Тендеры -->
         <div class="tab-pane" id="tab5-4">
-	
-          
-
             <div style="padding-bottom: 20px;">
-              		<br />
-
-		 <div class="row">
-            <div class="col-md-1"><img src="~/Content/images/podpiska.png" width="60" height="60" /></div>
-            <div class="col-md-11" style="line-height:20px">
-                <div style="font-weight: bold; font-size: 17px;">Подпишитесь на заявки по видам услуг.
-				</div>
-                <div style="font-size: 14px;">
-                  Найдите в списке тем, услуги которые Вы  готовы оказывать, и поставьте галочки. Заявки будут приходить только по этим услугам. <br />
-				  Максимальное количество выбранных услуг - 15.
-				  
-                </div>
- </div> </div>
-			<br />	
+                @RenderPage("Common/Common.cshtml", Model)
             </div>
-            <div class="row">
-                <div class="col-lg-8">
-                    <div class="SubTender">
-                        <div class="wp-example" id="accordions">
-                            <div class="panel-group" id="accordionThree">
-                                @{
-                                    var i = 0;
-                                }
-                                @foreach (var theme in Model.TenderThemes)
-                                {
-                                <div class="panel panel-default">
-                                    <div class="panel-heading">
-                                        <h4 class="panel-title">
-                                            <a data-toggle="collapse" data-parent="#accordionThree" href="@string.Format("#collapse{0}a", i)" class="collapsed">
-                                                @theme.Key
-                                            </a>
-                                        </h4>
-                                    </div>
-                                    <div id="@string.Format("collapse{0}a", i)" class="panel-collapse collapse" style="height: 0px;">
-                                        <div class="panel-body">
-                                            <div class="row">
-                                                @foreach (var title in theme.Value)
-                                                {
-                                                    <div class="col-md-8">
-                                                        @if (!title.IsTitle)
-                                                        {
-                                                            <h5>@title.Title</h5>
-                                                        }
-                                                        else
-                                                        {
-                                                        <div style="font-weight: bold; color: #950f81">
-                                                            <h5>@title.Title</h5>
-                                                        </div>
-                                                        }
-                                                    </div>
-                                                    <div class="col-md-4">
-                                                        @if (!title.IsTitle)
-                                                        {
-                                                            <input type="checkbox" name="@title.Id" id="@title.Id" class="subCheck" />
-                                                        }
-                                                    </div>
-                                                }
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-lg-12">
-                                                    <div style="padding-top: 20px; text-align: center;">
-                                                        <button type="button" class="btn btn-custom-orange subThemeBtn" onclick="UpdateSubsciptions(this)">Сохранить / Подписаться</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                    i++;
-                                }
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-12" style="text-align: center; padding-top: 0px;">
-                                <button type="button" class="btn btn-custom-orange subThemeBtn" onclick="UpdateSubsciptions(this)">Сохранить / Подписаться</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4"></div>
-            </div>
-        </div>
-        
-
-        <!-- Города -->
-        <div class="tab-pane" id="tab5-5">
-         		<br />
-
-		 <div class="row">
-            <div class="col-md-1"><img src="~/Content/images/GOROD.png" width="60" height="60" /></div>
-            <div class="col-md-11" style="line-height:20px">
-                <div style="font-weight: bold; font-size: 17px;">Подпишитесь на заявки из  городов в которых вы оказываете услуги.
-				</div>
-                <div style="font-size: 14px;">
-				Найдите города в которых Вы оказыаете свои услуги, и поставьте галочки, что  бы получать заявки на исполнение услуг в этих городах.
-                <br />
-				  Что бы отписаться от города, уберите галочку.
-				  <br />
-				  Максимальное количество выбранныхгородов - 15.
-				  
-                </div>
- </div> </div>
-			<br />	
-		<h2>Россия</h2>
-			
-            <div class="row">
-                <div class="col-lg-8">
-                    <div class="wp-example" id="accodrions2">
-                        <div class="panel-group" id="accordionTree2">
-                            @{ 
-                                i++;
-                            }
-                            @foreach (var region in Model.GroupCitys)
-                            {
-                                <div class="panel panel-default">
-                                    <div class="panel-heading">
-                                        <h4 class="panel-title">
-                                            <a data-toggle="collapse" data-parent="#accordionThree" href="@string.Format("#collapse{0}a", i)" class="collapsed">
-                                                @region.Key
-                                            </a>
-                                        </h4>
-                                    </div>
-                                </div>
-                                <div id="@string.Format("collapse{0}a", i)" class="panel-collapse collapse" style="height: 0px;">
-                                    <div class="panel-body">
-                                        <div class="row">
-                                            @foreach (var city in region.Value)
-                                            {
-                                                <div class="col-md-4">
-                                                    <h5>@city.Name</h5>
-                                                </div>
-                                                <div class="col-md-8">
-                                                    @if (Model.SubCitys.FirstOrDefault(x => x.Id == city.Id) != null)
-                                                    {
-                                                    <input type="checkbox" name="@city.Id" id="@string.Format("{0}", city.Id)" class="subCity" checked/>
-                                                    }
-                                                    else
-                                                    {
-                                                    <input type="checkbox" name="@city.Id" id="@string.Format("{0}", city.Id)" class="subCity" />
-                                                    }
-                                                </div>
-                                            }
-                                        </div>
-                                    </div>
-                                </div>
-                                i++;
-                            }
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-8"></div>
-            </div>
-            <!-- Города0 -->
-            <script>
-                $(document).ready(function () {
-                    var max = 10;
-
-                    $('input.subCheck').on('click', function (el) {
-                        var selected = $('input.subCheck');
-
-                        var sel = 0;
-
-                        for (var i = 0; i < selected.length; i++) {
-                            if (el.target != selected[i]) {
-                                if (selected[i].checked == true) {
-                                    sel++;
-                                }
-
-                                if (sel == max) {
-                                    break;
-                                }
-                            }
-                        }
-
-                        if (sel == max) {
-                            el.target.checked = false;
-                        }
-                    });
-                });
-
-                function UpdateSubsciptions() {
-
-                    $('button.subThemeBtn').attr('disabled', 'disabled');
-                    var subs = [];
-
-                    var selected = $('input.subCheck');
-
-                    for (var i = 0; i < selected.length; i++) {
-                        if (selected[i].checked == true) {
-                            subs.push({ Id: selected[i].id });
-                        }
-                    }
-
-                    $.ajax({
-                        url: '/Account/UpdateSubThemes',
-                        data: {
-                            ListThemes: subs
-                        },
-                        type: 'POST',
-                        success: function (resp) {
-                            var url = window.location.origin + window.location.pathname + "?tab=tab5-4";
-                            //window.location = url;
-                            $('button.subThemeBtn').removeAttr('disabled');
-                        }
-                    });
-                }
-
-                function setChecked(data) {
-                    for (var i = 0; i < data.length; i++) {
-                        var selected = $('input.subCheck[id=' + data[i].Id + ']');
-
-                        if (selected.length > 0) {
-                            selected.attr('checked', true);
-                        }
-                    }
-                }
-
-                $(document).ready(function () {
-                    $.ajax({
-                        url: '/Account/GetSubThemes',
-                        type: 'POST',
-                        success: function (resp) {
-                            setChecked(resp.Data);
-                        }
-                    });
-                });
-            </script>
-            
-            <script src="~/Scripts/app/subRegions.js"></script>
         </div>
     </div>
 </div>
 <script src="~/Scripts/app/openTab.js"></script>
  <br /> <br />
+
+<script>
+    $(document).ready(function () {
+        $('input[name=Phone]').mask('+7 000-000-0000');
+    });
+</script>

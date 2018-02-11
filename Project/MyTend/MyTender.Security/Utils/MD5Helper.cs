@@ -12,6 +12,5 @@
 
             return md5string;
         }
-
     }
 }

@@ -10,13 +10,12 @@
 <h3>Победитель конкурсного торга, определён!</h3>
      
 
-<p>
+<h5>
     В заявке <a href="~/Tender/Details?id=@Model.Id">@Model.Title</a> Вы выбрали победителем: @Html.ActionLink(Model.Winner.FullName, "Card", "Account", new { user = Model.Winner.Login }, null)
-	 <br />Конкурс закрыт и переходит  и переходит в меню  в @Html.ActionLink("Мои заявки", "My", "Tender") / Завершённые торги. <br />
-
+	, конкурсный-торг закрыт!
 
   
-</p>
+</h5>
     <br />
     <div class="form-group" style="text-align: left">
         <h4 style="color: #f99313;">
@@ -34,10 +33,10 @@
 </div>
  <div class="row">
  
-            <div class="col-md-1"><img src="~/Content/images/icon-phone.png" width="50" height="50" /></div>
+            <div class="col-md-1"><img src="~/Content/images/ispolnitely.svg" width="70" height="70" /></div>
             <div class="col-md-11" style="line-height:20">
 	
-                      <h3>
+                      <h2>
         @if (!string.IsNullOrEmpty(Model.Winner.Phone))
         {
             @Html.ActionLink(Model.Winner.Phone, "Card", "Account", new { user = Model.Winner.Login }, null)
@@ -46,12 +45,12 @@
         {
             @Html.ActionLink(Model.Winner.FullName, "Card", "Account", new { user = Model.Winner.Login }, null)
         }
-    </h3>
+    </h2>
      
 
 				</div></div><br />
 				 <div class="row">
-            <div class="col-md-1"><img src="~/Content/images/321.png" width="50" height="50" /></div>
+            <div class="col-md-1"><img src="~/Content/images/inf4.svg" width="60" height="60" /></div>
             <div class="col-md-11" style="line-height:20px">
                 <div style="font-weight: bold; font-size: 17px;">Договоритесь о встрече </div>
                 <div style="font-size: 14px;">
@@ -61,9 +60,9 @@
  </div> </div>
 			<br />
 				 <div class="row">
-            <div class="col-md-1"><img src="~/Content/images/icon-prazdnik.png" width="50" height="50" /></div>
+            <div class="col-md-1"><img src="~/Content/images/prazdnik.svg" width="60" height="60" /></div>
             <div class="col-md-11" style="line-height:20px">
-                <div style="font-weight: bold; font-size: 17px;">Ждите свой праздник!!!</div>
+                <div style="font-weight: bold; font-size: 17px;">С нетерпением, ожидайте свой праздник!!!</div>
                 <div style="font-size: 14px;">
                   Договорившись обо всем с исполнителем, радостно ожидайте свое праздничное событие <br />
 				  Дождавшись его, веселитесь от души, рекомендуйте наш сайт своим родным и близким!

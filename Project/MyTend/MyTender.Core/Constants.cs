@@ -6,7 +6,7 @@
 
         public const string _COOKIE_NAME = "__YA_PREDLOGAYU";
 
-        public const string _UNKNOW_USER = "Пользователь с таким логином и паролем не найдены.";
+        public const string _UNKNOW_USER = "Пользователь с таким логином и паролем не найден";
 
         public const int _MAX_SUB_REGIONS = 4;
 

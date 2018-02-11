@@ -18,11 +18,14 @@
 *.lib
 *.sbr
 *.sdf
+*.dll
 ipch/
 obj/
 [Bb]in
 [Dd]ebug*/
 [Rr]elease*/
 Ankh.NoLoad
+packages/
 
 .idea/
+.vs/

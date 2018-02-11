@@ -45,7 +45,7 @@ namespace MyTend.Models
         {
             var tender = Tender.GetById(id);
 
-            if (tender.User.Id != this.Auth.User.Id)
+            /*if (tender.User.Id != this.Auth.User.Id)
             {
                 var tenderByFilter = this.TendersFilter.GetByListTenders(this.RegionFilter.GetTenders());
 
@@ -59,7 +59,9 @@ namespace MyTend.Models
             else
             {
                 this.Tenders.Add(tender);
-            }
+            }*/
+
+            this.Tenders.Add(tender);
         }
 
         private void Load(int id)
@@ -68,7 +70,7 @@ namespace MyTend.Models
 
             if (tender == null)
             {
-                throw new Exception("Тендер не найден.");
+                //throw new Exception("Тендер не найден.");
             }
 
             this.Id = tender.Id;
