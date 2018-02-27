@@ -2,9 +2,10 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-12" style="text-align: center;">
-                <strong>My-Tend.Com © 2018  </strong>Интернет-тендер Event услуг для физических лиц.<br />
-                Использование сайта "My-Tend.Com" означает согласие с <a href="~/Docs/Rules">Условиями использования сайта</a> и <a href="~/Docs/PublicData" target="_blank">Соглашением на обработку персональных данных</a>.<br />
-                Пользователи, желающие стать продавцами, принимают <a href="/Docs/Oferta">Договор-оферту</a>. <br /><strong>Сделано в Татарстане!</strong>
+                <h5><strong>My-Tend.Com © 2018  </strong>Сайт, где исполнители соревнуются за праздник заказчика!<br />
+				<h5>
+               <h6> Использование сайта "My-Tend.Com" в качестве гостя, заказчика или продавца услуг, означает согласие с <a href="~/Docs/Rules">Условиями использования сайта</a> и <a href="~/Docs/PublicData" target="_blank">Соглашением на обработку персональных данных</a>.<br />
+             <h5> <strong>Сделано в Татарстане!</strong><h5>
             </div>
         </div>
         <div class="row f_m">
@@ -12,7 +13,7 @@
                 <div style="text-align: center">
 
                     <span>
-                        @Html.ActionLink("На главную", "Index", "Home", null, new { @class = "f_m_a" })
+                        @Html.ActionLink("На главную / Новая заявка", "Index", "Tender", null, new { @class = "f_m_a" })
                     </span>
                     <span class="f_m_b">|</span>
                     <span>
@@ -26,15 +27,8 @@
                     <span>
                         @Html.ActionLink("Стать продавцом услуг", "torgs", "docs", null, new { @class = "f_m_a" })
                     </span>
-                    <span class="f_m_b">|</span>
-                    <span>
-                        @Html.ActionLink("Специальные акции", "Torgs", "Docs", null, new { @class = "f_m_a" })
-                    </span>
-                    <span class="f_m_b">|</span>
-                   
-                    <span class="f_m_b">|</span>
-                    <span>
-                        @Html.ActionLink("Рекламодателям", "support", "Home", null, new { @class = "f_m_a" })
+                     <span>
+                        @Html.ActionLink("Обратная связь / Рекламодателям", "support", "Home", null, new { @class = "f_m_a" })
                     </span>
                    
                 </div>

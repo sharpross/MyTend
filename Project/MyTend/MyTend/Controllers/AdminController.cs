@@ -7,9 +7,9 @@
     public class AdminController : BaseController
     {
         // GET: Admin
-        public ActionResult Index()
+        /*public ActionResult Index()
         {
             return View();
-        }
+        }*/
     }
 }

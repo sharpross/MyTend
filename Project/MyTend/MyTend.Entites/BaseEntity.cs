@@ -44,7 +44,12 @@
             {
                 this.Errors.Remove("Email is currently in use. Please pick up a new Email.");
             }
-
+            if (this.Errors.Contains("Phone is currently in use. Please pick up a new Phone."))
+            {
+                this.Errors.Remove("Phone is currently in use. Please pick up a new Phone.");
+                this.Errors.Add("Данный номер телефона занят. Укажите другой номер.");
+            }
+            
             return false;
         }
 

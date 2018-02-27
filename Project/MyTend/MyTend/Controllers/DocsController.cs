@@ -78,10 +78,10 @@
         /// Договор оферты
         /// </summary>
         /// <returns></returns>
-        public ActionResult Aferta()
+        /*public ActionResult Aferta()
         {
             return View();
-        }
+        }*/
 
         /// <summary>
         /// Договор оферты

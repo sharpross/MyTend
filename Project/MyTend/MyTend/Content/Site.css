@@ -604,6 +604,7 @@ header {
 }
 
 .btn-class-grey{
+    cursor: pointer;
  display: inline-block;
  border:1px solid #CCCCCC;
  color: #000000;
@@ -614,7 +615,7 @@ header {
  width: auto;
  height: auto;
  font-size: 14px;
- padding: 1px 13px;
+ padding: 1px 10px;
  background-color: #FCFCFC;
 }
 .btn-class-grey:hover, .btn-class:active{
@@ -624,6 +625,7 @@ header {
 }
 
 .btn-class-orange{
+    cursor: pointer;
  display: inline-block;
  border: none;
  color: #000000;
@@ -634,16 +636,17 @@ header {
  width: auto;
  height: auto;
  font-size: 14px;
- padding: 1px 13px;
+ padding: 1px 10px;
  background-color: #F7BF28;
 }
 .btn-class-orange:hover, .btn-class:active{
  border: none;
  color: #000000;
- background-color: #ffc731;
+ background-color: #fac945;
 }
 
 .btn-class-winer{
+    cursor: pointer;
  display: inline-block;
  border:1px solid #E0E0E0;
  color: #000000;
@@ -675,4 +678,37 @@ header {
     }
 .emenu .sidebar-nav-item {
     color: black;
+}
+
+.btn-warning {
+    color: #000000;
+    background-color: #F7BF28;
+    border-color: #F7BF28;
+}
+	
+	.btn-warning:hover, .btn-class-winer:active{
+ border:1px solid #E0E0E0;
+ color: #000000;
+ background-color: #ededed;
+}
+
+.btn-class-blues{
+    cursor: pointer;
+     display: inline-block;
+     border: none;
+     color: #ffffff;
+     border-radius: 3px 3px 3px 3px;
+     -webkit-border-radius: 3px 3px 3px 3px;
+     -moz-border-radius: 3px 3px 3px 3px;
+     font-family: Arial;
+     width: auto;
+     height: auto;
+     font-size: 14px;
+     padding: 4px 10px;
+     background-color: #00aebe !important;
+}
+.btn-class-blues:hover, .btn-class:active {
+     border: none;
+     color: #ffffff;
+     background-color: #20d0e0;
 }

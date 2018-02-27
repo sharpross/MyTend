@@ -1,5 +1,7 @@
-﻿
-<nav class="navbar navbar-default" style="background-color: #444444; border-radius: 0px;">
+﻿@{
+    var login = Html.Raw(ViewBag.UserLogin) ;
+}
+<nav class="navbar navbar-default" style="background-color: #212121; border-radius: 0px;">
     <div class="container">
         <div class="navbar-header">
             
@@ -16,14 +18,15 @@
 		
             <ul class="nav navbar-nav navbar-right">
 			
+			
                 @if (ViewBag.IsAuth == true)
                 {
                     <li>
-                        <a href="~/Account/Card?user=@ViewBag.UserLogin"><img src="/Image/Get?id=@ViewBag.UserAvatarId" width="25" height="25" class="img-circle"></a>
-                        
+                        <a href="~/Account/Card?user=@string.Format("{0}", login)"><img src="/Image/Get?id=@ViewBag.UserAvatarId" width="25" height="25" class="img-circle"></a>
+
                     </li>
                     string loginName = ViewBag.UserName.ToString();
-                    <li> @Html.ActionLink(loginName, "Card", "Account", new { user = ViewBag.UserLogin }, new { @style = "color: #07a7fa;" })</li>
+                    <li><a href="~/Account/Card?user=@string.Format("{0}", login)" style="color: #07a7fa;">@ViewBag.UserName</a></li>
                     <li><a name="LogoutButton" style="color: #07a7fa;">Выход</a></li>
                 }
                 else
@@ -42,13 +45,13 @@
             <div class="modal-body">
                 <div name="LoginForm">
                     <div class="form-group" style="text-align: center">
-                        <img src="@Url.Content("~/Content/images/logo.svg")" height="130">
+                        <img src="@Url.Content("~/Content/images/logo.svg")" height="140">
 						
-						<br />
-                        <h5><div style="color: #111111;"><strong>Сайт, где исполнители Event-услуг соревнуются за праздник заказчика!</strong></div></h5>
+						
+                        <h5><div style="color: #111111;">Сайт, где исполнители Event-услуг соревнуются за праздник заказчика!</div></h5>
 
                     </div>
-
+<br />
                     <div class="row">
                         <div class="col-lg-3"></div>
                         <div class="col-lg-6">
@@ -67,7 +70,7 @@
                         Нажатие кнопки "Войти" означает согласие с <a href="~/Docs/Rules">Условиями использования сайта</a>.
                     </div>
                     <div style="text-align: center">
-                        <button type="button" class="btn btn-custom-orange" name="LoginButton">Войти на сайт</button>
+                        <button type="button" class="btn-class-orange" name="LoginButton">Войти на сайт</button>
                     </div>
                 </div>
                 <div class="row" style="text-align: center; padding-top: 20px;">Еще не зарегистрировались?

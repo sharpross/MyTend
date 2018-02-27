@@ -42,5 +42,21 @@ namespace MyTend.Services.Common
 
             return r.Next(1, int.MaxValue - 1);
         }
+
+        public static string NormalizePhone(string source)
+        {
+            var result = source
+                .Replace(" ", string.Empty)
+                .Replace("+7", "7")
+                .Replace("(", string.Empty)
+                .Replace(")", string.Empty);
+
+            if (!result.StartsWith("7"))
+            {
+                result = "7" + result.Substring(1, result.Length);
+            }
+
+            return result;
+        }
     }
 }

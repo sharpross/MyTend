@@ -1,16 +1,15 @@
 ﻿@model MyTend.Models.WinnerTenderModel
 
 @{
-    ViewBag.Title = "Мои победы в торгах";
+    ViewBag.Title = "Мои победы";
 }
 
-<h3 style="color: #222222;">Мои победы в аукционных-торгах</h3>
-<h5>В этом меню отображаются списки конкурсных торгов, где Вас выбрали победителем заявки.</h5>
 
+<h1 style="color: #000000;"><STRONG>Мои победы</STRONG></h1>
+<h5 style="color: #777777;">В этом меню отображаются списки конкурсных-торгов, где Вас выбрали победителем заявки.</h5>
+ <hr style="margin-top: 2px;">
 <div class="tabs">
-    <ul class="nav nav-tabs nav-justified">
-        <li class="active"><a href="#tab5-1" data-toggle="tab" style="text-decoration: none;"><strong></strong></a></li>
-    </ul>
+   
     <div class="tab-content">
         <div class="tab-pane active" id="tab5-1">
             @if (Model.Tenders.Count > 0)
@@ -50,14 +49,9 @@
             else
             {
                 <div>
-                    Вас ещё не выбрали победителем конкурса/аукционного-торга.
+                    Вас ещё не выбрали победителем конкурсного-торга.
                 </div>
-                <div>
-                    Внимательно и часто следите за ходом торгов, что бы успеть сделать более выгодгое предложение заказчику!
-                </div>
-                <div>
-                    Это повышает Ваши шансы на победу в торгах.
-                </div>
+              
             }
         </div>
     </div>

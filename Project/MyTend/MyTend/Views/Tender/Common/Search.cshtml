@@ -2,10 +2,10 @@
 
 <div class="row">
     <div class="col-lg-6 text-center">
-        <div class="btn-class-grey" data-target="#vU" id="seach-a"><img src="~/Content/images/baklaszanstar.svg" width="21" height="20" /> Какие услуги Вы  оказываете?</div>
+        <div class="btn-class-grey" data-target="#vU" id="seach-a"><img src="~/Content/images/yellowstar.svg" width="25" height="25" /> Какие услуги Вы  оказываете?</div>
     </div>
     <div class="col-lg-6 text-center">
-        <div class="btn-class-grey" data-target="#vG" id="seach-b"><img src="~/Content/images/GEO4.png" width="25" height="18" /> В каких городах Вы их оказываете?</div>
+        <div class="btn-class-grey" data-target="#vG" id="seach-b"><img src="~/Content/images/geo6.svg" width="25" height="25" /> В каких городах Вы их оказываете?</div>
     </div>
 </div>
 
@@ -15,7 +15,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" style="color: red">&times;</span></button>
-               <img src="~/Content/images/ispolnitely2.svg" width="300" />
+               <img src="~/Content/images/ispolniteli2.svg" width="300" />
 			   <h4 class="modal-title">Поставьте галочки напротив услуг которые  Вы оказываете</h4>
                 <div>
                     <h5 class="modal-title">
@@ -45,25 +45,29 @@
                                     <div class="row">
                                         @foreach (var title in theme.Value)
                                         {
-                                        <div class="col-md-7">
-                                            @if (!title.IsTitle)
-                                            {
-                                            <h5><span id="lb-th-@title.Id">@title.Title</span></h5>
-                                            }
-                                            else
-                                            {
-                                            <div style="font-weight: bold; color: #950f81">
-                                                <h5>@title.Title</h5>
+                                            <div class="col-md-7">
+                                                @if (!title.IsTitle)
+                                                {
+                                                    <h5><span id="lb-th-@title.Id">@title.Title</span></h5>
+                                                }
+                                                else
+                                                {
+                                                    <div style="font-weight: bold; color: #950f81">
+                                                        <h5>@title.Title</h5>
+                                                    </div>
+                                                }
                                             </div>
-                                            }
-                                        </div>
-                                        <div class="col-md-4">
-                                            @if (!title.IsTitle)
-                                            {
-                                            <input type="checkbox" name="@title.Id" id="@title.Id" class="subCheck" onclick="onSelectTheme('@title.Title', this)" />
-                                            }
-                                        </div>
+                                            <div class="col-md-4">
+                                                @if (!title.IsTitle)
+                                                {
+                                                    <input type="checkbox" name="@title.Id" id="@title.Id" class="subCheck" onclick="onSelectTheme('@title.Title', this)" />
+                                                }
+                                            </div>
                                         }
+                                    </div>
+                                    <div style="padding-top: 20px;" class="text-center">
+                                        <div class="btn-class-orange" onclick="reloadPage()"><span class="glyphicon glyphicon-search"></span>
+                                            Найти / Сохранить</div>
                                     </div>
                                 </div>
                             </div>
@@ -86,7 +90,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" style="color: red">&times;</span></button>
-                 <img src="~/Content/images/ispolnitelygeo.svg" width="350" />
+                 <img src="~/Content/images/ispolniteligeo.svg" width="350" />
 			   <h4 class="modal-title">Укажите, в каких городах Вы готовы исполнять услуги</h4>
 				<h5 class="modal-title"> В случае, если кто-то разместит заявку в указанных вами городах, Робот-Тендер оповестит и пригласит Вас к участию в конкурсе по электронной почте.
 				Так же заявка появится в мею "Заявки от заказчиков"</h5>
@@ -307,10 +311,7 @@ else
                 </div>
             </div>
         </div>
-        <div style="padding-top: 20px;">
-            <div class="btn-class-orange" onclick="reloadPage()"><span class="glyphicon glyphicon-search"></span>
-Найти / Сохранить</div>
-        </div>
+        
     </div>
 </div>
 

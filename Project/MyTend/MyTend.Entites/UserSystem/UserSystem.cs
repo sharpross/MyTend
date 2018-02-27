@@ -25,7 +25,7 @@
 
         [Property]
         [ValidateIsUnique("Такой почтовый адрес уже существует")]
-        [ValidateEmail("Укажите карректный почтовый адрес.")]
+        [ValidateEmail("Укажите карректный почтовый адрес")]
         [ValidateNonEmpty("Почтовый адрес не может быть пустым")]
         public string Email { get; set; }
 
@@ -48,8 +48,8 @@
         public string Instagram { get; set; }
 
         [Property(Length = 255)]
-        [ValidateIsUnique("Такой номер телефона уже используется")]
         [ValidateNonEmpty("Укажите номер телефона")]
+        [ValidateIsUnique("Данный номер телефона занят")]
         public string Phone { get; set; }
         
         [ValidateNonEmpty("Укажите регион")]

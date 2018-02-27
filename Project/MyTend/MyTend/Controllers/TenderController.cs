@@ -175,6 +175,8 @@
         {
             var model = new TenderDetailsModel(this.Auth, id);
 
+            ViewBag.StandatdGallery = true;
+                
             return View(model);
         }
 

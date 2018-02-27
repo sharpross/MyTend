@@ -165,7 +165,7 @@
             {
                 user.FullName = this.FullName;
                 user.Facebook = this.Facebook;
-                user.Phone = this.Phone;
+                user.Phone = Utils.NormalizePhone(this.Phone);
                 //user.Phone2 = this.Phone2;
                 user.Site = this.Site;
                 user.Skype = this.Skype;

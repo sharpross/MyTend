@@ -155,7 +155,7 @@
                 }
             }
 
-            return View(model);
+            return JsonFailur(model);
         }
 
         [HttpPost]

@@ -35,7 +35,14 @@
     <script src="~/Content/fine-uploader/fine-uploader.min.js"></script>
     <script src="~/Scripts/wysihtml5-0.3.0.js"></script>
     <script src="~/Scripts/bootstrap-wysihtml5.js"></script>
-    <script src="~/Content/unitegallery/themes/tiles/ug-theme-tiles.js"></script>
+    @if (ViewBag.StandatdGallery != null && ViewBag.StandatdGallery == true)
+    {
+        <script src="~/Content/unitegallery/themes/tilesgrid/ug-theme-tilesgrid.js"></script>
+    }
+    else
+    {
+        <script src="~/Content/unitegallery/themes/tiles/ug-theme-tiles.js"></script>
+    }
     <script src="~/Scripts/app/redirect.js"></script>
     <script src="~/Scripts/spin.min.js"></script>
     <script src="~/Scripts/ladda.min.js"></script>
