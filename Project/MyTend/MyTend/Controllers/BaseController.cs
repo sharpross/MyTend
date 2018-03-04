@@ -65,22 +65,7 @@
             {
                 
             }
-            finally
-            {
-                if (filterContext.Exception is PolicyViolationException)
-                {
-                    filterContext.Result = new RedirectResult("~/Account/Registration");
-                }
-                if (filterContext.Exception is HttpNotFoundResult)
-                {
-                    filterContext.Result = new RedirectResult("~/Error/NotFound");
-                }
-                else
-                {
-                    filterContext.Result = new RedirectResult("~/Error/Error");
-                }
-            }
-
+            
             base.OnException(filterContext);
         }
 

@@ -5,7 +5,7 @@
                     <div class="col-md-4">
                         <div style="text-align: center; padding-top: 0px;" class="">
                             <a href="~/Home/Index" title="MY-TEND.COM" style="text-decoration: none;)">
-                                <img src="@Url.Content("~/Content/images/logo.png")" height="140">
+                                <img src="@Url.Content("~/Content/images/logo.png")" height="150">
                             </a>
                         </div>
                     </div>
@@ -13,9 +13,9 @@
                     <div class="col-md-8">
                         <div style="text-align: left; padding-top:20px;">
 						
-                            <h5 style="color: #800080;"> <strong>Проведите конкурс на право исполнения услуги для Вашего праздника!</strong> </h5>
-							<h5 style="color: #222222;"> 
-							- Исполнители будут соревноваться за Ваш заказ!<br>
+                            <h5 style="color: #00aef0;"> <strong>СОЗДАЙТЕ ЗАЯВКУ И РАССКАЖИТЕ О БУДУЩЕМ ПРАЗДНИЧНОМ СОБЫТИИ!</strong> </h5>
+							<h5 style="color: #777777;"> 
+							- Профессионалы праздника будут соревноваться за Ваш заказ!<br>
 							- Сравниваете и выбираете самое выгодное и интересное предложение!
 							</h5>
                        
@@ -29,12 +29,12 @@
                 @if (ViewBag.IsAuth != null)
                 {
                     <div style="padding-top: 30px">
-                        <a href="~/Tender/Index" class="btn-class-winer" style="width: 200px"><span class=" glyphicon glyphicon-plus"></span>
-<strong>Создать заявку</strong></a>
+                        <a href="~/Tender/Index" style="color: red;"><h4>
++ СОЗДАТЬ ЗАЯВКУ</h4></a>
                     </div>
-                    <div style="padding-top: 30px">
-                        <a href="~/Tender/My" class="btn-custom-aqua" style="width: 240px">
-Проверить предложения <br>от исполнителей</a>
+                    <div style="padding-top: 10px"><h4>
+                        <a href="~/Tender/My" style="color: #00aef0;">
+Проверить предложения от исполнителей</a></h4>
                     </div>
                 }
             </div>
@@ -58,7 +58,7 @@
                     </li>
                     <li>
                         <a href="~/Account/Card?user=@ViewBag.UserLogin" aria-expanded="false">
-                            <span class=""><img src="~/Content/images/orangestar.svg"width="13" height="13" /> Моя Визитка</span>
+                            <span class=""> Моя Визитка</span>
                         </a>
                     </li>
                     <li>
@@ -96,11 +96,7 @@
                                 <span class="">Стать продавцом</span>
                             </a>
                         </li>
-                        <li>
-                            <a href="~/Tender/My" aria-expanded="false">
-                                <span class="">Проверить предложения от исполнителей</span>
-                            </a>
-                        </li>
+                        
                     </ul>
                     }
                 </div>

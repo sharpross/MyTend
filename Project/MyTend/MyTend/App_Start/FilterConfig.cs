@@ -41,8 +41,8 @@ namespace MyTend
                 configuration.For<TenderController>(ac => ac.Map()).Ignore();
             });
 
-            filters.Add(new ErrorAtr());
             filters.Add(new HandleSecurityAttribute(), 0);
+            filters.Add(new ErrorAtr());
         }
 
         private static bool IsAuth(HttpContext context)

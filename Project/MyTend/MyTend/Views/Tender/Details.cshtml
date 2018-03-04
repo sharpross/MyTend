@@ -57,7 +57,7 @@
 
                 @if (Model.Winner != null && ViewBag.UserLogin == Model.Winner.Login)
                 {
-                    <span style="color: #307a7fa; font-weight: bold">
+                    <span style="font-weight: bold">
                         @Html.ActionLink(Model.User.FullName, "Card", "Account", new { @user = Model.User.Login }, null)
                     </span>
                 }
@@ -143,7 +143,7 @@
 
     </div>
  <div class="col-md-9">
-		<p style="word-wrap: break-word; font-size: 18px; line-height: 18px;">
+		<p style="word-wrap: break-word; font-size: 17px; line-height: 18px;">
         @Html.Raw(Model.Message.Replace("\n", "<br />"))
    </div>
   
@@ -169,23 +169,76 @@
             });
         </script>
     </div>
-	   <br />
- <h5>  <img src="~/Content/images/lamp.svg"width="16" height="20" /> Вы имеете право купить услугу по цене, которую указал исполнитель, 
- перед тем, когда Вы его выбрали победителем конкурса. </h5>
-<h5>  <img src="~/Content/images/lamp.svg"width="16" height="20" /> Объявить победителем конкурсного-торга возможно лишь 1 исполнителя. </h5>
-<h5> <img src="~/Content/images/lamp.svg"width="16" height="20" /> Предложния могут делать —  только те исполнители,  у которых вид деательности связан с темой заказа. За нарушение блокировка на неделю.
-    </h5>
-	<h5>  <img src="~/Content/images/lamp.svg"width="16" height="20" /> Если заказчик или исполнитель победивший в конкурсе не выходит на связь  с победителем конкурса в течении трех дней! Вы имеете право оставить ему отрицательный отзыв в визитке!!!</h5>
-	<h5>  <img src="~/Content/images/lamp.svg"width="16" height="20" /> Настоятельно рекомендуем, 
-	ознакамливаться с информацией об исполнителях в их визитках. Это поможет сделать более правильный выбор победителя.</h5>
+}
+
+@if (Model.IsActive == false)
+{
+    if (Model.Winner != null)
+    {
+        <style>
+            .w_b {
+                padding: 20px;
+            }
+        </style>
+
+        <div class="row">
+            <div class="col-lg-12 bg-success">
+                <div class="w_b">
+                    <div style="text-align: center">
+                        Аукционный-торг закрыт! Победителем конкурса/торга выбран: <strong>@Html.ActionLink(Model.Winner.FullName, "Card", "Account", new { @user = Model.Winner.Login }, new { @style = "color: red" })</strong>
+                    </div>
+                    <div style="text-align: center;">
+                        Торг перенесён в "Завершенные торги (архив)"
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    }
+    else
+    {
+        <div style="text-align: center">
+            Время публикации аукционного-торга истекло, победитель не выбран.
+        </div>
+        <div style="text-align: center;">
+            Торг перенесён в меню "Завершенные торги"
+        </div>
+    }
+}
+
+<div style="padding-top: 15px;"></div>
+
+@if (Model.Messages != null)
+{
+    <div style="padding-top: 15px;"></div>
+    <div class="row" style="border: 0px solid #d8dfe6; border-style: solid;">
+        
+
+        @if (Model.IsActive)
+        {
+            <div style="text-align: center;"><br>
+    
+                <div class="title-line">Участникам конкурсного-торга на заметку!</div>
+            </div>
+            <div class="col-md-12" style="text-align: left;">
+                    
+                <ul>
+                    <li>Не торопитесь с выбором победителя торга. Дождитесь максимальное количество предложений. Каждое из них будет выгодно отличаться.</li>
+                    <li>Не забывайте писать на "доске предложений" свои вопросы, уточнения или детали, которые должны знать исполнители услуг, предлагая вам свои условия.</li>
+                    <li><strong>Выбрав  победителя, свяжитесь с ним по телефону</strong>.<br> Назначте встречу для возможного заключения сделки на условиях которые Вас устроили.</li>
+                </ul>
+            </div>
+        }
+
+    </div>
     <br />
     if (Model.Messages.Count == 0)
     {
         if (Model.User.Login == this.ViewBag.UserLogin)
         {
             <div class="row">
-                <div class="col-md-12" style="text-align: center; font-weight:  font-color #ff6163;">
-                   <img src="~/Content/images/vnimanie.png" style="width: 16px" /> Предложений от исполнителей пока нет, рекомендуем проверить позже!
+                <div class="col-md-12" style="text-align: center; font-weight: bold;">
+                    Предложений от исполнителей пока нет, рекомендуем проверить позже!
                 </div>
             </div>
         }
@@ -193,11 +246,10 @@
     else
     {
         <div class="row">
-            <div class="col-md-12" style="font-size: 15px; color: white; background-color: #944295; text-align: center;">
-               ДОСКА ПРЕДЛОЖЕНИЙ EVENT-УСЛУГ 
+            <div class="col-md-12" style="font-size: 14px; color: white; background-color: #944295; text-align: center;">
+                <strong><i class="glyphicon glyphicon-comment" style="color: #ffffff;"></i>  Доска предложений</strong>
             </div>
         </div>
-		 <br />
     }
     foreach (var message in Model.Messages)
     {
@@ -282,12 +334,14 @@
                         else
                         {
                             <div style="color: #919191; text-decoration: none; line-height: 15px;">
-                                @if (message.User.AboutShort != null && !string.IsNullOrEmpty(message.User.AboutShort))
-                                {
                                 <h5>
-                                    @string.Format("{0} / {1}", message.User.AboutShort, message.User.City.Name)
+                                    <span>@message.User.AboutShort</span>
+                                    @if (message.User.AboutShort != null && !string.IsNullOrEmpty(message.User.AboutShort))
+                                    {
+                                        <span> / </span>
+                                    }
+                                    <span>@message.User.City.Name</span>    
                                 </h5>
-                                }
                             </div>
                         }
                     </div>
@@ -329,7 +383,7 @@
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <img src="/Image/Get?id=@message.User.Id" class="img-circle" height="130">
+                                            <img src="/Image/Get?id=@message.User.Avatar.Id" class="img-circle" height="120" width="120">
 											<br />
 											<br />
 											

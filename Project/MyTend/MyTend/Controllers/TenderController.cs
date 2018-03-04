@@ -16,12 +16,6 @@
     {
         private string tempString = string.Empty;
 
-        protected override void OnActionExecuted(ActionExecutedContext filterContext)
-        {
-
-            base.OnActionExecuted(filterContext);
-        }
-
         /// <summary>
         /// Выбор создания тендера
         /// </summary>

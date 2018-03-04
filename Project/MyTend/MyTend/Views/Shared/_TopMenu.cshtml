@@ -22,12 +22,17 @@
                 @if (ViewBag.IsAuth == true)
                 {
                     <li>
+                        @if (ViewBag.IsPayed == false)
+                        {
+                            <a href="~/Docs/torgs" style="color: #07a7fa; padding-top: 8px;">Стать продавцом</a>   
+                        }
+                    </li>
+                    <li>
                         <a href="~/Account/Card?user=@string.Format("{0}", login)"><img src="/Image/Get?id=@ViewBag.UserAvatarId" width="25" height="25" class="img-circle"></a>
-
                     </li>
                     string loginName = ViewBag.UserName.ToString();
-                    <li><a href="~/Account/Card?user=@string.Format("{0}", login)" style="color: #07a7fa;">@ViewBag.UserName</a></li>
-                    <li><a name="LogoutButton" style="color: #07a7fa;">Выход</a></li>
+                    <li><a href="~/Account/Card?user=@string.Format("{0}", login)" style="color: #07a7fa; padding-top: 8px;">@ViewBag.UserName</a></li>
+                    <li><a name="LogoutButton" style="color: #07a7fa; padding-top: 8px;">Выход</a></li>
                 }
                 else
                 {

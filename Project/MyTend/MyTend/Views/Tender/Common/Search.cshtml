@@ -21,6 +21,7 @@
                     <h5 class="modal-title">
                         В случае, если кто-то разместит заявку в категории ваших услуг, Робот-Тендер оповестит и пригласит Вас к участию в конкурсе по электронной почте.
                     </h5>
+					 <h5><img src="~/Content/images/light-bulb.png"width="15" height="15" /> Темы конкурсов представлены в виде потребности в услуге заказчиком! </h5>
                 </div>
             </div>
             <div class="modal-body">
@@ -45,29 +46,25 @@
                                     <div class="row">
                                         @foreach (var title in theme.Value)
                                         {
-                                            <div class="col-md-7">
-                                                @if (!title.IsTitle)
-                                                {
-                                                    <h5><span id="lb-th-@title.Id">@title.Title</span></h5>
-                                                }
-                                                else
-                                                {
-                                                    <div style="font-weight: bold; color: #950f81">
-                                                        <h5>@title.Title</h5>
-                                                    </div>
-                                                }
+                                        <div class="col-md-7">
+                                            @if (!title.IsTitle)
+                                            {
+                                            <h5><span id="lb-th-@title.Id">@title.Title</span></h5>
+                                            }
+                                            else
+                                            {
+                                            <div style="font-weight: bold; color: #950f81">
+                                                <h5>@title.Title</h5>
                                             </div>
-                                            <div class="col-md-4">
-                                                @if (!title.IsTitle)
-                                                {
-                                                    <input type="checkbox" name="@title.Id" id="@title.Id" class="subCheck" onclick="onSelectTheme('@title.Title', this)" />
-                                                }
-                                            </div>
+                                            }
+                                        </div>
+                                        <div class="col-md-4">
+                                            @if (!title.IsTitle)
+                                            {
+                                            <input type="checkbox" name="@title.Id" id="@title.Id" class="subCheck" onclick="onSelectTheme('@title.Title', this)" />
+                                            }
+                                        </div>
                                         }
-                                    </div>
-                                    <div style="padding-top: 20px;" class="text-center">
-                                        <div class="btn-class-orange" onclick="reloadPage()"><span class="glyphicon glyphicon-search"></span>
-                                            Найти / Сохранить</div>
                                     </div>
                                 </div>
                             </div>
@@ -117,17 +114,18 @@
                                 </div>
                                 <div id="@string.Format("collapse{0}a", i)" class="panel-collapse collapse" >
                                     <div class="panel-body">
-                                        <div class="row">
+                                        
                                             @foreach (var city in region.Value)
                                             {
-                                            <div class="col-md-4">
-                                                <h5><span id="lb-cy-@city.Id">@city.Name</span></h5>
-                                            </div>
-                                            <div class="col-md-7">
-                                                <input type="checkbox" name="@city.Id" id="@city.Id" class="subCity" onclick="onSelectCity('@city.Name', this)" />
-                                            </div>
+                                                <div class="row">
+                                                    <div class="col-md-4">
+                                                        <h5><span id="lb-cy-@city.Id">@city.Name</span></h5>
+                                                    </div>
+                                                    <div class="col-md-7">
+                                                        <input type="checkbox" name="@city.Id" id="@city.Id" class="subCity" onclick="onSelectCity('@city.Name', this)" />
+                                                    </div>
+                                                </div>
                                             }
-                                        </div>
                                     </div>
                                 </div>
                                     i++;
@@ -311,7 +309,10 @@ else
                 </div>
             </div>
         </div>
-        
+        <div style="padding-top: 20px;">
+            <div class="btn-class-orange" onclick="reloadPage()"><span class="glyphicon glyphicon-search"></span>
+Найти / Сохранить</div>
+        </div>
     </div>
 </div>
 

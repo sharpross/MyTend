@@ -26,7 +26,7 @@
             return RedirectToAction("Profile");
         }
 
-        public ActionResult Profile(string tab)
+        public new ActionResult Profile(string tab)
         {
             var model = new ProfileModel(this.Auth.User);
             this.ViewBag.OpenTabParam = tab;
