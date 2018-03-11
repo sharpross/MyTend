@@ -8,7 +8,7 @@
     {
         public ActionResult Index()
         {
-            return View();
+            return RedirectToAction("Index", "Home");
         }
 
         /// <summary>
@@ -17,7 +17,7 @@
         /// <returns></returns>
         public ActionResult FAQ()
         {
-            return View();
+            return RedirectToAction("Index", "Home");
         }
 
         /// <summary>
@@ -26,7 +26,7 @@
         /// <returns></returns>
         public ActionResult Instruction()
         {
-            return View();
+            return RedirectToAction("Index", "Home");
         }
 
         /// <summary>
@@ -35,7 +35,7 @@
         /// <returns></returns>
         public ActionResult PublicData()
         {
-            return View();
+            return RedirectToAction("Index", "Home");
         }
 
         /// <summary>
@@ -53,7 +53,7 @@
         /// <returns></returns>
         public ActionResult Termins()
         {
-            return View();
+            return RedirectToAction("Index", "Home");
         }
 
         /// <summary>
@@ -62,7 +62,7 @@
         /// <returns></returns>
         public ActionResult AboutProfile()
         {
-            return View();
+            return RedirectToAction("Index", "Home");
         }
 
         /// <summary>
@@ -71,7 +71,7 @@
         /// <returns></returns>
         public ActionResult AboutMenu()
         {
-            return View();
+            return RedirectToAction("Index", "Home");
         }
 
         /// <summary>
@@ -94,12 +94,12 @@
 
         public ActionResult AboutWork()
         {
-            return View();
+            return RedirectToAction("Index", "Home");
         }
 
         public ActionResult AboutWork2()
         {
-            return View();
+            return RedirectToAction("Index", "Home");
         }
 
         public ActionResult Torgs()

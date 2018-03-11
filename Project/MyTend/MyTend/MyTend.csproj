@@ -298,9 +298,7 @@
     <Content Include="Content\datetimepicker\js\locales\bootstrap-datetimepicker.uk.js" />
     <Content Include="Content\datetimepicker\js\locales\bootstrap-datetimepicker.zh-CN.js" />
     <Content Include="Content\datetimepicker\js\locales\bootstrap-datetimepicker.zh-TW.js" />
-    <Content Include="Content\email\makepay.html" />
     <Content Include="Content\email\create.html" />
-    <Content Include="Content\email\getresponce.html" />
     <Content Include="Content\email\registration.html" />
     <Content Include="Content\email\wegettenders.html" />
     <Content Include="Content\email\winner.html" />

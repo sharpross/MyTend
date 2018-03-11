@@ -45,7 +45,7 @@
                 Email.From(this._from)
                 .To(this._email)
                 .Subject("Спасибо за регистрацию")
-                .UsingCultureTemplateFromFile("~\\Content\\email\\registration.html", new { Login = login, Password = password, Name = name })
+                .UsingCultureTemplateFromFile("~\\Content\\email\\registration.html", new { Login = login, Password = password, Name = name})
                 .UsingClient(this.GetClient())
                 .Send();
             }
@@ -64,14 +64,22 @@
             }
         }
 
-        public void Winner(string tenderId, string name, string tenderTitle)
+        public void Winner(string tenderId, string name, string tenderTitle, string clienId, string phone)
         {
             try
             {
                 Email.From(this._from)
                 .To(this._email)
                 .Subject("Вы победитель конкурсного-торга")
-                .UsingCultureTemplateFromFile("~\\Content\\email\\winner.html", new { TenderId = tenderId, Title = tenderTitle, Name = name })
+                .UsingCultureTemplateFromFile("~\\Content\\email\\winner.html", 
+                                              new
+                                              {
+                                                  TenderId = tenderId, 
+                                                  Title = tenderTitle, 
+                                                  Name = name,
+                                                  ClientId = clienId,
+                                                  Phone = phone
+                                              })
                 .UsingClient(this.GetClient())
                 .Send();
             }
@@ -90,7 +98,7 @@
             }
         }
 
-        public void SelectredWinner(string tenderId, string name, string tenderTitle)
+        /*public void SelectredWinner(string tenderId, string name, string tenderTitle)
         {
             try
             {
@@ -114,7 +122,7 @@
 
                 logRec.Save();
             }
-        }
+        }*/
 
         public void MakePay(string login, string name, string time, string sum)
         {
@@ -148,8 +156,39 @@
             {
                 Email.From(this._from)
                 .To(ConfigurationManager.AppSettings["ManyEmail"])
-                .Subject("Произведена оплата")
+                .Subject("Конкурсный торг закрыт")
                 .UsingCultureTemplateFromFile("~\\Content\\email\\CloseTenderByTime.html", new { TenderName = tenderName, TenderId = tenderId, Name = userName })
+                .UsingClient(this.GetClient())
+                .Send();
+            }
+            catch (Exception e)
+            {
+                var logRec = new Log()
+                {
+                    Context = "MakePay",
+                    Level = MyTend.Entites.Enums.LogLevel.Info,
+                    Message = e.Message,
+                    Stack = e.StackTrace,
+                    UserName = null
+                };
+
+                logRec.Save();
+            }
+        }
+
+        public void Create(string userFullName, string modelTitle, int modelId)
+        {
+            try
+            {
+                Email.From(this._from)
+                .To(ConfigurationManager.AppSettings["ManyEmail"])
+                .Subject("Создан конкурсный торг")
+                .UsingCultureTemplateFromFile("~\\Content\\email\\create.html", new
+                     {
+                         Title = modelTitle, 
+                         Name = userFullName, 
+                         Id = modelId
+                     })
                 .UsingClient(this.GetClient())
                 .Send();
             }

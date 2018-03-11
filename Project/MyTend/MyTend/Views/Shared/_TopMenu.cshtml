@@ -1,11 +1,9 @@
 ﻿@{
-    var login = Html.Raw(ViewBag.UserLogin) ;
+    var login = Html.Raw(ViewBag.UserLogin);
 }
 <nav class="navbar navbar-default" style="background-color: #212121; border-radius: 0px;">
     <div class="container">
         <div class="navbar-header">
-            
-		 
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
                 <span class="sr-only"></span>
                 <span class="icon-bar"></span>
@@ -13,37 +11,36 @@
                 <span class="icon-bar"></span>
             </button>
         </div>
-
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-		
             <ul class="nav navbar-nav navbar-right">
-			
-			
                 @if (ViewBag.IsAuth == true)
                 {
-                    <li>
+                    
+					<li>
                         @if (ViewBag.IsPayed == false)
                         {
-                            <a href="~/Docs/torgs" style="color: #07a7fa; padding-top: 8px;">Стать продавцом</a>   
+                            <a href="~/Docs/torgs" style="color: #07a7fa; padding-top: 8px; padding-top: 12px;">Исполнителям услуг</a>   
                         }
                     </li>
+					<li>
+                        <a href="~/Account/Profile" style="color: #fccd0d; padding-top: 12px;"><span class=" glyphicon glyphicon-pencil"></span> Редактировать визитку</a>
+					</li>					
                     <li>
-                        <a href="~/Account/Card?user=@string.Format("{0}", login)"><img src="/Image/Get?id=@ViewBag.UserAvatarId" width="25" height="25" class="img-circle"></a>
+                        <a href="~/Account/Card?user=@string.Format("{0}", login)"><img src="/Image/Get?id=@ViewBag.UserAvatarId" width="35" height="35" class="img-circle"></a>
                     </li>
                     string loginName = ViewBag.UserName.ToString();
-                    <li><a href="~/Account/Card?user=@string.Format("{0}", login)" style="color: #07a7fa; padding-top: 8px;">@ViewBag.UserName</a></li>
-                    <li><a name="LogoutButton" style="color: #07a7fa; padding-top: 8px;">Выход</a></li>
+                    <li><a href="~/Account/Card?user=@string.Format("{0}", login)" style="color: #ffffff; padding-top: 12px;">@ViewBag.UserName</a></li>
+                    <li><a name="LogoutButton" style="color: #ffffff; padding-top: 12px;">Выход</a></li>
                 }
                 else
                 {
-                    <li><a href="#" id="login" class="btn" style="text-decoration: underline; color: #07a7fa;">Войти</a></li>
-                    <li><a href="~/Account/Registration" id="login" class="btn" style="text-decoration: underline; color: #07a7fa;">Зарегистрируйтесь</a></li>
+                    <li><a href="#" id="login" class="btn" style="text-decoration: underline; color: #fccd0d; padding-top: 12px;">Войти</a></li>
+                    <li><a href="~/Account/Registration" id="login" class="btn" style="text-decoration: underline; color: #ffffff; padding-top: 12px;">Зарегистрируйтесь</a></li>
                 }
             </ul>
         </div>
    </div>
 </nav>
-
 <div id="loginForm" class="modal">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -51,12 +48,9 @@
                 <div name="LoginForm">
                     <div class="form-group" style="text-align: center">
                         <img src="@Url.Content("~/Content/images/logo.svg")" height="140">
-						
-						
                         <h5><div style="color: #111111;">Сайт, где исполнители Event-услуг соревнуются за праздник заказчика!</div></h5>
-
                     </div>
-<br />
+                    <br />
                     <div class="row">
                         <div class="col-lg-3"></div>
                         <div class="col-lg-6">
@@ -69,7 +63,6 @@
                         </div>
                         <div class="col-lg-3"></div>
                     </div>
-                    
                     <div class="LoginError" style="padding-bottom: 10px; color: red;"></div>
                     <div style="padding-bottom: 10px; text-align: center;">
                         Нажатие кнопки "Войти" означает согласие с <a href="~/Docs/Rules">Условиями использования сайта</a>.

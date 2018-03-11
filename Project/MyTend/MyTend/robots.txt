@@ -4,3 +4,16 @@ User-agent: *
 Disallow: 
 
 Sitemap: http://my-tend.com/sitemap.xml
+
+
+User-Agent: Yandex
+Disallow: *.jpg
+Disallow: *.gif 
+Disallow: *.png
+Disallow: *.svg
+
+User-Agent: Googlebot
+Disallow: *.jpg
+Disallow: *.gif 
+Disallow: *.png
+Disallow: *.svg

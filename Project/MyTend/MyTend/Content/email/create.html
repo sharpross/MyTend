@@ -1,13 +1,69 @@
 ﻿<!doctype html>
 <html>
 <head>
-<meta charset="utf-8">
-<title>@Model.Title</title>
+    <meta charset="utf-8">
+    <title>Благодарим за регистрацию @Model.Login!</title>
 </head>
 <body>
-    <div>
-        <strong>Создан торг:</strong>
-        <a href="http://my-tend.com/Tender/Details?id=@Model.TenderId">@Model.Title</a>
-    </div>
+<br />
+<div class="form-group" style="text-align: left">
+    <a href="http://my-tend.com/tender/index" target="_blank"><img src="http://my-tend.com/Content/images/login.png" height="100"></a>
+</div>
+<h5 style="color: #00aef0;">
+    <strong>
+        Сайт, где исполнители соревнуются за праздник заказчика!
+    </strong>
+</h5>
+<h5>
+    Здравствуйте, <b>@Model.Name</b>!
+</h5>
+
+<div style="color: #222222"> 
+    <h3>
+        Ваша заявка успешно создана!
+    </h3>
+</div>
+
+<h5>
+    Заявка @Html.ActionLink(Model.Title, "Details", "Tender", new { id = Model.Id }, null) рассылается по исполнителям услуг, учитывая сферу деятельности и город.
+    <br />
+    <br />
+    <img src="http://my-tend.com/Content/images/lamp.png" width="16" height="20" />
+    В случае, если заявку не одобрит модератор сайта, она будет удалена!
+</h5>
+
+<br />
+
+<h4 style="color: #f99313;">Что дальше?</h4>
+
+<div class="row">
+    <div class="col-md-2"><img src="http://my-tend.com/Content/images/NEW.svg" width="100" height="100" /></div>
+    <div class="col-md-7" style="line-height:20px">
+        <div style="font-weight: bold; font-size: 17px;">Робот Тендер  рассылает Вашу заявку по исполнителям.</div>
+        <div style="font-size: 14px;"><br />
+            В ближайшеевремя исполнители Event-услуг прочитают Вашу заявку и примут решение об участии в Вашем конкурсе на право исполнения услуги.
+            <br /><br />
+            Учитывая детали Вашей заявки и предложения коллег-конкурентов исполнитеи
+            будут писать для Вас предложения оказания услуги, цены, бонусы.
+        </div>
+    </div> 
+</div>
+
+<div class="row">
+    <div class="col-md-2"><img src="http://my-tend.com/Content/images/ispolnitelimini.svg" width="100" height="100" /></div>
+    <div class="col-md-7" style="line-height:20px">
+        <div style="font-weight: bold; font-size: 17px;">Наблюдайте за поступлением предложений и выбирайте лучшее для себя!</div>
+        <div style="font-size: 14px;"><br />
+            В течении нескольких дней вы знакомитесь с поступившими предложениями и
+            и решаете, кто же станет победителем конкурса и сделал самое выгодное, интересное и заманчиваое предложение!
+            <br /><br />
+            Рекомендуем вернуться на сайт через несколько часов и начать рассматривать предложения исполнителей в меню 
+            <br />	
+            <br />	 
+            <a href="http://my-tend.com/Tender/My" class="btn-class-orange" style="color: black;"> Проверить предложения от исполнителей</a>
+        </div>
+    </div> 
+</div>
+
 </body>
 </html>

@@ -99,6 +99,17 @@
 
                 this.tempString = model.Title;
                 
+                try
+                {
+                    var service = new EmailService(model.User.Email);
+                    service.Create(
+                        model.User.FullName,
+                        model.Title,
+                        model.Id);
+                }
+                catch
+                { }
+                
                 return RedirectToAction("Created", new { id = model.Id });
             }
 
@@ -191,7 +202,12 @@
                 try
                 {
                     var service = new EmailService(model.Winner.Email);
-                    service.Winner(tenderId.ToString(), model.Winner.FullName, model.Tender.Title);
+                    service.Winner(
+                        tenderId.ToString(), 
+                        model.Winner.FullName, 
+                        model.Tender.Title,
+                        model.Tender.User.Login,
+                        model.Tender.User.Phone);
                 }
                 catch
                 { }
@@ -201,7 +217,7 @@
                 return JsonFailur(ex.Message);
             }
 
-            return JsonSuccess();// RedirectToAction("SelectedWinner", new { @id = tenderId });
+            return JsonSuccess();
         }
 
         public ActionResult CancelTender(int id)

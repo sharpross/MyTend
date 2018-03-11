@@ -201,7 +201,7 @@
                 try
                 {
                     this.SendSms(model.Login, model.Phone);
-
+                    
                     var emailService = new EmailService(model.Login);
                     emailService.Registration(model.FullName, model.Login, model.Password);
                 }

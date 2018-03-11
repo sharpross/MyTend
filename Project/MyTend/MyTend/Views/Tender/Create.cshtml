@@ -9,9 +9,11 @@
     @Html.AntiForgeryToken()
 
 
-   
- 
-	<br />
+  <div class="form-group" style="text-align: center">
+    <div style="font-style: italic; text-align: center;">Реклама</div>
+    <a href="#" target="_blank">
+        <img src="~/Content/images/Dzhiva.png" style="width: 70%" />
+    </a></div>	  
 	<div style="text-align: left;">
     
      
@@ -20,7 +22,7 @@
 	<h5 style="color: #777777;"> 
 						Расскажите о событии, какую услугу  вы желаете заказать, опишите свои пожелания и прочие детали будущего праздника!
 							</h5>
-	 
+	 	<br />
 	 <div style="color: #07a7fa;">
 Новая заявка / Поиск исполнителя / @Model.Theme.Theme</div>
 	  <hr>
@@ -95,7 +97,7 @@
                 </div>
             </div>
         </div>
-		<br />
+	
 <h4 style="color: #333333;">Где требуется исполнить Ваш заказ?</h4>
 <hr>
 
@@ -220,9 +222,9 @@
             </div>
         </div>
 		<hr>
-      
+       <br /> 
         <div class="form-group">
-            <div class="col-md-11" style="text-align: right;"> 
+            <div class="col-md-11" style="text-align: center;"> 
 			<h5>После отправки заявки, сайт пригласит к участию в конкурсе исполнителей, учитывая выбранный город и услугу.</h5>
 			
               <button type="submit" class="btn-class-orange" style="width: 40%"><span class="glyphicon glyphicon-send"></span>
@@ -256,3 +258,5 @@
         });
     }*/
 </script>
+
+	<br />
