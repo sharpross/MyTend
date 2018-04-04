@@ -1,16 +1,29 @@
 ﻿<meta name="yandex-verification" content="6d4587bb4e65684b" />
 @model MyTend.Models.ListThemeTenderModel
 @{
-    ViewBag.Title = "У Вас скоро праздничное событие? Разместите свой заказ на Аукционе событий и выбирайте выгодные предложения от профессионалов Event-индустрии!";
+    ViewBag.Title = "Аукцион Событий и праздника My-Tend.Com!";
     var max = Model.Themes.Count() - 1;
     var i = 0;
     var itemI = 0;
 }
 <meta name="yandex-verification" content="6d4587bb4e65684b" />
-<link rel="canonical" href="http://my-tend.com/home/inex"/>
+<link rel="canonical" href="https://my-tend.com/home/inex"/>
 <h1 style="color: #000000;"><strong>У Вас скоро праздничное событие?</strong></h1>
 <h5 style="color: #777777;">Проведите конкурс на право исполнения услуги для Вашего праздника!</h5>
 <div class="form-group" style="text-align: left">
+
+<!-- Put this script tag to the <head> of your page -->
+<script type="text/javascript" src="//vk.com/js/api/openapi.js?152"></script>
+
+<script type="text/javascript">
+  VK.init({apiId: 6365308, onlyWidgets: true});
+</script>
+
+<!-- Put this div tag to the place, where the Like block will be -->
+<div id="vk_like"></div>
+<script type="text/javascript">
+VK.Widgets.Like("vk_like", {type: "mini", verb: 1},12345);
+</script>
 
        <a href="~/tender/map" target="_blank"><img src="@Url.Content("~/Content/images/ispolnitelirussia2.svg")" height="300">
        
@@ -40,7 +53,7 @@
                        
                            Учитывая детали Вашей заявки и предложения коллег-конкурентов, исполнители 
                             в течении нескольких дней  пишут для Вас предложения и соревнуются между собой не только в цене, но и в том, как интересно
-							и необычно они готовы предоставить нужную вам услугу.
+							и необычно они готовы предоставить нужную Вам услугу.
 						
                      
                         
@@ -84,9 +97,14 @@
 				
                 </div>
  </div> </div>
-                            
-	<br />
-	
+  <br />                          
+<div class="form-group" style="text-align: center">
+    <div style="font-style: italic; text-align: center;">Реклама</div>
+    <a href="https://my-tend.com/Account/Card?user=olegromanov2010@gmail.com" target="_blank">
+        <img src="~/Content/images/dj_kazan.png" style="width: 80%" />
+	 <h5>Свежие хиты, отбивки, музыка для конкурсов. Озвучим свадьбы, юбилеи, корпоративы, промо-акции! </h5>
+    </a>  </div>
+<br />
 <div style="text-align: center;">
     
            <div class="title-line"> Выберите необходимую услугу</div>
@@ -138,7 +156,7 @@
 
  <h3 style="color: #2792e4;"><strong> Сайт, где исполнители соревнуются за праздник заказчика!</strong></h3>
 <h5 style="color: #777777;">Собственно, в чём идея и суть  сайта?</h5>
-<br /><br />
+<br />
   <div class="row">
             <div class="col-md-2"><img src="~/Content/images/qwe.svg" width="100" height="100" /></div>
             <div class="col-md-8" style="line-height:18px">
@@ -179,6 +197,9 @@
 				 Вам не придется искать и выискивать необходимое, исполнители сами напишут вам предложения, написанные специально для Вас. 
 				 Вам остается лишь рассказать им о Вашем событии! </li >
 				<br />
+				<li > Мы не ставим и не показываем  рейтинги исполнителей услуг. Мы предлагаем, оценивать их деятальность  по информации в их визитке: рассказ об  услуге, портфолио, ссылки  в соц. сети, отзывы.
+		            </li >
+					<br />
 				<li >Идея и философия сайта состоит в том, что бы предложения исполнителей писались индивидуально 
 				под конкретное торжество каждого заказчика, поэтому мы принципиально не создаем готовых списков объявлений, сценариев и т.д.</li >
 				<br />
@@ -201,7 +222,7 @@
 				 </div>
             </div>
         </div>	
-
+			<br />
 		
 		<br />
 		<br />

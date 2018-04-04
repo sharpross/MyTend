@@ -35,7 +35,7 @@
         /// <returns></returns>
         public ActionResult PublicData()
         {
-            return RedirectToAction("Index", "Home");
+            return View();
         }
 
         /// <summary>

@@ -68,7 +68,7 @@
         
         public ActionResult Card(string user)
         {
-            this.ViewBag.NoIndexing = true;
+            //this.ViewBag.NoIndexing = true;
 
             var model = new CardModel(user);
             

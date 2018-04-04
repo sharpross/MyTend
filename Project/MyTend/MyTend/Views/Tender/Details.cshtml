@@ -214,7 +214,7 @@
     <div class="row" style="border: 0px solid #d8dfe6; border-style: solid;">
         
 
-        @if (Model.IsActive)
+        @if (Model.IsActive == true)
         {
             <div style="text-align: center;"><br>
     
@@ -383,7 +383,15 @@
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <img src="/Image/Get?id=@message.User.Avatar.Id" class="img-circle" height="120" width="120">
+                                            @if (message.User.Avatar != null)
+                                            {
+                                                <img src="/Image/Get?id=@message.User.Avatar.Id" class="img-circle" height="120" width="120">
+                                            }
+                                            else
+                                            {
+                                                <img src="/Image/Get?id=0" class="img-circle" height="120" width="120">
+                                            }
+                                            
 											<br />
 											<br />
 											
@@ -421,10 +429,12 @@
                 tenderId: tenderId
             },
             success: function () {
-                var url = "@string.Format("/Tender/SelectedWinner?id={0}", Model.Id)"
-                window.location = url;
+
             }
-        })
+        });
+
+        var url = "@string.Format("/Tender/SelectedWinner?id={0}", Model.Id)"
+                window.location = url;
     }
 </script>
 
@@ -448,7 +458,7 @@
                 </div>
                 <div class="form-group">
                     <div class="" style="text-align: right; width: 98%">
-                        <button id="addMessage" type="button" class="btn-class-grey" onclick="addTenderMessage()">Отправить предложение/сообщение</button>
+                        <button id="addMessage" type="button" class="btn-class-orange" onclick="addTenderMessage()">Отправить предложение / сообщение</button>
                     </div>
                 </div>
             </div>

@@ -17,6 +17,8 @@ namespace MyTend.Services.Common
         {
             CanSend(user);
 
+            ServicePointManager.ServerCertificateValidationCallback = new System.Net.Security.RemoteCertificateValidationCallback(AcceptAllCertifications);
+            
             var plainTextBytes = System.Text.Encoding.UTF8.GetBytes("VLG_ipromnv" + ":" + "BHYeoPuD");
             var loginPassword = System.Convert.ToBase64String(plainTextBytes);
 
@@ -76,6 +78,11 @@ namespace MyTend.Services.Common
             }
         }
 
+        public static bool AcceptAllCertifications(object sender, System.Security.Cryptography.X509Certificates.X509Certificate certification, System.Security.Cryptography.X509Certificates.X509Chain chain, System.Net.Security.SslPolicyErrors sslPolicyErrors)
+        {
+            return true;
+        }
+        
         private void CanSend(UserSystem user)
         {
             var facts = SmsSendFact.FindAllByProperty("User", user);

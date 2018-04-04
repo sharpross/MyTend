@@ -181,7 +181,7 @@
             try
             {
                 Email.From(this._from)
-                .To(ConfigurationManager.AppSettings["ManyEmail"])
+                .To(_email)
                 .Subject("Создан конкурсный торг")
                 .UsingCultureTemplateFromFile("~\\Content\\email\\create.html", new
                      {

@@ -1,7 +1,7 @@
 ﻿@model MyTend.Models.ActivationModel
 
 @{
-    ViewBag.Title = "Активация";
+    ViewBag.Title = "Активация пользователя";
 }
 
 	<br />
@@ -15,11 +15,16 @@
 				<div class="col-md-2"><img src="~/Content/images/aktivation.svg" width="120" height="120" /></div>
 				<div class="col-md-8" style="line-height:20px">
 					<div style="font-weight: bold; font-size: 17px;">Для чего это нужно?</div>
+					<br />
                 <div style="font-size: 14px;">
                  Подтверждение номера необходимо для  защиты вашего профиля на сайте.<br />
-				
+				 До момента активации, Вы не можете:
+				 	<br />	
+				 <li>создавать конкурсные торги.</li>
+				 <li>учавствовать в конкурсных торгах, в качестве продавца услуг.</li>
+				  <br />	
 				 Все визитки сайта должны быть подтвержденными, это уменьшает риск 
-				противоправных действий внутри  сайта.
+				 противоправных действий внутри  сайта.  
 				
                 <div class="row">
     <div class="col-lg-6">
@@ -29,13 +34,13 @@
             <input type="text" name="Phone" value="@Model.Phone" /><br />
             <br />
             <div><strong>Введите код</strong>, полученный по СМС. </div>
-            <br />
-            <label for="code">Код смс</label>
+            
+            <label for="code"></label>
             <input type="text" name="Code" /><br />
 			<br />
 			 <div><a href="#" class="resendsms">Смс не пришло? Отправить ещё раз!</a></div>
 		<br />
-            <button type="submit" class="btn-class-blue"><img src="~/Content/images/schit.svg"width="18" height="18" /> Подтвердить </button>
+            <button type="submit" class="btn-class-blue">Подтвердить номер</button>
 			<br />
 			
         </form>

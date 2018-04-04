@@ -101,14 +101,15 @@
                 
                 try
                 {
-                    var service = new EmailService(model.User.Email);
+                    var service = new EmailService(this.Auth.User.Email);
                     service.Create(
-                        model.User.FullName,
+                        Auth.User.FullName,
                         model.Title,
                         model.Id);
                 }
-                catch
-                { }
+                catch(Exception e)
+                {
+                }
                 
                 return RedirectToAction("Created", new { id = model.Id });
             }
